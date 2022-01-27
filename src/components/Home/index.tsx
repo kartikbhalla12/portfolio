@@ -49,7 +49,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 					</p>
 				</div>
 				<div className={styles.imageContainer}>
-					<Image src='/kartik-2.png' layout='fill' alt='kartik bhalla' />
+					<Image src='/kartik.png' layout='fill' alt='kartik bhalla' />
 				</div>
 			</div>
 		</div>

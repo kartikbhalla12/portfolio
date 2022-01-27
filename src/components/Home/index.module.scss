@@ -7,7 +7,7 @@
 	font-family: 'Cera Pro';
 
 	&.mobile {
-		min-height: calc(100vh - 56px);
+		min-height: calc(100vh - 56px) !important;
 		padding: 85px 20px 20px 20px;
 
 		.social,
@@ -300,10 +300,12 @@
 		}
 	}
 	@media screen and (max-width: 750px) {
+		min-height: 100vh;
+		padding: 85px 20px 20px 20px;
+
 		.content {
-			padding: 0;
-			min-height: 100vh;
 			grid-template-columns: 100%;
+			padding: 0;
 
 			.greet {
 				grid-row: 1/2;
