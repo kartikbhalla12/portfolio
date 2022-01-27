@@ -1,0 +1,7 @@
+.main {
+	overflow: hidden;
+
+	&.blur {
+		filter: blur(4px) brightness(0.7);
+	}
+}

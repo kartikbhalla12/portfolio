@@ -1,0 +1,36 @@
+.container {
+	padding: 10px 40px;
+	background-color: #0e121a;
+	color: #a6afc0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: 'Cera Pro';
+	font-weight: 500;
+	font-size: 16px;
+
+	.imageContainer {
+		height: 40px;
+		width: 40px;
+		position: relative;
+	}
+
+	.linksContainer {
+		display: flex;
+
+		.active {
+			color: #fff;
+		}
+		.link {
+			padding: 20px;
+		}
+		.resume {
+			padding-right: 0;
+			color: #fa8b00;
+		}
+	}
+
+	@media screen and (max-width: 750px) {
+		display: none;
+	}
+}

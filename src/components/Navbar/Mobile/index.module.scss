@@ -1,0 +1,143 @@
+.container {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+
+	.topNavbarContainer {
+		padding: 15px 20px;
+		background-color: #0e121a;
+		color: #a6afc0;
+		justify-content: space-between;
+		align-items: center;
+		font-family: 'Cera Pro';
+		font-weight: 500;
+		font-size: 16px;
+		display: none;
+
+		@media screen and (max-width: 750px) {
+			display: flex;
+		}
+
+		.logoContainer {
+			height: 35px;
+			width: 17.5px;
+			position: relative;
+		}
+
+		.menuButtonContainer {
+			z-index: 999;
+			position: relative;
+			display: flex;
+			justify-content: right;
+			align-items: center;
+			height: 30px;
+			width: 30px;
+			transition: all 0.5s ease-in;
+
+			.menuButtonBurger {
+				width: 25px;
+				height: 2px;
+				background: #ccd6f6;
+				transition: all 0.5s ease-in-out;
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+					width: 25px;
+					height: 2px;
+					background: #ccd6f6;
+					transition: all 0.5s ease-in-out;
+				}
+
+				&::before {
+					transform: scaleX(1.2) translate(-2px, -10px);
+				}
+				&::after {
+					transform: scaleX(0.8) translate(3px, 10px);
+				}
+			}
+
+			&.menuOpen .menuButtonBurger {
+				background: transparent;
+				box-shadow: none;
+
+				&::before {
+					transform: rotate(45deg);
+				}
+				&::after {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+
+		// .burgerMenuContainer {
+		// 	height: 25px;
+		// 	width: 25px;
+		// 	position: relative;
+		// }
+
+		// .linksContainer {
+		// 	display: flex;
+
+		// 	.active {
+		// 		color: #fff;
+		// 		// font-weight: 500;
+		// 	}
+		// 	.link {
+		// 		padding: 20px;
+		// 	}
+		// 	.resume {
+		// 		padding-right: 0;
+		// 		color: #fa8b00;
+		// 	}
+		// }
+	}
+
+	.sideNavbarContainer {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		height: 100%;
+		width: 100%;
+		transition: all 0.5s ease-in-out;
+		display: flex;
+		justify-content: flex-end;
+
+		&.menuOpen {
+			right: 0;
+		}
+
+		.sideNavbar {
+			padding: 15px 20px;
+			background-color: #20293d;
+			color: #ccd6f6;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			height: 100%;
+			width: 80%;
+			// padding-top: 150px;
+			box-shadow: -10px 0px 30px -15px rgba(2, 12, 28, 0.7);
+
+			.link {
+				padding: 25px;
+			}
+
+			.active {
+				color: #fff;
+				// font-weight: 500;
+			}
+			.resume {
+				margin-top: 20px;
+				color: #fa8b00;
+				border: 2px solid #fa8b00;
+				padding: 20px 60px;
+				border-radius: 8px;
+			}
+		}
+	}
+}
