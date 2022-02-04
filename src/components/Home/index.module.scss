@@ -1,3 +1,7 @@
+:global(.light) .home {
+	background-color: white;
+}
+
 .home {
 	display: flex;
 	background-color: #0e121a;
@@ -76,7 +80,7 @@
 			left: 50%;
 		}
 
-		.socialIcon {
+		& > div {
 			display: flex;
 			flex-direction: column;
 			margin: 20px 0;

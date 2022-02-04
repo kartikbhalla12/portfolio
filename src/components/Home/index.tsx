@@ -6,24 +6,21 @@ interface HomeProps {
 	isMobile: boolean;
 }
 const Home: FC<HomeProps> = ({ isMobile }) => {
+	const socialIcons = [
+		{ src: '/icons/github-1.svg', alt: 'github' },
+		{ src: '/icons/linkedin-1.svg', alt: 'linkedin' },
+		{ src: '/icons/instagram-1.svg', alt: 'instagram' },
+		{ src: '/icons/facebook-1.svg', alt: 'facebook' },
+		{ src: '/icons/twitter-1.svg', alt: 'twitter' },
+	];
 	return (
 		<div className={`${styles.home} ${isMobile ? styles.mobile : ''}`}>
 			<div className={styles.social}>
-				<div className={styles.socialIcon}>
-					<Image src='/home-github.svg' layout='fill' alt='kb-logo' />
-				</div>
-				<div className={styles.socialIcon}>
-					<Image src='/home-linkedin.svg' layout='fill' alt='kb-logo' />
-				</div>
-				<div className={styles.socialIcon}>
-					<Image src='/home-instagram.svg' layout='fill' alt='kb-logo' />
-				</div>
-				<div className={styles.socialIcon}>
-					<Image src='/home-facebook.svg' layout='fill' alt='kb-logo' />
-				</div>
-				<div className={styles.socialIcon}>
-					<Image src='/home-twitter.svg' layout='fill' alt='kb-logo' />
-				</div>
+				{socialIcons.map(icon => (
+					<div key={icon.alt}>
+						<Image src={icon.src} layout='fill' alt={icon.alt} />
+					</div>
+				))}
 			</div>
 			<div className={styles.email}>
 				<p>

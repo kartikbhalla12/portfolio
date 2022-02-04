@@ -23,6 +23,10 @@
 			height: 35px;
 			width: 17.5px;
 			position: relative;
+			img {
+				filter: invert(68%) sepia(6%) saturate(1313%) hue-rotate(188deg)
+					brightness(84%) contrast(88%);
+			}
 		}
 
 		.menuButtonContainer {
@@ -137,6 +141,36 @@
 				border: 2px solid #fa8b00;
 				padding: 20px 60px;
 				border-radius: 8px;
+			}
+		}
+	}
+}
+:global(.light) .container {
+	.topNavbarContainer {
+		background-color: #fff;
+	}
+
+	.logoContainer {
+		img {
+			filter: invert(5%) sepia(7%) saturate(3794%) hue-rotate(181deg)
+				brightness(94%) contrast(94%);
+		}
+	}
+
+	.menuButtonContainer {
+		.menuButtonBurger {
+			background: #0e121a;
+
+			&::before,
+			&::after {
+				background: #0e121a;
+			}
+		}
+
+		&.menuOpen .menuButtonBurger {
+			&::before,
+			&::after {
+				background: #ccd6f6;
 			}
 		}
 	}

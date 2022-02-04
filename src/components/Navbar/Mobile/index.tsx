@@ -27,7 +27,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ onBlur }) => {
 		<div className={styles.container}>
 			<div className={styles.topNavbarContainer}>
 				<div className={styles.logoContainer}>
-					<Image src='/logo.svg' layout='fill' alt='kb-logo' />
+					<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
 				</div>
 				<div
 					className={`${styles.menuButtonContainer} ${

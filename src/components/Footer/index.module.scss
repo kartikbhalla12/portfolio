@@ -21,11 +21,15 @@
 		display: flex;
 		margin: 20px 0;
 
-		.socialIcon {
+		& > div {
 			height: 35px;
 			width: 35px;
 			position: relative;
 			margin: 0 5px;
 		}
 	}
+}
+
+:global(.light) .container {
+	background-color: #fff;
 }

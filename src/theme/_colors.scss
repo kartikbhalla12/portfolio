@@ -1,0 +1,14 @@
+$palette: (
+	white: #fff,
+	accent: #5468ff,
+	textDark: #424242,
+	textLight: #8a8e98,
+	background: #181a20,
+	error: #ef5350,
+	gray: #262a34,
+	black: #000000,
+);
+
+@function color($color) {
+	@return map-get($map: $palette, $key: $color);
+}
