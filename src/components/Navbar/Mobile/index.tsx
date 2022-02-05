@@ -5,9 +5,15 @@ import styles from './index.module.scss';
 
 interface MobileNavbarProps {
 	onBlur?: (a: boolean) => void;
+	onThemeChange: (theme: string) => void;
+	theme: string;
 }
 
-const MobileNavbar: FC<MobileNavbarProps> = ({ onBlur }) => {
+const MobileNavbar: FC<MobileNavbarProps> = ({
+	onBlur,
+	onThemeChange,
+	theme,
+}) => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
@@ -23,9 +29,57 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ onBlur }) => {
 		onSwipedRight: d => setMenuOpen(false),
 	});
 
+	const debounce = (fn, d) => {
+		let timer: any;
+
+		return function () {
+			let context = this;
+			let args = arguments;
+			clearTimeout(timer);
+
+			timer = setTimeout(() => {
+				fn.apply(context, args);
+			}, d);
+		};
+	};
+
+	const [isTop, setIsTop] = useState(true);
+	const [hide, setHide] = useState(false);
+
+	useEffect(() => {
+		if (window.scrollY === 0) {
+			setIsTop(true);
+		} else setIsTop(false);
+	}, []);
+
+	const [oldScrollY, setOldScrollY] = useState(0);
+
+	const handleScroll = debounce(e => {
+		if (window.scrollY < 5) {
+			setIsTop(true);
+		} else setIsTop(false);
+
+		if (window.scrollY > oldScrollY) {
+			if (window.scrollY > 45) setHide(true);
+			else setHide(false);
+		} else {
+			setHide(false);
+		}
+		setOldScrollY(window.scrollY);
+	}, 100);
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
+
 	return (
 		<div className={styles.container}>
-			<div className={styles.topNavbarContainer}>
+			<div
+				className={`${styles.topNavbarContainer} 
+					${menuOpen && styles.transparent} 
+					${hide && styles.hide} 
+					${isTop && styles.top}`}>
 				<div className={styles.logoContainer}>
 					<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
 				</div>
@@ -50,6 +104,27 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ onBlur }) => {
 					<div className={styles.link}>Projects</div>
 					<div className={styles.link}>Blogs</div>
 					<div className={`${styles.link} ${styles.resume}`}>Resume</div>
+					<div className={styles.toggleTheme}>
+						<div className={styles.moonContainer}>
+							<Image src='/icons/moon-dark.svg' layout='fill' alt='kb-logo' />
+						</div>
+						<label className={styles.switch}>
+							<input
+								type='checkbox'
+								checked={theme === 'light'}
+								onChange={e => {
+									const checked = e.currentTarget.checked;
+									if (checked) onThemeChange('light');
+									else onThemeChange('dark');
+								}}
+							/>
+
+							<span className={styles.slider} />
+						</label>
+						<div className={styles.sunContainer}>
+							<Image src='/icons/sun-dark.svg' layout='fill' alt='kb-logo' />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

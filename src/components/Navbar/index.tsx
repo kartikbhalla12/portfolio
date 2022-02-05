@@ -15,10 +15,17 @@ const Navbar: FC<NavbarProps> = ({
 	onThemeChange,
 	theme,
 }) => {
-	if (isMobile) return <MobileNavbar onBlur={onBlur} />;
+	if (isMobile)
+		return (
+			<MobileNavbar
+				onBlur={onBlur}
+				onThemeChange={onThemeChange}
+				theme={theme}
+			/>
+		);
 	return (
 		<>
-			<MobileNavbar />
+			<MobileNavbar onThemeChange={onThemeChange} theme={theme} />
 			<DesktopNavbar onThemeChange={onThemeChange} theme={theme} />
 		</>
 	);

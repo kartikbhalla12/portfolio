@@ -6,7 +6,7 @@
 
 	.topNavbarContainer {
 		padding: 15px 20px;
-		background-color: #0e121a;
+		background-color: rgba(14, 18, 26, 0.75);
 		color: #a6afc0;
 		justify-content: space-between;
 		align-items: center;
@@ -14,6 +14,19 @@
 		font-weight: 500;
 		font-size: 16px;
 		display: none;
+		transition: background-color 0.5s ease-in-out, transform 0.15s ease-in-out,
+			padding 0.15s ease-in-out;
+
+		&.transparent {
+			background-color: rgba(14, 18, 26, 0.15);
+		}
+		&.top {
+			padding: 25px 20px;
+		}
+		&.hide {
+			// background-color: transparent !important;
+			transform: translateY(-85px);
+		}
 
 		@media screen and (max-width: 750px) {
 			display: flex;
@@ -41,7 +54,7 @@
 
 			.menuButtonBurger {
 				width: 25px;
-				height: 2px;
+				height: 0.15rem;
 				background: #ccd6f6;
 				transition: all 0.5s ease-in-out;
 
@@ -50,7 +63,7 @@
 					content: '';
 					position: absolute;
 					width: 25px;
-					height: 2px;
+					height: 0.15rem;
 					background: #ccd6f6;
 					transition: all 0.5s ease-in-out;
 				}
@@ -75,28 +88,6 @@
 				}
 			}
 		}
-
-		// .burgerMenuContainer {
-		// 	height: 25px;
-		// 	width: 25px;
-		// 	position: relative;
-		// }
-
-		// .linksContainer {
-		// 	display: flex;
-
-		// 	.active {
-		// 		color: #fff;
-		// 		// font-weight: 500;
-		// 	}
-		// 	.link {
-		// 		padding: 20px;
-		// 	}
-		// 	.resume {
-		// 		padding-right: 0;
-		// 		color: #fa8b00;
-		// 	}
-		// }
 	}
 
 	.sideNavbarContainer {
@@ -142,12 +133,88 @@
 				padding: 20px 60px;
 				border-radius: 8px;
 			}
+
+			.toggleTheme {
+				margin-top: 4rem;
+
+				.moonContainer {
+					height: 13px;
+					width: 13px;
+				}
+				.sunContainer {
+					height: 16px;
+					width: 16px;
+				}
+
+				.sunContainer,
+				.moonContainer {
+					position: relative;
+					img {
+						filter: invert(81%) sepia(31%) saturate(525%) hue-rotate(193deg)
+							brightness(104%) contrast(93%);
+					}
+				}
+
+				display: flex;
+				align-items: center;
+				div,
+				label {
+					margin: 0 0.4rem;
+				}
+				.switch {
+					position: relative;
+					width: 35px;
+					height: 25px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+
+				.switch input {
+					display: none;
+				}
+
+				.slider {
+					display: block;
+					width: 100%;
+					height: 5px;
+					background-color: grey;
+					border-radius: 25px;
+				}
+
+				.slider:before {
+					position: absolute;
+					content: '';
+					height: 15px;
+					width: 15px;
+					left: -2.5px;
+					bottom: 5px;
+					background-color: #ccd6f6;
+					-webkit-transition: all 0.5s ease-in-out;
+					transition: all 0.5s ease-in-out;
+					border-radius: 50%;
+				}
+
+				input:checked + .slider {
+					background-color: #fa8b00;
+				}
+
+				input:checked + .slider:before {
+					-webkit-transform: translateX(25px);
+					-ms-transform: translateX(25px);
+					transform: translateX(25px);
+				}
+			}
 		}
 	}
 }
 :global(.light) .container {
 	.topNavbarContainer {
-		background-color: #fff;
+		background-color: rgba(2552, 255, 255, 0.75);
+
+		&.transparent {
+			background-color: rgba(2552, 255, 255, 0.1);
+		}
 	}
 
 	.logoContainer {
