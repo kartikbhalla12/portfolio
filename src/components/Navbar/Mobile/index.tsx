@@ -29,16 +29,15 @@ const MobileNavbar: FC<MobileNavbarProps> = ({
 		onSwipedRight: d => setMenuOpen(false),
 	});
 
-	const debounce = (fn, d) => {
+	const debounce = function (fn: Function, d: number) {
 		let timer: any;
 
 		return function () {
-			let context = this;
 			let args = arguments;
 			clearTimeout(timer);
 
 			timer = setTimeout(() => {
-				fn.apply(context, args);
+				fn.apply(args);
 			}, d);
 		};
 	};
@@ -54,7 +53,8 @@ const MobileNavbar: FC<MobileNavbarProps> = ({
 
 	const [oldScrollY, setOldScrollY] = useState(0);
 
-	const handleScroll = debounce(e => {
+	const handleScroll = debounce(() => {
+		console.log('called');
 		if (window.scrollY < 5) {
 			setIsTop(true);
 		} else setIsTop(false);
