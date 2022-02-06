@@ -1,4 +1,10 @@
-<svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="23.3049" cy="23.7453" r="23.2541" fill="#465267"/>
-<path d="M29.9389 21.1372H25.5644V17.6376C25.5644 16.6717 26.3483 16.7627 27.3142 16.7627H29.064V12.3882H25.5644C22.665 12.3882 20.315 14.7382 20.315 17.6376V21.1372H16.8154V25.5117H20.315V35.1356H25.5644V25.5117H28.1891L29.9389 21.1372Z" fill="#0E121A"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 47 47" style="enable-background:new 0 0 47 47;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#231F20;}
+</style>
+<path class="st0" d="M23.5,0.2c12.8,0,23.3,10.4,23.3,23.3S36.3,46.8,23.5,46.8S0.2,36.3,0.2,23.5S10.7,0.2,23.5,0.2z M29.9,21.1
+	h-4.4v-3.5c0-1,0.8-0.9,1.7-0.9h1.7v-4.4h-3.5c-2.9,0-5.2,2.4-5.2,5.2v3.5h-3.5v4.4h3.5v9.6h5.2v-9.6h2.6L29.9,21.1z"/>
 </svg>

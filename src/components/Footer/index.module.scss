@@ -9,17 +9,28 @@
 	font-family: 'Cera Pro';
 	font-weight: 500;
 	font-size: 14px;
+	transition: background-color 0.5s ease-in-out;
 
 	.imageContainer {
 		height: 70px;
 		width: 70px;
 		position: relative;
 		margin-bottom: 10px;
+
+		img {
+			filter: invert(31%) sepia(17%) saturate(709%) hue-rotate(180deg)
+				brightness(93%) contrast(91%);
+		}
 	}
 
 	.socialContainer {
 		display: flex;
 		margin: 20px 0;
+
+		img {
+			filter: invert(31%) sepia(17%) saturate(709%) hue-rotate(180deg)
+				brightness(93%) contrast(91%);
+		}
 
 		& > div {
 			height: 35px;
@@ -32,4 +43,12 @@
 
 :global(.light) .container {
 	background-color: #fff;
+
+	.imageContainer,
+	.socialContainer {
+		img {
+			filter: invert(6%) sepia(51%) saturate(0%) hue-rotate(261deg)
+				brightness(91%) contrast(84%);
+		}
+	}
 }

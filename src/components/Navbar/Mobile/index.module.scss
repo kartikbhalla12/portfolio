@@ -15,10 +15,12 @@
 		font-size: 16px;
 		display: none;
 		transition: background-color 0.5s ease-in-out, transform 0.15s ease-in-out,
-			padding 0.15s ease-in-out;
+			padding 0.15s ease-in-out, box-shadow 0.5s ease-in-out;
+		box-shadow: 0 10px 30px -10px #0e121a;
 
 		&.transparent {
 			background-color: rgba(14, 18, 26, 0.15);
+			box-shadow: none;
 		}
 		&.top {
 			padding: 25px 20px;
@@ -36,9 +38,10 @@
 			height: 35px;
 			width: 17.5px;
 			position: relative;
+
 			img {
-				filter: invert(68%) sepia(6%) saturate(1313%) hue-rotate(188deg)
-					brightness(84%) contrast(88%);
+				filter: invert(66%) sepia(13%) saturate(605%) hue-rotate(187deg)
+					brightness(86%) contrast(89%);
 			}
 		}
 
@@ -150,8 +153,8 @@
 				.moonContainer {
 					position: relative;
 					img {
-						filter: invert(81%) sepia(31%) saturate(525%) hue-rotate(193deg)
-							brightness(104%) contrast(93%);
+						filter: invert(83%) sepia(21%) saturate(279%) hue-rotate(190deg)
+							brightness(99%) contrast(96%);
 					}
 				}
 
@@ -211,16 +214,18 @@
 :global(.light) .container {
 	.topNavbarContainer {
 		background-color: rgba(2552, 255, 255, 0.75);
+		box-shadow: 0 10px 30px -10px #fff;
 
 		&.transparent {
 			background-color: rgba(2552, 255, 255, 0.1);
+			box-shadow: none;
 		}
 	}
 
 	.logoContainer {
 		img {
-			filter: invert(5%) sepia(7%) saturate(3794%) hue-rotate(181deg)
-				brightness(94%) contrast(94%);
+			filter: invert(6%) sepia(51%) saturate(0%) hue-rotate(261deg)
+				brightness(91%) contrast(84%);
 		}
 	}
 

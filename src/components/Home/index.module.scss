@@ -9,6 +9,7 @@
 	min-height: calc(100vh - 80px);
 	padding: 20px 40px;
 	font-family: 'Cera Pro';
+	transition: background-color 0.5s ease-in-out;
 
 	&.mobile {
 		min-height: calc(100vh - 56px) !important;

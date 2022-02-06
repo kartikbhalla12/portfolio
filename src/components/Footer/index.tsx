@@ -16,7 +16,7 @@ const Footer: FC = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.imageContainer}>
-				<Image src='/icons/footer-logo.svg' layout='fill' alt='kb-logo' />
+				<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
 			</div>
 			<div className={styles.socialContainer}>
 				{socialIcons.map(icons => (
