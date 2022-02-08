@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import useNavScroll from '../../../hooks/useNavScroll';
 import styles from './index.module.scss';
 
 interface MobileNavbarProps {
@@ -29,56 +30,14 @@ const MobileNavbar: FC<MobileNavbarProps> = ({
 		onSwipedRight: d => setMenuOpen(false),
 	});
 
-	const debounce = function (fn: Function, d: number) {
-		let timer: any;
-
-		return function () {
-			let args = arguments;
-			clearTimeout(timer);
-
-			timer = setTimeout(() => {
-				fn.apply(args);
-			}, d);
-		};
-	};
-
-	const [isTop, setIsTop] = useState(true);
-	const [hide, setHide] = useState(false);
-
-	useEffect(() => {
-		if (window.scrollY === 0) {
-			setIsTop(true);
-		} else setIsTop(false);
-	}, []);
-
-	const [oldScrollY, setOldScrollY] = useState(0);
-
-	const handleScroll = debounce(() => {
-		console.log('called');
-		if (window.scrollY < 5) {
-			setIsTop(true);
-		} else setIsTop(false);
-
-		if (window.scrollY > oldScrollY) {
-			if (window.scrollY > 45) setHide(true);
-			else setHide(false);
-		} else {
-			setHide(false);
-		}
-		setOldScrollY(window.scrollY);
-	}, 100);
-
-	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	});
+	const { hideNavbar, isTop } = useNavScroll(45);
 
 	return (
 		<div className={styles.container}>
 			<div
 				className={`${styles.topNavbarContainer} 
 					${menuOpen && styles.transparent} 
-					${hide && styles.hide} 
+					${hideNavbar && styles.hide} 
 					${isTop && styles.top}`}>
 				<div className={styles.logoContainer}>
 					<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
