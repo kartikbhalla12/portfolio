@@ -3,11 +3,12 @@ import { FC } from 'react';
 import DesktopNavbar from '@components/Navbar/Desktop';
 import MobileNavbar from '@components/Navbar/Mobile';
 
+type Theme = 'light' | 'dark';
 interface NavbarProps {
 	isMobile: boolean;
 	onBlur?: (a: boolean) => void;
-	onThemeChange: (theme: string) => void;
-	theme: string;
+	theme: Theme;
+	onThemeChange: (theme: Theme) => void;
 }
 
 const Navbar: FC<NavbarProps> = ({

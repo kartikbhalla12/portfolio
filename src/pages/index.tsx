@@ -14,22 +14,24 @@ interface LandingPageProps {
 	isMobile: boolean;
 }
 
+type Theme = 'light' | 'dark';
+
 const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 	const [isBlur, setIsBlur] = useState(false);
 	const handleBlur = (blur: boolean) => {
 		setIsBlur(blur);
 	};
 
-	const [theme, setTheme] = useState('dark');
+	const [theme, setTheme] = useState<Theme>('dark');
 
-	const handleThemeChange = (theme: string) => {
+	const handleThemeChange = (theme: Theme) => {
 		setTheme(theme);
 	};
 
 	useEffect(() => {
 		async function init() {
 			const theme = await localStorage.getItem('theme');
-			if (theme) setTheme(theme);
+			if (theme) setTheme(theme as Theme);
 		}
 		init();
 	}, []);
