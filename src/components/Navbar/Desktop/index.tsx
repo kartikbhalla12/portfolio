@@ -1,15 +1,21 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import useNavScroll from '../../../hooks/useNavScroll';
 import styles from './index.module.scss';
 
-interface props {
+interface DesktopNavbarProps {
 	onThemeChange: (theme: string) => void;
 	theme: string;
 }
 
-const DesktopNavbar: FC<props> = ({ onThemeChange, theme }) => {
+const DesktopNavbar: FC<DesktopNavbarProps> = ({ onThemeChange, theme }) => {
+	const { hideNavbar, isTop } = useNavScroll(65);
+
 	return (
-		<div className={styles.container}>
+		<div
+			className={`${styles.container} 	
+				${hideNavbar && styles.hide} 
+				${isTop && styles.top}`}>
 			<div className={styles.imageContainer}>
 				<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
 			</div>

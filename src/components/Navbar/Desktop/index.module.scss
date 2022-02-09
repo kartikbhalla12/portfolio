@@ -1,6 +1,6 @@
 .container {
 	padding: 10px 40px;
-	background-color: #0e121a;
+	// background-color: #0e121a;
 	color: #a6afc0;
 	display: flex;
 	justify-content: space-between;
@@ -9,6 +9,22 @@
 	font-weight: 500;
 	font-size: 16px;
 	transition: background-color 0.5s ease-in-out;
+
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	background-color: rgba(14, 18, 26, 0.75);
+	box-shadow: 0 10px 30px -10px #0e121a;
+	transition: background-color 0.5s ease-in-out, transform 0.15s ease-in-out,
+		padding 0.15s ease-in-out, box-shadow 0.5s ease-in-out;
+
+	&.top {
+		padding: 20px 40px;
+	}
+	&.hide {
+		transform: translateY(-80px);
+	}
 
 	.imageContainer {
 		height: 40px;
@@ -72,6 +88,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			cursor: pointer;
 		}
 
 		.switch input {
@@ -119,7 +136,8 @@
 }
 
 :global(.light) .container {
-	background-color: #fff;
+	background-color: rgba(2552, 255, 255, 0.75);
+	box-shadow: 0 10px 30px -10px #fff;
 
 	.slider:before {
 		background-color: #0e121a;
