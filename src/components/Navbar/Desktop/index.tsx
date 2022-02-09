@@ -29,7 +29,11 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ onThemeChange, theme }) => {
 				<div className={styles.link}>Experience</div>
 				<div className={styles.link}>Projects</div>
 				<div className={styles.link}>Blogs</div>
-				<div className={`${styles.link} ${styles.resume}`}>Resume</div>
+				<div className={`${styles.link} ${styles.resume}`}>
+					<a href='/kartik-bhalla-resume.pdf' target='_blank' rel='noreferrer'>
+						Resume
+					</a>
+				</div>
 			</div>
 			<ThemeSlider theme={theme} onThemeChange={onThemeChange} themeSelf />
 		</div>
