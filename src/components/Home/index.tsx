@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import { FC } from 'react';
+import Image from 'next/image';
+
 import styles from './index.module.scss';
 
 interface HomeProps {
@@ -7,25 +8,42 @@ interface HomeProps {
 }
 const Home: FC<HomeProps> = ({ isMobile }) => {
 	const socialIcons = [
-		{ src: '/icons/github-1.svg', alt: 'github' },
-		{ src: '/icons/linkedin-1.svg', alt: 'linkedin' },
-		{ src: '/icons/instagram-1.svg', alt: 'instagram' },
-		{ src: '/icons/facebook-1.svg', alt: 'facebook' },
-		{ src: '/icons/twitter-1.svg', alt: 'twitter' },
+		{
+			src: '/icons/github-1.svg',
+			alt: 'github',
+			url: 'https://github.com/thedemon12',
+		},
+		{
+			src: '/icons/linkedin-1.svg',
+			alt: 'linkedin',
+			url: 'https://www.linkedin.com/in/kartikbhalla/',
+		},
+		{
+			src: '/icons/instagram-1.svg',
+			alt: 'instagram',
+			url: 'https://www.instagram.com/_kartikbhalla/',
+		},
+		{
+			src: '/icons/facebook-1.svg',
+			alt: 'facebook',
+			url: 'https://www.facebook.com/kbhalla12',
+		},
+		{
+			src: '/icons/twitter-1.svg',
+			alt: 'twitter',
+			url: 'https://twitter.com/kartikbhalla12',
+		},
 	];
 	return (
 		<div className={`${styles.home} ${isMobile ? styles.mobile : ''}`}>
 			<div className={styles.social}>
 				{socialIcons.map(icon => (
 					<div key={icon.alt}>
-						<Image src={icon.src} layout='fill' alt={icon.alt} />
+						<a href={icon.url} target='_blank' rel='noreferrer'>
+							<Image src={icon.src} layout='fill' alt={icon.alt} />
+						</a>
 					</div>
 				))}
-			</div>
-			<div className={styles.email}>
-				<p>
-					<span>contact</span>@kartikbhalla.dev
-				</p>
 			</div>
 
 			<div className={styles.content}>
@@ -48,6 +66,16 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 				<div className={styles.imageContainer}>
 					<Image src='/kartik.png' layout='fill' alt='kartik bhalla' />
 				</div>
+			</div>
+			<div className={styles.email}>
+				<p>
+					<a
+						href='mailto:contact@kartikbhalla.dev'
+						target='_blank'
+						rel='noreferrer'>
+						<span>contact</span>@kartikbhalla.dev
+					</a>
+				</p>
 			</div>
 		</div>
 	);

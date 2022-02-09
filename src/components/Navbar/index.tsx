@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import DesktopNavbar from './Desktop';
-import MobileNavbar from './Mobile';
+
+import DesktopNavbar from '@components/Navbar/Desktop';
+import MobileNavbar from '@components/Navbar/Mobile';
 
 interface NavbarProps {
 	isMobile: boolean;

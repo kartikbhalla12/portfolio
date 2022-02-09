@@ -1,12 +1,12 @@
+import { useEffect, useState } from 'react';
 import type { NextPage, NextPageContext } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import Home from '../components/Home';
 
-import { isMobile } from '../utils';
+import Home from '@components/Home';
+import Footer from '@components/Footer';
+import Navbar from '@components/Navbar';
+
+import isMobile from '@utils/isMobile';
 
 import styles from './index.module.scss';
 

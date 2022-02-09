@@ -1,13 +1,17 @@
-import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useSwipeable } from 'react-swipeable';
-import useNavScroll from '../../../hooks/useNavScroll';
-import styles from './index.module.scss';
 
+import useNavScroll from '@hooks/useNavScroll';
+
+import styles from './index.module.scss';
+import ThemeSlider from '@components/common/ThemeSlider';
+
+type Theme = 'light' | 'dark';
 interface MobileNavbarProps {
 	onBlur?: (a: boolean) => void;
-	onThemeChange: (theme: string) => void;
-	theme: string;
+	theme: Theme;
+	onThemeChange: (theme: Theme) => void;
 }
 
 const MobileNavbar: FC<MobileNavbarProps> = ({
@@ -63,26 +67,12 @@ const MobileNavbar: FC<MobileNavbarProps> = ({
 					<div className={styles.link}>Projects</div>
 					<div className={styles.link}>Blogs</div>
 					<div className={`${styles.link} ${styles.resume}`}>Resume</div>
-					<div className={styles.toggleTheme}>
-						<div className={styles.moonContainer}>
-							<Image src='/icons/moon-dark.svg' layout='fill' alt='kb-logo' />
-						</div>
-						<label className={styles.switch}>
-							<input
-								type='checkbox'
-								checked={theme === 'light'}
-								onChange={e => {
-									const checked = e.currentTarget.checked;
-									if (checked) onThemeChange('light');
-									else onThemeChange('dark');
-								}}
-							/>
-
-							<span className={styles.slider} />
-						</label>
-						<div className={styles.sunContainer}>
-							<Image src='/icons/sun-dark.svg' layout='fill' alt='kb-logo' />
-						</div>
+					<div className={styles.themeSliderContainer}>
+						<ThemeSlider
+							theme={theme}
+							onThemeChange={onThemeChange}
+							themeSelf={false}
+						/>
 					</div>
 				</div>
 			</div>
