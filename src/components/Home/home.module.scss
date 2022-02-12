@@ -2,7 +2,6 @@
 	display: flex;
 	background-color: #0e121a;
 	color: white;
-	// min-height: calc(100vh - 80px);
 	min-height: 100vh;
 	padding: 100px 40px 20px 40px;
 	font-family: 'Cera Pro';
@@ -390,10 +389,4 @@
 			border-top: 200px solid #0e121a;
 		}
 	}
-}
-
-:global(.blur) .home {
-	animation-name: example;
-	animation-duration: 500ms;
-	filter: blur(4px) brightness(0.7);
 }

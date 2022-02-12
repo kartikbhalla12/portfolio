@@ -1,18 +1,13 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
+import ThemeSlider from '@components/common/ThemeSlider';
 import useNavScroll from '@hooks/useNavScroll';
 
+import { ThemeProps } from 'interfaces/theme';
 import styles from './index.module.scss';
-import ThemeSlider from '@components/common/ThemeSlider';
 
-type Theme = 'light' | 'dark';
-interface DesktopNavbarProps {
-	theme: Theme;
-	onThemeChange: (theme: Theme) => void;
-}
-
-const DesktopNavbar: FC<DesktopNavbarProps> = ({ onThemeChange, theme }) => {
+const DesktopNavbar: FC<ThemeProps> = props => {
 	const { hideNavbar, isTop } = useNavScroll(65);
 
 	return (
@@ -35,7 +30,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ onThemeChange, theme }) => {
 					</a>
 				</div>
 			</div>
-			<ThemeSlider theme={theme} onThemeChange={onThemeChange} themeSelf />
+			<ThemeSlider {...props} themeSelf />
 		</div>
 	);
 };

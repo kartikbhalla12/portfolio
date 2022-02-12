@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import { Theme } from 'interfaces/theme';
 
 const useTheme = () => {
 	const [theme, setTheme] = useState<Theme>('dark');

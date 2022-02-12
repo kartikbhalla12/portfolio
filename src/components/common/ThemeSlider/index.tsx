@@ -1,15 +1,8 @@
 import Image from 'next/image';
 import { FC } from 'react';
 
+import { ThemeSliderProps } from './themeSlider.interface';
 import styles from './index.module.scss';
-
-type Theme = 'light' | 'dark';
-
-interface ThemeSliderProps {
-	theme: Theme;
-	onThemeChange: (theme: Theme) => void;
-	themeSelf: boolean;
-}
 
 const ThemeSlider: FC<ThemeSliderProps> = ({
 	theme,

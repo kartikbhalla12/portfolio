@@ -3,32 +3,14 @@ import { FC } from 'react';
 import DesktopNavbar from '@components/Navbar/Desktop';
 import MobileNavbar from '@components/Navbar/Mobile';
 
-type Theme = 'light' | 'dark';
-interface NavbarProps {
-	isMobile: boolean;
-	// onBlur?: (a: boolean) => void;
-	theme: Theme;
-	onThemeChange: (theme: Theme) => void;
-}
+import { NavbarProps } from './navbar.interface';
 
-const Navbar: FC<NavbarProps> = ({
-	isMobile,
-	// onBlur,
-	onThemeChange,
-	theme,
-}) => {
-	if (isMobile)
-		return (
-			<MobileNavbar
-				// onBlur={onBlur}
-				onThemeChange={onThemeChange}
-				theme={theme}
-			/>
-		);
+const Navbar: FC<NavbarProps> = ({ isMobile, ...props }) => {
+	if (isMobile) return <MobileNavbar {...props} />;
 	return (
 		<>
-			<MobileNavbar onThemeChange={onThemeChange} theme={theme} />
-			<DesktopNavbar onThemeChange={onThemeChange} theme={theme} />
+			<MobileNavbar {...props} /> {/* can adjust according to height & width */}
+			<DesktopNavbar {...props} />
 		</>
 	);
 };

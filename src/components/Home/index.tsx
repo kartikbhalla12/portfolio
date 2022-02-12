@@ -1,11 +1,9 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import styles from './index.module.scss';
+import { HomeProps } from './home.interface';
+import styles from './home.module.scss';
 
-interface HomeProps {
-	isMobile: boolean;
-}
 const Home: FC<HomeProps> = ({ isMobile }) => {
 	const socialIcons = [
 		{

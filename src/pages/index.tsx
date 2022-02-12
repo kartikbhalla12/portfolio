@@ -3,11 +3,8 @@ import Head from 'next/head';
 
 import Home from '@components/Home';
 
-import isMobile from '@utils/isMobile';
-
-interface LandingPageProps {
-	isMobile: boolean;
-}
+import { LandingPageProps } from './index.interface';
+import styles from './index.module.scss';
 
 const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 	return (
@@ -17,16 +14,11 @@ const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 				<meta name='description' content='Kartik Bhalla - Portfolio Website' />
 				<link rel='icon' href='/icons/logo.svg' />
 			</Head>
-
-			<Home isMobile={isMobile} />
+			<main className={styles.landingPage}>
+				<Home isMobile={isMobile} />
+			</main>
 		</>
 	);
 };
-
-export async function getServerSideProps(context: NextPageContext) {
-	return {
-		props: { isMobile: isMobile(context) },
-	};
-}
 
 export default LandingPage;

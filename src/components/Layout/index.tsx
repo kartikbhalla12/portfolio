@@ -4,9 +4,7 @@ import Footer from '@components/Footer';
 import Navbar from '@components/Navbar';
 import useTheme from '@hooks/useTheme';
 
-interface LayoutProps {
-	isMobile: boolean;
-}
+import { LayoutProps } from './layout.interface';
 
 const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 	const { theme, setTheme } = useTheme();

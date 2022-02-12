@@ -79,7 +79,7 @@
 				}
 			}
 
-			&.menuOpen .menuButtonBurger {
+			&.isMenuOpen .menuButtonBurger {
 				background: transparent;
 				box-shadow: none;
 
@@ -103,7 +103,7 @@
 		display: flex;
 		justify-content: flex-end;
 
-		&.menuOpen {
+		&.isMenuOpen {
 			right: 0;
 		}
 
@@ -171,7 +171,7 @@
 			}
 		}
 
-		&.menuOpen .menuButtonBurger {
+		&.isMenuOpen .menuButtonBurger {
 			&::before,
 			&::after {
 				background: #ccd6f6;

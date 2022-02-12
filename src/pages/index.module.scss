@@ -1,25 +1,9 @@
-// .main {
-// 	overflow: hidden;
-// 	transition: filter 500ms ease-in-out;
+.landingPage {
+	transition: filter 0.5s ease-in-out;
+}
 
-// 	&.blur {
-// 		animation-name: example;
-// 		animation-duration: 500ms;
-// 		filter: blur(4px) brightness(0.7);
-// 	}
-
-// 	@keyframes example {
-// 		0% {
-// 			filter: blur(1px) brightness(0.7);
-// 		}
-// 		25% {
-// 			filter: blur(2px) brightness(0.7);
-// 		}
-// 		50% {
-// 			filter: blur(3px) brightness(0.7);
-// 		}
-// 		100% {
-// 			filter: blur(4px) brightness(0.7);
-// 		}
-// 	}
-// }
+:global(.blur) .landingPage {
+	animation-name: example;
+	animation-duration: 500ms;
+	filter: blur(4px) brightness(0.7);
+}

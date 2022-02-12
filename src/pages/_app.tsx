@@ -11,7 +11,7 @@ interface MyAppProps extends AppProps {
 function MyApp({ Component, pageProps, isMobile }: MyAppProps) {
 	return (
 		<Layout isMobile={isMobile}>
-			<Component {...pageProps} />
+			<Component {...pageProps} isMobile={isMobile} />
 		</Layout>
 	);
 }

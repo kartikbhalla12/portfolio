@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import Image from 'next/image';
 import { useSwipeable } from 'react-swipeable';
 
@@ -6,15 +6,10 @@ import ThemeSlider from '@components/common/ThemeSlider';
 import useNavScroll from '@hooks/useNavScroll';
 import useBlur from '@hooks/useBlur';
 
+import { ThemeProps } from 'interfaces/theme';
 import styles from './index.module.scss';
 
-type Theme = 'light' | 'dark';
-interface MobileNavbarProps {
-	theme: Theme;
-	onThemeChange: (theme: Theme) => void;
-}
-
-const MobileNavbar: FC<MobileNavbarProps> = ({ onThemeChange, theme }) => {
+const MobileNavbar: FC<ThemeProps> = props => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { hideNavbar, isTop } = useNavScroll(45);
 	const NavHandler = useSwipeable({
@@ -55,11 +50,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ onThemeChange, theme }) => {
 					<div className={styles.link}>Blogs</div>
 					<div className={`${styles.link} ${styles.resume}`}>Resume</div>
 					<div className={styles.themeSliderContainer}>
-						<ThemeSlider
-							theme={theme}
-							onThemeChange={onThemeChange}
-							themeSelf={false}
-						/>
+						<ThemeSlider {...props} />
 					</div>
 				</div>
 			</div>
