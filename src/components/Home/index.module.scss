@@ -6,7 +6,7 @@
 	min-height: 100vh;
 	padding: 100px 40px 20px 40px;
 	font-family: 'Cera Pro';
-	transition: background-color 0.5s ease-in-out;
+	transition: background-color 0.5s ease-in-out, filter 0.5s ease-in-out;
 
 	&.mobile {
 		min-height: calc(100vh - 56px) !important;
@@ -83,8 +83,8 @@
 			flex-direction: column;
 			margin: 25px 0;
 			position: relative;
-			width: 25px;
-			height: 25px;
+			width: 22px;
+			height: 22px;
 
 			cursor: pointer;
 
@@ -390,4 +390,10 @@
 			border-top: 200px solid #0e121a;
 		}
 	}
+}
+
+:global(.blur) .home {
+	animation-name: example;
+	animation-duration: 500ms;
+	filter: blur(4px) brightness(0.7);
 }

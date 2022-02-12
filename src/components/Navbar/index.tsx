@@ -6,21 +6,21 @@ import MobileNavbar from '@components/Navbar/Mobile';
 type Theme = 'light' | 'dark';
 interface NavbarProps {
 	isMobile: boolean;
-	onBlur?: (a: boolean) => void;
+	// onBlur?: (a: boolean) => void;
 	theme: Theme;
 	onThemeChange: (theme: Theme) => void;
 }
 
 const Navbar: FC<NavbarProps> = ({
 	isMobile,
-	onBlur,
+	// onBlur,
 	onThemeChange,
 	theme,
 }) => {
 	if (isMobile)
 		return (
 			<MobileNavbar
-				onBlur={onBlur}
+				// onBlur={onBlur}
 				onThemeChange={onThemeChange}
 				theme={theme}
 			/>
