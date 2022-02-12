@@ -9,7 +9,7 @@
 	font-family: 'Cera Pro';
 	font-weight: 500;
 	font-size: 14px;
-	transition: background-color 0.5s ease-in-out, filter 0.5s ease-in-out;
+	transition: background-color 0.5s ease-in-out;
 
 	.imageContainer {
 		height: 60px;
@@ -51,10 +51,4 @@
 				brightness(91%) contrast(84%);
 		}
 	}
-}
-
-:global(.blur) .container {
-	animation-name: example;
-	animation-duration: 500ms;
-	filter: blur(4px) brightness(0.7);
 }

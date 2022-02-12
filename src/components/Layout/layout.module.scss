@@ -1,0 +1,7 @@
+.layout {
+	transition: filter 0.5s ease-in-out;
+}
+
+:global(.blur) .layout {
+	filter: blur(4px) brightness(0.7);
+}

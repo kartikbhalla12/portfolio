@@ -7,7 +7,7 @@ import useNavScroll from '@hooks/useNavScroll';
 import useBlur from '@hooks/useBlur';
 
 import { ThemeProps } from 'interfaces/theme';
-import styles from './index.module.scss';
+import styles from './mobileNavbar.module.scss';
 
 const MobileNavbar: FC<ThemeProps> = props => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -5,7 +5,7 @@ import ThemeSlider from '@components/common/ThemeSlider';
 import useNavScroll from '@hooks/useNavScroll';
 
 import { ThemeProps } from 'interfaces/theme';
-import styles from './index.module.scss';
+import styles from './desktopNavbar.module.scss';
 
 const DesktopNavbar: FC<ThemeProps> = props => {
 	const { hideNavbar, isTop } = useNavScroll(65);
