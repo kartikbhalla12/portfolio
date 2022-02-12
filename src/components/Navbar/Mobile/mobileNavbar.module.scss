@@ -26,8 +26,11 @@
 			padding: 25px 20px;
 		}
 		&.hide {
-			// background-color: transparent !important;
 			transform: translateY(-85px);
+		}
+
+		&.hide.transparent {
+			transform: none;
 		}
 
 		@media screen and (max-width: 750px) {
