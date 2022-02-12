@@ -3,8 +3,11 @@ import Head from 'next/head';
 
 import Home from '@components/Home';
 
-import { LandingPageProps } from './index.interface';
 import styles from './index.module.scss';
+
+interface LandingPageProps {
+	isMobile: boolean;
+}
 
 const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 	return (
