@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { FC } from 'react';
 
 import { ThemeSliderProps } from './themeSlider.interface';
-import Sun from '@icons/test/sun.svg';
-import Moon from '@icons/test/moon.svg';
+import Sun from '@icons/sun.svg';
+import Moon from '@icons/moon.svg';
 
 import styles from './index.module.scss';
 

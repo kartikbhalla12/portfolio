@@ -1,37 +1,47 @@
 import { FC } from 'react';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import Logo from '@icons/logo.svg';
+import Facebook from '@icons/facebook-2.svg';
+import Github from '@icons/github-2.svg';
+import Linkedin from '@icons/linkedin-2.svg';
+import Instagram from '@icons/instagram-2.svg';
+import Twitter from '@icons/twitter-2.svg';
+import Email from '@icons/email.svg';
 
 import styles from './footer.module.scss';
 
 const Footer: FC = () => {
+	const router = useRouter();
+
 	const socialIcons = [
 		{
-			src: '/icons/github-2.svg',
+			Component: Github,
 			alt: 'github',
 			url: 'https://github.com/thedemon12',
 		},
 		{
-			src: '/icons/linkedin-2.svg',
+			Component: Linkedin,
 			alt: 'linkedin',
 			url: 'https://www.linkedin.com/in/kartikbhalla/',
 		},
 		{
-			src: '/icons/instagram-2.svg',
+			Component: Instagram,
 			alt: 'instagram',
 			url: 'https://www.instagram.com/_kartikbhalla/',
 		},
 		{
-			src: '/icons/facebook-2.svg',
+			Component: Facebook,
 			alt: 'facebook',
 			url: 'https://www.facebook.com/kbhalla12',
 		},
 		{
-			src: '/icons/twitter-2.svg',
+			Component: Twitter,
 			alt: 'twitter',
 			url: 'https://twitter.com/kartikbhalla12',
 		},
 		{
-			src: '/icons/email.svg',
+			Component: Email,
 			alt: 'email',
 			url: 'mailto:contact@kartikbhalla.dev',
 		},
@@ -39,16 +49,21 @@ const Footer: FC = () => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.imageContainer}>
-				<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
-			</div>
+			<Logo
+				className={styles.logo}
+				onClick={() => router.push('/')}
+				alt='kb-logo'
+			/>
 			<div className={styles.socialContainer}>
 				{socialIcons.map(icon => (
-					<div key={icon.alt}>
-						<a href={icon.url} target='_blank' rel='noreferrer'>
-							<Image src={icon.src} layout='fill' alt={icon.alt} />
-						</a>
-					</div>
+					<a
+						href={icon.url}
+						className={styles.iconLink}
+						target='_blank'
+						rel='noreferrer'
+						key={icon.alt}>
+						<icon.Component className={styles.icon} alt={icon.alt} />
+					</a>
 				))}
 			</div>
 			<div>© 2022 Kartik Bhalla</div>

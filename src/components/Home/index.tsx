@@ -2,46 +2,58 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import { HomeProps } from './home.interface';
+
+import Facebook from '@icons/facebook-1.svg';
+import Github from '@icons/github-1.svg';
+import Linkedin from '@icons/linkedin-1.svg';
+import Instagram from '@icons/instagram-1.svg';
+import Twitter from '@icons/twitter-1.svg';
+
 import styles from './home.module.scss';
 
 const Home: FC<HomeProps> = ({ isMobile }) => {
 	const socialIcons = [
 		{
-			src: '/icons/github-1.svg',
+			Component: Github,
 			alt: 'github',
 			url: 'https://github.com/thedemon12',
 		},
 		{
-			src: '/icons/linkedin-1.svg',
+			Component: Linkedin,
 			alt: 'linkedin',
 			url: 'https://www.linkedin.com/in/kartikbhalla/',
 		},
 		{
-			src: '/icons/instagram-1.svg',
+			Component: Instagram,
 			alt: 'instagram',
 			url: 'https://www.instagram.com/_kartikbhalla/',
 		},
 		{
-			src: '/icons/facebook-1.svg',
+			Component: Facebook,
 			alt: 'facebook',
 			url: 'https://www.facebook.com/kbhalla12',
 		},
 		{
-			src: '/icons/twitter-1.svg',
+			Component: Twitter,
 			alt: 'twitter',
 			url: 'https://twitter.com/kartikbhalla12',
 		},
 	];
 	return (
 		<div className={`${styles.home} ${isMobile ? styles.mobile : ''}`}>
-			<div className={styles.social}>
-				{socialIcons.map(icon => (
-					<div key={icon.alt}>
-						<a href={icon.url} target='_blank' rel='noreferrer'>
-							<Image src={icon.src} layout='fill' alt={icon.alt} />
+			<div className={styles.socialContainer}>
+				<div className={styles.iconsContainer}>
+					{socialIcons.map(icon => (
+						<a
+							href={icon.url}
+							className={styles.iconLink}
+							target='_blank'
+							rel='noreferrer'
+							key={icon.alt}>
+							<icon.Component className={styles.icon} alt={icon.alt} />
 						</a>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 
 			<div className={styles.content}>

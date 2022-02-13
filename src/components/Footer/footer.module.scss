@@ -11,15 +11,16 @@
 	font-size: 14px;
 	transition: background-color 0.5s ease-in-out;
 
-	.imageContainer {
+	.logo {
 		height: 60px;
 		width: 60px;
-		position: relative;
+		fill: #465267;
 		margin-bottom: 10px;
+		cursor: pointer;
+		transition: fill 0.5s ease-in-out;
 
-		img {
-			filter: invert(31%) sepia(17%) saturate(709%) hue-rotate(180deg)
-				brightness(93%) contrast(91%);
+		&:hover {
+			fill: #eee;
 		}
 	}
 
@@ -27,16 +28,22 @@
 		display: flex;
 		margin: 20px 0;
 
-		img {
-			filter: invert(31%) sepia(17%) saturate(709%) hue-rotate(180deg)
-				brightness(93%) contrast(91%);
-		}
+		.iconLink {
+			-webkit-tap-highlight-color: transparent;
 
-		& > div {
-			height: 32px;
-			width: 32px;
-			position: relative;
-			margin: 0 5px;
+			&:hover {
+				.icon {
+					fill: #eee;
+				}
+			}
+
+			.icon {
+				height: 35px;
+				width: 35px;
+				transition: fill 0.5s ease-in-out;
+				margin: 0 5px;
+				fill: #465267;
+			}
 		}
 	}
 }
@@ -44,11 +51,22 @@
 :global(.light) .container {
 	background-color: #fff;
 
-	.imageContainer,
-	.socialContainer {
-		img {
-			filter: invert(6%) sepia(51%) saturate(0%) hue-rotate(261deg)
-				brightness(91%) contrast(84%);
+	.iconLink {
+		.icon {
+			fill: #424242;
+		}
+		&:hover {
+			.icon {
+				fill: #212121;
+			}
+		}
+	}
+
+	.logo {
+		fill: #424242;
+
+		&:hover {
+			fill: #212121;
 		}
 	}
 }
