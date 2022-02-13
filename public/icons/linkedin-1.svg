@@ -1,5 +1,1 @@
-<svg width="96" height="95" viewBox="0 0 96 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22.2385 33.5114H3V92H22.2385V33.5114Z" stroke="black" stroke-width="6"/>
-<path d="M78.6117 34.1973C78.4074 34.1335 78.2138 34.0643 77.9988 34.0058C77.7407 33.9474 77.4826 33.8995 77.2191 33.857C76.1975 33.6549 75.0791 33.5114 73.7671 33.5114C62.551 33.5114 55.4373 41.5775 53.093 44.6933V33.5114H33.8545V92H53.093V60.0971C53.093 60.0971 67.6321 40.0727 73.7671 54.7799C73.7671 67.908 73.7671 92 73.7671 92H93.0003V52.5308C93.0003 43.6937 86.876 36.3294 78.6117 34.1973Z" stroke="black" stroke-width="6"/>
-<path d="M12.4096 21.61C17.6063 21.61 21.8191 17.444 21.8191 12.305C21.8191 7.16599 17.6063 3 12.4096 3C7.2128 3 3 7.16599 3 12.305C3 17.444 7.2128 21.61 12.4096 21.61Z" stroke="black" stroke-width="6"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>

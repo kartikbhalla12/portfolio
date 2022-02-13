@@ -1,5 +1,1 @@
-<svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M89 65.8462C89 78.6138 78.6138 89 65.8462 89H26.1538C13.3862 89 3 78.6138 3 65.8462V26.1538C3 13.3862 13.3862 3 26.1538 3H65.8462C78.6138 3 89 13.3862 89 26.1538V65.8462Z" stroke="black" stroke-width="6"/>
-<path d="M44.5238 61.064C35.4078 61.064 27.9854 53.6415 27.9854 44.5255C27.9854 35.4029 35.4078 27.9871 44.5238 27.9871C53.6398 27.9871 61.0623 35.4029 61.0623 44.5255C61.0623 53.6415 53.6398 61.064 44.5238 61.064Z" stroke="black" stroke-width="6"/>
-<path d="M68.4069 23.0793C70.3542 23.0793 71.9329 21.5007 71.9329 19.5533C71.9329 17.606 70.3542 16.0273 68.4069 16.0273C66.4595 16.0273 64.8809 17.606 64.8809 19.5533C64.8809 21.5007 66.4595 23.0793 68.4069 23.0793Z" stroke="black" stroke-width="4"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>

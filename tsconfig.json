@@ -8,7 +8,9 @@
 			"@hooks/*": ["hooks/*"],
 			"@utils/*": ["utils/*"],
 			"@pages/*": ["pages/*"],
-			"@theme/*": ["theme/*"]
+			"@theme/*": ["theme/*"],
+			"@interfaces/*": ["interfaces/*"],
+			"@icons/*": ["icons/*"]
 		},
 		"allowJs": true,
 		"skipLibCheck": true,

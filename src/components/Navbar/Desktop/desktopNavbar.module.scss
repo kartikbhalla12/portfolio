@@ -26,15 +26,12 @@
 		transform: translateY(-80px);
 	}
 
-	.imageContainer {
+	.logo {
 		height: 40px;
 		width: 40px;
-		position: relative;
-
-		img {
-			filter: invert(66%) sepia(13%) saturate(605%) hue-rotate(187deg)
-				brightness(86%) contrast(89%);
-		}
+		fill: #8892b0;
+		cursor: pointer;
+		transition: fill 0.5s ease-in-out;
 	}
 
 	.linksContainer {
@@ -61,11 +58,8 @@
 	background-color: rgba(2552, 255, 255, 0.75);
 	box-shadow: 0 10px 30px -10px #fff;
 
-	.imageContainer {
-		img {
-			filter: invert(6%) sepia(51%) saturate(0%) hue-rotate(261deg)
-				brightness(91%) contrast(84%);
-		}
+	.logo {
+		fill: #0e121a;
 	}
 
 	.linksContainer {

@@ -2,16 +2,15 @@
 	display: flex;
 	align-items: center;
 
-	.iconContainer {
-		position: relative;
-		height: 16px;
-		width: 16px;
-		margin: 0 0.4rem;
-
-		img {
-			filter: invert(83%) sepia(21%) saturate(279%) hue-rotate(190deg)
-				brightness(99%) contrast(96%);
-		}
+	.icon {
+		height: 18px;
+		width: 18px;
+		margin: 0 0.75rem;
+		stroke: #8892b0;
+		fill: #8892b0;
+		-webkit-tap-highlight-color: transparent;
+		cursor: pointer;
+		transition: fill 0.5s ease-in-out, stroke 0.5s ease-in-out;
 	}
 
 	.switch {
@@ -64,11 +63,9 @@
 
 :global(.light) .themeSlider {
 	&.themeSelf {
-		.iconContainer {
-			img {
-				filter: invert(6%) sepia(51%) saturate(0%) hue-rotate(261deg)
-					brightness(91%) contrast(84%);
-			}
+		.icon {
+			stroke: #0e121a;
+			fill: #0e121a;
 		}
 
 		.slider:before {

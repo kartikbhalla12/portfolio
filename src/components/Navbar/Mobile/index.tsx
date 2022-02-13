@@ -1,12 +1,13 @@
 import { FC, useState } from 'react';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useSwipeable } from 'react-swipeable';
 
 import ThemeSlider from '@components/common/ThemeSlider';
 import useNavScroll from '@hooks/useNavScroll';
 import useBlur from '@hooks/useBlur';
+import { ThemeProps } from '@interfaces/theme';
 
-import { ThemeProps } from 'interfaces/theme';
+import Logo from '@icons/logo.svg';
 import styles from './mobileNavbar.module.scss';
 
 const MobileNavbar: FC<ThemeProps> = props => {
@@ -15,7 +16,7 @@ const MobileNavbar: FC<ThemeProps> = props => {
 	const NavHandler = useSwipeable({
 		onSwipedRight: () => setIsMenuOpen(false),
 	});
-
+	const router = useRouter();
 	useBlur(isMenuOpen);
 
 	return (
@@ -25,9 +26,11 @@ const MobileNavbar: FC<ThemeProps> = props => {
 					${isMenuOpen ? styles.transparent : ''} 
 					${hideNavbar ? styles.hide : ''} 
 					${isTop ? styles.top : ''}`}>
-				<div className={styles.logoContainer}>
-					<Image src='/icons/logo.svg' layout='fill' alt='kb-logo' />
-				</div>
+				<Logo
+					className={styles.logo}
+					onClick={() => router.push('/')}
+					alt='kb-logo'
+				/>
 				<div
 					className={`${styles.menuButtonContainer} ${
 						isMenuOpen ? styles.isMenuOpen : ''

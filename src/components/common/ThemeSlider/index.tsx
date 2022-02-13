@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { FC } from 'react';
 
 import { ThemeSliderProps } from './themeSlider.interface';
+import Sun from '@icons/test/sun.svg';
+import Moon from '@icons/test/moon.svg';
+
 import styles from './index.module.scss';
 
 const ThemeSlider: FC<ThemeSliderProps> = ({
@@ -12,9 +15,7 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 	return (
 		<div
 			className={`${styles.themeSlider} ${themeSelf ? styles.themeSelf : ''}`}>
-			<div className={styles.iconContainer}>
-				<Image src='/icons/moon.svg' layout='fill' alt='moon' />
-			</div>
+			<Moon className={styles.icon} alt='moon' />
 			<label className={styles.switch}>
 				<input
 					type='checkbox'
@@ -28,9 +29,8 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 
 				<span className={styles.slider} />
 			</label>
-			<div className={styles.iconContainer}>
-				<Image src='/icons/sun.svg' layout='fill' alt='sun' />
-			</div>
+
+			<Sun className={styles.icon} alt='sun' />
 		</div>
 	);
 };

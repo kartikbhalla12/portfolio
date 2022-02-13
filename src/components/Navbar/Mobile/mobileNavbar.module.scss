@@ -37,15 +37,12 @@
 			display: flex;
 		}
 
-		.logoContainer {
-			height: 35px;
-			width: 17.5px;
-			position: relative;
-
-			img {
-				filter: invert(66%) sepia(13%) saturate(605%) hue-rotate(187deg)
-					brightness(86%) contrast(89%);
-			}
+		.logo {
+			height: 40px;
+			width: 40px;
+			fill: #8892b0;
+			cursor: pointer;
+			transition: fill 0.5s ease-in-out;
 		}
 
 		.menuButtonContainer {
@@ -157,11 +154,8 @@
 		}
 	}
 
-	.logoContainer {
-		img {
-			filter: invert(6%) sepia(51%) saturate(0%) hue-rotate(261deg)
-				brightness(91%) contrast(84%);
-		}
+	.logo {
+		fill: #0e121a;
 	}
 
 	.menuButtonContainer {
