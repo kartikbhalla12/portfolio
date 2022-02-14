@@ -15,7 +15,11 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 	return (
 		<div
 			className={`${styles.themeSlider} ${themeSelf ? styles.themeSelf : ''}`}>
-			<Moon className={styles.icon} alt='moon' />
+			<Moon
+				className={styles.icon}
+				alt='moon'
+				onClick={() => onThemeChange('dark')}
+			/>
 			<label className={styles.switch}>
 				<input
 					type='checkbox'
@@ -30,7 +34,11 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 				<span className={styles.slider} />
 			</label>
 
-			<Sun className={styles.icon} alt='sun' />
+			<Sun
+				className={styles.icon}
+				alt='sun'
+				onClick={() => onThemeChange('light')}
+			/>
 		</div>
 	);
 };
