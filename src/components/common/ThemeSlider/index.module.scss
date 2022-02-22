@@ -2,18 +2,26 @@
 	display: flex;
 	align-items: center;
 
-	.icon {
-		height: 18px;
-		width: 18px;
-		margin: 0 0.75rem;
-		stroke: #8892b0;
-		fill: #8892b0;
+	button {
+		background-color: transparent;
+		border: none;
+		cursor: none;
+
+		.icon {
+			height: 18px;
+			width: 18px;
+			margin: 0 0.75rem;
+			stroke: #8892b0;
+			fill: #8892b0;
 		cursor: pointer;
-		transition: fill 0.5s ease-in-out, stroke 0.5s ease-in-out;
+			transition: fill 0.5s ease-in-out, stroke 0.5s ease-in-out;
+		}
 
 		&:hover {
-			fill: #fa8b00;
-			stroke: #fa8b00;
+			.icon {
+				fill: #fa8b00;
+				stroke: #fa8b00;
+			}
 		}
 	}
 
@@ -67,13 +75,17 @@
 
 :global(.light) .themeSlider {
 	&.themeSelf {
-		.icon {
-			stroke: #424242;
-			fill: #424242;
+		button {
+			.icon {
+				stroke: #424242;
+				fill: #424242;
+			}
 
 			&:hover {
-				fill: #212121;
-				stroke: #212121;
+				.icon {
+					fill: #212121;
+					stroke: #212121;
+				}
 			}
 		}
 

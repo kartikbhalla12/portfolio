@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import ThemeSlider from '@components/common/ThemeSlider';
 import useNavScroll from '@hooks/useNavScroll';
@@ -10,18 +10,18 @@ import styles from './desktopNavbar.module.scss';
 
 const DesktopNavbar: FC<ThemeProps> = props => {
 	const { hideNavbar, isTop } = useNavScroll(65);
-	const router = useRouter();
 
 	return (
 		<div
 			className={`${styles.container} 	
 				${hideNavbar && styles.hide} 
 				${isTop && styles.top}`}>
-			<Logo
-				className={styles.logo}
-				onClick={() => router.push('/')}
-				alt='kb-logo'
-			/>
+			<Link href='/' passHref>
+				<a className={styles.logo}>
+					<Logo alt='kb-logo' className={styles.icon} />
+				</a>
+			</Link>
+
 			<div className={styles.linksContainer}>
 				<div className={`${styles.link} ${styles.active}`}>Home</div>
 				<div className={styles.link}>About</div>

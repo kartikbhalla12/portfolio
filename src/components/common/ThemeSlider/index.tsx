@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FC } from 'react';
 
 import { ThemeSliderProps } from './themeSlider.interface';
@@ -12,33 +11,27 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 	onThemeChange,
 	themeSelf,
 }) => {
+	const toggleTheme = () => {
+		if (theme === 'light') onThemeChange('dark');
+		else onThemeChange('light');
+	};
+
 	return (
 		<div
 			className={`${styles.themeSlider} ${themeSelf ? styles.themeSelf : ''}`}>
-			<Moon
-				className={styles.icon}
-				alt='moon'
-				onClick={() => onThemeChange('dark')}
-			/>
-			<label className={styles.switch}>
-				<input
-					type='checkbox'
-					checked={theme === 'light'}
-					onChange={e => {
-						const checked = e.currentTarget.checked;
-						if (checked) onThemeChange('light');
-						else onThemeChange('dark');
-					}}
-				/>
+			<button onClick={() => onThemeChange('dark')}>
+				<Moon className={styles.icon} alt='moon' />
+			</button>
+			<button onClick={toggleTheme}>
+				<label className={styles.switch}>
+					<input type='checkbox' checked={theme === 'light'} readOnly />
+					<span className={styles.slider} />
+				</label>
+			</button>
 
-				<span className={styles.slider} />
-			</label>
-
-			<Sun
-				className={styles.icon}
-				alt='sun'
-				onClick={() => onThemeChange('light')}
-			/>
+			<button onClick={() => onThemeChange('light')}>
+				<Sun className={styles.icon} alt='sun' />
+			</button>
 		</div>
 	);
 };
