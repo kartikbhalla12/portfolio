@@ -5,7 +5,7 @@
 	button {
 		background-color: transparent;
 		border: none;
-		cursor: none;
+		cursor: pointer;
 
 		.icon {
 			height: 18px;
@@ -34,6 +34,7 @@
 		height: 25px;
 		margin: 0 0.4rem;
 		cursor: pointer;
+		pointer-events: none;
 		-webkit-tap-highlight-color: transparent;
 
 		input {
