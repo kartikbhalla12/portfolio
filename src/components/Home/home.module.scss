@@ -86,6 +86,7 @@
 			.iconLink {
 				-webkit-tap-highlight-color: transparent;
 				margin: 0.6rem 0;
+				cursor: none;
 				&:hover {
 					.icon {
 						stroke: #fa8b00;
@@ -93,10 +94,11 @@
 				}
 				.icon {
 					height: 22px;
-					width: 22px;
+					width: 20px;
 					transition: stroke 0.5s ease-in-out;
 					margin: 0 5px;
 					stroke: #ccd6f6;
+					pointer-events: none;
 				}
 			}
 		}
@@ -115,6 +117,7 @@
 			transition: color 0.5s ease-in-out;
 			span {
 				color: #fa8b00;
+				pointer-events: none;
 			}
 		}
 

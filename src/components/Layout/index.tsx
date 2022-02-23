@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 import Footer from '@components/Footer';
 import Navbar from '@components/Navbar';
+import CustomCursor from '@components/common/CustomCursor';
+
 import useTheme from '@hooks/useTheme';
 
 import { LayoutProps } from './layout.interface';
@@ -17,6 +19,7 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 				{children}
 				<Footer />
 			</div>
+			{!isMobile && <CustomCursor />}
 		</>
 	);
 };

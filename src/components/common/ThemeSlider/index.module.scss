@@ -5,16 +5,16 @@
 	button {
 		background-color: transparent;
 		border: none;
-		cursor: pointer;
+		cursor: none;
+		margin: 0 0.5rem;
 
 		.icon {
 			height: 18px;
 			width: 18px;
-			margin: 0 0.75rem;
 			stroke: #8892b0;
 			fill: #8892b0;
-		cursor: pointer;
 			transition: fill 0.5s ease-in-out, stroke 0.5s ease-in-out;
+			pointer-events: none;
 		}
 
 		&:hover {
@@ -32,8 +32,7 @@
 		align-items: center;
 		width: 35px;
 		height: 25px;
-		margin: 0 0.4rem;
-		cursor: pointer;
+		cursor: none;
 		pointer-events: none;
 		-webkit-tap-highlight-color: transparent;
 
