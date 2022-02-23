@@ -1,10 +1,14 @@
 import { FC, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useSwipeable } from 'react-swipeable';
 
 import ThemeSlider from '@components/common/ThemeSlider';
+import { navbarLinks } from '@components/Navbar';
+
 import useNavScroll from '@hooks/useNavScroll';
 import useBlur from '@hooks/useBlur';
+
 import { ThemeProps } from '@interfaces/theme';
 
 import Logo from '@icons/logo.svg';
@@ -13,10 +17,10 @@ import styles from './mobileNavbar.module.scss';
 const MobileNavbar: FC<ThemeProps> = props => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { hideNavbar, isTop } = useNavScroll(45);
+	const router = useRouter();
 	const NavHandler = useSwipeable({
 		onSwipedRight: () => setIsMenuOpen(false),
 	});
-	const router = useRouter();
 	useBlur(isMenuOpen);
 
 	return (
@@ -26,32 +30,43 @@ const MobileNavbar: FC<ThemeProps> = props => {
 					${isMenuOpen ? styles.transparent : ''} 
 					${hideNavbar ? styles.hide : ''} 
 					${isTop ? styles.top : ''}`}>
-				<Logo
-					className={styles.logo}
-					onClick={() => router.push('/')}
-					alt='kb-logo'
-				/>
+				<Link href='/' passHref>
+					<a className={styles.logo}>
+						<Logo alt='kb-logo' className={styles.icon} />
+					</a>
+				</Link>
+
 				<div
 					className={`${styles.menuButtonContainer} ${
 						isMenuOpen ? styles.isMenuOpen : ''
 					}`}
 					onClick={() => setIsMenuOpen(!isMenuOpen)}>
-					<div className={styles.menuButtonBurger}></div>
+					<div className={styles.menuButtonBurger} />
 				</div>
 			</div>
 			<div
-				className={`${styles.sideNavbarContainer} ${
-					isMenuOpen ? styles.isMenuOpen : ''
-				}`}
+				className={`
+					${styles.sideNavbarContainer}
+					${isMenuOpen ? styles.isMenuOpen : ''}
+				`}
 				onClick={() => setIsMenuOpen(false)}
 				{...NavHandler}>
 				<div className={styles.sideNavbar} onClick={e => e.stopPropagation()}>
-					<div className={`${styles.link} ${styles.active}`}>Home</div>
-					<div className={styles.link}>About</div>
-					<div className={styles.link}>Experience</div>
-					<div className={styles.link}>Projects</div>
-					<div className={styles.link}>Blogs</div>
-					<div className={`${styles.link} ${styles.resume}`}>Resume</div>
+					<div className={styles.linksContainer}>
+						{navbarLinks.map(link => (
+							<Link key={link.title} href={link.href} passHref>
+								<a
+									target={link.target || ''}
+									rel={link.rel || ''}
+									className={`${
+										router.asPath === link.href ? styles.active : ''
+									} ${link.title === 'Resume' ? styles.accentButton : ''}`}>
+									{link.title}
+								</a>
+							</Link>
+						))}
+					</div>
+
 					<div className={styles.themeSliderContainer}>
 						<ThemeSlider {...props} />
 					</div>

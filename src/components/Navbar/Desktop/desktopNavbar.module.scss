@@ -1,6 +1,5 @@
 .container {
 	padding: 10px 40px;
-	// background-color: #0e121a;
 	color: #a6afc0;
 	display: flex;
 	justify-content: space-between;
@@ -45,16 +44,21 @@
 	.linksContainer {
 		display: flex;
 
-		.active {
-			color: #fff;
-		}
-		.link {
-			padding: 20px;
+		a {
+			margin: 20px;
 			transition: color 0.5s ease-in-out;
-		}
-		.resume {
-			padding-right: 0;
-			color: #fa8b00;
+
+			&.active {
+				color: #fff;
+			}
+
+			&:hover {
+				color: #bbb;
+			}
+
+			&.accent {
+				color: #fa8b00;
+			}
 		}
 	}
 
@@ -78,18 +82,18 @@
 		}
 	}
 
-	.linksContainer {
-		display: flex;
+	.linksContainer a {
+		color: #9c9c9c;
 
-		.link {
-			padding: 20px;
-			color: #9c9c9c;
-		}
-		.active {
+		&.active {
 			color: #0e121a;
 		}
-		.resume {
-			padding-right: 0;
+
+		&:hover {
+			color: #bbb;
+		}
+
+		&.accent {
 			color: #fa8b00;
 		}
 	}

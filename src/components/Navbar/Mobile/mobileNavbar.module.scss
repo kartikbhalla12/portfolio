@@ -38,13 +38,18 @@
 		}
 
 		.logo {
-			height: 40px;
-			width: 40px;
-			fill: #8892b0;
-			transition: fill 0.5s ease-in-out;
-
 			&:hover {
-				fill: #eee;
+				.icon {
+					fill: #eee;
+				}
+			}
+
+			.icon {
+				height: 40px;
+				width: 40px;
+				fill: #8892b0;
+				pointer-events: none;
+				transition: fill 0.5s ease-in-out;
 			}
 		}
 
@@ -123,23 +128,34 @@
 			width: 80%;
 			box-shadow: -10px 0px 30px -15px rgba(2, 12, 28, 0.7);
 
-			.link {
-				padding: 25px;
-			}
+			.linksContainer {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 
-			.active {
-				color: #fff;
-			}
-			.resume {
-				margin-top: 20px;
-				color: #fa8b00;
-				border: 2px solid #fa8b00;
-				padding: 20px 60px;
-				border-radius: 8px;
+				a {
+					margin: 25px;
+					transition: color 0.5s ease-in-out;
+
+					&.active {
+						color: #fff;
+					}
+
+					&:hover {
+						color: #bbb;
+					}
+
+					&.accentButton {
+						color: #fa8b00;
+						border: 2px solid #fa8b00;
+						padding: 20px 60px;
+						border-radius: 8px;
+					}
+				}
 			}
 
 			.themeSliderContainer {
-				margin-top: 4rem;
+				margin-top: 2rem;
 			}
 		}
 	}
@@ -156,10 +172,13 @@
 	}
 
 	.logo {
-		fill: #424242;
-
 		&:hover {
-			fill: #212121;
+			.icon {
+				fill: #212121;
+			}
+		}
+		.icon {
+			fill: #424242;
 		}
 	}
 
