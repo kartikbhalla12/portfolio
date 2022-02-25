@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import ThemeSlider from '@components/common/ThemeSlider';
-import { navbarLinks } from '@components/Navbar';
+import { navbarLinks } from '@components/common/Navbar';
 
 import useNavScroll from '@hooks/useNavScroll';
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import DesktopNavbar from '@components/Navbar/Desktop';
-import MobileNavbar from '@components/Navbar/Mobile';
+import DesktopNavbar from '@components/common/Navbar/Desktop';
+import MobileNavbar from '@components/common/Navbar/Mobile';
 
 import { NavbarProps } from './navbar.interface';
 

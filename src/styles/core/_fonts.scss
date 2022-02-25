@@ -1,60 +1,5 @@
-html,
-body {
-	padding: 0;
-	margin: 0;
-	background-color: #0e121a;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	scroll-behavior: smooth;
-	cursor: none;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-	cursor: none;
-}
-
-button {
-	cursor: none;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-svg {
-	-webkit-tap-highlight-color: transparent;
-}
-
-html {
-	scrollbar-width: thin;
-	scrollbar-color: #465267 #0e121a;
-
-	body::-webkit-scrollbar {
-		width: 12px;
-	}
-	body::-webkit-scrollbar-track {
-		background: #0e121a;
-	}
-	body::-webkit-scrollbar-thumb {
-		background-color: #465267;
-		border: 3px solid #0e121a;
-		border-radius: 10px;
-	}
-}
-
-html.light {
-	scrollbar-color: #414141 #fff;
-
-	body::-webkit-scrollbar-track {
-		background: #fff;
-	}
-	body::-webkit-scrollbar-thumb {
-		background-color: #414141;
-		border: 3px solid #fff;
-	}
-}
+// $primaryFont: 'Noyh Geometric', 'Gill Sans', 'Gill Sans MT', Calibri,
+// 	'Trebuchet MS', sans-serif;
 
 @font-face {
 	font-family: 'Cera Pro';
@@ -101,4 +46,48 @@ html.light {
 	unicode-range: U+000-5FF;
 	src: local('Cera Pro'), url('/fonts/cerapro-black.woff2') format('woff2'),
 		url('/fonts/cerapro-black.woff') format('woff');
+}
+
+$primaryFont: 'Cera Pro';
+
+$secondaryFont: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+$fonts: (
+	primary: $primaryFont,
+	secondary: $secondaryFont,
+);
+
+@function font($fontName) {
+	@return map-get($map: $fonts, $key: $fontName);
+}
+
+$sizes: (
+	tiny: 0.6rem,
+	small: 0.8rem,
+	regular: 1rem,
+	medium: 1.2rem,
+	large: 1.4rem,
+	h5: 1.6rem,
+	h4: 1.8rem,
+	h3: 2rem,
+	h2: 2.2rem,
+	h1: 2.4rem,
+	huge: 2.6rem,
+);
+
+@function size($size) {
+	@return map-get($map: $sizes, $key: $size);
+}
+
+$weights: (
+	light: 300,
+	regular: 400,
+	medium: 500,
+	bold: 600,
+	black: 900,
+);
+
+@function weight($weight) {
+	@return map-get($map: $weights, $key: $weight);
 }

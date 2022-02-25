@@ -1,8 +1,10 @@
+@import '@styles/core';
+
 .customCursor {
 	.cursorDot {
 		height: 10px;
 		width: 10px;
-		z-index: 9999;
+		z-index: zIndex(level3);
 		position: fixed;
 		border-radius: 50%;
 		top: 0;
@@ -16,7 +18,7 @@
 
 	.cursorRing {
 		background-color: rgba(66, 66, 66, 0.4);
-		z-index: 999;
+		z-index: zIndex(level2);
 		position: fixed;
 		top: 0;
 		left: 0;

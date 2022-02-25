@@ -1,3 +1,65 @@
+@import '@styles/partials';
+
+@mixin mobile {
+	padding: 114px 20px 20px 20px;
+
+	.socialContainer,
+	.email {
+		display: none;
+	}
+
+	.content {
+		padding: 0;
+		grid-template-columns: 100%;
+
+		.greet {
+			grid-row: 1/2;
+
+			h3 {
+				font-size: 20px;
+				padding-bottom: 8px;
+			}
+			h1 {
+				font-size: 42px;
+			}
+			h2 {
+				font-size: 22px;
+				padding-bottom: 8px;
+			}
+		}
+		.about {
+			grid-row: 3/4;
+
+			p {
+				font-size: 16px;
+				font-weight: 400;
+				color: #8892b0;
+
+				span {
+					color: #fa8b00;
+				}
+			}
+
+			button {
+				font-size: 16px;
+				margin: 20px 0;
+			}
+		}
+		.imageContainer {
+			grid-column: 1/2;
+			grid-row: 2/3;
+			justify-self: left;
+			width: 280px;
+			height: 357px;
+			margin: 20px 0;
+		}
+	}
+}
+
+%mobile {
+	@include mobile;
+}
+
 .home {
 	display: flex;
 	background-color: #0e121a;
@@ -8,60 +70,8 @@
 	transition: background-color 0.5s ease-in-out;
 
 	&.mobile {
+		@extend %mobile;
 		min-height: calc(100vh - 56px) !important;
-		padding: 114px 20px 20px 20px;
-
-		.socialContainer,
-		.email {
-			display: none;
-		}
-
-		.content {
-			padding: 0;
-			grid-template-columns: 100%;
-
-			.greet {
-				grid-row: 1/2;
-
-				h3 {
-					font-size: 20px;
-					padding-bottom: 8px;
-				}
-				h1 {
-					font-size: 42px;
-				}
-				h2 {
-					font-size: 22px;
-					padding-bottom: 8px;
-				}
-			}
-			.about {
-				grid-row: 3/4;
-
-				p {
-					font-size: 16px;
-					font-weight: 400;
-					color: #8892b0;
-
-					span {
-						color: #fa8b00;
-					}
-				}
-
-				button {
-					font-size: 16px;
-					margin: 20px 0;
-				}
-			}
-			.imageContainer {
-				grid-column: 1/2;
-				grid-row: 2/3;
-				justify-self: left;
-				width: 280px;
-				height: 357px;
-				margin: 20px 0;
-			}
-		}
 	}
 
 	.socialContainer {
@@ -181,16 +191,10 @@
 			}
 
 			button {
-				font-family: 'Cera Pro';
-				font-size: 16px;
-				font-weight: 400;
-				display: block;
+				@extend %accentButton;
+
 				margin: 25px 0;
-				background-color: transparent;
-				border: 1px solid #fa8b00;
-				color: #fa8b00;
 				padding: 12px 20px;
-				border-radius: 6px;
 			}
 		}
 		.imageContainer {
@@ -204,24 +208,16 @@
 		}
 	}
 
-	@media screen and (max-width: 16500px) {
-		.content {
-			padding: 0px 150px;
-		}
-	}
+	// @media screen and (max-width: 1650px) {
+	// 	.content {
+	// 		padding: 0px 150px;
+	// 	}
+	// }
 	@media screen and (max-width: 1550px) {
 		.content {
 			padding: 0px 100px;
 
 			.greet {
-				// h3 {
-				// 	font-size: 20px;
-				// 	padding-bottom: 14px;
-				// }
-				// h1 {
-				// 	font-size: 50px;
-				// 	margin: 0;
-				// }
 				h2 {
 					font-size: 38px;
 					margin: 0;
@@ -271,8 +267,6 @@
 	}
 	@media screen and (max-width: 1050px) {
 		.content {
-			padding: 0px 100px;
-
 			.greet {
 				h3 {
 					font-size: 18px;
@@ -320,55 +314,8 @@
 		}
 	}
 	@media screen and (max-width: 750px) {
+		@include mobile;
 		min-height: 100vh;
-		padding: 85px 20px 20px 20px;
-
-		.content {
-			grid-template-columns: 100%;
-			padding: 0;
-
-			.greet {
-				grid-row: 1/2;
-
-				h3 {
-					font-size: 20px;
-					padding-bottom: 8px;
-				}
-				h1 {
-					font-size: 42px;
-				}
-				h2 {
-					font-size: 22px;
-					padding-bottom: 8px;
-				}
-			}
-			.about {
-				grid-row: 3/4;
-
-				p {
-					font-size: 16px;
-					font-weight: 400;
-					color: #8892b0;
-
-					span {
-						color: #fa8b00;
-					}
-				}
-
-				button {
-					font-size: 16px;
-					margin: 20px 0;
-				}
-			}
-			.imageContainer {
-				grid-column: 1/2;
-				grid-row: 2/3;
-				justify-self: left;
-				width: 280px;
-				height: 357px;
-				margin: 20px 0;
-			}
-		}
 	}
 }
 

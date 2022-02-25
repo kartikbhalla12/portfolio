@@ -1,3 +1,5 @@
+@import '@styles/core';
+
 .container {
 	padding: 10px 40px;
 	color: #a6afc0;
@@ -12,7 +14,7 @@
 	width: 100%;
 	position: fixed;
 	top: 0;
-	z-index: 99;
+	z-index: zIndex(level1);
 	background-color: rgba(14, 18, 26, 0.75);
 	box-shadow: 0 10px 30px -10px #0e121a;
 	transition: background-color 0.5s ease-in-out, transform 0.15s ease-in-out,

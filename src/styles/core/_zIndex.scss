@@ -1,0 +1,14 @@
+$levels: (
+	level0: -1,
+	level1: 0,
+	level2: 1,
+	level3: 2,
+	level4: 3,
+	level5: 4,
+	level6: 5,
+	level7: 6,
+);
+
+@function zIndex($level) {
+	@return map-get($map: $levels, $key: $level);
+}

@@ -1,0 +1,25 @@
+$breakpoints: (
+	desktop-lg: 1800px,
+	desktop-md: 1600px,
+	desktop-sm: 1440px,
+	laptop-lg: 1366px,
+	laptop-md: 1280px,
+	laptop-sm: 1024px,
+	tablet-lg: 850px,
+	tablet-md: 768px,
+	tablet-sm: 630px,
+	mobile-lg: 550px,
+	mobile-md: 480px,
+	mobile-sm: 360px,
+	foldable: 330px,
+);
+
+@function breakpoints($device) {
+	@return map-get($map: $breakpoints, $key: $device);
+}
+
+@mixin breakpoint($device) {
+	@media screen and (max-width: breakpoints($device)) {
+		@content;
+	}
+}

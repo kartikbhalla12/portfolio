@@ -1,0 +1,20 @@
+@import '@styles/core';
+
+%baseButton {
+	background-color: transparent;
+	border: none;
+	cursor: none;
+	font-weight: 400;
+}
+
+%accentButton {
+	@extend %baseButton;
+
+	display: block;
+	color: #fa8b00;
+	border: 2px solid #fa8b00;
+	border-radius: 8px;
+	font-family: font(primary);
+	font-size: 16px;
+	font-weight: 400;
+}

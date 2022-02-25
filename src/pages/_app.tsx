@@ -1,4 +1,4 @@
-import '@theme/globals.scss';
+import '@styles/globals.scss';
 import Layout from '@components/Layout';
 import type { AppContext, AppProps } from 'next/app';
 import isMobile from '@utils/isMobile';

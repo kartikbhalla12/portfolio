@@ -1,8 +1,11 @@
+@import '@styles/core';
+@import '@styles/partials';
+
 .container {
 	width: 100%;
 	position: fixed;
 	top: 0;
-	z-index: 99;
+	z-index: zIndex(level2);
 
 	.topNavbarContainer {
 		padding: 15px 20px;
@@ -54,7 +57,7 @@
 		}
 
 		.menuButtonContainer {
-			z-index: 999;
+			z-index: zIndex(level3);
 			position: relative;
 			display: flex;
 			justify-content: right;
@@ -146,10 +149,8 @@
 					}
 
 					&.accentButton {
-						color: #fa8b00;
-						border: 2px solid #fa8b00;
+						@extend %accentButton;
 						padding: 20px 60px;
-						border-radius: 8px;
 					}
 				}
 			}

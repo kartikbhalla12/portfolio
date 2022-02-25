@@ -19,17 +19,21 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 	return (
 		<div
 			className={`${styles.themeSlider} ${themeSelf ? styles.themeSelf : ''}`}>
-			<button onClick={() => onThemeChange('dark')}>
+			<button
+				className={styles.iconButton}
+				onClick={() => onThemeChange('dark')}>
 				<Moon className={styles.icon} alt='moon' />
 			</button>
-			<button onClick={toggleTheme}>
+			<button className={styles.switchButton} onClick={toggleTheme}>
 				<label className={styles.switch}>
 					<input type='checkbox' checked={theme === 'light'} readOnly />
 					<span className={styles.slider} />
 				</label>
 			</button>
 
-			<button onClick={() => onThemeChange('light')}>
+			<button
+				className={styles.iconButton}
+				onClick={() => onThemeChange('light')}>
 				<Sun className={styles.icon} alt='sun' />
 			</button>
 		</div>

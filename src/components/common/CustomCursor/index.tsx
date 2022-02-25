@@ -11,11 +11,10 @@ const CustomCursor: FC = () => {
 		setLeft(e.clientX);
 		setTop(e.clientY);
 
+		const elementsList = ['a', 'button', 'img'];
 		const tagName = (e.target as HTMLElement).tagName;
-		if (tagName)
-			setIsLink(
-				tagName.toLowerCase() === 'a' || tagName.toLowerCase() === 'button'
-			);
+
+		if (tagName) setIsLink(elementsList.includes(tagName.toLowerCase()));
 	};
 
 	useEffect(() => {
