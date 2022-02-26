@@ -175,4 +175,10 @@
 			}
 		}
 	}
+
+	@media screen and (min-width: 750px) {
+		.sideNavbarContainer.isMenuOpen {
+			right: -100%;
+		}
+	}
 }
