@@ -62,7 +62,6 @@
 
 .home {
 	display: flex;
-	background-color: #0e121a;
 	color: white;
 	min-height: 100vh;
 	padding: 100px 40px 20px 40px;
@@ -82,10 +81,13 @@
 			content: '';
 			position: relative;
 			display: block;
-			border-top: 200px solid #ccd6f6;
 			transition: border-color 0.5s ease-in-out;
 			width: 2px;
 			left: 48%;
+
+			@include theme {
+				border-top: 200px solid themedColor('homeIcon');
+			}
 		}
 
 		.iconsContainer {
@@ -97,18 +99,23 @@
 				-webkit-tap-highlight-color: transparent;
 				margin: 0.6rem 0;
 				cursor: none;
-				&:hover {
-					.icon {
-						stroke: #fa8b00;
-					}
-				}
+
 				.icon {
 					height: 22px;
 					width: 20px;
 					transition: stroke 0.5s ease-in-out;
 					margin: 0 5px;
-					stroke: #ccd6f6;
 					pointer-events: none;
+
+					@include theme {
+						stroke: themedColor('homeIcon');
+					}
+				}
+
+				&:hover .icon {
+					@include theme {
+						stroke: themedColor('accent');
+					}
 				}
 			}
 		}
@@ -120,14 +127,21 @@
 		right: 40px;
 		width: 25px;
 		p {
-			color: #ccd6f6;
 			margin: 0;
 			transform: rotate(90deg) translate(-250px);
 			letter-spacing: 2.5px;
 			transition: color 0.5s ease-in-out;
+
+			@include theme {
+				color: themedColor('homeIcon');
+			}
+
 			span {
-				color: #fa8b00;
 				pointer-events: none;
+
+				@include theme {
+					color: themedColor('accent');
+				}
 			}
 		}
 
@@ -135,10 +149,13 @@
 			content: '';
 			position: relative;
 			display: block;
-			border-top: 200px solid #ccd6f6;
 			transition: border-color 0.5s ease-in-out;
 			width: 2px;
 			left: 48%;
+
+			@include theme {
+				border-top: 200px solid themedColor('homeIcon');
+			}
 		}
 	}
 
@@ -157,21 +174,33 @@
 			h3 {
 				font-size: 24px;
 				font-weight: 400;
-				color: #fa8b00;
 				margin: 0;
 				padding-bottom: 14px;
+				transition: color 0.5s ease-in-out;
+
+				@include theme {
+					color: themedColor('accent');
+				}
 			}
 			h1 {
 				font-size: 52px;
 				font-weight: 500;
-				color: #ccd6f6;
 				margin: 0;
+				transition: color 0.5s ease-in-out;
+
+				@include theme {
+					color: themedColor('heading');
+				}
 			}
 			h2 {
 				font-size: 45px;
 				font-weight: 500;
-				color: #8892b0;
 				margin: 0;
+				transition: color 0.5s ease-in-out;
+
+				@include theme {
+					color: themedColor('subHeading');
+				}
 			}
 		}
 		.about {
@@ -182,8 +211,11 @@
 			p {
 				font-size: 18px;
 				font-weight: 400;
-				color: #8892b0;
-				// margin: 0;
+				transition: color 0.5s ease-in-out;
+
+				@include theme {
+					color: themedColor('text');
+				}
 
 				span {
 					color: #fa8b00;
@@ -316,33 +348,5 @@
 	@media screen and (max-width: 750px) {
 		@include mobile;
 		min-height: 100vh;
-	}
-}
-
-:global(.light) .home {
-	background-color: white;
-
-	.socialContainer {
-		&:after {
-			border-top: 200px solid #0e121a;
-		}
-
-		.iconLink > .icon {
-			stroke: #424242;
-		}
-	}
-
-	.email {
-		p {
-			color: #0e121a;
-
-			span {
-				color: #fa8b00;
-			}
-		}
-
-		&:after {
-			border-top: 200px solid #0e121a;
-		}
 	}
 }

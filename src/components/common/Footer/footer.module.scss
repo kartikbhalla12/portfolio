@@ -2,8 +2,7 @@
 
 .container {
 	padding: 30px 40px;
-	background-color: #0e121a;
-	color: #465267;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -13,15 +12,24 @@
 	font-size: 14px;
 	transition: background-color 0.5s ease-in-out;
 
+	@include theme {
+		color: themedColor('textMuted');
+	}
+
 	.logo {
 		height: 60px;
 		width: 60px;
-		fill: #465267;
 		margin-bottom: 10px;
 		transition: fill 0.5s ease-in-out;
 
+		@include theme {
+			fill: themedColor('footerIcon');
+		}
+
 		&:hover {
-			fill: #eee;
+			@include theme {
+				fill: themedColor('footerIconHover');
+			}
 		}
 	}
 
@@ -32,43 +40,23 @@
 		.iconLink {
 			-webkit-tap-highlight-color: transparent;
 
-			&:hover {
-				.icon {
-					fill: #eee;
-				}
-			}
-
 			.icon {
 				height: 35px;
 				width: 35px;
 				transition: fill 0.5s ease-in-out;
 				margin: 0 5px;
-				fill: #465267;
 				pointer-events: none;
+
+				@include theme {
+					fill: themedColor('footerIcon');
+				}
 			}
-		}
-	}
-}
 
-:global(.light) .container {
-	background-color: #fff;
-
-	.iconLink {
-		.icon {
-			fill: #424242;
-		}
-		&:hover {
-			.icon {
-				fill: #212121;
+			&:hover .icon {
+				@include theme {
+					fill: themedColor('footerIconHover');
+				}
 			}
-		}
-	}
-
-	.logo {
-		fill: #424242;
-
-		&:hover {
-			fill: #212121;
 		}
 	}
 }

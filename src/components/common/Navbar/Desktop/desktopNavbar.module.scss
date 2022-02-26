@@ -10,15 +10,17 @@
 	font-weight: 500;
 	font-size: 16px;
 	transition: background-color 0.5s ease-in-out;
-
 	width: 100%;
 	position: fixed;
 	top: 0;
 	z-index: zIndex(level1);
-	background-color: rgba(14, 18, 26, 0.75);
-	box-shadow: 0 10px 30px -10px #0e121a;
 	transition: background-color 0.5s ease-in-out, transform 0.15s ease-in-out,
 		padding 0.15s ease-in-out, box-shadow 0.5s ease-in-out;
+
+	@include theme {
+		background-color: themedColor('navbarBackground');
+		box-shadow: 0 10px 30px -10px themedColor('navbarBoxShadow');
+	}
 
 	&.top {
 		padding: 20px 40px;
@@ -28,18 +30,21 @@
 	}
 
 	.logo {
-		&:hover {
-			.icon {
-				fill: #eee;
-			}
-		}
-
 		.icon {
 			height: 40px;
 			width: 40px;
-			fill: #8892b0;
 			pointer-events: none;
 			transition: fill 0.5s ease-in-out;
+
+			@include theme {
+				fill: themedColor('navbarLogo');
+			}
+		}
+
+		&:hover .icon {
+			@include theme {
+				fill: themedColor('navbarLogoHover');
+			}
 		}
 	}
 
@@ -49,54 +54,31 @@
 		a {
 			margin: 20px;
 			transition: color 0.5s ease-in-out;
+			@include theme {
+				color: themedColor('navbarLink');
+			}
 
 			&.active {
-				color: #fff;
+				@include theme {
+					color: themedColor('navbarLinkActive');
+				}
 			}
 
 			&:hover {
-				color: #bbb;
+				@include theme {
+					color: themedColor('navbarLinkHover');
+				}
 			}
 
 			&.accent {
-				color: #fa8b00;
+				@include theme {
+					color: themedColor('accent');
+				}
 			}
 		}
 	}
 
 	@media screen and (max-width: 750px) {
 		display: none;
-	}
-}
-
-:global(.light) .container {
-	background-color: rgba(2552, 255, 255, 0.75);
-	box-shadow: 0 10px 30px -10px #fff;
-
-	.logo {
-		&:hover {
-			.icon {
-				fill: #212121;
-			}
-		}
-		.icon {
-			fill: #424242;
-		}
-	}
-
-	.linksContainer a {
-		color: #9c9c9c;
-
-		&.active {
-			color: #0e121a;
-		}
-
-		&:hover {
-			color: #bbb;
-		}
-
-		&.accent {
-			color: #fa8b00;
-		}
 	}
 }

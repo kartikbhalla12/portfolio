@@ -14,10 +14,10 @@ const useTheme = () => {
 
 	useEffect(() => {
 		window.localStorage.setItem('theme', theme);
-
 		const root = window.document.documentElement;
-		if (theme === 'light') root.classList.add('light');
-		else root.classList.remove('light');
+
+		root.classList.toggle('theme-dark', theme === 'dark');
+		root.classList.toggle('theme-light', theme === 'light');
 	}, [theme]);
 
 	return {

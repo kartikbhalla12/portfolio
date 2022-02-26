@@ -14,10 +14,13 @@
 		background-color: #ccd6f6;
 		transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
 			background-color 0.25s ease-in-out;
+
+		@include theme {
+			background-color: themedColor('cursorDot');
+		}
 	}
 
 	.cursorRing {
-		background-color: rgba(66, 66, 66, 0.4);
 		z-index: zIndex(level2);
 		position: fixed;
 		top: 0;
@@ -30,6 +33,10 @@
 		transition: height 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
 			width 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33), top 30ms linear 0s,
 			left 30ms linear 0s, background-color 0.25s ease-in-out;
+
+		@include theme {
+			background-color: themedColor('cursorRing');
+		}
 	}
 
 	&.link {
@@ -42,14 +49,5 @@
 			height: 50px;
 			width: 50px;
 		}
-	}
-}
-
-:global(.light) .customCursor {
-	.cursorDot {
-		background-color: #424242;
-	}
-	.cursorRing {
-		background-color: rgba(166, 166, 166, 0.4);
 	}
 }

@@ -1,4 +1,5 @@
 @import '@styles/partials';
+@import '@styles/core';
 
 .themeSlider {
 	display: flex;
@@ -78,7 +79,7 @@
 	}
 }
 
-:global(.light) .themeSlider {
+:global(.theme-light) .themeSlider {
 	&.themeSelf {
 		button {
 			.icon {
