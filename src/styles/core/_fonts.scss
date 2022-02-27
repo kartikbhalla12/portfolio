@@ -62,18 +62,39 @@ $fonts: (
 	@return map-get($map: $fonts, $key: $fontName);
 }
 
+// $sizes: (
+// 	tiny: 0.6rem,
+// 	small: 0.8rem,
+// 	regular: 1rem,
+// 	medium: 1.2rem,
+// 	large: 1.4rem,
+// 	h5: 1.6rem,
+// 	h4: 1.8rem,
+// 	h3: 2rem,
+// 	h2: 2.2rem,
+// 	h1: 2.4rem,
+// 	huge: 2.6rem,
+// );
+
 $sizes: (
-	tiny: 0.6rem,
-	small: 0.8rem,
-	regular: 1rem,
-	medium: 1.2rem,
-	large: 1.4rem,
-	h5: 1.6rem,
-	h4: 1.8rem,
-	h3: 2rem,
-	h2: 2.2rem,
-	h1: 2.4rem,
-	huge: 2.6rem,
+	s1: 3.25rem,
+	s2: 3rem,
+	s3: 2.75rem,
+	s4: 2.5rem,
+	s5: 2.25rem,
+	s6: 2rem,
+	s7: 1.875rem,
+	s8: 1.75rem,
+	s9: 1.625rem,
+	s10: 1.5rem,
+	s11: 1.375rem,
+	s12: 1.25rem,
+	s13: 1.125rem,
+	s14: 1rem,
+	s15: 0.875rem,
+	s16: 0.75rem,
+	s17: 0.625rem,
+	s18: 0.5rem,
 );
 
 @function size($size) {

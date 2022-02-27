@@ -55,6 +55,16 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 					))}
 				</div>
 			</div>
+			<div className={styles.email}>
+				<p>
+					<a
+						href='mailto:contact@kartikbhalla.dev'
+						target='_blank'
+						rel='noreferrer'>
+						<span>contact</span>@kartikbhalla.dev
+					</a>
+				</p>
+			</div>
 
 			<div className={styles.content}>
 				<div className={styles.greet}>
@@ -74,18 +84,8 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 					</p>
 				</div>
 				<div className={styles.imageContainer}>
-					<Image src='/kartik.png' layout='fill' alt='kartik bhalla' />
+					<Image src='/kartik.png' layout='fill' alt='kartik bhalla' priority />
 				</div>
-			</div>
-			<div className={styles.email}>
-				<p>
-					<a
-						href='mailto:contact@kartikbhalla.dev'
-						target='_blank'
-						rel='noreferrer'>
-						<span>contact</span>@kartikbhalla.dev
-					</a>
-				</p>
 			</div>
 		</div>
 	);

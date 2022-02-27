@@ -1,4 +1,5 @@
 @import '@styles/partials';
+@import '@styles/core';
 
 @mixin mobile {
 	padding: 114px 20px 20px 20px;
@@ -60,13 +61,32 @@
 	@include mobile;
 }
 
+%sideElement {
+	position: absolute;
+	bottom: 0px;
+	transition: all 0.5s ease-in-out;
+
+	&:after {
+		content: '';
+		position: relative;
+		display: block;
+		transition: border-color 0.5s ease-in-out;
+		width: 2px;
+		left: 48%;
+
+		@include theme {
+			border-top: 200px solid themedColor('homeIcon');
+		}
+	}
+}
+
 .home {
+	@extend %container;
+
 	display: flex;
-	color: white;
+	padding-top: 100px;
 	min-height: 100vh;
-	padding: 100px 40px 20px 40px;
-	font-family: 'Cera Pro';
-	transition: background-color 0.5s ease-in-out;
+	align-items: center;
 
 	&.mobile {
 		@extend %mobile;
@@ -74,20 +94,12 @@
 	}
 
 	.socialContainer {
-		position: absolute;
-		bottom: 0px;
+		@extend %sideElement;
 
-		&:after {
-			content: '';
-			position: relative;
-			display: block;
-			transition: border-color 0.5s ease-in-out;
-			width: 2px;
-			left: 48%;
+		left: 40px;
 
-			@include theme {
-				border-top: 200px solid themedColor('homeIcon');
-			}
+		@include breakpoint(laptop-sm) {
+			left: 20px;
 		}
 
 		.iconsContainer {
@@ -122,10 +134,15 @@
 	}
 
 	.email {
-		position: absolute;
-		bottom: 0px;
+		@extend %sideElement;
+
 		right: 40px;
 		width: 25px;
+
+		@include breakpoint(laptop-sm) {
+			right: 20px;
+		}
+
 		p {
 			margin: 0;
 			transform: rotate(90deg) translate(-250px);
@@ -144,81 +161,49 @@
 				}
 			}
 		}
-
-		&:after {
-			content: '';
-			position: relative;
-			display: block;
-			transition: border-color 0.5s ease-in-out;
-			width: 2px;
-			left: 48%;
-
-			@include theme {
-				border-top: 200px solid themedColor('homeIcon');
-			}
-		}
 	}
 
 	.content {
 		display: grid;
-		padding: 0px 200px;
-		width: 100%;
-		grid-template-columns: 50% 50%;
-		align-content: center;
+		grid: repeat(2, 1fr) / 2fr 1fr;
+		column-gap: 100px;
+
+		@include breakpoint(laptop-lg) {
+			column-gap: 80px;
+		}
+		@include breakpoint(laptop-md) {
+			column-gap: 60px;
+		}
+		@include breakpoint(laptop-sm) {
+			column-gap: 40px;
+		}
 
 		.greet {
-			grid-column: 1/2;
-			grid-row: 1/2;
+			grid-area: 1 / 1 / 2 / 2;
 			align-self: end;
 
 			h3 {
-				font-size: 24px;
-				font-weight: 400;
-				margin: 0;
-				padding-bottom: 14px;
-				transition: color 0.5s ease-in-out;
-
-				@include theme {
-					color: themedColor('accent');
-				}
+				@extend %title;
+				padding-bottom: 5px;
 			}
 			h1 {
-				font-size: 52px;
-				font-weight: 500;
-				margin: 0;
-				transition: color 0.5s ease-in-out;
-
-				@include theme {
-					color: themedColor('heading');
-				}
+				@extend %heading;
 			}
 			h2 {
-				font-size: 45px;
-				font-weight: 500;
-				margin: 0;
-				transition: color 0.5s ease-in-out;
-
-				@include theme {
-					color: themedColor('subHeading');
-				}
+				@extend %subHeading;
 			}
 		}
 		.about {
-			grid-column: 1/2;
-			grid-row: 2/3;
+			grid-area: 2 / 1 / 3 / 2;
 			align-self: start;
 
 			p {
-				font-size: 18px;
-				font-weight: 400;
-				transition: color 0.5s ease-in-out;
-
-				@include theme {
-					color: themedColor('text');
-				}
+				@extend %paragraph;
 
 				span {
-					color: #fa8b00;
+					@include theme {
+						color: themedColor('accent');
+					}
 				}
 			}
 
@@ -226,17 +211,70 @@
 				@extend %accentButton;
 
 				margin: 25px 0;
-				padding: 12px 20px;
 			}
 		}
 		.imageContainer {
-			grid-column: 2/3;
-			grid-row: 1/3;
-			align-self: center;
-			justify-self: end;
-			width: 446px;
-			height: 570px;
+			grid-area: 1 / 2 / 3 / 3;
 			position: relative;
+			place-self: center end;
+			width: 338px;
+			height: 450px;
+			z-index: zIndex(level1);
+			margin: 0 40px 40px 0;
+			transition: all 0.5s ease-in-out;
+
+			img {
+				border-radius: 8px;
+			}
+
+			@include breakpoint(laptop-lg) {
+				width: 300.44px;
+				height: 400px;
+			}
+
+			@include breakpoint(laptop-md) {
+				width: 262.89px;
+				height: 350px;
+			}
+
+			@include breakpoint(laptop-sm) {
+				width: 225.33px;
+				height: 300px;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: -4px;
+				left: -4px;
+				width: 100%;
+				height: 100%;
+				border-radius: 8px;
+				transform: translate(35px, 35px);
+				pointer-events: none;
+				z-index: zIndex(level0);
+				transition: transform 0.5s ease-in-out;
+
+				@include theme {
+					border: 4px solid themedColor('accent');
+				}
+
+				@include breakpoint(laptop-md) {
+					transform: translate(25px, 25px);
+				}
+				@include breakpoint(laptop-sm) {
+					transform: translate(20px, 20px);
+				}
+			}
+
+			&:hover:after {
+				transform: translate(25px, 25px);
+
+				@include breakpoint(laptop-md) {
+					transform: translate(15px, 15px);
+				}
+			}
 		}
 	}
 
@@ -245,108 +283,108 @@
 	// 		padding: 0px 150px;
 	// 	}
 	// }
-	@media screen and (max-width: 1550px) {
-		.content {
-			padding: 0px 100px;
+	// @media screen and (max-width: 1550px) {
+	// 	.content {
+	// 		padding: 0px 100px;
 
-			.greet {
-				h2 {
-					font-size: 38px;
-					margin: 0;
-				}
-			}
+	// 		.greet {
+	// 			h2 {
+	// 				font-size: 38px;
+	// 				margin: 0;
+	// 			}
+	// 		}
 
-			.imageContainer {
-				width: 350px;
-				height: 446px;
-			}
-		}
-	}
+	// 		.imageContainer {
+	// 			width: 350px;
+	// 			height: 446px;
+	// 		}
+	// 	}
+	// }
 
-	@media screen and (max-width: 1250px) {
-		.content {
-			.greet {
-				h3 {
-					font-size: 20px;
-					padding-bottom: 14px;
-				}
-				h1 {
-					font-size: 50px;
-					margin: 0;
-				}
-				h2 {
-					font-size: 30px;
-					margin: 0;
-				}
-			}
+	// @media screen and (max-width: 1250px) {
+	// 	.content {
+	// 		.greet {
+	// 			h3 {
+	// 				font-size: 20px;
+	// 				padding-bottom: 14px;
+	// 			}
+	// 			h1 {
+	// 				font-size: 50px;
+	// 				margin: 0;
+	// 			}
+	// 			h2 {
+	// 				font-size: 30px;
+	// 				margin: 0;
+	// 			}
+	// 		}
 
-			.about {
-				p {
-					font-size: 18px;
-				}
+	// 		.about {
+	// 			p {
+	// 				font-size: 18px;
+	// 			}
 
-				button {
-					font-size: 16px;
-					margin: 25px 0;
-					padding: 12px 20px;
-				}
-			}
-			.imageContainer {
-				width: 300px;
-				height: 382px;
-			}
-		}
-	}
-	@media screen and (max-width: 1050px) {
-		.content {
-			.greet {
-				h3 {
-					font-size: 18px;
-					padding-bottom: 14px;
-				}
-				h1 {
-					font-size: 40px;
-					margin: 0;
-				}
-				h2 {
-					font-size: 26px;
-					margin: 0;
-				}
-			}
+	// 			button {
+	// 				font-size: 16px;
+	// 				margin: 25px 0;
+	// 				padding: 12px 20px;
+	// 			}
+	// 		}
+	// 		.imageContainer {
+	// 			width: 300px;
+	// 			height: 382px;
+	// 		}
+	// 	}
+	// }
+	// @media screen and (max-width: 1050px) {
+	// 	.content {
+	// 		.greet {
+	// 			h3 {
+	// 				font-size: 18px;
+	// 				padding-bottom: 14px;
+	// 			}
+	// 			h1 {
+	// 				font-size: 40px;
+	// 				margin: 0;
+	// 			}
+	// 			h2 {
+	// 				font-size: 26px;
+	// 				margin: 0;
+	// 			}
+	// 		}
 
-			.about {
-				p {
-					font-size: 16px;
-				}
+	// 		.about {
+	// 			p {
+	// 				font-size: 16px;
+	// 			}
 
-				button {
-					font-size: 14px;
-					margin: 25px 0;
-					padding: 12px 20px;
-				}
-			}
-			.imageContainer {
-				width: 260px;
-				height: 331px;
-			}
-		}
-	}
-	@media screen and (max-width: 850px) {
-		.socialContainer,
-		.email {
-			display: none;
-		}
-		.content {
-			padding: 0px 40px;
+	// 			button {
+	// 				font-size: 14px;
+	// 				margin: 25px 0;
+	// 				padding: 12px 20px;
+	// 			}
+	// 		}
+	// 		.imageContainer {
+	// 			width: 260px;
+	// 			height: 331px;
+	// 		}
+	// 	}
+	// }
+	// @media screen and (max-width: 850px) {
+	// 	.socialContainer,
+	// 	.email {
+	// 		display: none;
+	// 	}
+	// 	.content {
+	// 		padding: 0px 40px;
 
-			.imageContainer {
-				width: 260px;
-				height: 331px;
-			}
-		}
-	}
-	@media screen and (max-width: 750px) {
-		@include mobile;
-		min-height: 100vh;
-	}
+	// 		.imageContainer {
+	// 			width: 260px;
+	// 			height: 331px;
+	// 		}
+	// 	}
+	// }
+	// @media screen and (max-width: 750px) {
+	// 	@include mobile;
+	// 	min-height: 100vh;
+	// }
 }

@@ -18,9 +18,9 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 
 	return (
 		<div
-			className={`${styles.container} 	
-				${hideNavbar ? styles.hide : ''} 
-				${isTop ? styles.top : ''}`}>
+			className={`${styles.container} ${hideNavbar ? styles.hide : ''} ${
+				isTop ? styles.top : ''
+			}`}>
 			<Link href='/' passHref>
 				<a className={styles.logo}>
 					<Logo alt='kb-logo' className={styles.icon} />

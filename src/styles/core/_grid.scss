@@ -1,19 +1,20 @@
-.container {
-	// position: relative;
-	// margin-right: auto;
-	// margin-left: auto;
-	// padding-right: 24px;
-	// padding-left: 24px;
-	// width: 100%;
+@import 'theme', 'fonts';
 
-	// @include for-size(md-up) {
-	// 	padding-right: 64px;
-	// 	padding-left: 64px;
-	// }
+%container {
+	font-family: font(primary);
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 150px;
+	transition: padding 0.5s ease-in-out;
 
-	// @include for-size(lg-up) {
-	// 	padding-right: 0;
-	// 	padding-left: 0;
-	// 	width: 1140px;
-	// }
+	@include theme {
+		color: themedColor('text');
+	}
+
+	@include breakpoint(laptop-md) {
+		padding: 0 120px;
+	}
+	@include breakpoint(laptop-sm) {
+		padding: 0 100px;
+	}
 }

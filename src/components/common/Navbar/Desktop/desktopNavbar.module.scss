@@ -22,8 +22,16 @@
 		box-shadow: 0 10px 30px -10px themedColor('navbarBoxShadow');
 	}
 
+	@include breakpoint(laptop-sm) {
+		padding: 10px 20px;
+	}
+
 	&.top {
 		padding: 20px 40px;
+
+		@include breakpoint(laptop-sm) {
+			padding: 20px;
+		}
 	}
 	&.hide {
 		transform: translateY(-80px);

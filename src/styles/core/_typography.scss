@@ -1,0 +1,78 @@
+@import 'theme', 'fonts';
+
+%heading {
+	font-size: size(s1);
+	font-weight: weight(medium);
+	margin: 0;
+	transition: all 0.5s ease-in-out;
+
+	@include theme {
+		color: themedColor('heading');
+	}
+
+	@include breakpoint(laptop-lg) {
+		font-size: size(s2);
+	}
+	@include breakpoint(laptop-md) {
+		font-size: size(s3);
+	}
+	@include breakpoint(laptop-sm) {
+		font-size: size(s4);
+	}
+}
+
+%subHeading {
+	font-size: size(s3);
+	font-weight: weight(medium);
+	margin: 0;
+	transition: all 0.5s ease-in-out;
+
+	@include theme {
+		color: themedColor('subHeading');
+	}
+
+	@include breakpoint(laptop-lg) {
+		font-size: size(s4);
+	}
+	@include breakpoint(laptop-md) {
+		font-size: size(s6);
+	}
+	@include breakpoint(laptop-md) {
+		font-size: size(s7);
+	}
+}
+
+%title {
+	font-size: size(s9);
+	font-weight: weight(regular);
+	margin: 0;
+	transition: all 0.5s ease-in-out;
+
+	@include theme {
+		color: themedColor('accent');
+	}
+
+	@include breakpoint(laptop-lg) {
+		font-size: size(s10);
+	}
+	@include breakpoint(laptop-md) {
+		font-size: size(s11);
+	}
+	@include breakpoint(laptop-sm) {
+		font-size: size(s12);
+	}
+}
+
+%paragraph {
+	font-size: size(s13);
+	font-weight: weight(regular);
+	transition: all 0.5s ease-in-out;
+
+	@include theme {
+		color: themedColor('text');
+	}
+
+	@include breakpoint(laptop-md) {
+		font-size: size(s14);
+	}
+}
