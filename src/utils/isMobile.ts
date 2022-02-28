@@ -8,7 +8,7 @@ const isMobile = (context: NextPageContext) => {
 };
 
 function getClientInfo(context: NextPageContext) {
-	return context.req?.headers['user-agent'];
+	return context.req?.headers['user-agent'] || navigator.userAgent;
 }
 
 export default isMobile;

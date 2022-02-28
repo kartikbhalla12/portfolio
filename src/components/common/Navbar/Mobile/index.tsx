@@ -60,7 +60,8 @@ const MobileNavbar: FC<ThemeProps> = props => {
 									rel={link.rel || ''}
 									className={`${
 										router.asPath === link.href ? styles.active : ''
-									} ${link.title === 'Resume' ? styles.accentButton : ''}`}>
+									} ${link.title === 'Resume' ? styles.accentButton : ''}`}
+									onClick={() => setIsMenuOpen(false)}>
 									{link.title}
 								</a>
 							</Link>
