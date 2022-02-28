@@ -67,6 +67,7 @@
 	font-size: size(s13);
 	font-weight: weight(regular);
 	transition: all 0.5s ease-in-out;
+	margin: 0;
 
 	@include theme {
 		color: themedColor('text');
@@ -74,5 +75,9 @@
 
 	@include breakpoint(laptop-md) {
 		font-size: size(s14);
+	}
+
+	@include breakpoint(tablet-sm) {
+		font-size: size(s13);
 	}
 }

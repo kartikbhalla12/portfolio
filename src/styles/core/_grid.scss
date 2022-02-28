@@ -17,4 +17,12 @@
 	@include breakpoint(laptop-sm) {
 		padding: 0 100px;
 	}
+
+	@include breakpoint(tablet-md) {
+		padding: 0 40px;
+	}
+
+	@include breakpoint(tablet-sm) {
+		padding: 0 20px;
+	}
 }

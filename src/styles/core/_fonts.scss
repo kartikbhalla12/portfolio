@@ -62,20 +62,6 @@ $fonts: (
 	@return map-get($map: $fonts, $key: $fontName);
 }
 
-// $sizes: (
-// 	tiny: 0.6rem,
-// 	small: 0.8rem,
-// 	regular: 1rem,
-// 	medium: 1.2rem,
-// 	large: 1.4rem,
-// 	h5: 1.6rem,
-// 	h4: 1.8rem,
-// 	h3: 2rem,
-// 	h2: 2.2rem,
-// 	h1: 2.4rem,
-// 	huge: 2.6rem,
-// );
-
 $sizes: (
 	s1: 3.25rem,
 	s2: 3rem,
