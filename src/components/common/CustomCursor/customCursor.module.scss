@@ -18,6 +18,10 @@
 		@include theme {
 			background-color: themedColor('cursorDot');
 		}
+
+		@include breakpoint(tablet-lg) {
+			display: none;
+		}
 	}
 
 	.cursorRing {
@@ -36,6 +40,10 @@
 
 		@include theme {
 			background-color: themedColor('cursorRing');
+		}
+
+		@include breakpoint(tablet-lg) {
+			display: none;
 		}
 	}
 

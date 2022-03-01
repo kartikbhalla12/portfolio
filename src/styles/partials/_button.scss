@@ -6,6 +6,10 @@
 	border: none;
 	cursor: none;
 	font-weight: 400;
+
+	@include breakpoint(tablet-lg) {
+		cursor: pointer;
+	}
 }
 
 %accentButton {

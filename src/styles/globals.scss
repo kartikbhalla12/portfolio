@@ -15,8 +15,12 @@ html {
 		margin: 0;
 		font-family: font(secondary);
 		scroll-behavior: smooth;
-		cursor: none;
 		overflow-x: hidden;
+		cursor: none;
+
+		@include breakpoint(tablet-lg) {
+			cursor: default;
+		}
 	}
 
 	body {
@@ -39,13 +43,23 @@ html {
 			color: inherit;
 			text-decoration: none;
 			cursor: none;
+
+			@include breakpoint(tablet-lg) {
+				cursor: pointer;
+			}
 		}
 
 		button {
 			cursor: none;
+
+			@include breakpoint(tablet-lg) {
+				cursor: pointer;
+			}
 		}
 
-		svg {
+		svg,
+		button,
+		a {
 			-webkit-tap-highlight-color: transparent;
 		}
 	}

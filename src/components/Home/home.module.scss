@@ -65,6 +65,7 @@
 	position: absolute;
 	bottom: 0px;
 	transition: all 0.5s ease-in-out;
+	z-index: zIndex(level2);
 
 	&:after {
 		content: '';
@@ -103,7 +104,6 @@
 			.iconLink {
 				-webkit-tap-highlight-color: transparent;
 				margin: 0.6rem 0;
-				cursor: none;
 
 				.icon {
 					height: 22px;

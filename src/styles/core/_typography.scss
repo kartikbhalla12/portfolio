@@ -19,6 +19,10 @@
 	@include breakpoint(laptop-sm) {
 		font-size: size(s4);
 	}
+
+	@include breakpoint(mobile-md) {
+		font-size: size(s5);
+	}
 }
 
 %subHeading {
@@ -39,6 +43,12 @@
 	}
 	@include breakpoint(laptop-md) {
 		font-size: size(s7);
+	}
+	@include breakpoint(mobile-md) {
+		font-size: size(s8);
+	}
+	@include breakpoint(mobile-sm) {
+		font-size: size(s9);
 	}
 }
 
@@ -61,6 +71,9 @@
 	@include breakpoint(laptop-sm) {
 		font-size: size(s12);
 	}
+	@include breakpoint(mobile-sm) {
+		font-size: size(s13);
+	}
 }
 
 %paragraph {
@@ -79,5 +92,8 @@
 
 	@include breakpoint(tablet-sm) {
 		font-size: size(s13);
+	}
+	@include breakpoint(mobile-sm) {
+		font-size: size(s14);
 	}
 }
