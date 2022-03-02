@@ -1,0 +1,46 @@
+@import '@styles/core';
+
+.preloader {
+	display: none;
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: transparent;
+	z-index: zIndex(level0);
+
+	&.visible {
+		display: flex;
+		z-index: zIndex(level7);
+		background-color: #0e121a;
+		transition: background-color 0.25s ease-in-out;
+
+		@include theme {
+			background-color: themedColor('background');
+		}
+	}
+
+	&.mobile {
+		padding-bottom: 5rem;
+	}
+
+	.logoContainer {
+		position: relative;
+		width: 35px;
+		margin-bottom: 2rem;
+
+		.logo {
+			pointer-events: none;
+			transition: fill 0.25s ease-in-out;
+
+			@include theme {
+				fill: themedColor('navbarLogo');
+			}
+		}
+	}
+	.loader {
+		background-color: red;
+	}
+}

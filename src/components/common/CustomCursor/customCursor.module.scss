@@ -4,7 +4,7 @@
 	.cursorDot {
 		height: 10px;
 		width: 10px;
-		z-index: zIndex(level3);
+		z-index: zIndex(level7);
 		position: fixed;
 		border-radius: 50%;
 		top: 0;
@@ -25,7 +25,7 @@
 	}
 
 	.cursorRing {
-		z-index: zIndex(level2);
+		z-index: zIndex(level7);
 		position: fixed;
 		top: 0;
 		left: 0;

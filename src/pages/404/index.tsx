@@ -11,7 +11,7 @@ const Custom404: NextPage<Custom404Props> = ({ isMobile }) => {
 	return (
 		<>
 			<Head>
-				<title>404</title>
+				<title>404 - Kartik Bhalla</title>
 				<meta name='description' content='Kartik Bhalla - Portfolio Website' />
 				<link rel='icon' href='/logo.svg' />
 			</Head>

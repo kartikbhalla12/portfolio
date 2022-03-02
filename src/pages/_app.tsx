@@ -1,8 +1,11 @@
-import '@styles/globals.scss';
-import Layout from '@components/Layout';
-import type { AppContext, AppProps } from 'next/app';
-import isMobile from '@utils/isMobile';
 import App from 'next/app';
+import type { AppContext, AppProps } from 'next/app';
+
+import Layout from '@components/Layout';
+
+import isMobile from '@utils/isMobile';
+
+import '@styles/globals.scss';
 
 interface MyAppProps extends AppProps {
 	isMobile: boolean;

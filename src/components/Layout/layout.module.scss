@@ -1,5 +1,7 @@
 .layout {
-	// transition: filter 0.5s ease-in-out;
+	&.preloader {
+		overflow: hidden;
+	}
 }
 
 :global(.blur) .layout {
