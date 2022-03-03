@@ -1,6 +1,7 @@
 .layout {
 	&.preloader {
 		overflow: hidden;
+		max-height: 100vh;
 	}
 }
 
