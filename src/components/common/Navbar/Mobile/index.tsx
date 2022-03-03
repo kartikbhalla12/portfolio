@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useSwipeable } from 'react-swipeable';
+import classNames from 'classnames';
 
 import ThemeSlider from '@components/common/ThemeSlider';
 import { navbarLinks } from '@components/common/Navbar';
@@ -26,10 +27,11 @@ const MobileNavbar: FC<ThemeProps> = props => {
 	return (
 		<div className={styles.container}>
 			<div
-				className={`${styles.topNavbarContainer} 
-					${isMenuOpen ? styles.transparent : ''} 
-					${hideNavbar ? styles.hide : ''} 
-					${isTop ? styles.top : ''}`}>
+				className={classNames(styles.topNavbarContainer, {
+					[styles.transparent]: isMenuOpen,
+					[styles.hide]: hideNavbar,
+					[styles.top]: isTop,
+				})}>
 				<Link href='/' passHref>
 					<a className={styles.logo}>
 						<Logo alt='kb-logo' className={styles.icon} />
@@ -37,18 +39,17 @@ const MobileNavbar: FC<ThemeProps> = props => {
 				</Link>
 
 				<div
-					className={`${styles.menuButtonContainer} ${
-						isMenuOpen ? styles.isMenuOpen : ''
-					}`}
+					className={classNames(styles.menuButtonContainer, {
+						[styles.isMenuOpen]: isMenuOpen,
+					})}
 					onClick={() => setIsMenuOpen(!isMenuOpen)}>
 					<div className={styles.menuButtonBurger} />
 				</div>
 			</div>
 			<div
-				className={`
-					${styles.sideNavbarContainer}
-					${isMenuOpen ? styles.isMenuOpen : ''}
-				`}
+				className={classNames(styles.sideNavbarContainer, {
+					[styles.isMenuOpen]: isMenuOpen,
+				})}
 				onClick={() => setIsMenuOpen(false)}
 				{...NavHandler}>
 				<div className={styles.sideNavbar} onClick={e => e.stopPropagation()}>
@@ -58,9 +59,10 @@ const MobileNavbar: FC<ThemeProps> = props => {
 								<a
 									target={link.target || ''}
 									rel={link.rel || ''}
-									className={`${
-										router.asPath === link.href ? styles.active : ''
-									} ${link.title === 'Resume' ? styles.accentButton : ''}`}
+									className={classNames({
+										[styles.active]: router.asPath === link.href,
+										[styles.accentButton]: link.title === 'Resume',
+									})}
 									onClick={() => setIsMenuOpen(false)}>
 									{link.title}
 								</a>

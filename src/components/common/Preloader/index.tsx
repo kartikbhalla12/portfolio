@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import BarLoader from 'react-spinners/BarLoader';
 import { css } from '@emotion/react';
+import classNames from 'classnames';
 
 import { PreloaderProps } from './preloader.interface';
 
@@ -11,9 +12,10 @@ import styles from './preloader.module.scss';
 const Preloader: FC<PreloaderProps> = ({ isMobile, loading }) => {
 	return (
 		<div
-			className={`${styles.preloader} ${loading ? styles.visible : ''} ${
-				isMobile ? styles.mobile : ''
-			}`}>
+			className={classNames(styles.preloader, {
+				[styles.visible]: loading,
+				[styles.mobile]: isMobile,
+			})}>
 			<div className={styles.logoContainer}>
 				<Logo alt='kb-logo' className={styles.logo} />
 			</div>

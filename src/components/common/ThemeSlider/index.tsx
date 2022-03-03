@@ -1,6 +1,8 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 
 import { ThemeSliderProps } from './themeSlider.interface';
+
 import Sun from '@icons/sun.svg';
 import Moon from '@icons/moon.svg';
 
@@ -18,7 +20,9 @@ const ThemeSlider: FC<ThemeSliderProps> = ({
 
 	return (
 		<div
-			className={`${styles.themeSlider} ${themeSelf ? styles.themeSelf : ''}`}>
+			className={classNames(styles.themeSlider, {
+				[styles.themeSelf]: themeSelf,
+			})}>
 			<button
 				className={styles.iconButton}
 				onClick={() => onThemeChange('dark')}>

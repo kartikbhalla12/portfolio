@@ -1,5 +1,5 @@
 import { FC, RefObject, useEffect, useRef, useState } from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import styles from './customCursor.module.scss';
 
@@ -55,11 +55,10 @@ const CustomCursor: FC = () => {
 
 	return (
 		<div
-			className={classnames(
-				styles.customCursor,
-				{ [styles.link]: isLink },
-				{ [styles.hidden]: hideCursor }
-			)}>
+			className={classNames(styles.customCursor, {
+				[styles.link]: isLink,
+				[styles.hidden]: hideCursor,
+			})}>
 			<div ref={cursorDot} className={styles.cursorDot} />
 			<div ref={cursorRing} className={styles.cursorRing} />
 		</div>

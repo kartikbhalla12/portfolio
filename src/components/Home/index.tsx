@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/image';
+import classNames from 'classnames';
 
 import { HomeProps } from './home.interface';
 
@@ -41,7 +42,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 	];
 
 	const AboutContainer: FC<{ className?: string }> = props => (
-		<div className={`${styles.aboutContainer} ${props.className || ''}`}>
+		<div className={classNames(styles.aboutContainer, props.className)}>
 			<p>
 				I have experience working with the most advanced tools and libraries
 				like React.js and Redux for front-end and using Node.js along with
@@ -80,7 +81,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 					</a>
 				</p>
 			</div>
-			<div className={`${styles.home} ${isMobile ? styles.mobile : ''}`}>
+			<div className={classNames(styles.home, { [styles.mobile]: isMobile })}>
 				<div className={styles.content}>
 					<div className={styles.information}>
 						<h3>Hey, my name is</h3>

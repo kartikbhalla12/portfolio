@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 
 import Footer from '@components/common/Footer';
 import Navbar from '@components/common/Navbar';
@@ -20,7 +21,8 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 		<>
 			<Preloader isMobile={isMobile} loading={loading} />
 			<Navbar isMobile={isMobile} theme={theme} onThemeChange={setTheme} />
-			<div className={`${styles.layout} ${loading ? styles.preloader : ''}`}>
+			<div
+				className={classNames(styles.layout, { [styles.preloader]: loading })}>
 				{children}
 				<Footer />
 			</div>

@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import classNames from 'classnames';
 
 import styles from './custom404.module.scss';
 
@@ -16,7 +17,10 @@ const Custom404: NextPage<Custom404Props> = ({ isMobile }) => {
 				<link rel='icon' href='/logo.svg' />
 			</Head>
 			<main>
-				<div className={`${styles.container} ${isMobile ? styles.mobile : ''}`}>
+				<div
+					className={classNames(styles.container, {
+						[styles.mobile]: isMobile,
+					})}>
 					<p>
 						<span>404</span> | This page could not be found
 					</p>

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
 
 import ThemeSlider from '@components/common/ThemeSlider';
 import { navbarLinks } from '@components/common/Navbar';
@@ -18,9 +19,10 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 
 	return (
 		<div
-			className={`${styles.container} ${hideNavbar ? styles.hide : ''} ${
-				isTop ? styles.top : ''
-			}`}>
+			className={classNames(styles.container, {
+				[styles.hide]: hideNavbar,
+				[styles.top]: isTop,
+			})}>
 			<Link href='/' passHref>
 				<a className={styles.logo}>
 					<Logo alt='kb-logo' className={styles.icon} />
@@ -33,9 +35,10 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 						<a
 							target={link.target || ''}
 							rel={link.rel || ''}
-							className={`${router.asPath === link.href ? styles.active : ''} ${
-								link.title === 'Resume' ? styles.accent : ''
-							}`}>
+							className={classNames({
+								[styles.active]: router.asPath === link.href,
+								[styles.accent]: link.title === 'Resume',
+							})}>
 							{link.title}
 						</a>
 					</Link>
