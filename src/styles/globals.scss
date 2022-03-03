@@ -44,6 +44,10 @@ html {
 			text-decoration: none;
 			cursor: none;
 
+			&:focus-visible {
+				outline: none;
+			}
+
 			@include breakpoint(tablet-lg) {
 				cursor: pointer;
 			}
@@ -51,6 +55,10 @@ html {
 
 		button {
 			cursor: none;
+
+			&:focus-visible {
+				outline: none;
+			}
 
 			@include breakpoint(tablet-lg) {
 				cursor: pointer;

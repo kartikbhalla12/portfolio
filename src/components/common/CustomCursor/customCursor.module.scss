@@ -7,13 +7,14 @@
 		z-index: zIndex(level7);
 		position: fixed;
 		border-radius: 50%;
-		top: 0;
-		left: 0;
+		top: -100px;
+		left: -100px;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
 		background-color: #ccd6f6;
+		opacity: 1;
 		transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
-			background-color 0.25s ease-in-out;
+			background-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
 
 		@include theme {
 			background-color: themedColor('cursorDot');
@@ -27,16 +28,18 @@
 	.cursorRing {
 		z-index: zIndex(level7);
 		position: fixed;
-		top: 0;
-		left: 0;
+		top: -100px;
+		left: -100px;
 		height: 40px;
 		width: 40px;
 		border-radius: 50%;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
+		opacity: 1;
 		transition: height 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
-			width 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33), top 30ms linear 0s,
-			left 30ms linear 0s, background-color 0.25s ease-in-out;
+			width 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33), top 50ms linear,
+			left 50ms linear, background-color 0.25s ease-in-out,
+			opacity 0.25s ease-in-out;
 
 		@include theme {
 			background-color: themedColor('cursorRing');
@@ -44,6 +47,13 @@
 
 		@include breakpoint(tablet-lg) {
 			display: none;
+		}
+	}
+
+	&.hidden {
+		.cursorDot,
+		.cursorRing {
+			opacity: 0;
 		}
 	}
 
