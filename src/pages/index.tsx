@@ -2,6 +2,7 @@ import type { NextPage, NextPageContext } from 'next';
 import Head from 'next/head';
 
 import Home from '@components/Home';
+import Skills from '@components/Skills';
 
 import styles from './index.module.scss';
 
@@ -19,6 +20,7 @@ const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 			</Head>
 			<main tabIndex={-1}>
 				<Home isMobile={isMobile} />
+				<Skills />
 			</main>
 		</>
 	);

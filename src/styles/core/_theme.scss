@@ -2,7 +2,9 @@
 
 $themes: (
 	light: (
+		default: #000,
 		background: #fff,
+		secondaryBackground: #fffaea,
 		textMuted: #424242,
 		text: #7c7c7c,
 		accent: #fa8b00,
@@ -25,10 +27,12 @@ $themes: (
 		// themeSliderIcon: #8892b0,
 		// themeSliderBackgroundOn: #fa8b00,
 		// themeSliderBackgroundOff: #808080,
-		// themeSliderDot: #424242,,,,
+		// themeSliderDot: #424242,,,,,,,,,,,,
 	),
 	dark: (
+		default: #fff,
 		background: #0e121a,
+		secondaryBackground: #131924,
 		text: #8892b0,
 		textMuted: #465267,
 		accent: #fa8b00,
@@ -51,7 +55,7 @@ $themes: (
 		// themeSliderIcon: #8892b0,
 		// themeSliderBackgroundOn: #fa8b00,
 		// themeSliderBackgroundOff: #808080,
-		// themeSliderDot: #ccd6f6,,,,
+		// themeSliderDot: #ccd6f6,,,,,,,,,,,,
 	),
 );
 

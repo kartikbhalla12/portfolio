@@ -11,7 +11,10 @@ const CustomCursor: FC = () => {
 	const cursorRing = useRef<HTMLDivElement>(null);
 
 	const getElementTagName = (e: MouseEvent) => {
-		return (e.target as HTMLElement).tagName.toLowerCase();
+		const tagName = (e.target as HTMLElement).tagName;
+
+		if (tagName) return tagName.toLowerCase();
+		return null;
 	};
 
 	const setCursorCoordinates = (

@@ -1,0 +1,118 @@
+@import '@styles/core';
+
+.skills {
+	@include theme {
+		background-color: themedColor(secondaryBackground);
+	}
+	transition: background 0.5s ease-in-out;
+	padding: 6rem 0;
+
+	@include breakpoint(tablet-sm) {
+		padding: 2.5rem 0;
+	}
+
+	.container {
+		@extend %container;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 10rem;
+		transition: all 0.5s ease-in-out;
+
+		@include breakpoint(desktop-md) {
+			column-gap: 6rem;
+		}
+		@include breakpoint(laptop-md) {
+			column-gap: 4rem;
+		}
+		@include breakpoint(tablet-lg) {
+			column-gap: 2rem;
+		}
+		@include breakpoint(tablet-sm) {
+			flex-direction: column;
+			row-gap: 2.5rem;
+			column-gap: 0;
+		}
+
+		.iconsContainer {
+			flex-basis: 50%;
+			flex-shrink: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			max-width: 550px;
+			transition: gap 0.5s ease-in-out, max-width 0.5s ease-in-out;
+			flex-wrap: wrap;
+			gap: 2rem 3rem;
+
+			@include breakpoint(laptop-md) {
+				gap: 2rem;
+			}
+			@include breakpoint(laptop-sm) {
+				gap: 1.75rem;
+			}
+			@include breakpoint(tablet-lg) {
+				gap: 1.5rem;
+			}
+			@include breakpoint(tablet-md) {
+				gap: 1.4rem;
+			}
+			@include breakpoint(tablet-sm) {
+				max-width: 400px;
+				order: 2;
+				gap: 2rem 1.5rem;
+			}
+
+			a {
+				svg {
+					width: 50px;
+					max-height: 40px;
+					height: auto;
+					transition: all 0.5s ease-in-out, transform 0.15s linear;
+					pointer-events: none;
+
+					@include breakpoint(laptop-sm) {
+						width: 40px;
+						max-height: 35px;
+					}
+					@include breakpoint(tablet-lg) {
+						width: 35px;
+					}
+					@include breakpoint(tablet-sm) {
+						width: 40px;
+					}
+					@include breakpoint(mobile-sm) {
+						width: 35px;
+					}
+				}
+
+				&.fill svg {
+					@include theme {
+						fill: themedColor(default);
+					}
+					transition: fill 0.5s ease-in-out, transform 0.15s linear;
+				}
+
+				&:hover {
+					svg {
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+
+		.description {
+			h1 {
+				@extend %heading;
+
+				color: white;
+			}
+
+			p {
+				@extend %paragraph;
+				margin-top: 1rem;
+			}
+		}
+	}
+}
