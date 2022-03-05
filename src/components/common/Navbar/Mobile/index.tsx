@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useSwipeable } from 'react-swipeable';
@@ -23,6 +23,12 @@ const MobileNavbar: FC<ThemeProps> = props => {
 		onSwipedRight: () => setIsMenuOpen(false),
 	});
 	useBlur(isMenuOpen);
+
+	const [currPath, setCurrPath] = useState('/');
+
+	useEffect(() => {
+		setCurrPath(router.asPath);
+	}, [router.asPath]);
 
 	return (
 		<div className={styles.container}>
@@ -60,7 +66,7 @@ const MobileNavbar: FC<ThemeProps> = props => {
 									target={link.target || ''}
 									rel={link.rel || ''}
 									className={classNames({
-										[styles.active]: router.asPath === link.href,
+										[styles.active]: currPath === link.href,
 										[styles.accentButton]: link.title === 'Resume',
 									})}
 									onClick={() => setIsMenuOpen(false)}>
