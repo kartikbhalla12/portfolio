@@ -65,11 +65,17 @@
 			}
 
 			a {
+				transition: transform 0.15s linear;
+
+				&:hover {
+					transform: scale(1.2);
+				}
+
 				svg {
 					width: 50px;
 					max-height: 40px;
 					height: auto;
-					transition: all 0.5s ease-in-out, transform 0.15s linear;
+					transition: all 0.5s ease-in-out;
 					pointer-events: none;
 
 					@include breakpoint(laptop-sm) {
@@ -91,12 +97,26 @@
 					@include theme {
 						fill: themedColor(default);
 					}
-					transition: fill 0.5s ease-in-out, transform 0.15s linear;
 				}
 
-				&:hover {
+				&.animate {
 					svg {
-						transform: scale(1.2);
+						animation: animate-icon infinite 20s linear;
+					}
+
+					&:hover {
+						svg {
+							animation-play-state: paused;
+						}
+					}
+				}
+
+				@keyframes animate-icon {
+					0% {
+						transform: rotate(0deg);
+					}
+					100% {
+						transform: rotate(360deg);
 					}
 				}
 			}

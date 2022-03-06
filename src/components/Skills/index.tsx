@@ -33,7 +33,12 @@ const techIcons = [
 		alt: 'javascript',
 		url: 'https://www.javascript.com/',
 	},
-	{ Component: ReactIcon, alt: 'react', url: 'https://reactjs.org/' },
+	{
+		Component: ReactIcon,
+		alt: 'react',
+		url: 'https://reactjs.org/',
+		animate: true,
+	},
 	{
 		Component: NextIcon,
 		alt: 'next',
@@ -86,7 +91,10 @@ const Skills: FC = () => {
 					{techIcons.map(icon => (
 						<Link href={icon.url} key={icon.alt} passHref>
 							<a
-								className={classNames({ [styles.fill]: icon.fillMode })}
+								className={classNames({
+									[styles.fill]: icon.fillMode,
+									[styles.animate]: icon.animate,
+								})}
 								target='_blank'
 								rel='noreferrer'>
 								<icon.Component alt={icon.alt} />
