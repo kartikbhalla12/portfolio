@@ -1,4 +1,6 @@
 .layout {
+	transition: filter 0.2s linear;
+
 	&.preloader {
 		overflow: hidden;
 		max-height: 100vh;
@@ -10,5 +12,5 @@
 }
 
 :global(.blur) .layout {
-	filter: blur(4px) brightness(0.7);
+	filter: blur(4px);
 }
