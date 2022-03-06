@@ -7,7 +7,7 @@ const usePreloader = () => {
 
 	useEffect(() => {
 		setTimeout(() => setLoading(false), 3000);
-	});
+	}, []);
 
 	useEffect(() => {
 		if (router.asPath.split('/#')[1] && !loading) router.replace(router.asPath);
