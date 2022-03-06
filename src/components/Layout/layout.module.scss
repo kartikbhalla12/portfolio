@@ -4,10 +4,10 @@
 	&.preloader {
 		overflow: hidden;
 		max-height: 100vh;
-	}
 
-	&.mobile {
-		max-height: calc(100vh - 56px);
+		&.mobile {
+			max-height: calc(100vh - 56px);
+		}
 	}
 }
 
