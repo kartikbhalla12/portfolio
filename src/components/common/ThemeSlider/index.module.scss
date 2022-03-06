@@ -79,23 +79,21 @@
 }
 
 :global(.theme-light) .themeSlider {
-	&.themeSelf {
-		button {
+	button {
+		.icon {
+			stroke: #424242;
+			fill: #424242;
+		}
+
+		&:hover {
 			.icon {
-				stroke: #424242;
-				fill: #424242;
-			}
-
-			&:hover {
-				.icon {
-					fill: #212121;
-					stroke: #212121;
-				}
+				fill: #212121;
+				stroke: #212121;
 			}
 		}
+	}
 
-		.slider:before {
-			background-color: #424242;
-		}
+	.slider:before {
+		background-color: #424242;
 	}
 }

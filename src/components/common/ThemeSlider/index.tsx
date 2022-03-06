@@ -1,28 +1,20 @@
 import { FC } from 'react';
-import classNames from 'classnames';
 
-import { ThemeSliderProps } from './themeSlider.interface';
+import { ThemeProps } from '@interfaces/theme';
 
 import Sun from '@icons/sun.svg';
 import Moon from '@icons/moon.svg';
 
 import styles from './index.module.scss';
 
-const ThemeSlider: FC<ThemeSliderProps> = ({
-	theme,
-	onThemeChange,
-	themeSelf,
-}) => {
+const ThemeSlider: FC<ThemeProps> = ({ theme, onThemeChange }) => {
 	const toggleTheme = () => {
 		if (theme === 'light') onThemeChange('dark');
 		else onThemeChange('light');
 	};
 
 	return (
-		<div
-			className={classNames(styles.themeSlider, {
-				[styles.themeSelf]: themeSelf,
-			})}>
+		<div className={styles.themeSlider}>
 			<button
 				className={styles.iconButton}
 				onClick={() => onThemeChange('dark')}>

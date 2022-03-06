@@ -50,7 +50,7 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 					</Link>
 				))}
 			</div>
-			<ThemeSlider {...props} themeSelf />
+			<ThemeSlider {...props} />
 		</div>
 	);
 };
