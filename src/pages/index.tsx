@@ -16,7 +16,7 @@ const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 			<Head>
 				<title>Kartik Bhalla</title>
 				<meta name='description' content='Kartik Bhalla - Portfolio Website' />
-				<link rel='icon' href='/logo.svg' />
+				<link rel='icon' href='/logo-light.svg' id='faviconTag' />
 			</Head>
 			<main tabIndex={-1}>
 				<Home isMobile={isMobile} />

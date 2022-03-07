@@ -20,6 +20,22 @@ const useTheme = () => {
 		root.classList.toggle('theme-light', theme === 'light');
 	}, [theme]);
 
+	useEffect(() => {
+		const faviconTag = window.document.getElementById('faviconTag');
+		const isDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+		const handleChange = (e: MediaQueryListEvent) => {
+			if (e.matches) (faviconTag as HTMLLinkElement).href = './logo-light.svg';
+			else (faviconTag as HTMLLinkElement).href = './logo-dark.svg';
+		};
+
+		isDark.addEventListener('change', handleChange);
+
+		return () => {
+			isDark.removeEventListener('change', handleChange);
+		};
+	}, []);
+
 	return {
 		theme,
 		setTheme,
