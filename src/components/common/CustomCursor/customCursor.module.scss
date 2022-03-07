@@ -37,9 +37,8 @@
 		pointer-events: none;
 		opacity: 1;
 		transition: height 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
-			width 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33), top 50ms linear,
-			left 50ms linear, background-color 0.25s ease-in-out,
-			opacity 0.25s ease-in-out;
+			width 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
+			background-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
 
 		@include theme {
 			background-color: themedColor('cursorRing');

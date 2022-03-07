@@ -10,11 +10,29 @@ const CustomCursor: FC = () => {
 	const cursorDot = useRef<HTMLDivElement>(null);
 	const cursorRing = useRef<HTMLDivElement>(null);
 
+	const dotX = useRef(-50);
+	const dotY = useRef(-50);
+
+	const ringX = useRef(-50);
+	const ringY = useRef(-50);
+	const requestRef = useRef(0);
+
+	const delay = 10;
+
 	const getElementTagName = (e: MouseEvent) => {
 		const tagName = (e.target as HTMLElement).tagName;
 
 		if (tagName) return tagName.toLowerCase();
 		return null;
+	};
+
+	const animateRing = () => {
+		ringX.current += (dotX.current - ringX.current) / delay;
+		ringY.current += (dotY.current - ringY.current) / delay;
+
+		setCursorCoordinates(cursorRing, ringX.current, ringY.current);
+
+		requestRef.current = requestAnimationFrame(animateRing);
 	};
 
 	const setCursorCoordinates = (
@@ -27,8 +45,10 @@ const CustomCursor: FC = () => {
 	};
 
 	const handleMouseMove = (e: MouseEvent) => {
+		dotX.current = e.clientX;
+		dotY.current = e.clientY;
+
 		setCursorCoordinates(cursorDot, e.clientX, e.clientY);
-		setCursorCoordinates(cursorRing, e.clientX, e.clientY);
 
 		const elementsList = ['a', 'button', 'img'];
 		const tagName = getElementTagName(e);
@@ -45,14 +65,18 @@ const CustomCursor: FC = () => {
 	};
 
 	useEffect(() => {
-		window.addEventListener('mousemove', handleMouseMove);
-		window.addEventListener('mouseleave', handleMouseLeave, true);
-		window.addEventListener('mouseenter', handleMouseEnter, true);
+		document.addEventListener('mousemove', handleMouseMove);
+		document.addEventListener('mouseleave', handleMouseLeave, true);
+		document.addEventListener('mouseenter', handleMouseEnter, true);
+
+		animateRing();
 
 		return () => {
-			window.removeEventListener('mousemove', handleMouseMove);
-			window.removeEventListener('mouseleave', handleMouseLeave, true);
-			window.removeEventListener('mouseenter', handleMouseEnter, true);
+			document.removeEventListener('mousemove', handleMouseMove);
+			document.removeEventListener('mouseleave', handleMouseLeave, true);
+			document.removeEventListener('mouseenter', handleMouseEnter, true);
+
+			cancelAnimationFrame(requestRef.current);
 		};
 	}, []);
 
