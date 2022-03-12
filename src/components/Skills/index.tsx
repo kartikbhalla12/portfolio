@@ -2,6 +2,10 @@ import { FC } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
+import withToolTip from '@components/helpers/WithTooltip';
+
+import { SkillsProps } from './skills.interface';
+
 import TypeScript from '@icons/tech/ts.svg';
 import JavaScript from '@icons/tech/js.svg';
 import ReactIcon from '@icons/tech/react.svg';
@@ -25,82 +29,141 @@ import styles from './skills.module.scss';
 const techIcons = [
 	{
 		Component: TypeScript,
+		name: 'TypeScript',
 		alt: 'typescript',
 		url: 'https://www.typescriptlang.org/',
 	},
 	{
 		Component: JavaScript,
+		name: 'JavaScript',
 		alt: 'javascript',
 		url: 'https://www.javascript.com/',
 	},
 	{
 		Component: ReactIcon,
+		name: 'ReactJS',
 		alt: 'react',
 		url: 'https://reactjs.org/',
 		animate: true,
 	},
 	{
 		Component: NextIcon,
+		name: 'NextJS',
 		alt: 'next',
 		url: 'https://nextjs.org/',
 		fillMode: true,
 	},
-	{ Component: Redux, alt: 'redux', url: 'https://redux.js.org/' },
+	{
+		Component: Redux,
+		name: 'ReduxJS',
+		alt: 'redux',
+		url: 'https://redux.js.org/',
+	},
 	{
 		Component: Socket,
+		name: 'Socket.IO',
 		alt: 'socket.io',
 		url: 'https://socket.io/',
 		fillMode: true,
 	},
 	{
 		Component: HtmlIcon,
+		name: 'HTML',
 		alt: 'html',
 		url: 'https://html.spec.whatwg.org/multipage/',
 	},
-	{ Component: Sass, alt: 'sass', url: 'https://sass-lang.com/' },
-	{ Component: Bootstrap, alt: 'bootstrap', url: 'https://getbootstrap.com/' },
-	{ Component: Firebase, alt: 'firebase', url: 'https://firebase.google.com/' },
+	{
+		Component: Sass,
+		name: 'Sass',
+		alt: 'sass',
+		url: 'https://sass-lang.com/',
+	},
+	{
+		Component: Bootstrap,
+		name: 'Bootstrap',
+		alt: 'bootstrap',
+		url: 'https://getbootstrap.com/',
+	},
+	{
+		Component: Firebase,
+		name: 'Firebase',
+		alt: 'firebase',
+		url: 'https://firebase.google.com/',
+	},
 	{
 		Component: CssIcon,
+		name: 'CSS',
 		alt: 'css',
 		url: 'https://www.w3.org/Style/CSS/Overview.en.html',
 	},
-	{ Component: Figma, alt: 'figma', url: 'https://www.figma.com' },
-	{ Component: Node, alt: 'node.js', url: 'https://nodejs.org/en/' },
+	{
+		Component: Figma,
+		name: 'Figma',
+		alt: 'figma',
+		url: 'https://www.figma.com',
+	},
+	{
+		Component: Node,
+		name: 'NodeJS',
+		alt: 'node.js',
+		url: 'https://nodejs.org/en/',
+	},
 	{
 		Component: Express,
+		name: 'ExpressJS',
 		alt: 'express.js',
 		url: 'https://expressjs.com/',
 		fillMode: true,
 	},
-	{ Component: Mongo, alt: 'mongodb', url: 'https://www.mongodb.com/' },
+	{
+		Component: Mongo,
+		name: 'MongoDB',
+		alt: 'mongodb',
+		url: 'https://www.mongodb.com/',
+	},
 	{
 		Component: Github,
+		name: 'GitHub',
 		alt: 'github',
 		url: 'https://github.com/',
 		fillMode: true,
 	},
-	{ Component: Git, alt: 'git', url: 'https://git-scm.com/' },
+	{ Component: Git, name: 'Git', alt: 'git', url: 'https://git-scm.com/' },
 ];
 
-const Skills: FC = () => {
+const Skills: FC<SkillsProps> = ({ isMobile }) => {
 	return (
 		<div id='skills' className={styles.skills}>
 			<div className={styles.container}>
 				<div className={styles.iconsContainer}>
-					{techIcons.map(icon => (
-						<Link href={icon.url} key={icon.alt} passHref>
-							<a
-								className={classNames({
-									[styles.fill]: icon.fillMode,
-									[styles.animate]: icon.animate,
-								})}
-								target='_blank'
-								rel='noreferrer'>
-								<icon.Component alt={icon.alt} />
-							</a>
-						</Link>
-					))}
+					{techIcons.map(icon => {
+						const SkillComponent = () => {
+							return (
+								<Link href={icon.url} key={icon.alt} passHref>
+									<a
+										className={classNames({
+											[styles.fill]: icon.fillMode,
+											[styles.animate]: icon.animate,
+										})}
+										target='_blank'
+										rel='noreferrer'>
+										<icon.Component alt={icon.alt} />
+									</a>
+								</Link>
+							);
+						};
+
+						const ComponentWithToolTip = withToolTip<{ alt: string }>(
+							SkillComponent,
+							icon.name
+						);
+
+						return isMobile ? (
+							<SkillComponent key={icon.alt} />
+						) : (
+							<ComponentWithToolTip alt={icon.alt} key={icon.alt} />
+						);
+					})}
 				</div>
 				<div className={styles.description}>
 					<h1>My Skills</h1>

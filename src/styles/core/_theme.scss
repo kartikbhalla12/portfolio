@@ -25,10 +25,7 @@ $themes: (
 		homeIcon: #424242,
 		cursorDot: #424242,
 		cursorRing: rgba(166, 166, 166, 0.4),
-		// themeSliderIcon: #8892b0,
-		// themeSliderBackgroundOn: #fa8b00,
-		// themeSliderBackgroundOff: #808080,
-		// themeSliderDot: #424242,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+		tooltipBackground: #ffebce,
 	),
 	dark: (
 		default: #fff,
@@ -54,10 +51,7 @@ $themes: (
 		homeIcon: #ccd6f6,
 		cursorDot: #ccd6f6,
 		cursorRing: rgba(66, 66, 66, 0.4),
-		// themeSliderIcon: #8892b0,
-		// themeSliderBackgroundOn: #fa8b00,
-		// themeSliderBackgroundOff: #808080,
-		// themeSliderDot: #ccd6f6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+		tooltipBackground: #1e293c,
 	),
 );
 

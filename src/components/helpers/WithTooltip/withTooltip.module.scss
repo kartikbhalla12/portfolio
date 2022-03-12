@@ -1,0 +1,49 @@
+@import '@styles/partials';
+@import '@styles/core';
+
+.withToolTip {
+	position: relative;
+
+	&:hover {
+		.toolTip {
+			opacity: 1;
+		}
+	}
+
+	.toolTip {
+		opacity: 0;
+		background-color: #1e293c;
+		padding: 0.5rem 1rem;
+		border-radius: 8px;
+		font-size: 0.8rem;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -160%);
+		pointer-events: none;
+
+		transition: opacity 0.25s ease-in-out;
+		font-weight: 500;
+
+		@include theme {
+			background-color: themedColor(tooltipBackground);
+			color: themedColor(text);
+		}
+
+		&:after {
+			position: absolute;
+			bottom: 0%;
+			left: 50%;
+			transform: translate(-50%, 100%);
+			content: '';
+			width: 0;
+			height: 0;
+			border-left: 12px solid transparent;
+			border-right: 12px solid transparent;
+
+			@include theme {
+				border-top: 10px solid themedColor(tooltipBackground);
+			}
+		}
+	}
+}

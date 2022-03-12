@@ -20,7 +20,7 @@ const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 			</Head>
 			<main tabIndex={-1}>
 				<Home isMobile={isMobile} />
-				<Skills />
+				<Skills isMobile={isMobile} />
 			</main>
 		</>
 	);
