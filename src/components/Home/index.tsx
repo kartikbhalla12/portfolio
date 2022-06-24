@@ -49,7 +49,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 				modern practices like Serverless, Docker & Kubernetes for back-end.
 			</p>
 			<p>
-				Upcoming Associate software engineer at <span>Amdocs.</span>
+				Upcoming Associate software engineer at <span>upGrad.</span>
 			</p>
 			<button>Check out my work!</button>
 		</div>
