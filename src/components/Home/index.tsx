@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import classNames from 'classnames';
 
 import { HomeProps } from './home.interface';
@@ -49,7 +50,11 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 				modern practices like Serverless, Docker & Kubernetes for back-end.
 			</p>
 			<p>
-				Software Development Engineer at <span>upGrad.</span>
+				Software Development Engineer at
+				<Link href='https://upgradabroad.com' passHref>
+					<a target='_blank'> upGrad</a>
+				</Link>
+				.
 			</p>
 			<button>Check out my work!</button>
 		</div>

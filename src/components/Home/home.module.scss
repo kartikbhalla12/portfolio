@@ -118,7 +118,8 @@
 				@extend %paragraph;
 				margin-bottom: 10px;
 
-				span {
+				a {
+					font-weight: 500;
 					@include theme {
 						color: themedColor(accent);
 					}
