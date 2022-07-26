@@ -15,7 +15,6 @@
 		display: flex;
 		z-index: zIndex(level7);
 		background-color: #0e121a;
-		transition: background-color 0.5s ease-in-out;
 
 		@include theme {
 			background-color: themedColor('background');
@@ -33,7 +32,6 @@
 
 		.logo {
 			pointer-events: none;
-			transition: fill 0.5s ease-in-out;
 
 			@include theme {
 				fill: themedColor('navbarLogo');
