@@ -18,8 +18,8 @@
 		padding 0.15s ease-in-out, box-shadow 0.5s ease-in-out;
 
 	@include theme {
-		background-color: themedColor('navbarBackground');
-		box-shadow: 0 10px 30px -10px themedColor('navbarBoxShadow');
+		background-color: themedColor(navbarBackground);
+		box-shadow: 0 10px 30px -10px themedColor(navbarBoxShadow);
 	}
 
 	@include breakpoint(laptop-sm) {
@@ -44,13 +44,13 @@
 			transition: fill 0.5s ease-in-out;
 
 			@include theme {
-				fill: themedColor('navbarLogo');
+				fill: themedColor(navbarLogo);
 			}
 		}
 
 		&:hover .icon {
 			@include theme {
-				fill: themedColor('navbarLogoHover');
+				fill: themedColor(navbarLogoHover);
 			}
 		}
 	}
@@ -62,24 +62,24 @@
 			margin: 20px;
 			transition: color 0.5s ease-in-out;
 			@include theme {
-				color: themedColor('navbarLink');
+				color: themedColor(navbarLink);
 			}
 
 			&.active {
 				@include theme {
-					color: themedColor('navbarLinkActive');
+					color: themedColor(navbarLinkActive);
 				}
 			}
 
 			&:hover {
 				@include theme {
-					color: themedColor('navbarLinkHover');
+					color: themedColor(navbarLinkHover);
 				}
 			}
 
 			&.accent {
 				@include theme {
-					color: themedColor('accent');
+					color: themedColor(accent);
 				}
 			}
 		}

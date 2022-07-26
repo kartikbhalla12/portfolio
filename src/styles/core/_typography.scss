@@ -7,7 +7,7 @@
 	transition: all 0.5s ease-in-out;
 
 	@include theme {
-		color: themedColor('heading');
+		color: themedColor(heading);
 	}
 
 	@include breakpoint(laptop-lg) {
@@ -32,7 +32,7 @@
 	transition: all 0.5s ease-in-out;
 
 	@include theme {
-		color: themedColor('subHeading');
+		color: themedColor(subHeading);
 	}
 
 	@include breakpoint(laptop-lg) {
@@ -59,7 +59,7 @@
 	transition: all 0.5s ease-in-out;
 
 	@include theme {
-		color: themedColor('accent');
+		color: themedColor(accent);
 	}
 
 	@include breakpoint(laptop-lg) {
@@ -83,7 +83,7 @@
 	margin: 0;
 
 	@include theme {
-		color: themedColor('text');
+		color: themedColor(text);
 	}
 
 	@include breakpoint(laptop-md) {

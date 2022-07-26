@@ -11,13 +11,12 @@
 		left: -100px;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
-		background-color: #ccd6f6;
 		opacity: 1;
 		transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
 			background-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
 
 		@include theme {
-			background-color: themedColor('cursorDot');
+			background-color: themedColor(cursorDot);
 		}
 
 		@include breakpoint(tablet-lg) {
@@ -41,7 +40,7 @@
 			background-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
 
 		@include theme {
-			background-color: themedColor('cursorRing');
+			background-color: themedColor(cursorRing);
 		}
 
 		@include breakpoint(tablet-lg) {

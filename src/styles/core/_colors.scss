@@ -1,12 +1,28 @@
 $palette: (
-	white: #fff,
-	accent: #5468ff,
-	textDark: #424242,
-	textLight: #8a8e98,
-	background: #181a20,
-	error: #ef5350,
-	gray: #262a34,
+	// Primary Colors
+	white: #ffffff,
 	black: #000000,
+	accent: #fa8b00,
+
+	// Monochrome Colors
+	lightGrey: #bbbbbb,
+	lighterGrey: #6e6e6e,
+	mediumGrey: #424242,
+	darkGrey: #333333,
+	darkerGrey: #212121,
+
+	// Dark Theme Colors
+	lightBlue: #ccd6f6,
+	lightGreyBlue: #8892b0,
+	mediumGreyBlue: #465267,
+	darkGreyBlue: #1e293c,
+	mediumBlue: #131924,
+	darkBlue: #0e121a,
+
+	//Light Theme Colors
+	lightYellow: #fcf9ed,
+	mediumYellow: #fcf0c8,
+	darkYellow: #ffe4a3
 );
 
 @function color($color) {

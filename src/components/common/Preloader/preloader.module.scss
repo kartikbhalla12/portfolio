@@ -17,7 +17,7 @@
 		background-color: #0e121a;
 
 		@include theme {
-			background-color: themedColor('background');
+			background-color: themedColor(background);
 		}
 	}
 
@@ -34,7 +34,7 @@
 			pointer-events: none;
 
 			@include theme {
-				fill: themedColor('navbarLogo');
+				fill: themedColor(navbarLogo);
 			}
 		}
 	}

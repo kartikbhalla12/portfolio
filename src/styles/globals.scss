@@ -79,14 +79,14 @@ html {
 		scrollbar-color: #414141 #fff;
 
 		body {
-			background: #fff;
+			background: #fcf9ed;
 
 			&::-webkit-scrollbar-track {
-				background: #fff;
+				background: #fcf9ed;
 			}
 			&::-webkit-scrollbar-thumb {
 				background: #414141;
-				border: 3px solid #fff;
+				border: 3px solid #fcf9ed;
 			}
 		}
 	}

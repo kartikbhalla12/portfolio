@@ -20,8 +20,8 @@
 			padding 0.15s ease-in-out, box-shadow 0.5s ease-in-out;
 
 		@include theme {
-			background-color: themedColor('navbarBackground');
-			box-shadow: 0 10px 30px -10px themedColor('navbarBoxShadow');
+			background-color: themedColor(navbarBackground);
+			box-shadow: 0 10px 30px -10px themedColor(navbarBoxShadow);
 		}
 
 		// &.transparent {
@@ -52,13 +52,13 @@
 				transition: fill 0.5s ease-in-out;
 
 				@include theme {
-					fill: themedColor('navbarLogo');
+					fill: themedColor(navbarLogo);
 				}
 			}
 
 			&:hover .icon {
 				@include theme {
-					fill: themedColor('navbarLogoHover');
+					fill: themedColor(navbarLogoHover);
 				}
 			}
 		}
@@ -79,7 +79,7 @@
 				transition: all 0.5s ease-in-out;
 
 				@include theme {
-					background: themedColor('navbarBurgerMenuIcon');
+					background: themedColor(navbarBurgerMenuIcon);
 				}
 
 				&::before,
@@ -91,7 +91,7 @@
 					transition: all 0.5s ease-in-out;
 
 					@include theme {
-						background: themedColor('navbarBurgerMenuIcon');
+						background: themedColor(navbarBurgerMenuIcon);
 					}
 				}
 
@@ -135,7 +135,7 @@
 			padding: 15px 20px;
 
 			@include theme {
-				background: themedColor('sideNavbarBackground');
+				background: themedColor(sideNavbarBackground);
 			}
 			transition: all 0.5s ease-in-out;
 
@@ -159,18 +159,18 @@
 					transition: color 0.5s ease-in-out;
 
 					@include theme {
-						color: themedColor('navbarLink');
+						color: themedColor(navbarLink);
 					}
 
 					&.active {
 						@include theme {
-							color: themedColor('navbarLinkActive');
+							color: themedColor(navbarLinkActive);
 						}
 					}
 
 					&:hover {
 						@include theme {
-							color: themedColor('navbarLinkHover');
+							color: themedColor(navbarLinkHover);
 						}
 					}
 

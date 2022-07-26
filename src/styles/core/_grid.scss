@@ -8,7 +8,7 @@
 	transition: padding 0.5s ease-in-out;
 
 	@include theme {
-		color: themedColor('text');
+		color: themedColor(text);
 	}
 
 	@include breakpoint(laptop-md) {

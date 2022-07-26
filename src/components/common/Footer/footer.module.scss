@@ -13,7 +13,7 @@
 	transition: background-color 0.5s ease-in-out;
 
 	@include theme {
-		color: themedColor('textMuted');
+		color: themedColor(textMuted);
 	}
 
 	.logo {
@@ -23,12 +23,12 @@
 		transition: fill 0.5s ease-in-out;
 
 		@include theme {
-			fill: themedColor('footerIcon');
+			fill: themedColor(footerIcon);
 		}
 
 		&:hover {
 			@include theme {
-				fill: themedColor('footerIconHover');
+				fill: themedColor(footerIconHover);
 			}
 		}
 	}
@@ -48,13 +48,13 @@
 				pointer-events: none;
 
 				@include theme {
-					fill: themedColor('footerIcon');
+					fill: themedColor(footerIcon);
 				}
 			}
 
 			&:hover .icon {
 				@include theme {
-					fill: themedColor('footerIconHover');
+					fill: themedColor(footerIconHover);
 				}
 			}
 		}
