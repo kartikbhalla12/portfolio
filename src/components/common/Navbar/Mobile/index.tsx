@@ -9,13 +9,14 @@ import { navbarLinks } from '@components/common/Navbar';
 
 import useNavScroll from '@hooks/useNavScroll';
 import useBlur from '@hooks/useBlur';
+import useHideOverflow from '@hooks/useHideOverflow';
 
-import { ThemeProps } from '@interfaces/theme';
+import { MobileNavbarProps } from './mobileNavbar.interface';
 
 import Logo from '@icons/logo.svg';
 import styles from './mobileNavbar.module.scss';
 
-const MobileNavbar: FC<ThemeProps> = props => {
+const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { hideNavbar, isTop } = useNavScroll(45);
 	const router = useRouter();
@@ -23,6 +24,7 @@ const MobileNavbar: FC<ThemeProps> = props => {
 		onSwipedRight: () => setIsMenuOpen(false),
 	});
 	useBlur(isMenuOpen);
+	useHideOverflow(isMenuOpen, isMobile);
 
 	const [currPath, setCurrPath] = useState('/');
 
@@ -77,7 +79,7 @@ const MobileNavbar: FC<ThemeProps> = props => {
 					</div>
 
 					<div className={styles.themeSliderContainer}>
-						<ThemeSlider {...props} />
+						<ThemeSlider {...rest} />
 					</div>
 				</div>
 			</div>

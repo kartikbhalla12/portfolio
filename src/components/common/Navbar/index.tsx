@@ -20,7 +20,7 @@ export const navbarLinks = [
 ];
 
 const Navbar: FC<NavbarProps> = ({ isMobile, ...props }) => {
-	if (isMobile) return <MobileNavbar {...props} />;
+	if (isMobile) return <MobileNavbar {...props} isMobile />;
 	return (
 		<>
 			<MobileNavbar {...props} /> {/* can adjust according to height & width */}

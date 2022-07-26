@@ -9,6 +9,10 @@ html {
 	scrollbar-color: #465267 #0e121a;
 	transition: scrollbar-color 0.5s ease-in-out;
 
+	&.hideOverflow {
+		touch-action: none;
+	}
+
 	&,
 	body {
 		padding: 0;
