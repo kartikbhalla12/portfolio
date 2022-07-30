@@ -20,7 +20,6 @@ const Preloader: FC<PreloaderProps> = ({ isMobile, loading }) => {
 				<Logo alt='kb-logo' className={styles.logo} />
 			</div>
 			<BarLoader
-				loading={loading}
 				color='#fa8b00'
 				css={css`
 					border-radius: 8px;

@@ -1,7 +1,8 @@
 @import '@styles/core';
 
 .preloader {
-	display: none;
+	display: flex;
+	opacity: 0;
 	position: absolute;
 	height: 100vh;
 	width: 100%;
@@ -11,11 +12,12 @@
 	background-color: transparent;
 	z-index: zIndex(level0);
 
+	transition: background-color 0.25s ease-in-out, opacity 0.25s ease-in-out,
+		z-index 0.25s ease-in-out;
+
 	&.visible {
-		display: flex;
+		opacity: 1;
 		z-index: zIndex(level7);
-		background-color: #0e121a;
-		transition: background-color 0.25s ease-in-out;
 
 		@include theme {
 			background-color: themedColor(background);
