@@ -40,8 +40,10 @@ const CustomCursor: FC = () => {
 		left: number,
 		top: number
 	) => {
-		element.current!.style.top = `${top}px`;
-		element.current!.style.left = `${left}px`;
+		if (element.current) {
+			element.current.style.top = `${top}px`;
+			element.current.style.left = `${left}px`;
+		}
 	};
 
 	const handleMouseMove = (e: MouseEvent) => {
