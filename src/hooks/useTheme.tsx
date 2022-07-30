@@ -5,11 +5,8 @@ const useTheme = () => {
 	const [theme, setTheme] = useState<Theme>('dark');
 
 	useEffect(() => {
-		async function init() {
-			const theme = await localStorage.getItem('theme');
-			if (theme) setTheme(theme as Theme);
-		}
-		init();
+		const theme = localStorage.getItem('theme');
+		if (theme) setTheme(theme as Theme);
 	}, []);
 
 	useEffect(() => {
