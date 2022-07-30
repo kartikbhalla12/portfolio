@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import Logo from '@icons/logo.svg';
 import Facebook from '@icons/facebook-2.svg';
@@ -56,14 +57,11 @@ const Footer: FC = () => {
 			/>
 			<div className={styles.socialContainer}>
 				{socialIcons.map(icon => (
-					<a
-						href={icon.url}
-						className={styles.iconLink}
-						target='_blank'
-						rel='noreferrer'
-						key={icon.alt}>
-						<icon.Component className={styles.icon} alt={icon.alt} />
-					</a>
+					<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
+						<a className={styles.iconLink} target='_blank' rel='noreferrer'>
+							<icon.Component className={styles.icon} alt={icon.alt} />
+						</a>
+					</Link>
 				))}
 			</div>
 			<div>© 2022 Kartik Bhalla</div>

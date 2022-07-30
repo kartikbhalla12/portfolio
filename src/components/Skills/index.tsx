@@ -139,7 +139,7 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 					{techIcons.map(icon => {
 						const SkillComponent = () => {
 							return (
-								<Link href={icon.url} key={icon.alt} passHref>
+								<Link href={icon.url} key={icon.alt} passHref prefetch={false}>
 									<a
 										className={classNames({
 											[styles.fill]: icon.fillMode,

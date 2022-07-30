@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
+import Script from 'next/script';
 
 import Footer from '@components/common/Footer';
 import Navbar from '@components/common/Navbar';
@@ -20,8 +21,24 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 
 	return (
 		<>
+			<Script
+				strategy='lazyOnload'
+				src={`https://www.googletagmanager.com/gtag/js?id=G-YEL83ZW0WZ`}
+			/>
+			<Script id='google-analytics-script' strategy='lazyOnload'>
+				{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-YEL83ZW0WZ', {
+						page_path: window.location.pathname,
+						});
+				`}
+			</Script>
+
 			<Head>
 				<title>Kartik Bhalla</title>
+				<meta name='description' content='Kartik Bhalla - Portfolio Website' />
 				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 				<meta name='author' content='Kartik Bhalla' />
 				<meta charSet='utf-8' />
@@ -77,7 +94,7 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 						Full Stack Developer, 
 						Cloud"
 				/>
-				<link rel='icon' href='/logo.svg' />
+				<link rel='icon' href='/logo-light.svg' id='faviconTag' />
 			</Head>
 			<Preloader isMobile={isMobile} loading={loading} />
 			<Navbar isMobile={isMobile} theme={theme} onThemeChange={setTheme} />

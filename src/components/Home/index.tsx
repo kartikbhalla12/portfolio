@@ -51,7 +51,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 			</p>
 			<p>
 				Software Development Engineer at
-				<Link href='https://upgradabroad.com' passHref>
+				<Link href='https://upgradabroad.com' passHref prefetch={false}>
 					<a target='_blank'> upGrad</a>
 				</Link>
 				.
@@ -65,25 +65,24 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 			<div className={styles.socialContainer}>
 				<div className={styles.iconsContainer}>
 					{socialIcons.map(icon => (
-						<a
-							href={icon.url}
-							className={styles.iconLink}
-							target='_blank'
-							rel='noreferrer'
-							key={icon.alt}>
-							<icon.Component className={styles.icon} alt={icon.alt} />
-						</a>
+						<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
+							<a className={styles.iconLink} target='_blank' rel='noreferrer'>
+								<icon.Component className={styles.icon} alt={icon.alt} />
+							</a>
+						</Link>
 					))}
 				</div>
 			</div>
 			<div className={styles.email}>
 				<p>
-					<a
+					<Link
 						href='mailto:contact@kartikbhalla.dev'
-						target='_blank'
-						rel='noreferrer'>
-						<span>contact</span>@kartikbhalla.dev
-					</a>
+						passHref
+						prefetch={false}>
+						<a target='_blank' rel='noreferrer'>
+							<span>contact</span>@kartikbhalla.dev
+						</a>
+					</Link>
 				</p>
 			</div>
 			<div className={classNames(styles.home, { [styles.mobile]: isMobile })}>
