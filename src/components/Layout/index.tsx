@@ -94,6 +94,29 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 						Full Stack Developer, 
 						Cloud"
 				/>
+				<meta property='og:type' content='profile' />
+				<meta property='og:title' content='Kartik Bhalla' />
+				<meta
+					property='og:description'
+					content='Kartik Bhalla - Portfolio Website'
+				/>
+				<meta property='og:url' content='https://www.kartikbhalla.dev' />
+				<meta
+					property='og:image'
+					content='https://www.kartikbhalla.dev/kartik.png'
+				/>
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta name='twitter:site' content='@kartikbhalla12' />
+				<meta name='twitter:title' content='Kartik Bhalla' />
+				<meta
+					name='twitter:description'
+					content='Kartik Bhalla - Portfolio Website'
+				/>
+				<meta
+					name='twitter:image'
+					content='https://www.kartikbhalla.dev/kartik.png'
+				/>
+
 				<link rel='icon' href='/logo-light.svg' id='faviconTag' />
 			</Head>
 			<Preloader isMobile={isMobile} loading={loading} />
