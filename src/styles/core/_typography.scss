@@ -97,3 +97,23 @@
 		font-size: size(s14);
 	}
 }
+
+%subTitle {
+	font-size: size(s11);
+	font-weight: weight(regular);
+	margin: 0;
+	transition: all 0.5s ease-in-out;
+
+	@include breakpoint(laptop-lg) {
+		font-size: size(s12);
+	}
+	@include breakpoint(laptop-md) {
+		font-size: size(s12);
+	}
+	@include breakpoint(laptop-sm) {
+		font-size: size(s13);
+	}
+	@include breakpoint(mobile-sm) {
+		font-size: size(s13);
+	}
+}

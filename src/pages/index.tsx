@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import Home from '@components/Home';
 import Skills from '@components/Skills';
+import Experience from '@components/Experience';
 
 import styles from './index.module.scss';
 
@@ -21,6 +22,7 @@ const LandingPage: NextPage<LandingPageProps> = ({ isMobile }) => {
 			<main tabIndex={-1}>
 				<Home isMobile={isMobile} />
 				<Skills isMobile={isMobile} />
+				<Experience isMobile={isMobile} />
 			</main>
 		</>
 	);
