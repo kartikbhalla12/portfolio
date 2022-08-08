@@ -19,7 +19,7 @@ const Footer: FC = () => {
 		{
 			Component: Github,
 			alt: 'github',
-			url: 'https://github.com/thedemon12',
+			url: 'https://github.com/kartikbhalla12',
 		},
 		{
 			Component: Linkedin,
