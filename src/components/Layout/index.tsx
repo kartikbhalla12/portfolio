@@ -8,7 +8,7 @@ import Navbar from '@components/common/Navbar';
 import CustomCursor from '@components/common/CustomCursor';
 import Preloader from '@components/common/Preloader';
 
-import keywords from '@constants/keywords.json';
+import keywords from '@constants/keywords';
 
 import useTheme from '@hooks/useTheme';
 import usePreloader from '@hooks/usePreloader';

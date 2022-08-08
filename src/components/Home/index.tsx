@@ -3,45 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import { HomeProps } from './home.interface';
+import socialIcons from '@constants/socials';
 
-import Facebook from '@icons/facebook-1.svg';
-import Github from '@icons/github-1.svg';
-import Linkedin from '@icons/linkedin-1.svg';
-import Instagram from '@icons/instagram-1.svg';
-import Twitter from '@icons/twitter-1.svg';
+import { HomeProps } from './home.interface';
 
 import styles from './home.module.scss';
 
 const Home: FC<HomeProps> = ({ isMobile }) => {
-	const socialIcons = [
-		{
-			Component: Github,
-			alt: 'github',
-			url: 'https://github.com/kartikbhalla12',
-		},
-		{
-			Component: Linkedin,
-			alt: 'linkedin',
-			url: 'https://www.linkedin.com/in/kartikbhalla/',
-		},
-		{
-			Component: Instagram,
-			alt: 'instagram',
-			url: 'https://www.instagram.com/_kartikbhalla/',
-		},
-		{
-			Component: Facebook,
-			alt: 'facebook',
-			url: 'https://www.facebook.com/kbhalla12',
-		},
-		{
-			Component: Twitter,
-			alt: 'twitter',
-			url: 'https://twitter.com/kartikbhalla12',
-		},
-	];
-
 	const AboutContainer: FC<{ className?: string }> = props => (
 		<div className={classNames(styles.aboutContainer, props.className)}>
 			<p>
