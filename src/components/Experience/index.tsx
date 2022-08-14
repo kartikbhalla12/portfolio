@@ -38,14 +38,16 @@ const Experience: FC<ExperienceProps> = ({ isMobile }) => {
 								<div className={styles.tasks}>
 									{exp.tasks.map((task, i) => (
 										<div className={styles.task} key={i}>
-											<p>{task.detail}</p>
-											{task.url && (
-												<Link href={task.url} passHref prefetch={false}>
-													<a target='_blank' className={styles.iconLink}>
-														<LinkIcon className={styles.icon} />
-													</a>
-												</Link>
-											)}
+											<p>
+												{task.detail}
+												{task.url && (
+													<Link href={task.url} passHref prefetch={false}>
+														<a target='_blank' className={styles.iconLink}>
+															<LinkIcon className={styles.icon} />
+														</a>
+													</Link>
+												)}
+											</p>
 										</div>
 									))}
 								</div>

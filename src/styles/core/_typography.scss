@@ -117,3 +117,17 @@
 		font-size: size(s13);
 	}
 }
+
+%title2 {
+	font-size: size(s12);
+	font-weight: weight(light);
+	transition: all 0.5s ease-in-out;
+	margin: 0;
+
+	@include breakpoint(laptop-lg) {
+		font-size: size(s13);
+	}
+	@include breakpoint(laptop-sm) {
+		font-size: size(s14);
+	}
+}

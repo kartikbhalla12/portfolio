@@ -20,7 +20,7 @@ const experiences = [
 		position: 'Software Development Engineer Intern',
 		duration: {
 			from: 'May 2022',
-			to: 'July 2022',
+			to: 'Jul 2022',
 		},
 		companyName: 'upGrad Education Pvt. Ltd.',
 		companyUrl: 'https://www.upgradabroad.com',
@@ -36,8 +36,8 @@ const experiences = [
 	{
 		position: 'React Developer Intern',
 		duration: {
-			from: 'August 2021',
-			to: 'November 2021',
+			from: 'Aug 2021',
+			to: 'Nov 2021',
 		},
 		companyName: 'TDG Labs',
 		companyUrl: 'http://tdglabs.com/',
@@ -54,8 +54,8 @@ const experiences = [
 	{
 		position: 'React Web Developer Intern',
 		duration: {
-			from: 'June 2020',
-			to: 'November 2020',
+			from: 'Jun 2020',
+			to: 'Nov 2020',
 		},
 		companyName: 'Circular Leaf Ventures Ltd.',
 		// companyUrl: '',
@@ -77,8 +77,8 @@ const experiences = [
 	{
 		position: 'Front-end Web Developer Intern',
 		duration: {
-			from: 'June 2020',
-			to: 'July 2020',
+			from: 'Jun 2020',
+			to: 'Jul 2020',
 		},
 		companyName: 'Diligent Learning Pvt. Ltd.',
 		// companyUrl: '',
