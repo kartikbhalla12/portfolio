@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import classNames from 'classnames';
 
 import experiences from '@constants/experiences';
 
