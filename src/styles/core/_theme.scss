@@ -26,6 +26,8 @@ $themes: (
 		cursorDot: color(mediumGrey),
 		cursorRing: rgba(color(lightGrey), 0.4),
 		tooltipBackground: color(darkYellow),
+		timelineBackground: color(mediumGrey),
+		listIcon: color(lighterGrey),
 	),
 	dark: (
 		default: color(white),
@@ -52,6 +54,8 @@ $themes: (
 		cursorDot: color(lightBlue),
 		cursorRing: rgba(color(mediumGrey), 0.4),
 		tooltipBackground: color(darkGreyBlue),
+		timelineBackground: color(darkGreyBlue),
+		listIcon: color(mediumGreyBlue),
 	),
 );
 

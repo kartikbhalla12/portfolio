@@ -5,7 +5,7 @@ import { useSwipeable } from 'react-swipeable';
 import classNames from 'classnames';
 
 import ThemeSlider from '@components/common/ThemeSlider';
-import { navbarLinks } from '@components/common/Navbar';
+import navbarLinks from '@constants/navbarLinks';
 
 import useNavScroll from '@hooks/useNavScroll';
 import useBlur from '@hooks/useBlur';

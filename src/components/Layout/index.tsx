@@ -8,6 +8,8 @@ import Navbar from '@components/common/Navbar';
 import CustomCursor from '@components/common/CustomCursor';
 import Preloader from '@components/common/Preloader';
 
+import keywords from '@constants/keywords';
+
 import useTheme from '@hooks/useTheme';
 import usePreloader from '@hooks/usePreloader';
 
@@ -37,63 +39,41 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 			</Script>
 
 			<Head>
-				<title>Kartik Bhalla</title>
-				<meta name='description' content='Kartik Bhalla - Portfolio Website' />
+				<title>Kartik Bhalla - Portfolio Website</title>
+				<meta
+					name='description'
+					content='As a passionate full-stack web developer, I create amazing websites and web apps to make the internet a better place. I have experience working with the most advanced tools and libraries like React.js and Redux for front-end and using Node.js along with modern practices like Serverless, Docker & Kubernetes for back-end.'
+				/>
 				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 				<meta name='author' content='Kartik Bhalla' />
 				<meta charSet='utf-8' />
+				<meta name='keywords' content={keywords.toString()} />
+				<meta property='og:type' content='profile' />
+				<meta property='og:title' content='Kartik Bhalla - Portfolio Website' />
 				<meta
-					name='keywords'
-					content="
-						kartik Bhalla, 
-						kartik bhalla dev, 
-						kartik bhalla, 
-						kartik dev, 
-						bhalla dev, 
-						Kartik, 
-						Bhalla, 
-						thedemon12, 
-						kartikbhalla, 
-						kartikbhalla.dev, 
-						thedemon, 
-						kartik's, 
-						kartik bhalla's, 
-						kartik bhalla's portfolio, 
-						kartik's portfolio, 
-						Kartik Bhalla Website, 
-						upgrad,
-						upgrad abroad,
-						software developer upgrad,
-						software developer,
-						noida, 
-						study abroad,
-						technology,
-						nsut, 
-						netaji subhas university of technology, 
-						netaji subhas university of technology east campus, 
-						netaji subhas,
-						aiactr,
-						ait,
-						ambedkar institute,
-						ambedkar institute of advanced communication technologies and research,
-						nsut east campus, 
-						east, 
-						east campus, 
-						training and placement,
-						placement coordinator,
-						tnp,
-						training, 
-						placement, 
-						react,
-						reactjs,
-						next,
-						nextjs,
-						New Delhi, 
-						MERN Stack, 
-						Full Stack Dev, 
-						Full Stack Developer, 
-						Cloud"
+					property='og:description'
+					content='As a passionate full-stack web developer, I create amazing websites and web apps to make the internet a better place. I have experience working with the most advanced tools and libraries like React.js and Redux for front-end and using Node.js along with modern practices like Serverless, Docker & Kubernetes for back-end.'
 				/>
+				<meta property='og:url' content='https://www.kartikbhalla.dev' />
+				<meta
+					property='og:image'
+					content='https://www.kartikbhalla.dev/kartik.png'
+				/>
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta name='twitter:site' content='@kartikbhalla12' />
+				<meta
+					name='twitter:title'
+					content='Kartik Bhalla - Portfolio Website'
+				/>
+				<meta
+					name='twitter:description'
+					content='As a passionate full-stack web developer, I create amazing websites and web apps to make the internet a better place. I have experience working with the most advanced tools and libraries like React.js and Redux for front-end and using Node.js along with modern practices like Serverless, Docker & Kubernetes for back-end.'
+				/>
+				<meta
+					name='twitter:image'
+					content='https://www.kartikbhalla.dev/kartik.png'
+				/>
+
 				<link rel='icon' href='/logo-light.svg' id='faviconTag' />
 			</Head>
 			<Preloader isMobile={isMobile} loading={loading} />

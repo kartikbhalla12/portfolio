@@ -10,7 +10,8 @@
 			"@pages/*": ["pages/*"],
 			"@styles/*": ["styles/*"],
 			"@interfaces/*": ["interfaces/*"],
-			"@icons/*": ["icons/*"]
+			"@icons/*": ["icons/*"],
+			"@constants/*": ["constants/*"]
 		},
 		"allowJs": true,
 		"skipLibCheck": true,

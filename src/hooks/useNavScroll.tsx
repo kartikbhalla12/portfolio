@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import debounce from '../utils/debounce';
 
 const useNavScroll = (hideNavbarY: number) => {
 	const [hideNavbar, setHideNavbar] = useState(false);
@@ -7,13 +6,13 @@ const useNavScroll = (hideNavbarY: number) => {
 
 	let previousScrollY = 0;
 
-	const handleScroll = debounce(() => {
+	const handleScroll = () => {
 		setIsTop(window.scrollY < 5);
 		setHideNavbar(
 			window.scrollY > previousScrollY && window.scrollY > hideNavbarY
 		);
 		previousScrollY = window.scrollY;
-	}, 100);
+	};
 
 	useEffect(() => {
 		if (window.scrollY === 0) {
