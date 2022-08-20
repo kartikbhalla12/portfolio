@@ -30,6 +30,7 @@ class MyDocument extends Document<DocumentProps> {
 			<Html className={`theme-${this.props.theme}`} lang='en'>
 				<Head />
 				<body>
+					<script>0</script>
 					<Main />
 					<NextScript />
 				</body>
