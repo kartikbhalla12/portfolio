@@ -38,6 +38,8 @@ const Layout: FC<LayoutProps> = ({
 						gtag('js', new Date());
 						gtag('config', 'G-YEL83ZW0WZ', {
 						page_path: window.location.pathname,
+						cookie_flags: 'SameSite=None;Secure',
+						cookie_domain: '.kartikbhalla.dev',
 						});
 				`}
 			</Script>
