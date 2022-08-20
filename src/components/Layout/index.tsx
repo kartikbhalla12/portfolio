@@ -17,8 +17,12 @@ import { LayoutProps } from './layout.interface';
 
 import styles from './layout.module.scss';
 
-const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
-	const { theme, setTheme } = useTheme();
+const Layout: FC<LayoutProps> = ({
+	children,
+	isMobile,
+	theme: initialTheme,
+}) => {
+	const { theme, setTheme } = useTheme(initialTheme);
 	const { loading } = usePreloader();
 
 	return (

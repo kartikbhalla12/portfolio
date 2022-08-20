@@ -1,13 +1,41 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import Document, {
+	DocumentContext,
+	DocumentInitialProps,
+	Html,
+	Head,
+	Main,
+	NextScript,
+} from 'next/document';
+import { getDefaultThemeCookie } from '@utils/theme';
 
-export default function Document() {
-	return (
-		<Html className='theme-dark' lang='en'>
-			<Head />
-			<body>
-				<Main />
-				<NextScript />
-			</body>
-		</Html>
-	);
+import { Theme } from '@interfaces/theme';
+
+interface DocumentProps extends DocumentInitialProps {
+	theme: Theme;
 }
+
+class MyDocument extends Document<DocumentProps> {
+	static async getInitialProps(ctx: DocumentContext): Promise<DocumentProps> {
+		const initialProps = await Document.getInitialProps(ctx);
+		const themeCookie = getDefaultThemeCookie(ctx);
+
+		return {
+			...initialProps,
+			theme: themeCookie,
+		};
+	}
+
+	render() {
+		return (
+			<Html className={`theme-${this.props.theme}`} lang='en'>
+				<Head />
+				<body>
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		);
+	}
+}
+
+export default MyDocument;
