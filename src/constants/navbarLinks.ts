@@ -1,8 +1,8 @@
 const navbarLinks = [
-	{ href: '/', title: 'Home' },
-	{ href: '/#skills', title: 'Skills' },
-	{ href: '/#experience', title: 'Experience' },
-	{ href: '/#projects', title: 'Projects' },
+	{ href: '/', title: 'Home', id: 'home' },
+	{ href: '/#skills', title: 'Skills', id: 'skills' },
+	{ href: '/#experience', title: 'Experience', id: 'experience' },
+	{ href: '/#projects', title: 'Projects', id: 'projects' },
 	{ href: '/blogs', title: 'Blogs' },
 	{
 		href: '/kartik-bhalla-resume.pdf',
