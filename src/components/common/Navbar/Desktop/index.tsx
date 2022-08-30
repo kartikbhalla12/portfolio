@@ -1,6 +1,5 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
 import ThemeSlider from '@components/common/ThemeSlider';
@@ -14,14 +13,7 @@ import Logo from '@icons/logo.svg';
 import styles from './desktopNavbar.module.scss';
 
 const DesktopNavbar: FC<ThemeProps> = props => {
-	const { hideNavbar, isTop } = useNavScroll(65);
-	const router = useRouter();
-
-	const [currPath, setCurrPath] = useState('/');
-
-	useEffect(() => {
-		setCurrPath(router.asPath);
-	}, [router.asPath]);
+	const { hideNavbar, isTop, activeSection } = useNavScroll(65);
 
 	return (
 		<div
@@ -42,7 +34,7 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 							target={link.target || ''}
 							rel={link.rel || ''}
 							className={classNames({
-								[styles.active]: currPath === link.href,
+								[styles.active]: activeSection === link.id,
 								[styles.accent]: link.title === 'Resume',
 							})}>
 							{link.title}

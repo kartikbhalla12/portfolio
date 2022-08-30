@@ -2,14 +2,13 @@
 
 .container {
 	padding: 30px 40px;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
-	font-family: font(secondary);
-	font-weight: 500;
-	font-size: 14px;
+	font-family: font(primary);
+	font-weight: weight(regular);
+	font-size: size(s15);
 	transition: background-color 0.5s ease-in-out;
 
 	@include theme {

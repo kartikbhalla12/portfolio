@@ -29,7 +29,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 	);
 
 	return (
-		<div className={styles.container}>
+		<div id='home' className={styles.container}>
 			<div className={styles.socialContainer}>
 				<div className={styles.iconsContainer}>
 					{socialIcons.map(icon => (

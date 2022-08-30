@@ -17,8 +17,12 @@ import { LayoutProps } from './layout.interface';
 
 import styles from './layout.module.scss';
 
-const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
-	const { theme, setTheme } = useTheme();
+const Layout: FC<LayoutProps> = ({
+	children,
+	isMobile,
+	theme: initialTheme,
+}) => {
+	const { theme, setTheme } = useTheme(initialTheme);
 	const { loading } = usePreloader();
 
 	return (
@@ -34,6 +38,8 @@ const Layout: FC<LayoutProps> = ({ children, isMobile }) => {
 						gtag('js', new Date());
 						gtag('config', 'G-YEL83ZW0WZ', {
 						page_path: window.location.pathname,
+						cookie_flags: 'SameSite=None;Secure',
+						cookie_domain: '.kartikbhalla.dev',
 						});
 				`}
 			</Script>

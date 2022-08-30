@@ -1,5 +1,4 @@
-import { FC, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { FC, useState } from 'react';
 import Link from 'next/link';
 import { useSwipeable } from 'react-swipeable';
 import classNames from 'classnames';
@@ -18,19 +17,13 @@ import styles from './mobileNavbar.module.scss';
 
 const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { hideNavbar, isTop } = useNavScroll(45);
-	const router = useRouter();
+	const { hideNavbar, isTop, activeSection } = useNavScroll(45);
+
 	const NavHandler = useSwipeable({
 		onSwipedRight: () => setIsMenuOpen(false),
 	});
 	useBlur(isMenuOpen);
 	useHideOverflow(isMenuOpen, isMobile);
-
-	const [currPath, setCurrPath] = useState('/');
-
-	useEffect(() => {
-		setCurrPath(router.asPath);
-	}, [router.asPath]);
 
 	return (
 		<div className={styles.container}>
@@ -68,7 +61,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
 									target={link.target || ''}
 									rel={link.rel || ''}
 									className={classNames({
-										[styles.active]: currPath === link.href,
+										[styles.active]: activeSection === link.id,
 										[styles.accentButton]: link.title === 'Resume',
 									})}
 									onClick={() => setIsMenuOpen(false)}>
