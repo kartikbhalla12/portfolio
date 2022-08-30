@@ -6,6 +6,13 @@ import { Theme } from '@interfaces/theme';
 const useTheme = (initialTheme: Theme) => {
 	const [theme, setTheme] = useState<Theme>(initialTheme);
 
+	const handleChange = (isDark: boolean) => {
+		const faviconTag = window.document.getElementById('faviconTag');
+		(faviconTag as HTMLLinkElement).href = isDark
+			? './logo-light.svg'
+			: './logo-dark.svg';
+	};
+
 	useEffect(() => {
 		setThemeCookie(theme);
 		const root = window.document.documentElement;
@@ -15,18 +22,12 @@ const useTheme = (initialTheme: Theme) => {
 	}, [theme]);
 
 	useEffect(() => {
-		const faviconTag = window.document.getElementById('faviconTag');
 		const isDark = window.matchMedia('(prefers-color-scheme: dark)');
+		handleChange(isDark.matches);
 
-		const handleChange = (e: MediaQueryListEvent) => {
-			if (e.matches) (faviconTag as HTMLLinkElement).href = './logo-light.svg';
-			else (faviconTag as HTMLLinkElement).href = './logo-dark.svg';
-		};
-
-		isDark.addEventListener('change', handleChange);
-
+		isDark.addEventListener('change', e => handleChange(e.matches));
 		return () => {
-			isDark.removeEventListener('change', handleChange);
+			isDark.removeEventListener('change', e => handleChange(e.matches));
 		};
 	}, []);
 
