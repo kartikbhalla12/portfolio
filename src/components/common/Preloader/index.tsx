@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import BarLoader from 'react-spinners/BarLoader';
-import { css } from '@emotion/react';
 import classNames from 'classnames';
 
 import { PreloaderProps } from './preloader.interface';
@@ -21,9 +20,9 @@ const Preloader: FC<PreloaderProps> = ({ isMobile, loading }) => {
 			</div>
 			<BarLoader
 				color='#fa8b00'
-				css={css`
-					border-radius: 8px;
-				`}
+				cssOverride={{
+					borderRadius: '8px',
+				}}
 			/>
 		</div>
 	);
