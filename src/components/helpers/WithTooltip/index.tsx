@@ -2,8 +2,14 @@ import { FC } from 'react';
 
 import styles from './withTooltip.module.scss';
 
-function withToolTip<T>(Component: FC<T>, tooltipTitle: string): FC<T> {
-	const NewComponent = (props: T) => (
+type ComponentPropsType<T> = T & JSX.IntrinsicAttributes;
+type ComponentType<T> = FC<ComponentPropsType<T>>;
+
+function withToolTip<T>(
+	Component: ComponentType<T>,
+	tooltipTitle: string
+): ComponentType<T> {
+	const NewComponent = (props: ComponentPropsType<T>) => (
 		<div className={styles.withToolTip}>
 			<div className={styles.toolTip}>{tooltipTitle}</div>
 			<Component {...props} />
