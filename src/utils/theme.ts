@@ -4,20 +4,29 @@ import { Theme } from '@interfaces/theme';
 import { NextPageContext } from 'next';
 
 export const cookieName = 'theme';
-type OptionalThemeType = Theme | undefined;
 
 export const setThemeCookie = (theme: Theme, ctx?: NextPageContext) => {
-	setCookie(cookieName, theme, { ...ctx, sameSite: 'none', secure: true });
+	setCookie(cookieName, theme, {
+		...ctx,
+		sameSite: 'none',
+		secure: true,
+		maxAge: 31 * 24 * 60 * 60,
+	});
 };
 
-export const getThemeCookie = (ctx?: NextPageContext): OptionalThemeType =>
-	getCookie(cookieName, ctx) as OptionalThemeType;
+export const getThemeCookie = (ctx?: NextPageContext) =>
+	getCookie(cookieName, ctx) as string | undefined;
+
+export const validateThemeCookie = (theme: string) =>
+	theme === 'dark' || theme === 'light';
 
 export const getDefaultThemeCookie = (ctx?: NextPageContext) => {
 	const defaultTheme: Theme = 'dark';
 	const themeCookie = getThemeCookie(ctx);
 
-	if (!themeCookie) setThemeCookie(defaultTheme, ctx);
+	if (themeCookie && validateThemeCookie(themeCookie))
+		return themeCookie as Theme;
 
-	return themeCookie || defaultTheme;
+	setThemeCookie(defaultTheme, ctx);
+	return defaultTheme;
 };
