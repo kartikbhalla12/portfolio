@@ -1,0 +1,15 @@
+$mockupsBreakpoints: laptop-lg, tablet-md, mobile-sm;
+
+$desktop-mockup-widths: (
+	default: 500px,
+	laptop-lg: 400px,
+	tablet-md: 300px,
+	mobile-sm: 200px,
+);
+
+$mobile-mockup-widths: (
+	default: 125px,
+	laptop-lg: 100px,
+	tablet-md: 90px,
+	mobile-sm: 75px,
+);

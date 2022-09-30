@@ -19,6 +19,7 @@ const useNavScroll = (hideNavbarY: number) => {
 		});
 
 		setSectionElements(elements);
+		setActiveSection(elements[0].getAttribute('id') || '');
 	}, []);
 
 	let previousScrollY = 0;

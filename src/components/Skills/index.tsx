@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import withToolTip from '@components/helpers/WithTooltip';
+import withToolTip from '@components/common/WithTooltip';
 import skillIcons from '@constants/skills';
 
 import { SkillsProps } from './skills.interface';

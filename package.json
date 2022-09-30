@@ -15,7 +15,8 @@
 		"react-dom": "18.2.0",
 		"react-spinners": "^0.13.4",
 		"react-swipeable": "^7.0.0",
-		"sass": "^1.49.0"
+		"sass": "^1.49.0",
+		"sharp": "^0.31.0"
 	},
 	"devDependencies": {
 		"@svgr/webpack": "^6.2.1",
