@@ -1,7 +1,7 @@
 import { Theme } from '@interfaces/theme';
 
 export interface LayoutProps {
-	children?: React.ReactNode;
+	children: JSX.Element;
 	isMobile: boolean;
 	theme: Theme;
 }

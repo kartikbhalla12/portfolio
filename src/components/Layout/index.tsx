@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -24,7 +24,6 @@ const Layout: FC<LayoutProps> = ({
 }) => {
 	const { theme, setTheme } = useTheme(initialTheme);
 	const { loading } = usePreloader();
-
 	return (
 		<>
 			<Script
@@ -90,7 +89,7 @@ const Layout: FC<LayoutProps> = ({
 					[styles.preloader]: loading,
 					[styles.mobile]: isMobile,
 				})}>
-				{children}
+				{Children.map(children, child => cloneElement(child, { theme }))}
 				<Footer />
 			</div>
 			{!isMobile && <CustomCursor />}
