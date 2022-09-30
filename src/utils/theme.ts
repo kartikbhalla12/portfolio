@@ -7,7 +7,7 @@ export const cookieName = 'theme';
 type OptionalThemeType = Theme | undefined;
 
 export const setThemeCookie = (theme: Theme, ctx?: NextPageContext) => {
-	setCookie(cookieName, theme, { ...ctx, sameSite: true });
+	setCookie(cookieName, theme, { ...ctx, sameSite: 'none', secure: true });
 };
 
 export const getThemeCookie = (ctx?: NextPageContext): OptionalThemeType =>
