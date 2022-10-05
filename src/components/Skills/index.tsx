@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -55,4 +55,7 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 	);
 };
 
-export default Skills;
+export default memo(
+	Skills,
+	(prevProps, nextProps) => prevProps.theme === nextProps.theme
+);
