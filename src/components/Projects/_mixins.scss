@@ -3,6 +3,7 @@
 
 @mixin breakpointProperty($property, $fn) {
 	#{$property}: call($fn);
+	transition: $property 0.5s ease-in-out;
 
 	@each $breakpointName, $propertyValue in $mockupsBreakpoints {
 		@include breakpoint($breakpointName) {
@@ -13,14 +14,6 @@
 
 @mixin desktopMockupWidth($property) {
 	@include breakpointProperty($property, 'desktop-mockup-width');
-}
-
-@mixin desktopMockupHeight($property) {
-	@include breakpointProperty($property, 'desktop-mockup-height');
-}
-
-@mixin desktopImageHeight($property) {
-	@include breakpointProperty($property, 'desktop-image-height');
 }
 
 @mixin mobileMockupWidth($property) {

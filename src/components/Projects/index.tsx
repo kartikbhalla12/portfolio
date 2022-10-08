@@ -27,6 +27,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 							className={classNames(styles.project, {
 								[styles.left]: i % 2 !== 0,
 							})}>
+							<h2 className={styles.heading}>{project.name}</h2>
 							<div className={styles.content}>
 								<h2>{project.name}</h2>
 								<p className={styles.description}>{project.description}</p>
@@ -40,8 +41,16 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 									))}
 								</div>
 								<div className={styles.links}>
-									<Github className={styles.github} />
-									<LinkIcon className={styles.link} />
+									<Link href={project.links.github} passHref prefetch={false}>
+										<a target='_blank'>
+											<Github className={styles.github} />
+										</a>
+									</Link>
+									<Link href={project.links.project} passHref prefetch={false}>
+										<a target='_blank'>
+											<LinkIcon className={styles.link} />
+										</a>
+									</Link>
 								</div>
 							</div>
 							<div className={styles.images}>
@@ -63,11 +72,13 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 										/>
 									</div>
 									<div className={styles.desktopImageContainer}>
-										<Image
-											src={project.images.desktop}
-											className={styles.desktopImage}
-											alt={`${project.name}-desktop`}
-										/>
+										<div className={styles.desktopImageInnerContainer}>
+											<Image
+												src={project.images.desktop}
+												className={styles.desktopImage}
+												alt={`${project.name}-desktop`}
+											/>
+										</div>
 									</div>
 								</div>
 								<div className={styles.mobileContainer}>
@@ -88,10 +99,12 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 										/>
 									</div>
 									<div className={styles.mobileImageContainer}>
-										<Image
-											src={project.images.mobile}
-											alt={`${project.name}-mobile`}
-										/>
+										<div className={styles.mobileImageInnerContainer}>
+											<Image
+												src={project.images.mobile}
+												alt={`${project.name}-mobile`}
+											/>
+										</div>
 									</div>
 								</div>
 							</div>

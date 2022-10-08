@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import debounce from '@utils/debounce';
 import navbarLinks from '@constants/navbarLinks';
 
 const useNavScroll = (hideNavbarY: number) => {
+	const router = useRouter();
+
 	const [hideNavbar, setHideNavbar] = useState(false);
 	const [isTop, setIsTop] = useState(true);
 	const [sectionElements, setSectionElements] = useState<HTMLElement[]>([]);
@@ -19,8 +22,8 @@ const useNavScroll = (hideNavbarY: number) => {
 		});
 
 		setSectionElements(elements);
-		setActiveSection(elements[0].getAttribute('id') || '');
-	}, []);
+		setActiveSection(elements[0]?.getAttribute('id') || '');
+	}, [router.asPath]);
 
 	let previousScrollY = 0;
 

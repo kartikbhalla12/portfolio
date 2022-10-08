@@ -28,6 +28,7 @@ $themes: (
 		tooltipBackground: color(darkYellow),
 		timelineBackground: color(mediumYellow),
 		listIcon: color(lighterGrey),
+		projectBackground: rgba(color(lightYellow), 0.5),
 	),
 	dark: (
 		default: color(white),
@@ -56,6 +57,7 @@ $themes: (
 		tooltipBackground: color(darkGreyBlue),
 		timelineBackground: color(darkGreyBlue),
 		listIcon: color(mediumGreyBlue),
+		projectBackground: rgba(color(darkGreyBlue), 0.5),
 	),
 );
 

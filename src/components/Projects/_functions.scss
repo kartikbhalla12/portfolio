@@ -5,14 +5,6 @@
 	@return map-get($map: $desktop-mockup-widths, $key: $device);
 }
 
-@function desktop-mockup-height($device: default) {
-	@return 0.05468 * desktop-mockup-width($device);
-}
-
-@function desktop-image-height($device: default) {
-	@return calc(100% - desktop-mockup-height($device));
-}
-
 @function mobile-mockup-width($device: default) {
 	@return map-get($map: $mobile-mockup-widths, $key: $device);
 }

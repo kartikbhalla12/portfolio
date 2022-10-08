@@ -1,15 +1,24 @@
-$mockupsBreakpoints: laptop-lg, tablet-md, mobile-sm;
+$mockupsBreakpoints: desktop-sm, laptop-lg, laptop-md, laptop-md-sm, laptop-sm,
+	tablet-lg, mobile-lg;
 
 $desktop-mockup-widths: (
 	default: 500px,
+	desktop-sm: 450px,
 	laptop-lg: 400px,
-	tablet-md: 300px,
-	mobile-sm: 200px,
+	laptop-md: 350px,
+	laptop-md-sm: 300px,
+	laptop-sm: 500px,
+	tablet-lg: 400px,
+	mobile-lg: 350px,
 );
 
 $mobile-mockup-widths: (
 	default: 125px,
-	laptop-lg: 100px,
-	tablet-md: 90px,
-	mobile-sm: 75px,
+	desktop-sm: 125px,
+	laptop-lg: 112.5px,
+	laptop-md: 112.5px,
+	laptop-md-sm: 100px,
+	laptop-sm: 125px,
+	tablet-lg: 125px,
+	mobile-lg: 125px,
 );
