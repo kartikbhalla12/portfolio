@@ -3,7 +3,6 @@
 
 @mixin breakpointProperty($property, $fn) {
 	#{$property}: call($fn);
-	transition: $property 0.5s ease-in-out;
 
 	@each $breakpointName, $propertyValue in $mockupsBreakpoints {
 		@include breakpoint($breakpointName) {
