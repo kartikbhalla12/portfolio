@@ -24,7 +24,11 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 				</Link>
 				.
 			</p>
-			<button>Check out my work!</button>
+			<Link href={'#projects'} passHref>
+				<a>
+					<button>Check out my work!</button>
+				</a>
+			</Link>
 		</div>
 	);
 
