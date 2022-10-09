@@ -63,6 +63,7 @@
 				@include breakpoint(laptop-sm) {
 					max-height: 100%;
 					flex-direction: column !important;
+					gap: 2rem;
 				}
 
 				@include breakpoint(foldable) {
@@ -107,6 +108,8 @@
 				}
 
 				.content {
+					order: 1;
+					// transition: order 0.5s ease-in-out;
 					@include breakpoint(laptop-sm) {
 						order: 2;
 					}
@@ -134,7 +137,7 @@
 						-webkit-box-orient: vertical;
 						-webkit-line-clamp: 7;
 						overflow: hidden;
-						margin: 1rem 0 1.5rem 0;
+						margin-bottom: 1.5rem;
 						font-size: 1rem;
 					}
 
@@ -216,10 +219,11 @@
 
 				.images {
 					position: relative;
+					order: 2;
 					flex-shrink: 0;
 					margin-bottom: -4rem;
 					display: flex;
-					justify-content: flex-end;
+					transition: margin-bottom 0.5s ease-in-out, height 0.5s ease-in-out;
 
 					@include breakpoint(desktop-sm) {
 						margin-bottom: -3rem;
@@ -230,10 +234,9 @@
 					}
 
 					@include breakpoint(laptop-sm) {
-						justify-content: center;
 						margin-bottom: 0rem;
 						height: 300px;
-						align-self: center;
+						align-self: flex-start;
 						order: 1;
 					}
 
