@@ -1,5 +1,4 @@
 @import '@styles/core';
-@import '@styles/partials';
 
 @import 'mixins';
 @import 'variables';
@@ -263,8 +262,6 @@
 							position: relative;
 
 							img {
-								@extend %disableUserSelect;
-
 								border-top-left-radius: 8px;
 								border-top-right-radius: 8px;
 								opacity: 0;
@@ -302,11 +299,7 @@
 							}
 
 							.desktopImageInnerContainer {
-								pointer-events: none;
-
 								img {
-									@extend %disableUserSelect;
-
 									display: block;
 									width: 100%;
 									height: auto;
@@ -332,14 +325,12 @@
 							height: 100%;
 
 							img {
-								@extend %disableUserSelect;
-
+								pointer-events: none;
 								bottom: 0;
 								right: 0;
 								position: absolute;
 								opacity: 0;
 								z-index: 1;
-								pointer-events: none;
 								display: block;
 								width: 100%;
 								height: auto;
@@ -370,11 +361,7 @@
 							}
 
 							.mobileImageInnerContainer {
-								pointer-events: none;
-
 								img {
-									@extend %disableUserSelect;
-
 									display: block;
 									width: 100%;
 									height: auto;

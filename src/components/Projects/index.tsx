@@ -62,6 +62,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 												[styles.active]: theme === 'dark',
 											})}
 											alt='desktop-mockup-light'
+											draggable={false}
 										/>
 										<Image
 											src={DesktopMockupDarkImage}
@@ -69,6 +70,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 												[styles.active]: theme === 'light',
 											})}
 											alt='desktop-mockup-dark'
+											draggable={false}
 										/>
 									</div>
 									<div className={styles.desktopImageContainer}>
@@ -77,6 +79,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 												src={project.images.desktop}
 												className={styles.desktopImage}
 												alt={`${project.name}-desktop`}
+												draggable={false}
 											/>
 										</div>
 									</div>
@@ -96,6 +99,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 												[styles.active]: theme === 'light',
 											})}
 											alt='mobile-mockup-dark'
+											draggable={false}
 										/>
 									</div>
 									<div className={styles.mobileImageContainer}>
@@ -103,6 +107,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 											<Image
 												src={project.images.mobile}
 												alt={`${project.name}-mobile`}
+												draggable={false}
 											/>
 										</div>
 									</div>
