@@ -19,8 +19,17 @@
 	.container {
 		@extend %container;
 
-		h1 {
-			@extend %heading;
+		.headingContainer {
+			display: flex;
+			align-items: flex-end;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			h1 {
+				@extend %heading;
+			}
+			span {
+				margin-bottom: 0.8rem;
+			}
 		}
 
 		.projectsContainer {
@@ -103,12 +112,12 @@
 
 					@include breakpoint(laptop-sm) {
 						display: -webkit-box;
+						-webkit-line-clamp: 2;
 					}
 				}
 
 				.content {
 					order: 1;
-					// transition: order 0.5s ease-in-out;
 					@include breakpoint(laptop-sm) {
 						order: 2;
 					}

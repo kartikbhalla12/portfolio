@@ -19,7 +19,11 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 	return (
 		<div id='projects' className={styles.projects}>
 			<div className={styles.container}>
-				<h1>My Projects</h1>
+				<div className={styles.headingContainer}>
+					<h1>My Projects</h1>
+					<span>(All project mockups are scrollable)</span>
+				</div>
+
 				<div className={styles.projectsContainer}>
 					{projects.map((project, i) => (
 						<div
