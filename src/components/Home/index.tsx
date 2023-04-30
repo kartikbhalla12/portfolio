@@ -11,9 +11,7 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 	const AboutContainer: FC<{ className?: string }> = props => (
 		<div className={classNames(styles.aboutContainer, props.className)}>
 			<p>
-				I have experience working with the most advanced tools and libraries
-				like React.js and Redux for front-end and using Node.js along with
-				modern practices like Serverless, Docker & Kubernetes for back-end.
+				{`I possess extensive expertise in a range of advanced tools and libraries for both front-end and back-end web development. On the front-end, I am proficient in working with React.js, Next.js, React Native, and Redux, while on the back-end, I am experienced in using Node.js, MongoDB, Docker, Serverless architecture, and Kubernetes orchestration.`}
 			</p>
 			<p>
 				Software Development Engineer at
