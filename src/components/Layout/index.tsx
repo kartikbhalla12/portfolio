@@ -90,10 +90,8 @@ const Layout: FC<LayoutProps> = ({
 					[styles.preloader]: loading,
 					[styles.mobile]: isMobile,
 				})}>
-				<div className={styles.innerContainer}>
-					{Children.map(children, child => cloneElement(child, { theme }))}
-					<SideElements />
-				</div>
+				{Children.map(children, child => cloneElement(child, { theme }))}
+				<SideElements />
 				<Footer />
 			</div>
 			{!isMobile && <CustomCursor />}
