@@ -1,0 +1,32 @@
+@import '@styles/core';
+@import 'variables';
+
+@mixin breakpointProperty($property, $fn) {
+	#{$property}: call($fn);
+
+	@each $breakpointName, $propertyValue in $mockupsBreakpoints {
+		@include breakpoint($breakpointName) {
+			#{$property}: call($fn, $breakpointName);
+		}
+	}
+}
+
+@mixin desktopMockupWidth($property) {
+	@include breakpointProperty($property, 'desktop-mockup-width');
+}
+
+@mixin mobileMockupWidth($property) {
+	@include breakpointProperty($property, 'mobile-mockup-width');
+}
+
+@mixin mobileMockupHeight($property) {
+	@include breakpointProperty($property, 'mobile-mockup-height');
+}
+
+@mixin mobileImageWidth($property) {
+	@include breakpointProperty($property, 'mobile-image-width');
+}
+
+@mixin mobileImageHeight($property) {
+	@include breakpointProperty($property, 'mobile-image-height');
+}

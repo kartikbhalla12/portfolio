@@ -1,5 +1,7 @@
 .layout {
 	transition: filter 0.2s linear;
+	display: flex;
+	flex-direction: column;
 
 	&.preloader {
 		overflow: hidden;

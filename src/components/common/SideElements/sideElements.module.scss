@@ -1,0 +1,104 @@
+@import '@styles/partials';
+@import '@styles/core';
+
+%sideElement {
+	position: fixed;
+	bottom: 0px;
+	transition: all 0.5s ease-in-out;
+	z-index: zIndex(level2);
+
+	&:after {
+		content: '';
+		position: relative;
+		display: block;
+		transition: border-color 0.5s ease-in-out;
+		width: 2px;
+		left: 48%;
+
+		@include theme {
+			border-top: 200px solid themedColor(homeIcon);
+		}
+	}
+}
+
+.container {
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: 0;
+
+	.socialContainer {
+		@extend %sideElement;
+
+		left: 40px;
+
+		@include breakpoint(laptop-sm) {
+			left: 20px;
+		}
+		@include breakpoint(tablet-md) {
+			left: -100px;
+		}
+
+		.iconsContainer {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 1rem;
+
+			.iconLink {
+				-webkit-tap-highlight-color: transparent;
+				margin: 0.6rem 0;
+
+				.icon {
+					height: 22px;
+					width: 20px;
+					transition: stroke 0.5s ease-in-out;
+					margin: 0 5px;
+					pointer-events: none;
+
+					@include theme {
+						stroke: themedColor(homeIcon);
+					}
+				}
+
+				&:hover .icon {
+					@include theme {
+						stroke: themedColor(accent);
+					}
+				}
+			}
+		}
+	}
+
+	.email {
+		@extend %sideElement;
+
+		right: 40px;
+		width: 25px;
+
+		@include breakpoint(laptop-sm) {
+			right: 20px;
+		}
+
+		@include breakpoint(tablet-md) {
+			right: -100px;
+		}
+
+		p {
+			margin: 0;
+			transform: rotate(90deg) translate(-250px);
+			letter-spacing: 2.5px;
+			transition: color 0.5s ease-in-out;
+
+			@include theme {
+				color: themedColor(homeIcon);
+			}
+
+			span {
+				pointer-events: none;
+
+				@include theme {
+					color: themedColor(accent);
+				}
+			}
+		}
+	}
+}

@@ -7,14 +7,31 @@ const experiences = [
 		},
 		companyName: 'upGrad Education Pvt. Ltd.',
 		companyUrl: 'https://www.upgradabroad.com',
-		// tasks: [
-		// 	{
-		// 		detail:
-		// 			'Working with different clients like acko, fsm in adding features to their website',
-		// 	},
-		// 	{ detail: 'Responsible for optimizing client pages' },
-		// 	{ detail: 'Technologies used - ReactJs, NextJs, React Native' },
-		// ],
+		tasks: [
+			{
+				detail:
+					"Working on upGrad's main website and admin panel to constantly build and improve the user experience, including features like custom bar, course recommendation query builder, etc.",
+				url: 'https://www.upgradabroad.com',
+			},
+			{
+				detail:
+					'Working on a new mobile application, "upGrad Abroad", from scratch using bare react native and typescript',
+				url: 'https://www.upgradabroad.com/download-study-abroad-app',
+			},
+			{
+				detail:
+					'Launched first phase of the mobile application on both Play Store and App Store in March 2023',
+				url: 'https://play.google.com/store/apps/details?id=com.upgrad.studyabroad&hl=en_IN',
+			},
+			{
+				detail:
+					'Creating a seamless user experience for enrolled users to fill in documents, view applications, and browse courses',
+			},
+			{
+				detail:
+					'Developing features for users to update their personal information and watch webinars on the go',
+			},
+		],
 	},
 	{
 		position: 'Software Development Engineer Intern',
@@ -25,11 +42,22 @@ const experiences = [
 		companyName: 'upGrad Education Pvt. Ltd.',
 		companyUrl: 'https://www.upgradabroad.com',
 		tasks: [
-			{ detail: 'Working on different projects based on Next, React' },
 			{
 				detail:
-					'Developed and deployed upGrad GlobalUniExpo, a React-Native application on play store and app store from ground up.',
+					"Worked on upGrad's main website to implement new pages, including a custom infinite scrolling feature, to list all the courses and universities.",
+				url: 'https://www.upgradabroad.com',
+			},
+			{
+				detail: "Contributed to the development of upGrad's admin panel.",
+			},
+			{
+				detail:
+					"Responsible for the development and the deployment of the upGrad's Global Uni Expo mobile application using Expo framework.",
 				url: 'https://play.google.com/store/apps/details?id=upgrad.uniexpo.com',
+			},
+			{
+				detail:
+					'Utilized technologies like React, React Native, and Next.js to develop and enhance the functionality of the website, admin panel, and the mobile application.',
 			},
 		],
 	},
@@ -44,11 +72,18 @@ const experiences = [
 		tasks: [
 			{
 				detail:
-					'Working with different clients like acko, fsm in adding features to their website',
+					'Learned and utilized technologies like Next.js and React Native for the projects.',
+			},
+			{ detail: 'Optimized the existing websites to improve their SEO score.' },
+			{
+				detail:
+					'Worked on various projects for clients like Acko Drive, FSM, and also on an in-house product.',
 				url: 'http://ackodrive.com/',
 			},
-			{ detail: 'Responsible for optimizing client pages' },
-			{ detail: 'Technologies used - ReactJs, NextJs, React Native' },
+			{
+				detail:
+					'Contributed to the development of an in-house product built on React Native.',
+			},
 		],
 	},
 	{
@@ -62,33 +97,52 @@ const experiences = [
 		tasks: [
 			{
 				detail:
-					"Developed front-end application for their product 'LenDen' using React, Redux & Typescript.",
+					"Worked on the product's functionality that allowed users to barter their products based on a certain value.",
 			},
 			{
-				detail: 'Launched first MVP of the product.',
+				detail:
+					'Developed front-end part of the "LenDen" product from scratch using React, Redux, and TypeScript.',
+			},
+			{
+				detail:
+					'Collaborated with the team to launch the first MVP of the product.',
 				url: 'https://lenden-mvp1.kartikbhalla.dev/',
 			},
 			{
-				detail: 'Completed the Mobile implementation of the second MVP.',
+				detail: 'Completed the mobile implementation of the second MVP.',
 				url: 'https://link.kartikbhalla.dev/IrjETA',
+			},
+			{
+				detail:
+					'Worked closely with the back-end team to integrate front-end functionality with the APIs and data models they provided.',
 			},
 		],
 	},
 	{
 		position: 'Front-end Web Developer Intern',
 		duration: {
-			from: 'Jun 2020',
-			to: 'Jul 2020',
+			from: 'Jun 2019',
+			to: 'Jul 2019',
 		},
 		companyName: 'Diligent Learning Pvt. Ltd.',
 		// companyUrl: '',
 		tasks: [
 			{
 				detail:
-					'Created front-end web application using vanilla HTML, CSS, JS.',
+					'Developed front-end web applications using HTML, CSS, and JavaScript.',
 				url: 'https://diligent.kartikbhalla.dev/',
 			},
-			{ detail: 'Migrated data from the former website to the new one.' },
+			{
+				detail: 'Migrated data from the old website to the new one.',
+			},
+			{
+				detail:
+					'Collaborated with the designer to ensure consistent user experience across different devices and platforms.',
+			},
+			{
+				detail:
+					'Gained experience working in a professional development environment, contributing to the success of a real-world web development project.',
+			},
 		],
 	},
 ];

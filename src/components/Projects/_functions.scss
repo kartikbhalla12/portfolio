@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+
+@function desktop-mockup-width($device: default) {
+	@return map-get($map: $desktop-mockup-widths, $key: $device);
+}
+
+@function mobile-mockup-width($device: default) {
+	@return map-get($map: $mobile-mockup-widths, $key: $device);
+}
+
+@function mobile-mockup-height($device: default) {
+	@return 2.02568 * mobile-mockup-width($device);
+}
+
+@function mobile-image-width($device: default) {
+	@return 0.914 * mobile-mockup-width($device);
+}
+
+@function mobile-image-height($device: default) {
+	@return 0.9654 * mobile-mockup-height($device);
+}
