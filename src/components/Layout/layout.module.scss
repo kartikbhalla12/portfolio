@@ -1,6 +1,5 @@
 .layout {
 	transition: filter 0.2s linear;
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 
@@ -11,10 +10,6 @@
 		&.mobile {
 			max-height: calc(100vh - 56px);
 		}
-	}
-
-	.innerContainer {
-		position: relative;
 	}
 }
 

@@ -1,8 +1,5 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-
-import { socialIconsAlt } from '@constants/socials';
 
 import Logo from '@icons/logo.svg';
 
@@ -18,7 +15,7 @@ const Footer: FC = () => {
 				onClick={() => router.push('/')}
 				alt='kb-logo'
 			/>
-			<div className={styles.socialContainer}>
+			{/* <div className={styles.socialContainer}>
 				{socialIconsAlt.map(icon => (
 					<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
 						<a className={styles.iconLink} target='_blank' rel='noreferrer'>
@@ -26,7 +23,7 @@ const Footer: FC = () => {
 						</a>
 					</Link>
 				))}
-			</div>
+			</div> */}
 			<div>© 2022 Kartik Bhalla</div>
 		</div>
 	);
