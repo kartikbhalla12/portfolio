@@ -3,8 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import socialIcons from '@constants/socials';
-
 import { HomeProps } from './home.interface';
 
 import styles from './home.module.scss';
@@ -34,29 +32,6 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 
 	return (
 		<div id='home' className={styles.container}>
-			<div className={styles.socialContainer}>
-				<div className={styles.iconsContainer}>
-					{socialIcons.map(icon => (
-						<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
-							<a className={styles.iconLink} target='_blank' rel='noreferrer'>
-								<icon.Component className={styles.icon} alt={icon.alt} />
-							</a>
-						</Link>
-					))}
-				</div>
-			</div>
-			<div className={styles.email}>
-				<p>
-					<Link
-						href='mailto:contact@kartikbhalla.dev'
-						passHref
-						prefetch={false}>
-						<a target='_blank' rel='noreferrer'>
-							<span>contact</span>@kartikbhalla.dev
-						</a>
-					</Link>
-				</p>
-			</div>
 			<div className={classNames(styles.home, { [styles.mobile]: isMobile })}>
 				<div className={styles.content}>
 					<div className={styles.information}>

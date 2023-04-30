@@ -16,6 +16,7 @@ import usePreloader from '@hooks/usePreloader';
 import { LayoutProps } from './layout.interface';
 
 import styles from './layout.module.scss';
+import SideElements from '@components/common/SideElements';
 
 const Layout: FC<LayoutProps> = ({
 	children,
@@ -89,7 +90,10 @@ const Layout: FC<LayoutProps> = ({
 					[styles.preloader]: loading,
 					[styles.mobile]: isMobile,
 				})}>
-				{Children.map(children, child => cloneElement(child, { theme }))}
+				<div className={styles.innerContainer}>
+					{Children.map(children, child => cloneElement(child, { theme }))}
+					<SideElements />
+				</div>
 				<Footer />
 			</div>
 			{!isMobile && <CustomCursor />}
