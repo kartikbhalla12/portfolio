@@ -21,7 +21,9 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 			<div className={styles.container}>
 				<div className={styles.headingContainer}>
 					<h1>My Projects</h1>
-					<span>(All project mockups are scrollable)</span>
+					<p>
+						All the images included with the projects can be scrolled through.
+					</p>
 				</div>
 
 				<div className={styles.projectsContainer}>

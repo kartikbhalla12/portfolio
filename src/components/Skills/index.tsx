@@ -45,9 +45,9 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 				<div className={styles.description}>
 					<h1>My Skills</h1>
 					<p>
-						I love to learn new things and experiment with new technologies.
-						These are the tech I use to on regular basis to build exceptional
-						softwares on the web.
+						{`I'm always eager to expand my knowledge and explore emerging
+						technologies. I frequently incorporate the latest tools and
+						frameworks into my work to create exceptional software for the web.`}
 					</p>
 				</div>
 			</div>

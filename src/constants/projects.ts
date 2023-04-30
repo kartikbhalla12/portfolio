@@ -11,12 +11,12 @@ const projects = [
 	{
 		name: 'Shortly',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque neque, cursus vel ipsum ut, ullamcorper viverra eros. Duis efficitur sapien velit, sit amet commodo nisl fermentum et. Suspendisse auctor, neque varius interdum imperdiet, nulla tellus varius tortor, eget porttitor eros nisi sit amet sem, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque neque, cursus vel ipsum ut, ullamcorper viverra eros. Duis efficitur sapien velit, sit amet commodo nisl fermentum et. Suspendisse auctor, neque varius interdum imperdiet, nulla tellus varius tortor, eget porttitor eros nisi sit amet sem.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque neque, cursus vel ipsum ut, ullamcorper viverra eros. Duis efficitur sapien velit, sit amet commodo nisl fermentum et. Suspendisse auctor, neque varius interdum imperdiet, nulla tellus varius tortor, eget porttitor eros nisi sit amet sem, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque neque, cursus vel ipsum ut, ullamcorper viverra eros. Duis efficitur sapien velit, sit amet commodo nisl fermentum et. Suspendisse auctor, neque varius interdum imperdiet, nulla tellus varius tortor, eget porttitor eros nisi sit amet sem.  ',
+			'Shortly is a single-page web application that allows users to shorten long URL links into shorter, more manageable links. Created as part of an internship assignment, Shortly integrates with the Short.io API to generate custom short links using my own domain. The application is fully responsive, offering a seamless user experience on both desktop and mobile devices.',
 		links: {
 			project: 'https://shortly.kartikbhalla.dev',
 			github: 'https://github.com/kartikbhalla12/shortly',
 		},
-		keywords: ['Lorem1', 'Lorem2', 'Lorem3', 'Lorem4'],
+		keywords: ['React', 'Styled Components'],
 		images: {
 			desktop: ShortlyDesktopImage,
 			mobile: ShortlyMobileImage,
@@ -25,12 +25,12 @@ const projects = [
 	{
 		name: 'Jitter',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque neque, cursus vel ipsum ut, ullamcorper viverra eros. Duis efficitur sapien velit, sit amet commodo nisl fermentum et. Suspendisse auctor, neque varius interdum imperdiet, nulla tellus varius tortor, eget porttitor eros nisi sit amet sem.  ',
+			'Jitter is a basic web page that uses Intersection Observer in JavaScript to enable infinite scrolling. It fetches data from the JSONPlaceholder API and renders it page-wise, automatically fetching the data for the next page as the user scrolls to the end. This approach optimizes resource management and improves performance, providing users with a seamless and uninterrupted browsing experience.',
 		links: {
 			project: 'https://jitter.kartikbhalla.dev',
 			github: 'https://github.com/kartikbhalla12/tdg-assignment',
 		},
-		keywords: ['Lorem1', 'Lorem2', 'Lorem3', 'Lorem4'],
+		keywords: ['React', 'Intersection Observer'],
 		images: {
 			desktop: JitterDesktopImage,
 			mobile: JitterMobileImage,
@@ -39,12 +39,12 @@ const projects = [
 	{
 		name: 'Training & Placement',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque neque, cursus vel ipsum ut, ullamcorper viverra eros. Duis efficitur sapien velit, sit amet commodo nisl fermentum et. Suspendisse auctor, neque varius interdum imperdiet, nulla tellus varius tortor, eget porttitor eros nisi sit amet sem.  ',
+			"During my time at Netaji Subhas University of Technology, East Campus, I served as a core coordinator for the training and placement office. As part of my responsibilities, I played a key role in creating the first draft of the office's website. The website is a comprehensive resource that provides detailed information about our college, the placement process, and downloadable documents. It also features an overview of the entire training and placement team and a contact page for inquiries.",
 		links: {
 			project: 'https://nsut.kartikbhalla.dev',
 			github: 'https://github.com/kartikbhalla12/NSUT-placement-portal/',
 		},
-		keywords: ['Lorem1', 'Lorem2', 'Lorem3', 'Lorem4'],
+		keywords: ['React', 'College'],
 		images: {
 			desktop: NsutDesktopImage,
 			mobile: NsutMobileImage,
