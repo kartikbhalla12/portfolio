@@ -33,8 +33,12 @@
 	}
 
 	.socialContainer {
-		display: flex;
+		display: none;
 		margin: 20px 0;
+
+		@include breakpoint(tablet-md) {
+			display: flex;
+		}
 
 		.iconLink {
 			-webkit-tap-highlight-color: transparent;
