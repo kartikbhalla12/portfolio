@@ -1,8 +1,8 @@
-@import '@styles/core';
+@use '@styles/core' as *;
 
-@import 'mixins';
-@import 'variables';
-@import 'functions';
+@use 'mixins' as *;
+@use 'variables' as *;
+@use 'functions' as *;
 
 .projects {
 	padding: 6rem 0;

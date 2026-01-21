@@ -1,4 +1,4 @@
-@import '@styles/core';
+@use '@styles/core' as *;
 
 .container {
 	padding: 10px 40px;

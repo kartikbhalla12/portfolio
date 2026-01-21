@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 import projects from '@constants/projects';
@@ -47,15 +47,11 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 									))}
 								</div>
 								<div className={styles.links}>
-									<Link href={project.links.github} passHref prefetch={false}>
-										<a target='_blank'>
-											<Github className={styles.github} />
-										</a>
+									<Link href={project.links.github} prefetch={false} target='_blank'>
+										<Github className={styles.github} />
 									</Link>
-									<Link href={project.links.project} passHref prefetch={false}>
-										<a target='_blank'>
-											<LinkIcon className={styles.link} />
-										</a>
+									<Link href={project.links.project} prefetch={false} target='_blank'>
+										<LinkIcon className={styles.link} />
 									</Link>
 								</div>
 							</div>

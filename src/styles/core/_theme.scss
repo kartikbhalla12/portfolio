@@ -1,73 +1,76 @@
-@import 'colors';
+@use 'sass:map';
+@use 'colors';
 
 $themes: (
 	light: (
-		default: color(black),
-		background: color(lightYellow),
-		secondaryBackground: color(mediumYellow),
-		textMuted: color(mediumGrey),
-		text: color(lighterGrey),
-		accent: color(accent),
-		scrollbar: color(mediumGrey),
-		heading: color(mediumGrey),
-		subHeading: color(lighterGrey),
-		navbarBackground: rgba(color(lightYellow), 0.75),
-		sideNavbarBackground: color(mediumYellow),
-		navbarBoxShadow: color(lightYellow),
-		navbarLogo: color(mediumGrey),
-		navbarLogoHover: color(darkerGrey),
-		navbarLink: color(lighterGrey),
-		navbarBurgerMenuIcon: color(mediumGrey),
-		navbarLinkHover: color(darkerGrey),
-		navbarLinkActive: color(darkBlue),
-		footerIcon: color(mediumGrey),
-		footerIconHover: color(darkerGrey),
-		homeIcon: color(mediumGrey),
-		cursorDot: color(mediumGrey),
-		cursorRing: rgba(color(lightGrey), 0.4),
-		tooltipBackground: color(darkYellow),
-		timelineBackground: color(mediumYellow),
-		listIcon: color(lighterGrey),
-		projectBackground: rgba(color(lightYellow), 0.5),
+		default: colors.color(black),
+		background: colors.color(lightYellow),
+		secondaryBackground: colors.color(mediumYellow),
+		textMuted: colors.color(mediumGrey),
+		text: colors.color(lighterGrey),
+		accent: colors.color(accent),
+		scrollbar: colors.color(mediumGrey),
+		heading: colors.color(mediumGrey),
+		subHeading: colors.color(lighterGrey),
+		navbarBackground: rgba(colors.color(lightYellow), 0.75),
+		sideNavbarBackground: colors.color(mediumYellow),
+		navbarBoxShadow: colors.color(lightYellow),
+		navbarLogo: colors.color(mediumGrey),
+		navbarLogoHover: colors.color(darkerGrey),
+		navbarLink: colors.color(lighterGrey),
+		navbarBurgerMenuIcon: colors.color(mediumGrey),
+		navbarLinkHover: colors.color(darkerGrey),
+		navbarLinkActive: colors.color(darkBlue),
+		footerIcon: colors.color(mediumGrey),
+		footerIconHover: colors.color(darkerGrey),
+		homeIcon: colors.color(mediumGrey),
+		cursorDot: colors.color(mediumGrey),
+		cursorRing: rgba(colors.color(lightGrey), 0.4),
+		tooltipBackground: colors.color(darkYellow),
+		timelineBackground: colors.color(mediumYellow),
+		listIcon: colors.color(lighterGrey),
+		projectBackground: rgba(colors.color(lightYellow), 0.5),
 	),
 	dark: (
-		default: color(white),
-		background: color(darkBlue),
-		secondaryBackground: color(mediumBlue),
-		text: color(lightGreyBlue),
-		textMuted: color(mediumGreyBlue),
-		accent: color(accent),
-		scrollbar: color(mediumGreyBlue),
-		heading: color(lightBlue),
-		subHeading: color(lightGreyBlue),
-		navbarBackground: rgba(color(darkBlue), 0.75),
-		sideNavbarBackground: color(mediumBlue),
-		navbarBoxShadow: color(darkBlue),
-		navbarLogo: color(lightGreyBlue),
-		navbarLogoHover: color(lightGrey),
-		navbarLink: color(lightGreyBlue),
-		navbarBurgerMenuIcon: color(lightBlue),
-		navbarLinkHover: color(lightGrey),
-		navbarLinkActive: color(white),
-		footerIcon: color(mediumGreyBlue),
-		footerIconHover: color(lightGrey),
-		homeIcon: color(lightBlue),
-		cursorDot: color(lightBlue),
-		cursorRing: rgba(color(mediumGrey), 0.4),
-		tooltipBackground: color(darkGreyBlue),
-		timelineBackground: color(darkGreyBlue),
-		listIcon: color(mediumGreyBlue),
-		projectBackground: rgba(color(darkGreyBlue), 0.5),
+		default: colors.color(white),
+		background: colors.color(darkBlue),
+		secondaryBackground: colors.color(mediumBlue),
+		text: colors.color(lightGreyBlue),
+		textMuted: colors.color(mediumGreyBlue),
+		accent: colors.color(accent),
+		scrollbar: colors.color(mediumGreyBlue),
+		heading: colors.color(lightBlue),
+		subHeading: colors.color(lightGreyBlue),
+		navbarBackground: rgba(colors.color(darkBlue), 0.75),
+		sideNavbarBackground: colors.color(mediumBlue),
+		navbarBoxShadow: colors.color(darkBlue),
+		navbarLogo: colors.color(lightGreyBlue),
+		navbarLogoHover: colors.color(lightGrey),
+		navbarLink: colors.color(lightGreyBlue),
+		navbarBurgerMenuIcon: colors.color(lightBlue),
+		navbarLinkHover: colors.color(lightGrey),
+		navbarLinkActive: colors.color(white),
+		footerIcon: colors.color(mediumGreyBlue),
+		footerIconHover: colors.color(lightGrey),
+		homeIcon: colors.color(lightBlue),
+		cursorDot: colors.color(lightBlue),
+		cursorRing: rgba(colors.color(mediumGrey), 0.4),
+		tooltipBackground: colors.color(darkGreyBlue),
+		timelineBackground: colors.color(darkGreyBlue),
+		listIcon: colors.color(mediumGreyBlue),
+		projectBackground: rgba(colors.color(darkGreyBlue), 0.5),
 	),
 );
+
+$theme-map: null !default;
 
 @mixin theme {
 	@each $theme, $map in $themes {
 		:global(.theme-#{$theme}) & {
 			$theme-map: () !global;
 			@each $key, $submap in $map {
-				$value: map-get(map-get($themes, $theme), '#{$key}');
-				$theme-map: map-merge(
+				$value: map.get(map.get($themes, $theme), '#{$key}');
+				$theme-map: map.merge(
 					$theme-map,
 					(
 						$key: $value,
@@ -82,5 +85,5 @@ $themes: (
 }
 
 @function themedColor($key) {
-	@return map-get($theme-map, $key);
+	@return map.get($theme-map, $key);
 }

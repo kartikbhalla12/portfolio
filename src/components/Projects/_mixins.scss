@@ -1,12 +1,15 @@
-@import '@styles/core';
-@import 'variables';
+@use '@styles/core' as *;
+@use 'sass:meta';
+@use 'variables' as *;
+@use 'functions' as *;
 
 @mixin breakpointProperty($property, $fn) {
-	#{$property}: call($fn);
+	$fn-ref: meta.get-function($fn);
+	#{$property}: meta.call($fn-ref);
 
 	@each $breakpointName, $propertyValue in $mockupsBreakpoints {
 		@include breakpoint($breakpointName) {
-			#{$property}: call($fn, $breakpointName);
+			#{$property}: meta.call($fn-ref, $breakpointName);
 		}
 	}
 }

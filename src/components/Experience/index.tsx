@@ -25,10 +25,8 @@ const Experience: FC<ExperienceProps> = ({ isMobile }) => {
 								</h3>
 							</div>
 							{exp.companyUrl ? (
-								<Link href={exp.companyUrl} passHref prefetch={false}>
-									<a target='_blank'>
-										<h3 className={styles.companyName}>{exp.companyName}</h3>
-									</a>
+								<Link href={exp.companyUrl} prefetch={false} target='_blank'>
+									<h3 className={styles.companyName}>{exp.companyName}</h3>
 								</Link>
 							) : (
 								<h3 className={styles.companyName}>{exp.companyName}</h3>
@@ -40,10 +38,8 @@ const Experience: FC<ExperienceProps> = ({ isMobile }) => {
 											<p>
 												{task.detail}
 												{task.url && (
-													<Link href={task.url} passHref prefetch={false}>
-														<a target='_blank' className={styles.iconLink}>
-															<LinkIcon className={styles.icon} />
-														</a>
+													<Link href={task.url} prefetch={false} target='_blank' className={styles.iconLink}>
+														<LinkIcon className={styles.icon} />
 													</Link>
 												)}
 											</p>

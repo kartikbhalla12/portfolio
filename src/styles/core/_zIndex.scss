@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $levels: (
 	level0: -1,
 	level1: 0,
@@ -10,5 +12,5 @@ $levels: (
 );
 
 @function zIndex($level) {
-	@return map-get($map: $levels, $key: $level);
+	@return map.get($levels, $level);
 }

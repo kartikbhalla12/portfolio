@@ -21,24 +21,22 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 				[styles.hide]: hideNavbar,
 				[styles.top]: isTop,
 			})}>
-			<Link href='/' passHref>
-				<a className={styles.logo}>
-					<Logo alt='kb-logo' className={styles.icon} />
-				</a>
+			<Link href='/' className={styles.logo}>
+				<Logo alt='kb-logo' className={styles.icon} />
 			</Link>
 
 			<div className={styles.linksContainer}>
 				{navbarLinks.map(link => (
-					<Link key={link.title} href={link.href} passHref>
-						<a
-							target={link.target || ''}
-							rel={link.rel || ''}
-							className={classNames({
-								[styles.active]: activeSection === link.id,
-								[styles.accent]: link.title === 'Resume',
-							})}>
-							{link.title}
-						</a>
+					<Link
+						key={link.title}
+						href={link.href}
+						target={link.target || ''}
+						rel={link.rel || ''}
+						className={classNames({
+							[styles.active]: activeSection === link.id,
+							[styles.accent]: link.title === 'Resume',
+						})}>
+						{link.title}
 					</Link>
 				))}
 			</div>

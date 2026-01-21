@@ -16,16 +16,17 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 					{skillIcons.map(icon => {
 						const SkillComponent = () => {
 							return (
-								<Link href={icon.url} key={icon.alt} passHref prefetch={false}>
-									<a
-										className={classNames({
-											[styles.fill]: icon.fillMode,
-											[styles.animate]: icon.animate,
-										})}
-										target='_blank'
-										rel='noreferrer'>
-										<icon.Component alt={icon.alt} />
-									</a>
+								<Link
+									href={icon.url}
+									key={icon.alt}
+									prefetch={false}
+									className={classNames({
+										[styles.fill]: icon.fillMode,
+										[styles.animate]: icon.animate,
+									})}
+									target='_blank'
+									rel='noreferrer'>
+									<icon.Component alt={icon.alt} />
 								</Link>
 							);
 						};

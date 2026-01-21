@@ -19,10 +19,8 @@ const Footer: FC = () => {
 			/>
 			<div className={styles.socialContainer}>
 				{socialIconsAlt.map(icon => (
-					<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
-						<a className={styles.iconLink} target='_blank' rel='noreferrer'>
-							<icon.Component className={styles.icon} alt={icon.alt} />
-						</a>
+					<Link key={icon.alt} href={icon.url} prefetch={false} className={styles.iconLink} target='_blank' rel='noreferrer'>
+						<icon.Component className={styles.icon} alt={icon.alt} />
 					</Link>
 				))}
 			</div>

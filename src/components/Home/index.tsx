@@ -15,15 +15,11 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 			</p>
 			<p>
 				Software Development Engineer at
-				<Link href='https://upgradabroad.com' passHref prefetch={false}>
-					<a target='_blank'> upGrad</a>
-				</Link>
+				<Link href='https://upgradabroad.com' prefetch={false} target='_blank'> upGrad</Link>
 				.
 			</p>
-			<Link href={'#projects'} passHref>
-				<a>
-					<button>Check out my work!</button>
-				</a>
+			<Link href={'#projects'}>
+				<button>Check out my work!</button>
 			</Link>
 		</div>
 	);
@@ -42,7 +38,8 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 					<div className={styles.imageContainer}>
 						<Image
 							src='/kartik.png'
-							layout='fill'
+							fill
+							sizes='(max-width: 768px) 210px, (max-width: 1024px) 225px, (max-width: 1280px) 263px, (max-width: 1366px) 300px, 338px'
 							alt='kartik bhalla'
 							priority
 							placeholder='blur'

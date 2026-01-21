@@ -33,10 +33,8 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
 					[styles.hide]: hideNavbar,
 					[styles.top]: isTop,
 				})}>
-				<Link href='/' passHref>
-					<a className={styles.logo}>
-						<Logo alt='kb-logo' className={styles.icon} />
-					</a>
+				<Link href='/' className={styles.logo}>
+					<Logo alt='kb-logo' className={styles.icon} />
 				</Link>
 
 				<div
@@ -56,17 +54,17 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
 				<div className={styles.sideNavbar} onClick={e => e.stopPropagation()}>
 					<div className={styles.linksContainer}>
 						{navbarLinks.map(link => (
-							<Link key={link.title} href={link.href} passHref>
-								<a
-									target={link.target || ''}
-									rel={link.rel || ''}
-									className={classNames({
-										[styles.active]: activeSection === link.id,
-										[styles.accentButton]: link.title === 'Resume',
-									})}
-									onClick={() => setIsMenuOpen(false)}>
-									{link.title}
-								</a>
+							<Link
+								key={link.title}
+								href={link.href}
+								target={link.target || ''}
+								rel={link.rel || ''}
+								className={classNames({
+									[styles.active]: activeSection === link.id,
+									[styles.accentButton]: link.title === 'Resume',
+								})}
+								onClick={() => setIsMenuOpen(false)}>
+								{link.title}
 							</Link>
 						))}
 					</div>

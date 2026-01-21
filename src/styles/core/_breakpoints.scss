@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $breakpoints: (
 	desktop-lg: 1800px,
 	desktop-md: 1600px,
@@ -16,7 +18,7 @@ $breakpoints: (
 );
 
 @function breakpoints($device) {
-	@return map-get($map: $breakpoints, $key: $device);
+	@return map.get($breakpoints, $device);
 }
 
 @mixin breakpoint($device) {
