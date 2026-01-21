@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useMemo } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -9,40 +9,44 @@ import { SkillsProps } from './skills.interface';
 import styles from './skills.module.scss';
 
 const Skills: FC<SkillsProps> = ({ isMobile }) => {
+	const memoizedIcons = useMemo(
+		() =>
+			skillIcons.map(icon => {
+				const SkillComponent = () => {
+					return (
+						<Link
+							href={icon.url}
+							key={icon.alt}
+							prefetch={false}
+							className={classNames({
+								[styles.fill]: icon.fillMode,
+								[styles.animate]: icon.animate,
+							})}
+							target='_blank'
+							rel='noreferrer'>
+							<icon.Component alt={icon.alt} />
+						</Link>
+					);
+				};
+
+				const ComponentWithToolTip = withToolTip<{ alt: string }>(
+					SkillComponent,
+					icon.name
+				);
+
+				return isMobile ? (
+					<SkillComponent key={icon.alt} />
+				) : (
+					<ComponentWithToolTip alt={icon.alt} key={icon.alt} />
+				);
+			}),
+		[isMobile]
+	);
+
 	return (
 		<div id='skills' className={styles.skills}>
 			<div className={styles.container}>
-				<div className={styles.iconsContainer}>
-					{skillIcons.map(icon => {
-						const SkillComponent = () => {
-							return (
-								<Link
-									href={icon.url}
-									key={icon.alt}
-									prefetch={false}
-									className={classNames({
-										[styles.fill]: icon.fillMode,
-										[styles.animate]: icon.animate,
-									})}
-									target='_blank'
-									rel='noreferrer'>
-									<icon.Component alt={icon.alt} />
-								</Link>
-							);
-						};
-
-						const ComponentWithToolTip = withToolTip<{ alt: string }>(
-							SkillComponent,
-							icon.name
-						);
-
-						return isMobile ? (
-							<SkillComponent key={icon.alt} />
-						) : (
-							<ComponentWithToolTip alt={icon.alt} key={icon.alt} />
-						);
-					})}
-				</div>
+				<div className={styles.iconsContainer}>{memoizedIcons}</div>
 				<div className={styles.description}>
 					<h1>My Skills</h1>
 					<p>
@@ -58,5 +62,5 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 
 export default memo(
 	Skills,
-	(prevProps, nextProps) => prevProps.theme === nextProps.theme
+	(prevProps, nextProps) => prevProps.isMobile === nextProps.isMobile
 );

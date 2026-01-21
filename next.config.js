@@ -3,12 +3,23 @@ const nextConfig = {
 	reactStrictMode: true,
 	compress: true,
 	productionBrowserSourceMaps: false,
-	webpack(config) {
+	// CSS optimization is handled automatically by Next.js:
+	// - CSS Modules are automatically purged (unused styles removed)
+	// - CSS is minified in production builds
+	// - CSS is code-split per page automatically
+	swcMinify: true, // Use SWC minifier for better performance
+	webpack(config, { dev, isServer }) {
 		config.module.rules.push({
 			test: /\.svg$/i,
 			issuer: /\.[jt]sx?$/,
 			use: ['@svgr/webpack'],
 		});
+
+		// Optimize CSS in production
+		if (!dev && !isServer) {
+			// CSS is automatically optimized by Next.js
+			// No additional configuration needed
+		}
 
 		return config;
 	},

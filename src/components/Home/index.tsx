@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
@@ -54,4 +54,4 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 	);
 };
 
-export default Home;
+export default memo(Home, (prevProps, nextProps) => prevProps.isMobile === nextProps.isMobile);
