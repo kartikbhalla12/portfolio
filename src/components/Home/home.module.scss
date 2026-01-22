@@ -73,6 +73,10 @@
 					margin-bottom: 30px;
 					@extend %heading;
 
+					@include breakpoint(tablet-sm) {
+						margin-bottom: 0px;
+					}
+
 					.greeting {
 						@extend %title;
 						display: block;
