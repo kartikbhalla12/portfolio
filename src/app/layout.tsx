@@ -80,6 +80,9 @@ export default async function RootLayout({
             />
             <body suppressHydrationWarning>
                 <script>0</script>
+                <a href='#main-content' className='skip-link'>
+                    Skip to main content
+                </a>
                 <LayoutClient isMobile={mobile} theme={theme}>
                     {children}
                 </LayoutClient>

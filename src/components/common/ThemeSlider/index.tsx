@@ -16,23 +16,37 @@ const ThemeSlider: FC<ThemeProps> = ({ theme, onThemeChange }) => {
 	};
 
 	return (
-		<div className={styles.themeSlider}>
+		<div className={styles.themeSlider} role='group' aria-label='Theme selector'>
 			<button
 				className={styles.iconButton}
-				onClick={() => onThemeChange('dark')}>
-				<Moon className={styles.icon} alt='moon' />
+				onClick={() => onThemeChange('dark')}
+				aria-label='Switch to dark theme'
+				aria-pressed={theme === 'dark'}>
+				<Moon className={styles.icon} aria-hidden='true' />
 			</button>
-			<button className={styles.switchButton} onClick={toggleTheme}>
+			<button
+				className={styles.switchButton}
+				onClick={toggleTheme}
+				aria-label={`Toggle theme, currently ${theme} mode`}
+				aria-pressed={theme === 'light'}>
 				<label className={styles.switch}>
-					<input type='checkbox' checked={theme === 'light'} readOnly />
-					<span className={styles.slider} />
+					<input
+						type='checkbox'
+						checked={theme === 'light'}
+						readOnly
+						aria-label='Theme toggle switch'
+						tabIndex={-1}
+					/>
+					<span className={styles.slider} aria-hidden='true' />
 				</label>
 			</button>
 
 			<button
 				className={styles.iconButton}
-				onClick={() => onThemeChange('light')}>
-				<Sun className={styles.icon} alt='sun' />
+				onClick={() => onThemeChange('light')}
+				aria-label='Switch to light theme'
+				aria-pressed={theme === 'light'}>
+				<Sun className={styles.icon} aria-hidden='true' />
 			</button>
 		</div>
 	);

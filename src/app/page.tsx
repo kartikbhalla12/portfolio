@@ -11,7 +11,7 @@ export default async function HomePage() {
     const mobile = await isMobile();
 
     return (
-        <main tabIndex={-1}>
+        <main id='main-content' tabIndex={-1}>
             <Home isMobile={mobile} />
             <Skills isMobile={mobile} />
             <Experience isMobile={mobile} />

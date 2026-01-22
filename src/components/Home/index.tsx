@@ -15,11 +15,19 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 			</p>
 			<p>
 				Software Development Engineer at
-				<Link href='https://upgradabroad.com' prefetch={false} target='_blank'> upGrad</Link>
+				<Link
+					href='https://upgradabroad.com'
+					prefetch={false}
+					target='_blank'
+					rel='noreferrer'
+					aria-label='Visit upGrad website (opens in new tab)'>
+					{' '}
+					upGrad
+				</Link>
 				.
 			</p>
-			<Link href={'#projects'}>
-				<button>Check out my work!</button>
+			<Link href={'#projects'} className={styles.ctaButton}>
+				Check out my work!
 			</Link>
 		</div>
 	);
@@ -29,9 +37,13 @@ const Home: FC<HomeProps> = ({ isMobile }) => {
 			<div className={classNames(styles.home, { [styles.mobile]: isMobile })}>
 				<div className={styles.content}>
 					<div className={styles.information}>
-						<h3>Hey, my name is</h3>
-						<h1>Kartik Bhalla.</h1>
-						<h2>A full-stack web developer.</h2>
+						<h1>
+							<span className={styles.greeting}>Hey, my name is</span>
+							<br />
+							Kartik Bhalla.
+							<br />
+							<span className={styles.subtitle}>A full-stack web developer.</span>
+						</h1>
 
 						<AboutContainer className={styles.about} />
 					</div>

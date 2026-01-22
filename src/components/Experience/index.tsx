@@ -17,13 +17,18 @@ const Experience: FC<ExperienceProps> = ({ isMobile }) => {
 			experiences.map((exp, i) => (
 				<div key={i} className={styles.experienceCard}>
 					<div className={styles.experienceDetails}>
-						<h3 className={styles.position}>{exp.position}</h3>
-						<h3 className={styles.duration}>
+						<h2 className={styles.position}>{exp.position}</h2>
+						<p className={styles.duration}>
 							{exp.duration.from} - {exp.duration.to}
-						</h3>
+						</p>
 					</div>
 					{exp.companyUrl ? (
-						<Link href={exp.companyUrl} prefetch={false} target='_blank'>
+						<Link
+							href={exp.companyUrl}
+							prefetch={false}
+							target='_blank'
+							rel='noreferrer'
+							aria-label={`Visit ${exp.companyName} website (opens in new tab)`}>
 							<h3 className={styles.companyName}>{exp.companyName}</h3>
 						</Link>
 					) : (
@@ -36,8 +41,14 @@ const Experience: FC<ExperienceProps> = ({ isMobile }) => {
 									<p>
 										{task.detail}
 										{task.url && (
-											<Link href={task.url} prefetch={false} target='_blank' className={styles.iconLink}>
-												<LinkIcon className={styles.icon} />
+											<Link
+												href={task.url}
+												prefetch={false}
+												target='_blank'
+												rel='noreferrer'
+												className={styles.iconLink}
+												aria-label={`View more details about ${task.detail} (opens in new tab)`}>
+												<LinkIcon className={styles.icon} aria-hidden='true' />
 											</Link>
 										)}
 									</p>

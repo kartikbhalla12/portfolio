@@ -31,9 +31,9 @@
 				}
 			}
 
-			button {
+			.ctaButton {
 				@extend %accentButton;
-
+				display: inline-block;
 				margin: 25px 0;
 			}
 		}
@@ -64,19 +64,23 @@
 			}
 
 			.information {
-				h3 {
-					@extend %title;
-					margin-bottom: 5px;
-				}
 				h1 {
 					@extend %heading;
-				}
-				h2 {
-					@extend %subHeading;
-					margin-bottom: 10px;
 
-					@include breakpoint(tablet-sm) {
-						margin-bottom: 0px;
+					.greeting {
+						@extend %title;
+						display: block;
+						margin-bottom: 5px;
+					}
+
+					.subtitle {
+						@extend %subHeading;
+						display: block;
+						margin-top: 10px;
+
+						@include breakpoint(tablet-sm) {
+							margin-top: 5px;
+						}
 					}
 				}
 

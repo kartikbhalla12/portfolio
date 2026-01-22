@@ -25,13 +25,14 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 								[styles.animate]: icon.animate,
 							})}
 							target='_blank'
-							rel='noreferrer'>
-							<icon.Component alt={icon.alt} />
+							rel='noreferrer'
+							aria-label={`Learn more about ${icon.name} (opens in new tab)`}>
+							<icon.Component aria-hidden='true' />
 						</Link>
 					);
 				};
 
-				const ComponentWithToolTip = withToolTip<{ alt: string }>(
+				const ComponentWithToolTip = withToolTip(
 					SkillComponent,
 					icon.name
 				);
@@ -39,7 +40,7 @@ const Skills: FC<SkillsProps> = ({ isMobile }) => {
 				return isMobile ? (
 					<SkillComponent key={icon.alt} />
 				) : (
-					<ComponentWithToolTip alt={icon.alt} key={icon.alt} />
+					<ComponentWithToolTip key={icon.alt} />
 				);
 			}),
 		[isMobile]

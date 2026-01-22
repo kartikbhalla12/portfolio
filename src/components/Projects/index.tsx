@@ -40,11 +40,21 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 							))}
 						</div>
 						<div className={styles.links}>
-							<Link href={project.links.github} prefetch={false} target='_blank'>
-								<Github className={styles.github} />
+							<Link
+								href={project.links.github}
+								prefetch={false}
+								target='_blank'
+								rel='noreferrer'
+								aria-label={`View ${project.name} source code on GitHub (opens in new tab)`}>
+								<Github className={styles.github} aria-hidden='true' />
 							</Link>
-							<Link href={project.links.project} prefetch={false} target='_blank'>
-								<LinkIcon className={styles.link} />
+							<Link
+								href={project.links.project}
+								prefetch={false}
+								target='_blank'
+								rel='noreferrer'
+								aria-label={`Visit ${project.name} project website (opens in new tab)`}>
+								<LinkIcon className={styles.link} aria-hidden='true' />
 							</Link>
 						</div>
 					</div>
