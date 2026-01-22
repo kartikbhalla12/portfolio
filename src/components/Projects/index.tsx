@@ -83,7 +83,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 									<Image
 										src={project.images.desktop}
 										className={styles.desktopImage}
-										alt={`${project.name}-desktop`}
+										alt={`${project.name} project desktop view - ${project.description.substring(0, 100)}`}
 										draggable={false}
 									/>
 								</div>
@@ -111,7 +111,7 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 								<div className={styles.mobileImageInnerContainer}>
 									<Image
 										src={project.images.mobile}
-										alt={`${project.name}-mobile`}
+										alt={`${project.name} project mobile view - ${project.description.substring(0, 100)}`}
 										draggable={false}
 									/>
 								</div>

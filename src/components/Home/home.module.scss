@@ -71,14 +71,14 @@
 						@extend %title;
 						display: block;
 						margin-bottom: 5px;
-					}
+				}
 
 					.subtitle {
-						@extend %subHeading;
+					@extend %subHeading;
 						display: block;
 						margin-top: 10px;
 
-						@include breakpoint(tablet-sm) {
+					@include breakpoint(tablet-sm) {
 							margin-top: 5px;
 						}
 					}
