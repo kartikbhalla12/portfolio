@@ -38,7 +38,7 @@ const CustomCursor: FC = () => {
 	};
 
 	const setCursorCoordinates = (
-		element: RefObject<HTMLElement>,
+		element: RefObject<HTMLElement | null>,
 		left: number,
 		top: number
 	) => {

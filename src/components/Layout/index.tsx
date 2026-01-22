@@ -47,7 +47,7 @@ const LayoutClient = ({ children, isMobile, theme: initialTheme }: LayoutClientP
 					[styles.mobile]: isMobile,
 				})}>
 				{Children.map(children, child =>
-					cloneElement(child as React.ReactElement, { theme })
+					cloneElement(child as React.ReactElement<any>, { theme } as any)
 				)}
 				<SideElements />
 				<Footer />
