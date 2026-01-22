@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @font-face {
 	font-family: 'Cera Pro';
 	font-weight: 300;
@@ -56,7 +58,7 @@ $fonts: (
 );
 
 @function font($fontName) {
-	@return map-get($map: $fonts, $key: $fontName);
+	@return map.get($fonts, $fontName);
 }
 
 $sizes: (
@@ -81,7 +83,7 @@ $sizes: (
 );
 
 @function size($size) {
-	@return map-get($map: $sizes, $key: $size);
+	@return map.get($sizes, $size);
 }
 
 $weights: (
@@ -93,5 +95,5 @@ $weights: (
 );
 
 @function weight($weight) {
-	@return map-get($map: $weights, $key: $weight);
+	@return map.get($weights, $weight);
 }

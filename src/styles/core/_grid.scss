@@ -1,28 +1,30 @@
-@import 'theme', 'fonts';
+@use 'theme';
+@use 'fonts';
+@use 'breakpoints';
 
 %container {
-	font-family: font(primary);
+	font-family: fonts.font(primary);
 	max-width: 1600px;
 	margin: 0 auto;
 	padding: 0 150px;
 	transition: padding 0.5s ease-in-out;
 
-	@include theme {
-		color: themedColor(text);
+	@include theme.theme {
+		color: theme.themedColor(text);
 	}
 
-	@include breakpoint(laptop-md) {
+	@include breakpoints.breakpoint(laptop-md) {
 		padding: 0 120px;
 	}
-	@include breakpoint(laptop-sm) {
+	@include breakpoints.breakpoint(laptop-sm) {
 		padding: 0 100px;
 	}
 
-	@include breakpoint(tablet-md) {
+	@include breakpoints.breakpoint(tablet-md) {
 		padding: 0 40px;
 	}
 
-	@include breakpoint(tablet-sm) {
+	@include breakpoints.breakpoint(tablet-sm) {
 		padding: 0 20px;
 	}
 }

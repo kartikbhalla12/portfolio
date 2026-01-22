@@ -1,5 +1,5 @@
-@import '@styles/partials';
-@import '@styles/core';
+@use '@styles/partials' as *;
+@use '@styles/core' as *;
 
 .container {
 	position: relative;
@@ -25,15 +25,16 @@
 
 				a {
 					font-weight: 500;
+
 					@include theme {
 						color: themedColor(accent);
 					}
 				}
 			}
 
-			button {
+			.ctaButton {
 				@extend %accentButton;
-
+				display: inline-block;
 				margin: 25px 0;
 			}
 		}
@@ -48,15 +49,19 @@
 			@include breakpoint(laptop-lg) {
 				column-gap: 80px;
 			}
+
 			@include breakpoint(laptop-md) {
 				column-gap: 60px;
 			}
+
 			@include breakpoint(laptop-sm) {
 				column-gap: 40px;
 			}
+
 			@include breakpoint(tablet-md) {
 				column-gap: 20px;
 			}
+
 			@include breakpoint(tablet-sm) {
 				column-gap: 0px;
 				flex-direction: column;
@@ -64,19 +69,22 @@
 			}
 
 			.information {
-				h3 {
-					@extend %title;
-					margin-bottom: 5px;
-				}
 				h1 {
+					margin-bottom: 30px;
 					@extend %heading;
-				}
-				h2 {
-					@extend %subHeading;
-					margin-bottom: 10px;
 
-					@include breakpoint(tablet-sm) {
-						margin-bottom: 0px;
+					.greeting {
+						@extend %title;
+						display: block;
+					}
+
+					.subtitle {
+						@extend %subHeading;
+						display: block;
+
+						@include breakpoint(tablet-sm) {
+							margin-top: 5px;
+						}
 					}
 				}
 
@@ -156,6 +164,7 @@
 					@include breakpoint(laptop-md) {
 						transform: translate(25px, 25px);
 					}
+
 					@include breakpoint(laptop-sm) {
 						transform: translate(20px, 20px);
 					}

@@ -1,4 +1,4 @@
-@import '@styles/core';
+@use '@styles/core' as *;
 
 .experience {
 	padding: 6rem 0;
@@ -104,6 +104,8 @@
 					}
 
 					.position {
+						font-weight: weight(medium);
+
 						@include theme {
 							color: themedColor(heading);
 						}
@@ -114,6 +116,7 @@
 					@include theme {
 						color: themedColor(accent);
 					}
+
 					font-weight: weight(regular);
 				}
 

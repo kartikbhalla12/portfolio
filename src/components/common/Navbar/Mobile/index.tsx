@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useState } from 'react';
 import Link from 'next/link';
 import { useSwipeable } from 'react-swipeable';
@@ -33,43 +35,53 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
 					[styles.hide]: hideNavbar,
 					[styles.top]: isTop,
 				})}>
-				<Link href='/' passHref>
-					<a className={styles.logo}>
-						<Logo alt='kb-logo' className={styles.icon} />
-					</a>
+				<Link href='/' className={styles.logo} aria-label='Go to homepage'>
+					<Logo alt='kb-logo' className={styles.icon} aria-hidden='true' />
 				</Link>
 
-				<div
+				<button
 					className={classNames(styles.menuButtonContainer, {
 						[styles.isMenuOpen]: isMenuOpen,
 					})}
-					onClick={() => setIsMenuOpen(!isMenuOpen)}>
-					<div className={styles.menuButtonBurger} />
-				</div>
+					onClick={() => setIsMenuOpen(!isMenuOpen)}
+					aria-label='Toggle navigation menu'
+					aria-expanded={isMenuOpen}
+					aria-controls='mobile-navigation'>
+					<div className={styles.menuButtonBurger} aria-hidden='true' />
+				</button>
 			</div>
 			<div
+				id='mobile-navigation'
 				className={classNames(styles.sideNavbarContainer, {
 					[styles.isMenuOpen]: isMenuOpen,
 				})}
 				onClick={() => setIsMenuOpen(false)}
-				{...NavHandler}>
+				{...NavHandler}
+				role='dialog'
+				aria-modal='true'
+				aria-label='Navigation menu'>
 				<div className={styles.sideNavbar} onClick={e => e.stopPropagation()}>
-					<div className={styles.linksContainer}>
+					<nav className={styles.linksContainer} aria-label='Main navigation'>
 						{navbarLinks.map(link => (
-							<Link key={link.title} href={link.href} passHref>
-								<a
-									target={link.target || ''}
-									rel={link.rel || ''}
-									className={classNames({
-										[styles.active]: activeSection === link.id,
-										[styles.accentButton]: link.title === 'Resume',
-									})}
-									onClick={() => setIsMenuOpen(false)}>
-									{link.title}
-								</a>
+							<Link
+								key={link.title}
+								href={link.href}
+								target={link.target || ''}
+								rel={link.rel || ''}
+								className={classNames({
+									[styles.active]: activeSection === link.id,
+									[styles.accentButton]: link.title === 'Resume',
+								})}
+								onClick={() => setIsMenuOpen(false)}
+								aria-label={
+									link.target === '_blank'
+										? `${link.title} (opens in new tab)`
+										: link.title
+								}>
+								{link.title}
 							</Link>
 						))}
-					</div>
+					</nav>
 
 					<div className={styles.themeSliderContainer}>
 						<ThemeSlider {...rest} />

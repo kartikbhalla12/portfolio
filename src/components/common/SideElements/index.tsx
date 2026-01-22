@@ -8,20 +8,28 @@ const SideElements = () => (
 		<div className={styles.socialContainer}>
 			<div className={styles.iconsContainer}>
 				{socialIcons.map(icon => (
-					<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
-						<a className={styles.iconLink} target='_blank' rel='noreferrer'>
-							<icon.Component className={styles.icon} alt={icon.alt} />
-						</a>
+					<Link
+						key={icon.alt}
+						href={icon.url}
+						prefetch={false}
+						className={styles.iconLink}
+						target='_blank'
+						rel='noreferrer'
+						aria-label={`Visit ${icon.alt} profile (opens in new tab)`}>
+						<icon.Component className={styles.icon} aria-hidden='true' />
 					</Link>
 				))}
 			</div>
 		</div>
 		<div className={styles.email}>
 			<p>
-				<Link href='mailto:contact@kartikbhalla.dev' passHref prefetch={false}>
-					<a target='_blank' rel='noreferrer'>
-						<span>contact</span>@kartikbhalla.dev
-					</a>
+				<Link
+					href='mailto:contact@kartikbhalla.dev'
+					prefetch={false}
+					target='_blank'
+					rel='noreferrer'
+					aria-label='Send email to contact@kartikbhalla.dev (opens email client)'>
+					<span>contact</span>@kartikbhalla.dev
 				</Link>
 			</p>
 		</div>

@@ -1,8 +1,9 @@
 import { FC } from 'react';
+import type React from 'react';
 
 import styles from './withTooltip.module.scss';
 
-type ComponentPropsType<T> = T & JSX.IntrinsicAttributes;
+type ComponentPropsType<T> = T & React.JSX.IntrinsicAttributes;
 type ComponentType<T> = FC<ComponentPropsType<T>>;
 
 function withToolTip<T>(

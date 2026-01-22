@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
@@ -21,27 +23,30 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 				[styles.hide]: hideNavbar,
 				[styles.top]: isTop,
 			})}>
-			<Link href='/' passHref>
-				<a className={styles.logo}>
-					<Logo alt='kb-logo' className={styles.icon} />
-				</a>
+			<Link href='/' className={styles.logo} aria-label='Go to homepage'>
+				<Logo alt='kb-logo' className={styles.icon} aria-hidden='true' />
 			</Link>
 
-			<div className={styles.linksContainer}>
+			<nav className={styles.linksContainer} aria-label='Main navigation'>
 				{navbarLinks.map(link => (
-					<Link key={link.title} href={link.href} passHref>
-						<a
-							target={link.target || ''}
-							rel={link.rel || ''}
-							className={classNames({
-								[styles.active]: activeSection === link.id,
-								[styles.accent]: link.title === 'Resume',
-							})}>
-							{link.title}
-						</a>
+					<Link
+						key={link.title}
+						href={link.href}
+						target={link.target || ''}
+						rel={link.rel || ''}
+						className={classNames({
+							[styles.active]: activeSection === link.id,
+							[styles.accent]: link.title === 'Resume',
+						})}
+						aria-label={
+							link.target === '_blank'
+								? `${link.title} (opens in new tab)`
+								: link.title
+						}>
+						{link.title}
 					</Link>
 				))}
-			</div>
+			</nav>
 			<ThemeSlider {...props} />
 		</div>
 	);

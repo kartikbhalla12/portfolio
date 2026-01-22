@@ -1,2 +1,7 @@
-@import 'breakpoints', 'colors', 'fonts', 'zIndex', 'grid', 'theme',
-	'typography';
+@forward 'breakpoints';
+@forward 'colors';
+@forward 'fonts';
+@forward 'zIndex';
+@forward 'theme';
+@forward 'grid';
+@forward 'typography';

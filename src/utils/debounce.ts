@@ -1,15 +1,17 @@
-const debounce = function (fn: Function, d: number) {
-	let timer: any;
+const debounce = <T extends (...args: any[]) => any>(
+	fn: T,
+	delay: number
+): ((...args: Parameters<T>) => void) => {
+	let timer: NodeJS.Timeout | null = null;
 
-	return function () {
-		//@ts-ignore
-		let context = this;
-		let args = arguments;
+	return function (this: any, ...args: Parameters<T>) {
+		if (timer) {
 		clearTimeout(timer);
+		}
 
 		timer = setTimeout(() => {
-			fn.apply(context, args);
-		}, d);
+			fn.apply(this, args);
+		}, delay);
 	};
 };
 

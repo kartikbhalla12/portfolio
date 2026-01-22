@@ -1,6 +1,8 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, memo, useMemo } from 'react';
 import Link from 'next/link';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 import projects from '@constants/projects';
@@ -16,6 +18,110 @@ import { ProjectsProps } from './projects.interface';
 import styles from './projects.module.scss';
 
 const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
+	const memoizedProjects = useMemo(
+		() =>
+			projects.map((project, i) => (
+				<div
+					key={project.name}
+					className={classNames(styles.project, {
+						[styles.left]: i % 2 !== 0,
+					})}>
+					<h2 className={styles.heading}>{project.name}</h2>
+					<div className={styles.content}>
+						<h2>{project.name}</h2>
+						<p className={styles.description}>{project.description}</p>
+						<div className={styles.keywords}>
+							{project.keywords.map(keyword => (
+								<p
+									key={`${project.name}-${keyword}`}
+									className={styles.keyword}>
+									{keyword}
+								</p>
+							))}
+						</div>
+						<div className={styles.links}>
+							<Link
+								href={project.links.github}
+								prefetch={false}
+								target='_blank'
+								rel='noreferrer'
+								aria-label={`View ${project.name} source code on GitHub (opens in new tab)`}>
+								<Github className={styles.github} aria-hidden='true' />
+							</Link>
+							<Link
+								href={project.links.project}
+								prefetch={false}
+								target='_blank'
+								rel='noreferrer'
+								aria-label={`Visit ${project.name} project website (opens in new tab)`}>
+								<LinkIcon className={styles.link} aria-hidden='true' />
+							</Link>
+						</div>
+					</div>
+					<div className={styles.images}>
+						<div className={styles.desktopContainer}>
+							<div className={styles.desktopMockupContainer}>
+								<Image
+									src={DesktopMockupLightImage}
+									className={classNames({
+										[styles.active]: theme === 'dark',
+									})}
+									alt='desktop-mockup-light'
+									draggable={false}
+								/>
+								<Image
+									src={DesktopMockupDarkImage}
+									className={classNames({
+										[styles.active]: theme === 'light',
+									})}
+									alt='desktop-mockup-dark'
+									draggable={false}
+								/>
+							</div>
+							<div className={styles.desktopImageContainer}>
+								<div className={styles.desktopImageInnerContainer}>
+									<Image
+										src={project.images.desktop}
+										className={styles.desktopImage}
+										alt={`${project.name} project desktop view - ${project.description.substring(0, 100)}`}
+										draggable={false}
+									/>
+								</div>
+							</div>
+						</div>
+						<div className={styles.mobileContainer}>
+							<div className={styles.mobileMockupContainer}>
+								<Image
+									src={MobileMockupLightImage}
+									className={classNames({
+										[styles.active]: theme === 'dark',
+									})}
+									alt='mobile-mockup-light'
+								/>
+								<Image
+									src={MobileMockupDarkImage}
+									className={classNames({
+										[styles.active]: theme === 'light',
+									})}
+									alt='mobile-mockup-dark'
+									draggable={false}
+								/>
+							</div>
+							<div className={styles.mobileImageContainer}>
+								<div className={styles.mobileImageInnerContainer}>
+									<Image
+										src={project.images.mobile}
+										alt={`${project.name} project mobile view - ${project.description.substring(0, 100)}`}
+										draggable={false}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)),
+		[theme]
+	);
 	return (
 		<div id='projects' className={styles.projects}>
 			<div className={styles.container}>
@@ -26,105 +132,12 @@ const Projects: FC<ProjectsProps> = ({ isMobile, theme }) => {
 					</p>
 				</div>
 
-				<div className={styles.projectsContainer}>
-					{projects.map((project, i) => (
-						<div
-							key={project.name}
-							className={classNames(styles.project, {
-								[styles.left]: i % 2 !== 0,
-							})}>
-							<h2 className={styles.heading}>{project.name}</h2>
-							<div className={styles.content}>
-								<h2>{project.name}</h2>
-								<p className={styles.description}>{project.description}</p>
-								<div className={styles.keywords}>
-									{project.keywords.map(keyword => (
-										<p
-											key={`${project.name}-${keyword}`}
-											className={styles.keyword}>
-											{keyword}
-										</p>
-									))}
-								</div>
-								<div className={styles.links}>
-									<Link href={project.links.github} passHref prefetch={false}>
-										<a target='_blank'>
-											<Github className={styles.github} />
-										</a>
-									</Link>
-									<Link href={project.links.project} passHref prefetch={false}>
-										<a target='_blank'>
-											<LinkIcon className={styles.link} />
-										</a>
-									</Link>
-								</div>
-							</div>
-							<div className={styles.images}>
-								<div className={styles.desktopContainer}>
-									<div className={styles.desktopMockupContainer}>
-										<Image
-											src={DesktopMockupLightImage}
-											className={classNames({
-												[styles.active]: theme === 'dark',
-											})}
-											alt='desktop-mockup-light'
-											draggable={false}
-										/>
-										<Image
-											src={DesktopMockupDarkImage}
-											className={classNames({
-												[styles.active]: theme === 'light',
-											})}
-											alt='desktop-mockup-dark'
-											draggable={false}
-										/>
-									</div>
-									<div className={styles.desktopImageContainer}>
-										<div className={styles.desktopImageInnerContainer}>
-											<Image
-												src={project.images.desktop}
-												className={styles.desktopImage}
-												alt={`${project.name}-desktop`}
-												draggable={false}
-											/>
-										</div>
-									</div>
-								</div>
-								<div className={styles.mobileContainer}>
-									<div className={styles.mobileMockupContainer}>
-										<Image
-											src={MobileMockupLightImage}
-											className={classNames({
-												[styles.active]: theme === 'dark',
-											})}
-											alt='mobile-mockup-light'
-										/>
-										<Image
-											src={MobileMockupDarkImage}
-											className={classNames({
-												[styles.active]: theme === 'light',
-											})}
-											alt='mobile-mockup-dark'
-											draggable={false}
-										/>
-									</div>
-									<div className={styles.mobileImageContainer}>
-										<div className={styles.mobileImageInnerContainer}>
-											<Image
-												src={project.images.mobile}
-												alt={`${project.name}-mobile`}
-												draggable={false}
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
+				<div className={styles.projectsContainer}>{memoizedProjects}</div>
 			</div>
 		</div>
 	);
 };
 
-export default Projects;
+export default memo(Projects, (prevProps, nextProps) =>
+	prevProps.isMobile === nextProps.isMobile && prevProps.theme === nextProps.theme
+);

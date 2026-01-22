@@ -1,4 +1,4 @@
-@import '@styles/core';
+@use '@styles/core' as *;
 
 .preloader {
 	display: flex;

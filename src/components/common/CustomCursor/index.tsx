@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, RefObject, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
@@ -36,7 +38,7 @@ const CustomCursor: FC = () => {
 	};
 
 	const setCursorCoordinates = (
-		element: RefObject<HTMLElement>,
+		element: RefObject<HTMLElement | null>,
 		left: number,
 		top: number
 	) => {

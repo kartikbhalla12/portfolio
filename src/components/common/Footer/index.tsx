@@ -1,5 +1,6 @@
+'use client';
+
 import { FC } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import { socialIconsAlt } from '@constants/socials';
@@ -8,25 +9,28 @@ import Logo from '@icons/logo.svg';
 import styles from './footer.module.scss';
 
 const Footer: FC = () => {
-	const router = useRouter();
-
 	return (
 		<div className={styles.container}>
-			<Logo
-				className={styles.logo}
-				onClick={() => router.push('/')}
-				alt='kb-logo'
-			/>
+			<Link
+				href='/'
+				aria-label='Go to homepage'>
+				<Logo alt='kb-logo' aria-hidden='true' className={styles.logo} />
+			</Link>
 			<div className={styles.socialContainer}>
 				{socialIconsAlt.map(icon => (
-					<Link key={icon.alt} href={icon.url} passHref prefetch={false}>
-						<a className={styles.iconLink} target='_blank' rel='noreferrer'>
-							<icon.Component className={styles.icon} alt={icon.alt} />
-						</a>
+					<Link
+						key={icon.alt}
+						href={icon.url}
+						prefetch={false}
+						className={styles.iconLink}
+						target='_blank'
+						rel='noreferrer'
+						aria-label={`Visit ${icon.alt} profile (opens in new tab)`}>
+						<icon.Component className={styles.icon} aria-hidden='true' />
 					</Link>
 				))}
 			</div>
-			<div>© 2022 Kartik Bhalla</div>
+			<div>© 2026 Kartik Bhalla</div>
 		</div>
 	);
 };
