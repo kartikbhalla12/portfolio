@@ -9,7 +9,6 @@ import {
     getPersonStructuredData,
     getWebsiteStructuredData,
 } from '@utils/structured-data';
-import Head from 'next/head';
 
 export const metadata = rootMetadata;
 
@@ -23,8 +22,8 @@ export default async function RootLayout({
 
     return (
         <html lang='en' className={`theme-${theme}`}>
-            {/* Preconnect to Google Analytics for faster loading */}
-            <Head>
+            <head>
+                {/* Preconnect to Google Analytics for faster loading */}
                 <link rel='preconnect' href='https://www.googletagmanager.com' />
                 <link rel='preconnect' href='https://www.google-analytics.com' />
                 <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
@@ -67,7 +66,7 @@ export default async function RootLayout({
                         __html: JSON.stringify(getWebsiteStructuredData()),
                     }}
                 />
-            </Head>
+            </head>
             <body suppressHydrationWarning>
                 <script>0</script>
                 <a href='#main-content' className='skip-link'>
