@@ -7,7 +7,7 @@ const nextConfig = {
 	// - CSS Modules are automatically purged (unused styles removed)
 	// - CSS is minified in production builds
 	// - CSS is code-split per page automatically
-	swcMinify: true, // Use SWC minifier for better performance
+	// SWC minification is enabled by default in Next.js 15
 	webpack(config, { dev, isServer }) {
 		config.module.rules.push({
 			test: /\.svg$/i,

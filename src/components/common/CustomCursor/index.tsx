@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, RefObject, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 

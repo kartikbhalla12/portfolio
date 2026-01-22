@@ -8,12 +8,16 @@ const useTheme = (initialTheme: Theme) => {
 
 	const handleChange = (isDark: boolean) => {
 		const faviconTag = window.document.getElementById('faviconTag');
+		if (!faviconTag) return;
+
 		(faviconTag as HTMLLinkElement).href = isDark
 			? './logo-light.svg'
 			: './logo-dark.svg';
 	};
 
 	useEffect(() => {
+		// Set cookie on client side (this is safe in client components)
+		// This will run on mount with initialTheme, setting the cookie if it doesn't exist
 		setThemeCookie(theme);
 		const root = window.document.documentElement;
 

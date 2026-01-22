@@ -1,11 +1,11 @@
 import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import debounce from '@utils/debounce';
 import navbarLinks from '@constants/navbarLinks';
 
 const useNavScroll = (hideNavbarY: number) => {
-	const router = useRouter();
+	const pathname = usePathname();
 	const previousScrollYRef = useRef(0);
 	const rafIdRef = useRef<number | null>(null);
 	const sectionElementsRef = useRef<HTMLElement[]>([]);
@@ -30,7 +30,7 @@ const useNavScroll = (hideNavbarY: number) => {
 		if (elements.length > 0) {
 			setActiveSection(elements[0]?.getAttribute('id') || '');
 		}
-	}, [router.asPath]);
+	}, [pathname]);
 
 	const debouncedActiveSectionChange = useMemo(
 		() =>

@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
 
 const usePreloader = () => {
 	const [loading, setLoading] = useState(true);
-	const router = useRouter();
+	const pathname = usePathname();
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const loadEventFiredRef = useRef(false);
 
@@ -58,10 +58,15 @@ const usePreloader = () => {
 	}, []);
 
 	useEffect(() => {
-		if (router.asPath.split('/#')[1] && !loading) router.replace(router.asPath);
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [loading]);
+		// Handle hash navigation in App Router
+		if (typeof window !== 'undefined' && window.location.hash && !loading) {
+			const hash = window.location.hash;
+			window.location.hash = '';
+			setTimeout(() => {
+				window.location.hash = hash;
+			}, 0);
+		}
+	}, [loading, pathname]);
 
 	return {
 		loading,
