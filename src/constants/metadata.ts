@@ -120,7 +120,7 @@ export const createMetadata = (options?: {
 		verification: {
 			// Add your verification codes here when available
 			// google: 'your-google-verification-code',
-			// yandex: 'your-yandex-verification-code',
+			yandex: "2edb248b34c004fa"
 		},
 	};
 };

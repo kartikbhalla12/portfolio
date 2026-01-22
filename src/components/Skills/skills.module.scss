@@ -4,6 +4,7 @@
 	@include theme {
 		background-color: themedColor(secondaryBackground);
 	}
+
 	transition: background 0.5s ease-in-out;
 	padding: 6rem 0;
 
@@ -23,12 +24,15 @@
 		@include breakpoint(desktop-md) {
 			column-gap: 6rem;
 		}
+
 		@include breakpoint(laptop-md) {
 			column-gap: 4rem;
 		}
+
 		@include breakpoint(tablet-lg) {
 			column-gap: 2rem;
 		}
+
 		@include breakpoint(tablet-sm) {
 			flex-direction: column;
 			row-gap: 2.5rem;
@@ -49,19 +53,31 @@
 			@include breakpoint(laptop-md) {
 				gap: 2rem;
 			}
+
 			@include breakpoint(laptop-sm) {
 				gap: 1.75rem;
 			}
+
 			@include breakpoint(tablet-lg) {
 				gap: 1.5rem;
 			}
+
 			@include breakpoint(tablet-md) {
 				gap: 1.4rem;
 			}
+
 			@include breakpoint(tablet-sm) {
 				max-width: 400px;
 				order: 2;
 				gap: 2rem 1.5rem;
+			}
+
+			.skillItem {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				gap: 0.5rem;
 			}
 
 			a {
@@ -91,12 +107,15 @@
 						width: 40px;
 						max-height: 35px;
 					}
+
 					@include breakpoint(tablet-lg) {
 						width: 35px;
 					}
+
 					@include breakpoint(tablet-sm) {
 						width: 40px;
 					}
+
 					@include breakpoint(mobile-sm) {
 						width: 35px;
 					}
@@ -124,6 +143,7 @@
 					0% {
 						transform: rotate(0deg);
 					}
+
 					100% {
 						transform: rotate(360deg);
 					}

@@ -1,3 +1,7 @@
 export interface HomeProps {
-	isMobile: boolean;
+  isMobile: boolean;
+}
+
+export interface AboutContainerProps {
+  className?: string;
 }

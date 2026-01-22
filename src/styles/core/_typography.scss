@@ -15,9 +15,11 @@
 	@include breakpoints.breakpoint(laptop-lg) {
 		font-size: fonts.size(s2);
 	}
+
 	@include breakpoints.breakpoint(laptop-md) {
 		font-size: fonts.size(s3);
 	}
+
 	@include breakpoints.breakpoint(laptop-sm) {
 		font-size: fonts.size(s4);
 	}
@@ -40,15 +42,19 @@
 	@include breakpoints.breakpoint(laptop-lg) {
 		font-size: fonts.size(s4);
 	}
+
 	@include breakpoints.breakpoint(laptop-md) {
 		font-size: fonts.size(s6);
 	}
+
 	@include breakpoints.breakpoint(laptop-md) {
 		font-size: fonts.size(s7);
 	}
+
 	@include breakpoints.breakpoint(mobile-md) {
 		font-size: fonts.size(s8);
 	}
+
 	@include breakpoints.breakpoint(mobile-sm) {
 		font-size: fonts.size(s9);
 	}
@@ -67,12 +73,15 @@
 	@include breakpoints.breakpoint(laptop-lg) {
 		font-size: fonts.size(s10);
 	}
+
 	@include breakpoints.breakpoint(laptop-md) {
 		font-size: fonts.size(s11);
 	}
+
 	@include breakpoints.breakpoint(laptop-sm) {
 		font-size: fonts.size(s12);
 	}
+
 	@include breakpoints.breakpoint(mobile-sm) {
 		font-size: fonts.size(s13);
 	}
@@ -80,6 +89,7 @@
 
 %paragraph {
 	font-size: fonts.size(s13);
+	line-height: 1.4;
 	font-weight: fonts.weight(regular);
 	transition: all 0.5s ease-in-out;
 	margin: 0;
@@ -95,6 +105,7 @@
 	@include breakpoints.breakpoint(tablet-sm) {
 		font-size: fonts.size(s13);
 	}
+
 	@include breakpoints.breakpoint(mobile-sm) {
 		font-size: fonts.size(s14);
 	}
@@ -109,12 +120,15 @@
 	@include breakpoints.breakpoint(laptop-lg) {
 		font-size: fonts.size(s12);
 	}
+
 	@include breakpoints.breakpoint(laptop-md) {
 		font-size: fonts.size(s12);
 	}
+
 	@include breakpoints.breakpoint(laptop-sm) {
 		font-size: fonts.size(s13);
 	}
+
 	@include breakpoints.breakpoint(mobile-sm) {
 		font-size: fonts.size(s13);
 	}
@@ -129,6 +143,7 @@
 	@include breakpoints.breakpoint(laptop-lg) {
 		font-size: fonts.size(s13);
 	}
+
 	@include breakpoints.breakpoint(laptop-sm) {
 		font-size: fonts.size(s14);
 	}
