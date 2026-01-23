@@ -1,3 +1,7 @@
+import experiences from "@constants/experiences";
+
 export interface ExperienceProps {
-	isMobile: boolean;
+  isMobile: boolean;
 }
+
+export type ExperienceCardProps = (typeof experiences)[number];

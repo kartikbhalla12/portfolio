@@ -47,8 +47,10 @@
 				padding: 4rem;
 				max-height: 400px;
 				justify-content: space-between;
-				transition: background 0.5s ease-in-out, padding 0.5s ease-in-out,
-					max-height 0.5s ease-in-out, gap 0.5s ease-in-out;
+				transition: background 0.5s ease-in-out,
+				padding 0.5s ease-in-out,
+				max-height 0.5s ease-in-out,
+				gap 0.5s ease-in-out;
 
 				@include breakpoint(desktop-sm) {
 					max-height: 365px;
@@ -115,6 +117,7 @@
 
 				.content {
 					order: 1;
+
 					@include breakpoint(laptop-sm) {
 						order: 2;
 					}
@@ -142,7 +145,7 @@
 						-webkit-box-orient: vertical;
 						-webkit-line-clamp: 7;
 						overflow: hidden;
-						margin-bottom: 1.5rem;
+						margin-top: 1.5rem;
 						font-size: 1rem;
 					}
 
@@ -191,6 +194,7 @@
 								@include theme {
 									fill: themedColor(homeIcon);
 								}
+
 								transition: fill 0.5s ease-in-out;
 							}
 
@@ -202,6 +206,7 @@
 								@include theme {
 									color: themedColor(homeIcon);
 								}
+
 								transition: color 0.5s ease-in-out;
 							}
 
