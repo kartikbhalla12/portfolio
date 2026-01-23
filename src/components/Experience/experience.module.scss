@@ -28,6 +28,10 @@
 				margin-top: 2rem;
 			}
 
+			h2 {
+				@extend %title;
+			}
+
 			&:before {
 				content: '';
 				position: absolute;

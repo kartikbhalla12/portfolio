@@ -47,6 +47,12 @@ const skillIcons = [
     fillMode: true,
   },
   {
+    Component: ReactIcon,
+    name: "React Native",
+    alt: "react native",
+    url: "https://reactnative.dev/",
+  },
+  {
     Component: Redux,
     name: "ReduxJS",
     alt: "redux",
