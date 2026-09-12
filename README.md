@@ -29,7 +29,7 @@ SANITY_API_WRITE_TOKEN=yourWriteToken
 5. Seed today's copy and images: `npm run seed:sanity`
 6. Open [http://localhost:3000/studio](http://localhost:3000/studio) to edit published content
 
-Published queries use `revalidate: 60` plus cache tags (`sanity`, `home`, `settings`, `skills`, `experience`, `projects`). The resume stays at `/public/kartik-bhalla-resume.pdf`.
+Published queries use `revalidate: 60` plus cache tags (`sanity`, `home`, `settings`, `skills`, `experience`, `projects`). Upload the resume PDF in **Site settings**; `/resume` and the Resume nav link use that file. Without Sanity, the site falls back to `/public/kartik-bhalla-resume.pdf`.
 
 To add a skill, create a **Skill** document in Studio and upload an SVG or PNG icon. No code change is required. Turn on **Fill mode** for monochrome logos that should follow the light/dark theme.
 

@@ -34,6 +34,7 @@ export type SiteSettings = {
 	title: string;
 	description: string;
 	ogImage?: SanityImage;
+	resumeUrl: string;
 	email: string;
 	firstName: string;
 	lastName: string;

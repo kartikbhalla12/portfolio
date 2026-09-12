@@ -23,13 +23,6 @@ const nextConfig = {
 			},
 		},
 	},
-	redirects: async () => [
-		{
-			source: '/resume',
-			destination: '/kartik-bhalla-resume.pdf',
-			permanent: true,
-		},
-	],
 };
 
 module.exports = nextConfig;

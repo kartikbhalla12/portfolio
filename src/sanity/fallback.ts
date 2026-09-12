@@ -9,6 +9,7 @@ export const getFallbackSiteSettings = (): SiteSettings => ({
 	siteName: siteMetadata.siteName,
 	title: siteMetadata.defaultTitle,
 	description: siteMetadata.defaultDescription,
+	resumeUrl: '/kartik-bhalla-resume.pdf',
 	email: 'contact@kartikbhalla.dev',
 	firstName: siteMetadata.author.firstName,
 	lastName: siteMetadata.author.lastName,

@@ -63,6 +63,24 @@ const uploadImage = async (relativePath) => {
 	};
 };
 
+const uploadFile = async (relativePath, contentType) => {
+	const filePath = path.join(root, relativePath);
+	if (!existsSync(filePath)) {
+		console.warn(`Skipping missing file: ${relativePath}`);
+		return undefined;
+	}
+
+	const asset = await client.assets.upload('file', createReadStream(filePath), {
+		filename: path.basename(filePath),
+		contentType,
+	});
+
+	return {
+		_type: 'file',
+		asset: { _type: 'reference', _ref: asset._id },
+	};
+};
+
 const siteSettings = {
 	_id: 'siteSettings',
 	_type: 'siteSettings',
@@ -88,7 +106,7 @@ const headerNavLinks = [
 	{ _key: 'blogs', href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
 	{
 		_key: 'resume',
-		href: '/kartik-bhalla-resume.pdf',
+		href: '/resume',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',
@@ -417,6 +435,9 @@ const seed = async () => {
 
 	const nextOgImage = ogImage || existingSettings?.ogImage;
 	const nextPhoto = photo || existingHome?.photo;
+	const nextResume =
+		existingSettings?.resume ||
+		(await uploadFile('public/kartik-bhalla-resume.pdf', 'application/pdf'));
 	const socials =
 		existingFooter?.socials?.length || existingSettings?.socials?.length
 			? existingFooter?.socials || existingSettings?.socials
@@ -437,17 +458,22 @@ const seed = async () => {
 	await client.createOrReplace({
 		...siteSettings,
 		...(nextOgImage ? { ogImage: nextOgImage } : {}),
+		...(nextResume ? { resume: nextResume } : {}),
 	});
 	console.log('Wrote siteSettings');
+
+	const existingNavLinks = existingHeader?.navLinks?.length
+		? existingHeader.navLinks
+		: existingSettings?.navLinks?.length
+			? existingSettings.navLinks
+			: headerNavLinks;
 
 	await client.createOrReplace({
 		_id: 'header',
 		_type: 'header',
-		navLinks: existingHeader?.navLinks?.length
-			? existingHeader.navLinks
-			: existingSettings?.navLinks?.length
-				? existingSettings.navLinks
-				: headerNavLinks,
+		navLinks: existingNavLinks.map((link) =>
+			link.href === '/kartik-bhalla-resume.pdf' ? { ...link, href: '/resume' } : link,
+		),
 	});
 	console.log('Wrote header');
 

@@ -31,6 +31,12 @@ type SanityExperience = {
 	tasks?: { detail: string; url?: string }[];
 };
 
+const FALLBACK_RESUME_HREFS = new Set(['/resume', '/kartik-bhalla-resume.pdf']);
+
+type SanitySiteSettings = Omit<SiteSettings, 'socials' | 'navLinks' | 'resumeUrl'> & {
+	resume?: { asset?: { url?: string } };
+};
+
 type SanityProject = {
 	_id: string;
 	name: string;
@@ -52,6 +58,14 @@ const mapExperiences = (items: SanityExperience[]): ExperienceContent[] =>
 		tasks: item.tasks,
 	}));
 
+const resumeUrlFrom = (resume?: { asset?: { url?: string } }, fallback = '/kartik-bhalla-resume.pdf') =>
+	resume?.asset?.url || fallback;
+
+const withResumeHref = (navLinks: NavLink[], resumeUrl: string): NavLink[] =>
+	navLinks.map((link) =>
+		FALLBACK_RESUME_HREFS.has(link.href) ? { ...link, href: resumeUrl } : link,
+	);
+
 const mapProjects = (items: SanityProject[]): ProjectContent[] =>
 	items.map((item) => ({
 		_id: item._id,
@@ -70,14 +84,19 @@ const mapProjects = (items: SanityProject[]): ProjectContent[] =>
 
 export const getSiteSettings = async (): Promise<SiteSettings> => {
 	const fallback = getFallbackSiteSettings();
-	if (!hasSanityConfig) return fallback;
+	if (!hasSanityConfig) {
+		return {
+			...fallback,
+			navLinks: withResumeHref(fallback.navLinks, fallback.resumeUrl),
+		};
+	}
 
 	try {
 		const [settings, header, footer] = await Promise.all([
-			sanityFetch<Omit<SiteSettings, 'socials' | 'navLinks'> | null>(
-				siteSettingsQuery,
-				['sanity', 'settings'],
-			),
+			sanityFetch<SanitySiteSettings | null>(siteSettingsQuery, [
+				'sanity',
+				'settings',
+			]),
 			sanityFetch<{ navLinks?: NavLink[] } | null>(headerQuery, [
 				'sanity',
 				'header',
@@ -88,19 +107,34 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 			]),
 		]);
 
-		if (!settings && !header && !footer) return fallback;
+		if (!settings && !header && !footer) {
+			return {
+				...fallback,
+				navLinks: withResumeHref(fallback.navLinks, fallback.resumeUrl),
+			};
+		}
+
+		const { resume, ...restSettings } = settings || {};
+		const resumeUrl = resumeUrlFrom(resume, fallback.resumeUrl);
+		const navLinks = header?.navLinks?.length
+			? header.navLinks
+			: fallback.navLinks;
 
 		return {
 			...fallback,
-			...settings,
+			...restSettings,
+			resumeUrl,
 			socials:
 				Array.isArray(footer?.socials) && footer.socials.length
 					? footer.socials
 					: fallback.socials,
-			navLinks: header?.navLinks?.length ? header.navLinks : fallback.navLinks,
+			navLinks: withResumeHref(navLinks, resumeUrl),
 		};
 	} catch {
-		return fallback;
+		return {
+			...fallback,
+			navLinks: withResumeHref(fallback.navLinks, fallback.resumeUrl),
+		};
 	}
 };
 

@@ -13,6 +13,7 @@ export const siteSettingsQuery = `*[_id == "siteSettings"][0]{
   title,
   description,
   ogImage ${imageProjection},
+  resume { asset->{ url, originalFilename } },
   email,
   firstName,
   lastName,
