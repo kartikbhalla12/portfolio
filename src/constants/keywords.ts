@@ -1,5 +1,5 @@
 const keywords = [
-	'kartik Bhalla',
+	'Kartik Bhalla',
 	'kartik bhalla portfolio',
 	'kartikbhalla12',
 	'kbhalla12',

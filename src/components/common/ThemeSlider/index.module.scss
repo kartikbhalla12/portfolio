@@ -37,22 +37,7 @@
 			align-items: center;
 			width: 35px;
 			height: 25px;
-			pointer-events: none;
 			-webkit-tap-highlight-color: transparent;
-
-			input {
-				display: none;
-
-				&:checked + .slider {
-					background-color: #fa8b00;
-				}
-
-				&:checked + .slider:before {
-					-webkit-transform: translateX(25px);
-					-ms-transform: translateX(25px);
-					transform: translateX(25px);
-				}
-			}
 
 			.slider {
 				display: block;
@@ -73,6 +58,16 @@
 					transition: all 0.5s ease-in-out;
 					border-radius: 50%;
 				}
+			}
+		}
+
+		&.switchOn .slider {
+			background-color: #fa8b00;
+
+			&:before {
+				-webkit-transform: translateX(25px);
+				-ms-transform: translateX(25px);
+				transform: translateX(25px);
 			}
 		}
 	}

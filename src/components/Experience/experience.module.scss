@@ -11,7 +11,7 @@
 	.container {
 		@extend %container;
 
-		h1 {
+		h2 {
 			@extend %heading;
 		}
 
@@ -28,7 +28,7 @@
 				margin-top: 2rem;
 			}
 
-			h2 {
+			h3 {
 				@extend %title;
 			}
 
@@ -85,7 +85,7 @@
 					}
 				}
 
-				h3 {
+				.companyName {
 					@extend %subTitle;
 					margin-bottom: 5px;
 					pointer-events: none;

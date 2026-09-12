@@ -1,9 +1,3 @@
-import { Theme } from "@interfaces/theme";
-export interface SkillsProps {
-  isMobile: boolean;
-  theme?: Theme;
-}
-
 export interface SkillComponentProps {
   url: string;
   alt: string;

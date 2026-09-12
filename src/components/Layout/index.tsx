@@ -1,6 +1,5 @@
 'use client';
 
-import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import Script from 'next/script';
 
@@ -46,9 +45,7 @@ const LayoutClient = ({ children, isMobile, theme: initialTheme }: LayoutClientP
 					[styles.preloader]: loading,
 					[styles.mobile]: isMobile,
 				})}>
-				{Children.map(children, child =>
-					cloneElement(child as React.ReactElement<any>, { theme } as any)
-				)}
+				{children}
 				<SideElements />
 				<Footer />
 			</div>

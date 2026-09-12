@@ -13,9 +13,7 @@ import Figma from "@icons/tech/figma.svg";
 import Node from "@icons/tech/nodejs.svg";
 import Express from "@icons/tech/express.svg";
 import Mongo from "@icons/tech/mongodb.svg";
-import Github from "@icons/tech/github.svg";
 import Git from "@icons/tech/git.svg";
-// react native, graphql, jest
 import Jest from "@icons/tech/jest.svg";
 import GraphQL from "@icons/tech/graphql.svg";
 

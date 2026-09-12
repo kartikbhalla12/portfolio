@@ -14,7 +14,7 @@ export const getPersonStructuredData = () => {
       siteMetadata.social.instagram,
       siteMetadata.social.facebook,
     ],
-    jobTitle: "Software Development Engineer",
+    jobTitle: "Frontend Software Engineer",
     worksFor: {
       "@type": "Organization",
       name: "upGrad",
@@ -32,17 +32,13 @@ export const getPersonStructuredData = () => {
       "Next.js",
       "React Native",
       "Redux",
-      "Node.js",
-      "MongoDB",
-      "Docker",
-      "Serverless Architecture",
-      "Kubernetes",
-      "Full Stack Web Development",
-      "JavaScript",
       "TypeScript",
+      "JavaScript",
+      "Frontend Architecture",
+      "Performance Optimization",
     ],
     description:
-      "Full-stack web developer specializing in React.js, Next.js, Node.js, and modern cloud technologies. Software Development Engineer at upGrad.",
+      "Frontend Software Engineer specializing in React.js, Next.js, React Native, and TypeScript. Software Engineer II at upGrad.",
   };
 };
 

@@ -40,23 +40,22 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
           <Logo alt="kb-logo" className={styles.icon} aria-hidden="true" />
         </Link>
 
-        <div
-          className={classNames(styles.menuButtonContainer, {
+        <button
+          type="button"
+          className={classNames(styles.menuButton, {
             [styles.isMenuOpen]: isMenuOpen,
           })}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
-          role="button"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              setIsMenuOpen(!isMenuOpen);
-            }
-          }}
         >
-          <div className={styles.menuButtonBurger} aria-hidden="true" />
-        </div>
+          <span className={styles.menuButtonBurger} aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+        </button>
       </div>
       <div
         id="mobile-navigation"
@@ -65,9 +64,10 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
         })}
         onClick={() => setIsMenuOpen(false)}
         {...NavHandler}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
+        role={isMenuOpen ? "dialog" : undefined}
+        aria-modal={isMenuOpen ? true : undefined}
+        aria-hidden={!isMenuOpen}
+        aria-label={isMenuOpen ? "Navigation menu" : undefined}
       >
         <div className={styles.sideNavbar} onClick={(e) => e.stopPropagation()}>
           <nav className={styles.linksContainer} aria-label="Main navigation">

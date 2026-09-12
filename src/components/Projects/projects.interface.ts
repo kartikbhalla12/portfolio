@@ -1,6 +1,8 @@
-import { Theme } from '@interfaces/theme';
+import projects from "@constants/projects";
 
-export interface ProjectsProps {
-	isMobile: boolean;
-	theme: Theme;
+export type Project = (typeof projects)[number];
+
+export interface ProjectCardProps {
+  project: Project;
+  index: number;
 }

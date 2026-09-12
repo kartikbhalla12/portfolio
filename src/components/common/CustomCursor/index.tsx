@@ -54,10 +54,8 @@ const CustomCursor: FC = () => {
 
 		setCursorCoordinates(cursorDot, e.clientX, e.clientY);
 
-		const elementsList = ['a', 'button', 'img'];
-		const tagName = getElementTagName(e);
-
-		if (tagName) setIsLink(elementsList.includes(tagName));
+		const target = e.target as HTMLElement | null;
+		setIsLink(Boolean(target?.closest?.('a, button, [role="button"]')));
 	};
 
 	const handleMouseLeave = (e: MouseEvent) => {

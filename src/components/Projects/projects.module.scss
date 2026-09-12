@@ -20,7 +20,7 @@
 		@extend %container;
 
 		.headingContainer {
-			h1 {
+			h2 {
 				@extend %heading;
 			}
 
@@ -101,17 +101,29 @@
 				.heading {
 					@extend %heading;
 
-					display: none;
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					padding: 0;
+					margin: -1px;
+					overflow: hidden;
+					clip: rect(0, 0, 0, 0);
+					white-space: nowrap;
+					border: 0;
 					font-size: 35px;
 					font-weight: 500;
-					margin: 0;
-					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 1;
-					overflow: hidden;
 
 					@include breakpoint(laptop-sm) {
+						position: static;
+						width: auto;
+						height: auto;
+						margin: 0;
+						clip: auto;
+						white-space: normal;
 						display: -webkit-box;
+						-webkit-box-orient: vertical;
 						-webkit-line-clamp: 2;
+						overflow: hidden;
 					}
 				}
 
@@ -122,7 +134,7 @@
 						order: 2;
 					}
 
-					h2 {
+					.contentHeading {
 						@extend %heading;
 
 						display: -webkit-box;
@@ -286,8 +298,16 @@
 									top: 0;
 								}
 
-								&.active {
-									opacity: 1;
+								&.mockupLight {
+									:global(.theme-dark) & {
+										opacity: 1;
+									}
+								}
+
+								&.mockupDark {
+									:global(.theme-light) & {
+										opacity: 1;
+									}
 								}
 							}
 						}
@@ -347,8 +367,16 @@
 								height: auto;
 								transition: opacity 0.5s ease-in-out;
 
-								&.active {
-									opacity: 1;
+								&.mockupLight {
+									:global(.theme-dark) & {
+										opacity: 1;
+									}
+								}
+
+								&.mockupDark {
+									:global(.theme-light) & {
+										opacity: 1;
+									}
 								}
 							}
 						}

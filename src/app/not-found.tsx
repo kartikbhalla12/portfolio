@@ -8,7 +8,7 @@ import styles from './custom404.module.scss';
 export const metadata = createMetadata({
     title: '404 - Page Not Found',
     description: 'The page you are looking for could not be found on Kartik Bhalla Portfolio.',
-    canonical: 'https://www.kartikbhalla.dev/404',
+    noindex: true,
 });
 
 export default async function NotFound() {
