@@ -9,9 +9,9 @@ const defaultDescription =
 	'Frontend Software Engineer specializing in React.js, Next.js, React Native, and TypeScript. Software Engineer II at upGrad. Building performant, maintainable web and mobile applications.';
 
 const defaultImage = {
-	url: 'https://www.kartikbhalla.dev/kartik.png',
-	width: 1200,
-	height: 630,
+	url: 'https://www.kartikbhalla.dev/logo-light.svg',
+	width: 512,
+	height: 512,
 	alt: 'Kartik Bhalla - Frontend Software Engineer',
 };
 

@@ -6,7 +6,6 @@ import { useSwipeable } from "react-swipeable";
 import classNames from "classnames";
 
 import ThemeSlider from "@components/common/ThemeSlider";
-import navbarLinks from "@constants/navbarLinks";
 
 import useNavScroll from "@hooks/useNavScroll";
 import useBlur from "@hooks/useBlur";
@@ -17,9 +16,13 @@ import { MobileNavbarProps } from "./mobileNavbar.interface";
 import Logo from "@icons/logo.svg";
 import styles from "./mobileNavbar.module.scss";
 
-const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
+const MobileNavbar: FC<MobileNavbarProps> = ({
+  isMobile = false,
+  navLinks,
+  ...rest
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { hideNavbar, isTop, activeSection } = useNavScroll(45);
+  const { hideNavbar, isTop, activeSection } = useNavScroll(45, navLinks);
 
   const NavHandler = useSwipeable({
     onSwipedRight: () => setIsMenuOpen(false),
@@ -71,12 +74,12 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isMobile = false, ...rest }) => {
       >
         <div className={styles.sideNavbar} onClick={(e) => e.stopPropagation()}>
           <nav className={styles.linksContainer} aria-label="Main navigation">
-            {navbarLinks.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
-                target={link.target || ""}
-                rel={link.rel || ""}
+                target={link.target}
+                rel={link.rel}
                 className={classNames({
                   [styles.active]: activeSection === link.id,
                   [styles.accentButton]: link.title === "Resume",

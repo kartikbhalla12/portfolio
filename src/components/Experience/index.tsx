@@ -1,9 +1,8 @@
-import experiences from "@constants/experiences";
-
 import ExperienceCard from "./ExperienceCard";
 import styles from "./experience.module.scss";
+import type { ExperienceContent } from "src/sanity/types";
 
-const Experience = () => {
+const Experience = ({ experiences }: { experiences: ExperienceContent[] }) => {
   return (
     <div id="experience" className={styles.experience}>
       <div className={styles.container}>
@@ -12,7 +11,7 @@ const Experience = () => {
         <div className={styles.innerContainer}>
           {experiences.map((exp) => (
             <ExperienceCard
-              key={`${exp.companyName}-${exp.position}-${exp.duration.from}`}
+              key={exp._id}
               {...exp}
             />
           ))}

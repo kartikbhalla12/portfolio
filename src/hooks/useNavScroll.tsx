@@ -2,9 +2,9 @@ import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 import debounce from '@utils/debounce';
-import navbarLinks from '@constants/navbarLinks';
+import type { NavLink } from 'src/sanity/types';
 
-const useNavScroll = (hideNavbarY: number) => {
+const useNavScroll = (hideNavbarY: number, links: NavLink[]) => {
 	const pathname = usePathname();
 	const previousScrollYRef = useRef(0);
 	const rafIdRef = useRef<number | null>(null);
@@ -19,7 +19,7 @@ const useNavScroll = (hideNavbarY: number) => {
 		if (typeof window === 'undefined') return;
 
 		const elements: HTMLElement[] = [];
-		navbarLinks.forEach(link => {
+		links.forEach(link => {
 			if (link.id) {
 				const section = document.getElementById(link.id);
 				if (section) elements.push(section);
@@ -30,7 +30,7 @@ const useNavScroll = (hideNavbarY: number) => {
 		if (elements.length > 0) {
 			setActiveSection(elements[0]?.getAttribute('id') || '');
 		}
-	}, [pathname]);
+	}, [pathname, links]);
 
 	const debouncedActiveSectionChange = useMemo(
 		() =>

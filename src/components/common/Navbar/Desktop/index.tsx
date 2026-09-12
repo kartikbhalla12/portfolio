@@ -5,17 +5,20 @@ import Link from 'next/link';
 import classNames from 'classnames';
 
 import ThemeSlider from '@components/common/ThemeSlider';
-import navbarLinks from '@constants/navbarLinks';
 
 import useNavScroll from '@hooks/useNavScroll';
 
 import { ThemeProps } from '@interfaces/theme';
+import type { NavLink } from 'src/sanity/types';
 
 import Logo from '@icons/logo.svg';
 import styles from './desktopNavbar.module.scss';
 
-const DesktopNavbar: FC<ThemeProps> = props => {
-	const { hideNavbar, isTop, activeSection } = useNavScroll(65);
+const DesktopNavbar: FC<ThemeProps & { navLinks: NavLink[] }> = ({
+	navLinks,
+	...props
+}) => {
+	const { hideNavbar, isTop, activeSection } = useNavScroll(65, navLinks);
 
 	return (
 		<div
@@ -28,12 +31,12 @@ const DesktopNavbar: FC<ThemeProps> = props => {
 			</Link>
 
 			<nav className={styles.linksContainer} aria-label='Main navigation'>
-				{navbarLinks.map(link => (
+				{navLinks.map(link => (
 					<Link
 						key={link.title}
 						href={link.href}
-						target={link.target || ''}
-						rel={link.rel || ''}
+						target={link.target}
+						rel={link.rel}
 						className={classNames({
 							[styles.active]: activeSection === link.id,
 							[styles.accent]: link.title === 'Resume',

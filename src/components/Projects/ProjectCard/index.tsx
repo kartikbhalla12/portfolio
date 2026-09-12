@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import Github from "@icons/tech/github.svg";
 import LinkIcon from "@icons/link.svg";
+import { CmsImage } from "src/sanity/CmsImage";
 
 import MobileMockupDarkImage from "@public/mockups/mobile/dark.png";
 import MobileMockupLightImage from "@public/mockups/mobile/light.png";
@@ -76,17 +77,19 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           </div>
           <div className={styles.desktopImageContainer}>
             <div className={styles.desktopImageInnerContainer}>
-              <Image
-                src={project.images.desktop}
-                className={styles.desktopImage}
-                alt={`${
-                  project.name
-                } project desktop view - ${project.description.substring(
-                  0,
-                  100,
-                )}`}
-                draggable={false}
-              />
+              {project.images.desktop && (
+                <CmsImage
+                  image={project.images.desktop}
+                  className={styles.desktopImage}
+                  alt={`${
+                    project.name
+                  } project desktop view - ${project.description.substring(
+                    0,
+                    100,
+                  )}`}
+                  draggable={false}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -107,8 +110,8 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </div>
             <div className={styles.mobileImageContainer}>
               <div className={styles.mobileImageInnerContainer}>
-                <Image
-                  src={project.images.mobile}
+                <CmsImage
+                  image={project.images.mobile}
                   alt={`${
                     project.name
                   } project mobile view - ${project.description.substring(

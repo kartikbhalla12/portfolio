@@ -1,3 +1,3 @@
-import experiences from "@constants/experiences";
+import type { ExperienceContent } from "src/sanity/types";
 
-export type ExperienceCardProps = (typeof experiences)[number];
+export type ExperienceCardProps = ExperienceContent;

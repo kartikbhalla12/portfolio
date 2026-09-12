@@ -13,9 +13,8 @@
 		align-items: center;
 		position: relative;
 
-		&.mobile {
+		@media screen and (max-width: 750px) {
 			min-height: calc(100vh - 56px) !important;
-			padding-top: 100px;
 		}
 
 		.aboutContainer {

@@ -1,16 +1,39 @@
-This is a [Next.js](https://next.js.org/) App Router portfolio.
+This is a [Next.js](https://nextjs.org/) App Router portfolio with an embedded [Sanity](https://www.sanity.io/) Studio at `/studio`.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Without Sanity env vars the site still renders from local fallback copy.
 
-The homepage lives at `src/app/page.tsx`. Edit it and the page will update as you save.
+The homepage lives at `src/app/page.tsx`.
+
+## Sanity CMS
+
+1. Log in: `npx sanity login`
+2. Create a free project (dataset `production`) in [sanity.io/manage](https://www.sanity.io/manage) or with `npx sanity projects create`
+3. Add the values to `.env.local`:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2026-01-01
+SANITY_API_WRITE_TOKEN=yourWriteToken
+```
+
+4. Create a token with Editor access at `https://www.sanity.io/manage/personal/project/<id>/api`
+5. Seed today's copy and images: `npm run seed:sanity`
+6. Open [http://localhost:3000/studio](http://localhost:3000/studio) to edit published content
+
+Published queries use `revalidate: 60` plus cache tags (`sanity`, `home`, `settings`, `skills`, `experience`, `projects`). The resume stays at `/public/kartik-bhalla-resume.pdf`.
+
+To add a skill, create a **Skill** document in Studio and upload an SVG or PNG icon. No code change is required. Turn on **Fill mode** for monochrome logos that should follow the light/dark theme.
+
+Header nav lives in **Header**. Social icons live in **Footer** (sidebar uses the same list). To add a social link, edit **Footer → Social links**: name, URL (`https://…` or `mailto:…`), sidebar icon, and optional footer icon.
 
 ## Learn More
 

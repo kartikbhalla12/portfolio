@@ -5,40 +5,48 @@ import classNames from "classnames";
 import { AboutContainerProps } from "@components/Home/home.interface";
 import styles from "@components/Home/home.module.scss";
 
-const AboutContainer: FC<AboutContainerProps> = ({ className }) => {
+const AboutContainer: FC<AboutContainerProps> = ({
+  className,
+  about,
+  companyName,
+  companyUrl,
+  email,
+  ctaLabel,
+  ctaHref,
+}) => {
+  const [before, after] = companyName
+    ? about.split(companyName)
+    : [about, ""];
+
   return (
     <div className={classNames(styles.aboutContainer, className)}>
       <p>
-        Building scalable, high-performance web and mobile applications with a
-        strong focus on clean UI architecture and performance optimization.
-        Currently Software Engineer II at
-        <Link
-          href="https://upgrad.com"
-          prefetch={false}
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Visit upGrad website (opens in new tab)"
-        >
-          {" "}
-          upGrad
-        </Link>
-        , delivering core product features used by thousands of learners.
-        Passionate about writing maintainable frontend systems and creating
-        smooth, reliable user experiences.
+        {before}
+        {companyName && companyUrl ? (
+          <Link
+            href={companyUrl}
+            prefetch={false}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Visit ${companyName} website (opens in new tab)`}
+          >
+            {companyName}
+          </Link>
+        ) : (
+          companyName
+        )}
+        {after}
       </p>
 
       <p>
         You can reach out to me at{" "}
-        <Link
-          href="mailto:contact@kartikbhalla.dev"
-          className={styles.emailLink}
-        >
-          contact@kartikbhalla.dev
+        <Link href={`mailto:${email}`} className={styles.emailLink}>
+          {email}
         </Link>
       </p>
 
-      <Link href={"#experience"} className={styles.ctaButton}>
-        Explore more
+      <Link href={ctaHref} className={styles.ctaButton}>
+        {ctaLabel}
       </Link>
     </div>
   );

@@ -96,10 +96,11 @@
 					transform: scale(1.2);
 				}
 
-				svg {
+				img {
 					width: 50px;
 					max-height: 40px;
 					height: auto;
+					object-fit: contain;
 					transition: all 0.5s ease-in-out;
 					pointer-events: none;
 
@@ -121,19 +122,23 @@
 					}
 				}
 
-				&.fill svg {
-					@include theme {
-						fill: themedColor(default);
+				&.fill img {
+					:global(.theme-dark) & {
+						filter: brightness(0) invert(1);
+					}
+
+					:global(.theme-light) & {
+						filter: brightness(0);
 					}
 				}
 
 				&.animate {
-					svg {
+					img {
 						animation: animate-icon infinite 20s linear;
 					}
 
 					&:hover {
-						svg {
+						img {
 							animation-play-state: paused;
 						}
 					}

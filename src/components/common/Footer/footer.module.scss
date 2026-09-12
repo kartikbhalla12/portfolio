@@ -44,20 +44,24 @@
 			-webkit-tap-highlight-color: transparent;
 
 			.icon {
+				display: block;
 				height: 35px;
 				width: 35px;
-				transition: fill 0.5s ease-in-out;
 				margin: 0 5px;
 				pointer-events: none;
+				mask-size: contain;
+				mask-repeat: no-repeat;
+				mask-position: center;
+				transition: background-color 0.5s ease-in-out;
 
 				@include theme {
-					fill: themedColor(footerIcon);
+					background-color: themedColor(footerIcon);
 				}
 			}
 
 			&:hover .icon {
 				@include theme {
-					fill: themedColor(footerIconHover);
+					background-color: themedColor(footerIconHover);
 				}
 			}
 		}

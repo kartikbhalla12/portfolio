@@ -1,22 +1,28 @@
-import projects from "@constants/projects";
-
 import ProjectCard from "./ProjectCard";
 import styles from "./projects.module.scss";
+import type { ProjectContent } from "src/sanity/types";
 
-const Projects = () => {
+const Projects = ({
+  projects,
+  intro,
+}: {
+  projects: ProjectContent[];
+  intro?: string;
+}) => {
   return (
     <div id="projects" className={styles.projects}>
       <div className={styles.container}>
         <div className={styles.headingContainer}>
           <h2>My Projects</h2>
           <p>
-            All the images included with the projects can be scrolled through.
+            {intro ||
+              "All the images included with the projects can be scrolled through."}
           </p>
         </div>
 
         <div className={styles.projectsContainer}>
           {projects.map((project, index) => (
-            <ProjectCard key={project.name} project={project} index={index} />
+            <ProjectCard key={project._id} project={project} index={index} />
           ))}
         </div>
       </div>
