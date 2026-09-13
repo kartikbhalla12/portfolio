@@ -1,61 +1,34 @@
-"use client";
-
-import { FC, memo, useMemo } from "react";
-import Link from "next/link";
-import classNames from "classnames";
-
-import withToolTip from "@components/common/WithTooltip";
-import skillIcons from "@constants/skills";
-
-import { SkillsProps, SkillComponentProps } from "./skills.interface";
+import SkillIcon from "./SkillIcon";
 import styles from "./skills.module.scss";
+import type { SkillContent } from "src/sanity/types";
 
-const SkillComponent = ({
-  url,
-  alt,
-  fillMode,
-  animate,
-  name,
-  Component,
-}: SkillComponentProps) => {
-  return (
-    <div className={styles.skillItem}>
-      <Link
-        href={url}
-        key={alt}
-        prefetch={false}
-        className={classNames({
-          [styles.fill]: fillMode,
-          [styles.animate]: animate,
-        })}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`Learn more about ${name} (opens in new tab)`}
-      >
-        <Component aria-hidden="true" />
-      </Link>
-      <span>{name}</span>
-    </div>
-  );
-};
-
-const Skills: FC<SkillsProps> = () => {
+const Skills = ({
+  skills,
+  intro,
+}: {
+  skills: SkillContent[];
+  intro?: string;
+}) => {
   return (
     <div id="skills" className={styles.skills}>
       <div className={styles.container}>
         <div className={styles.iconsContainer}>
-          {skillIcons.map((icon) => (
-            <SkillComponent key={icon.alt} {...icon} />
+          {skills.map((skill) => (
+            <SkillIcon
+              key={skill._id}
+              url={skill.url}
+              fillMode={skill.fillMode}
+              animate={skill.animate}
+              name={skill.name}
+              icon={skill.icon}
+            />
           ))}
         </div>
         <div className={styles.description}>
-          <h1>My Skills</h1>
+          <h2>My Skills</h2>
           <p>
-            I work with a modern frontend stack focused on performance,
-            scalability, and clean architecture. My core expertise includes
-            React, Next.js, and React Native, along with TypeScript and API
-            integrations. These tools help me build reliable, maintainable, and
-            user-centric applications.
+            {intro ||
+              "I work with a modern frontend stack focused on performance, scalability, and clean architecture."}
           </p>
         </div>
       </div>
@@ -63,7 +36,4 @@ const Skills: FC<SkillsProps> = () => {
   );
 };
 
-export default memo(
-  Skills,
-  (prevProps, nextProps) => prevProps.isMobile === nextProps.isMobile,
-);
+export default Skills;

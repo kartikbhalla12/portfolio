@@ -1,6 +1,5 @@
 'use client';
 
-import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import Script from 'next/script';
 
@@ -15,7 +14,7 @@ import { LayoutClientProps } from '@components/Layout/layout.interface';
 import useTheme from '@hooks/useTheme';
 import usePreloader from '@hooks/usePreloader';
 
-const LayoutClient = ({ children, isMobile, theme: initialTheme }: LayoutClientProps) => {
+const LayoutClient = ({ children, isMobile, theme: initialTheme, settings }: LayoutClientProps) => {
 	const { theme, setTheme } = useTheme(initialTheme);
 	const { loading } = usePreloader();
 
@@ -39,18 +38,21 @@ const LayoutClient = ({ children, isMobile, theme: initialTheme }: LayoutClientP
 			</Script>
 
 			<Preloader isMobile={isMobile} loading={loading} />
-			<Navbar isMobile={isMobile} theme={theme} onThemeChange={setTheme} />
+			<Navbar
+				isMobile={isMobile}
+				theme={theme}
+				onThemeChange={setTheme}
+				navLinks={settings.navLinks}
+			/>
 			<div
 				id='layout'
 				className={classNames(styles.layout, {
 					[styles.preloader]: loading,
 					[styles.mobile]: isMobile,
 				})}>
-				{Children.map(children, child =>
-					cloneElement(child as React.ReactElement<any>, { theme } as any)
-				)}
-				<SideElements />
-				<Footer />
+				{children}
+				<SideElements settings={settings} />
+				<Footer settings={settings} />
 			</div>
 			{!isMobile && <CustomCursor />}
 		</>

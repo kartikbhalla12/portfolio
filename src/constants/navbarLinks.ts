@@ -3,9 +3,9 @@ const navbarLinks = [
 	{ href: '/#skills', title: 'Skills', id: 'skills' },
 	{ href: '/#experience', title: 'Experience', id: 'experience' },
 	{ href: '/#projects', title: 'Projects', id: 'projects' },
-	{ href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs', id: 'blogs' },
+	{ href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
 	{
-		href: '/kartik-bhalla-resume.pdf',
+		href: '/resume',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',

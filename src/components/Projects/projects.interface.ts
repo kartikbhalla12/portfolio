@@ -1,6 +1,8 @@
-import { Theme } from '@interfaces/theme';
+import type { ProjectContent } from "src/sanity/types";
 
-export interface ProjectsProps {
-	isMobile: boolean;
-	theme: Theme;
+export type Project = ProjectContent;
+
+export interface ProjectCardProps {
+  project: Project;
+  index: number;
 }

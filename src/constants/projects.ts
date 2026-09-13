@@ -1,20 +1,3 @@
-import ShortlyDesktopImage from "@public/projects/shortly/desktop.webp";
-import ShortlyMobileImage from "@public/projects/shortly/mobile.webp";
-
-import JitterDesktopImage from "@public/projects/jitter/desktop.webp";
-import JitterMobileImage from "@public/projects/jitter/mobile.webp";
-
-import NsutDesktopImage from "@public/projects/nsut/desktop.webp";
-import NsutMobileImage from "@public/projects/nsut/mobile.webp";
-
-import DepositsLiveDesktopImage from "@public/projects/deposits/desktop.webp";
-import DepositsLiveMobileImage from "@public/projects/deposits/mobile.webp";
-
-import PrecisionAIDesktopImage from "@public/projects/precision/desktop.webp";
-
-import DiamondPrintersDesktopImage from "@public/projects/diamond/desktop.webp";
-import DiamondPrintersMobileImage from "@public/projects/diamond/mobile.webp";
-
 const projects = [
   {
     name: "Deposits",
@@ -22,7 +5,6 @@ const projects = [
       "Deposits.live is a real-time fixed deposit rate comparison platform for India. It helps users compare FD interest rates across banks and NBFCs based on tenure and depositor category, making it easier to find the best savings options.",
     links: {
       project: "https://deposits.live/",
-      //   github: "",
     },
     keywords: [
       "React",
@@ -32,10 +14,6 @@ const projects = [
       "Data Aggregation",
       "SEO",
     ],
-    images: {
-      desktop: DepositsLiveDesktopImage,
-      mobile: DepositsLiveMobileImage,
-    },
   },
   {
     name: "Precision AI",
@@ -43,13 +21,8 @@ const projects = [
       "Precision AI is an AI-powered platform offering face swap, image generation, video generation, and custom data generation services. It is designed as a scalable product with a polished landing experience, pricing tiers, and service-specific flows focused on creative and enterprise use cases.",
     links: {
       project: "https://dev-precision.kartikbhalla.dev/",
-      //   github: "",
     },
     keywords: ["Next.js", "React", "TypeScript", "AI", "SaaS", "Tailwind CSS"],
-    images: {
-      desktop: PrecisionAIDesktopImage,
-      //   mobile: PrecisionAIMobileImage,
-    },
   },
   {
     name: "Diamond Printers",
@@ -57,7 +30,6 @@ const projects = [
       "Diamond Printers is a business website built for a packaging and printing company. The platform showcases custom packaging solutions, printing services, testimonials, and company credibility, with a focus on lead generation and brand trust.",
     links: {
       project: "https://diamond.kartikbhalla.dev/",
-      //   github: "",
     },
     keywords: [
       "React",
@@ -67,10 +39,6 @@ const projects = [
       "Landing Page",
       "SEO",
     ],
-    images: {
-      desktop: DiamondPrintersDesktopImage,
-      mobile: DiamondPrintersMobileImage,
-    },
   },
   {
     name: "Shortly",
@@ -81,10 +49,6 @@ const projects = [
       github: "https://github.com/kartikbhalla12/shortly",
     },
     keywords: ["React", "Styled Components"],
-    images: {
-      desktop: ShortlyDesktopImage,
-      mobile: ShortlyMobileImage,
-    },
   },
   {
     name: "Jitter",
@@ -95,10 +59,6 @@ const projects = [
       github: "https://github.com/kartikbhalla12/tdg-assignment",
     },
     keywords: ["React", "Intersection Observer"],
-    images: {
-      desktop: JitterDesktopImage,
-      mobile: JitterMobileImage,
-    },
   },
   {
     name: "Training & Placement",
@@ -109,10 +69,6 @@ const projects = [
       github: "https://github.com/kartikbhalla12/NSUT-placement-portal/",
     },
     keywords: ["React", "College"],
-    images: {
-      desktop: NsutDesktopImage,
-      mobile: NsutMobileImage,
-    },
   },
 ];
 

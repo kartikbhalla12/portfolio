@@ -48,20 +48,24 @@
 				margin: 0.6rem 0;
 
 				.icon {
+					display: block;
 					height: 22px;
 					width: 20px;
-					transition: stroke 0.5s ease-in-out;
 					margin: 0 5px;
 					pointer-events: none;
+					mask-size: contain;
+					mask-repeat: no-repeat;
+					mask-position: center;
+					transition: background-color 0.5s ease-in-out;
 
 					@include theme {
-						stroke: themedColor(homeIcon);
+						background-color: themedColor(homeIcon);
 					}
 				}
 
 				&:hover .icon {
 					@include theme {
-						stroke: themedColor(accent);
+						background-color: themedColor(accent);
 					}
 				}
 			}

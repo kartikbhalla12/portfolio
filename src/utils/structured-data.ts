@@ -1,24 +1,32 @@
-import { siteMetadata } from "@constants/metadata";
+import type { SiteSettings } from "src/sanity/types";
+import { urlFor } from "src/sanity/image";
+import { isSanityImage } from "src/sanity/CmsImage";
 
-export const getPersonStructuredData = () => {
+const personImage = (settings: SiteSettings) => {
+  if (settings.ogImage && isSanityImage(settings.ogImage) && settings.ogImage.asset) {
+    return urlFor(settings.ogImage).width(1200).height(630).url();
+  }
+
+  return "https://www.kartikbhalla.dev/logo-light.svg";
+};
+
+export const getPersonStructuredData = (settings: SiteSettings) => {
+  const sameAs = (settings.socials || [])
+    .map((social) => social.url)
+    .filter((url) => url && !url.startsWith("mailto:"));
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: siteMetadata.author.name,
-    url: siteMetadata.baseUrl,
-    image: siteMetadata.defaultImage.url,
-    sameAs: [
-      siteMetadata.social.github,
-      siteMetadata.social.linkedin,
-      siteMetadata.social.twitter,
-      siteMetadata.social.instagram,
-      siteMetadata.social.facebook,
-    ],
-    jobTitle: "Software Development Engineer",
+    name: `${settings.firstName} ${settings.lastName}`,
+    url: "https://www.kartikbhalla.dev",
+    image: personImage(settings),
+    sameAs,
+    jobTitle: settings.jobTitle,
     worksFor: {
       "@type": "Organization",
-      name: "upGrad",
-      url: "https://www.upgrad.com",
+      name: settings.companyName,
+      url: settings.companyUrl,
     },
     alumniOf: [
       {
@@ -32,30 +40,25 @@ export const getPersonStructuredData = () => {
       "Next.js",
       "React Native",
       "Redux",
-      "Node.js",
-      "MongoDB",
-      "Docker",
-      "Serverless Architecture",
-      "Kubernetes",
-      "Full Stack Web Development",
-      "JavaScript",
       "TypeScript",
+      "JavaScript",
+      "Frontend Architecture",
+      "Performance Optimization",
     ],
-    description:
-      "Full-stack web developer specializing in React.js, Next.js, Node.js, and modern cloud technologies. Software Development Engineer at upGrad.",
+    description: settings.description,
   };
 };
 
-export const getWebsiteStructuredData = () => {
+export const getWebsiteStructuredData = (settings: SiteSettings) => {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteMetadata.siteName,
-    url: siteMetadata.baseUrl,
-    description: siteMetadata.defaultDescription,
+    name: settings.siteName,
+    url: "https://www.kartikbhalla.dev",
+    description: settings.description,
     author: {
       "@type": "Person",
-      name: siteMetadata.author.name,
+      name: `${settings.firstName} ${settings.lastName}`,
     },
   };
 };

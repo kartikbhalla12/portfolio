@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import classNames from 'classnames';
 
 import { ThemeProps } from '@interfaces/theme';
 
@@ -25,20 +26,15 @@ const ThemeSlider: FC<ThemeProps> = ({ theme, onThemeChange }) => {
 				<Moon className={styles.icon} aria-hidden='true' />
 			</button>
 			<button
-				className={styles.switchButton}
+				className={classNames(styles.switchButton, {
+					[styles.switchOn]: theme === 'light',
+				})}
 				onClick={toggleTheme}
 				aria-label={`Toggle theme, currently ${theme} mode`}
 				aria-pressed={theme === 'light'}>
-				<label className={styles.switch}>
-					<input
-						type='checkbox'
-						checked={theme === 'light'}
-						readOnly
-						aria-label='Theme toggle switch'
-						tabIndex={-1}
-					/>
-					<span className={styles.slider} aria-hidden='true' />
-				</label>
+				<span className={styles.switch} aria-hidden='true'>
+					<span className={styles.slider} />
+				</span>
 			</button>
 
 			<button

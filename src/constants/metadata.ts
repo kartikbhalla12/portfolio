@@ -4,15 +4,15 @@ import keywords from './keywords';
 
 const baseUrl = 'https://www.kartikbhalla.dev';
 const siteName = 'Kartik Bhalla Portfolio';
-const defaultTitle = 'Kartik Bhalla - Full Stack Web Developer Portfolio';
+const defaultTitle = 'Kartik Bhalla - Frontend Software Engineer Portfolio';
 const defaultDescription =
-	'Full-stack web developer specializing in React.js, Next.js, Node.js, MongoDB, Docker, and Kubernetes. Software Development Engineer at upGrad. Building modern web applications with cutting-edge technologies.';
+	'Frontend Software Engineer specializing in React.js, Next.js, React Native, and TypeScript. Software Engineer II at upGrad. Building performant, maintainable web and mobile applications.';
 
 const defaultImage = {
-	url: 'https://www.kartikbhalla.dev/kartik.png',
-	width: 1200,
-	height: 630,
-	alt: 'Kartik Bhalla - Full Stack Web Developer',
+	url: 'https://www.kartikbhalla.dev/logo-light.svg',
+	width: 512,
+	height: 512,
+	alt: 'Kartik Bhalla - Frontend Software Engineer',
 };
 
 export const siteMetadata = {
@@ -31,10 +31,10 @@ export const siteMetadata = {
 	},
 	social: {
 		github: 'https://github.com/kartikbhalla12',
-		linkedin: 'https://www.linkedin.com/in/kartikbhalla12',
+		linkedin: 'https://www.linkedin.com/in/kartikbhalla/',
 		twitter: 'https://twitter.com/kartikbhalla12',
-		instagram: 'https://www.instagram.com/kartikbhalla12',
-		facebook: 'https://www.facebook.com/kartikbhalla12',
+		instagram: 'https://www.instagram.com/_kartikbhalla/',
+		facebook: 'https://www.facebook.com/kbhalla12',
 	},
 };
 
