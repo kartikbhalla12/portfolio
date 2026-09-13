@@ -12,7 +12,7 @@ export const metadataFromSettings = (settings: SiteSettings): Metadata => {
 					url: urlFor(settings.ogImage).width(1200).height(630).url(),
 					width: 1200,
 					height: 630,
-					alt: settings.title,
+					alt: `${settings.firstName} ${settings.lastName}`.trim() || settings.title,
 				}
 			: undefined;
 

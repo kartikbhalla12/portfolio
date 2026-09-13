@@ -98,7 +98,7 @@ export const createMetadata = (options?: {
 			creator: siteMetadata.author.twitter,
 			title: titleString,
 			description,
-			images: [image.url],
+			images: [{ url: image.url, alt: image.alt }],
 		},
 		robots: {
 			index: !noindex,
