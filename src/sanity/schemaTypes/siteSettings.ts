@@ -15,7 +15,7 @@ export const siteSettingsType = defineType({
 			type: 'file',
 			options: { accept: 'application/pdf' },
 			description:
-				'PDF served at /kartik-bhalla-resume.pdf. /resume redirects there.',
+				'PDF served at /resume. /kartik-bhalla-resume.pdf redirects there.',
 		}),
 		defineField({ name: 'email', title: 'Email', type: 'string' }),
 		defineField({ name: 'firstName', title: 'First name', type: 'string' }),

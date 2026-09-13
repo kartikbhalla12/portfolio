@@ -9,11 +9,11 @@ const Home = ({ content }: { content: HomeContent }) => {
       <div className={styles.home}>
         <div className={styles.content}>
           <div className={styles.information}>
-            <h1>
-              <span className={styles.greeting}>{content.greeting}</span>
-              {content.name}
-              <span className={styles.subtitle}>{content.subtitle}</span>
-            </h1>
+            <div className={styles.heading}>
+              <p className={styles.greeting}>{content.greeting}</p>
+              <h1>{content.name.replace(/\.$/, '')}</h1>
+              <p className={styles.subtitle}>{content.subtitle}</p>
+            </div>
 
             <AboutContainer
               className={styles.about}

@@ -84,10 +84,10 @@ const uploadFile = async (relativePath, contentType) => {
 const siteSettings = {
 	_id: 'siteSettings',
 	_type: 'siteSettings',
-	siteName: 'Kartik Bhalla Portfolio',
-	title: 'Kartik Bhalla - Frontend Software Engineer Portfolio',
+	siteName: 'Kartik Bhalla',
+	title: 'Kartik Bhalla | Frontend Software Engineer',
 	description:
-		'Frontend Software Engineer specializing in React.js, Next.js, React Native, and TypeScript. Software Engineer II at upGrad. Building performant, maintainable web and mobile applications.',
+		'Kartik Bhalla is a Frontend Software Engineer building web and mobile apps with React, Next.js, React Native, and TypeScript. Personal portfolio and resume.',
 	email: 'contact@kartikbhalla.dev',
 	firstName: 'Kartik',
 	lastName: 'Bhalla',
@@ -106,7 +106,7 @@ const headerNavLinks = [
 	{ _key: 'blogs', href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
 	{
 		_key: 'resume',
-		href: '/kartik-bhalla-resume.pdf',
+		href: '/resume',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',
@@ -485,8 +485,8 @@ const seed = async () => {
 		_id: 'header',
 		_type: 'header',
 		navLinks: existingNavLinks.map((link) =>
-			link.href === '/resume' || link.title === 'Resume'
-				? { ...link, href: '/kartik-bhalla-resume.pdf' }
+			link.href === '/kartik-bhalla-resume.pdf' || link.title === 'Resume'
+				? { ...link, href: '/resume' }
 				: link,
 		),
 	});

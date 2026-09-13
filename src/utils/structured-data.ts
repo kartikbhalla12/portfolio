@@ -2,15 +2,24 @@ import type { SiteSettings } from "src/sanity/types";
 import { urlFor } from "src/sanity/image";
 import { isSanityImage } from "src/sanity/CmsImage";
 
+const SITE_URL = "https://www.kartikbhalla.dev";
+const PERSON_ID = `${SITE_URL}/#person`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+const PROFILE_ID = `${SITE_URL}/#profile`;
+
 const personImage = (settings: SiteSettings) => {
   if (settings.ogImage && isSanityImage(settings.ogImage) && settings.ogImage.asset) {
     return urlFor(settings.ogImage).width(1200).height(630).url();
   }
 
-  return "https://www.kartikbhalla.dev/logo-light.svg";
+  return `${SITE_URL}/logo-light.svg`;
 };
 
+const personName = (settings: SiteSettings) =>
+  `${settings.firstName} ${settings.lastName}`.trim();
+
 export const getPersonStructuredData = (settings: SiteSettings) => {
+  const name = personName(settings);
   const sameAs = (settings.socials || [])
     .map((social) => social.url)
     .filter((url) => url && !url.startsWith("mailto:"));
@@ -18,9 +27,16 @@ export const getPersonStructuredData = (settings: SiteSettings) => {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: `${settings.firstName} ${settings.lastName}`,
-    url: "https://www.kartikbhalla.dev",
+    "@id": PERSON_ID,
+    name,
+    givenName: settings.firstName,
+    familyName: settings.lastName,
+    alternateName: [settings.username, "Kartikbhalla", "kartikbhalla.dev"].filter(
+      Boolean,
+    ),
+    url: SITE_URL,
     image: personImage(settings),
+    email: settings.email,
     sameAs,
     jobTitle: settings.jobTitle,
     worksFor: {
@@ -50,15 +66,34 @@ export const getPersonStructuredData = (settings: SiteSettings) => {
 };
 
 export const getWebsiteStructuredData = (settings: SiteSettings) => {
+  const name = personName(settings);
+
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: settings.siteName,
-    url: "https://www.kartikbhalla.dev",
+    "@id": WEBSITE_ID,
+    name: settings.siteName || name,
+    alternateName: ["Kartik Bhalla Portfolio", "kartikbhalla.dev"],
+    url: SITE_URL,
     description: settings.description,
-    author: {
-      "@type": "Person",
-      name: `${settings.firstName} ${settings.lastName}`,
-    },
+    inLanguage: "en",
+    publisher: { "@id": PERSON_ID },
+    author: { "@id": PERSON_ID },
+  };
+};
+
+export const getProfilePageStructuredData = (settings: SiteSettings) => {
+  const name = personName(settings);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": PROFILE_ID,
+    url: SITE_URL,
+    name: `${name} | ${settings.jobTitle}`,
+    description: settings.description,
+    isPartOf: { "@id": WEBSITE_ID },
+    mainEntity: { "@id": PERSON_ID },
+    about: { "@id": PERSON_ID },
   };
 };

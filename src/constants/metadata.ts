@@ -3,10 +3,10 @@ import type { Metadata } from 'next';
 import keywords from './keywords';
 
 const baseUrl = 'https://www.kartikbhalla.dev';
-const siteName = 'Kartik Bhalla Portfolio';
-const defaultTitle = 'Kartik Bhalla - Frontend Software Engineer Portfolio';
+const siteName = 'Kartik Bhalla';
+const defaultTitle = 'Kartik Bhalla | Frontend Software Engineer';
 const defaultDescription =
-	'Frontend Software Engineer specializing in React.js, Next.js, React Native, and TypeScript. Software Engineer II at upGrad. Building performant, maintainable web and mobile applications.';
+	'Kartik Bhalla is a Frontend Software Engineer building web and mobile apps with React, Next.js, React Native, and TypeScript. Personal portfolio and resume.';
 
 const defaultImage = {
 	url: 'https://www.kartikbhalla.dev/logo-light.svg',
@@ -44,6 +44,7 @@ export const createMetadata = (options?: {
 	image?: typeof defaultImage;
 	canonical?: string;
 	noindex?: boolean;
+	siteName?: string;
 }): Metadata => {
 	const {
 		title: titleOption = defaultTitle,
@@ -51,6 +52,7 @@ export const createMetadata = (options?: {
 		image = defaultImage,
 		canonical = baseUrl,
 		noindex = false,
+		siteName: siteNameOption = siteName,
 	} = options || {};
 
 	const finalTitle: Metadata['title'] =
@@ -82,7 +84,7 @@ export const createMetadata = (options?: {
 			type: 'profile',
 			locale: 'en_US',
 			url: canonical,
-			siteName,
+			siteName: siteNameOption,
 			title: titleString,
 			description,
 			images: [image],

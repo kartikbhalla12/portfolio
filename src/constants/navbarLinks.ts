@@ -5,7 +5,7 @@ const navbarLinks = [
 	{ href: '/#projects', title: 'Projects', id: 'projects' },
 	{ href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
 	{
-		href: '/kartik-bhalla-resume.pdf',
+		href: '/resume',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',

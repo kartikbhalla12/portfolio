@@ -9,7 +9,7 @@ export const getFallbackSiteSettings = (): SiteSettings => ({
 	siteName: siteMetadata.siteName,
 	title: siteMetadata.defaultTitle,
 	description: siteMetadata.defaultDescription,
-	resumeUrl: '/kartik-bhalla-resume.pdf',
+	resumeUrl: '/resume',
 	email: 'contact@kartikbhalla.dev',
 	firstName: siteMetadata.author.firstName,
 	lastName: siteMetadata.author.lastName,
@@ -34,7 +34,7 @@ export const fallbackHome: HomeContent = {
 	name: 'Kartik Bhalla.',
 	subtitle: 'A Frontend Software Engineer.',
 	about:
-		'Building scalable, high-performance web and mobile applications with a strong focus on clean UI architecture and performance optimization. Currently Software Engineer II at upGrad, delivering core product features used by thousands of learners. Passionate about writing maintainable frontend systems and creating smooth, reliable user experiences.',
+		'Kartik Bhalla is a Frontend Software Engineer building scalable, high-performance web and mobile applications with a strong focus on clean UI architecture and performance optimization. Currently Software Engineer II at PokerBaazi. Passionate about writing maintainable frontend systems and creating smooth, reliable user experiences.',
 	companyName: 'upGrad',
 	companyUrl: 'https://upgrad.com',
 	email: 'contact@kartikbhalla.dev',
