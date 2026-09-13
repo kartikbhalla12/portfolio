@@ -33,8 +33,8 @@ type SanityExperience = {
 	tasks?: { detail: string; url?: string }[];
 };
 
-const PUBLIC_RESUME_HREF = '/kartik-bhalla-resume.pdf';
-const RESUME_HREFS = new Set(['/resume', PUBLIC_RESUME_HREF]);
+const PUBLIC_RESUME_HREF = '/resume';
+const RESUME_HREFS = new Set(['/resume', '/kartik-bhalla-resume.pdf']);
 
 type SanitySiteSettings = Omit<SiteSettings, 'socials' | 'navLinks' | 'resumeUrl'> & {
 	resume?: { asset?: { url?: string } };

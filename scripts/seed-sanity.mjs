@@ -106,7 +106,7 @@ const headerNavLinks = [
 	{ _key: 'blogs', href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
 	{
 		_key: 'resume',
-		href: '/kartik-bhalla-resume.pdf',
+		href: '/resume',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',
@@ -485,8 +485,8 @@ const seed = async () => {
 		_id: 'header',
 		_type: 'header',
 		navLinks: existingNavLinks.map((link) =>
-			link.href === '/resume' || link.title === 'Resume'
-				? { ...link, href: '/kartik-bhalla-resume.pdf' }
+			link.href === '/kartik-bhalla-resume.pdf' || link.title === 'Resume'
+				? { ...link, href: '/resume' }
 				: link,
 		),
 	});
