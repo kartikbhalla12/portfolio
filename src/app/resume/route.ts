@@ -1,8 +1,5 @@
-import { redirect } from 'next/navigation';
-
-import { getSiteSettings } from 'src/sanity/getContent';
+import { permanentRedirect } from 'next/navigation';
 
 export async function GET() {
-	const settings = await getSiteSettings();
-	redirect(settings.resumeUrl);
+	permanentRedirect('/kartik-bhalla-resume.pdf');
 }

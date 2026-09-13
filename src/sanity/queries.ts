@@ -48,10 +48,12 @@ export const homeQuery = `*[_id == "home"][0]{
   ctaLabel,
   ctaHref,
   photo ${imageProjection},
-  photoAlt,
-  skillsIntro,
-  projectsIntro
+  photoAlt
 }`;
+
+export const skillsSectionQuery = `*[_id == "skillsSection"][0]{ intro }`;
+
+export const projectsSectionQuery = `*[_id == "projectsSection"][0]{ intro }`;
 
 export const skillsQuery = `*[_type == "skill"] | order(order asc){
   _id,

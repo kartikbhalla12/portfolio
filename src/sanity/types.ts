@@ -59,8 +59,6 @@ export type HomeContent = {
 	ctaHref: string;
 	photo?: SanityImage;
 	photoAlt: string;
-	skillsIntro?: string;
-	projectsIntro?: string;
 };
 
 export type SkillContent = {
@@ -95,7 +93,9 @@ export type ProjectContent = {
 
 export type PageContent = {
 	home: HomeContent;
+	skillsIntro?: string;
 	skills: SkillContent[];
 	experiences: ExperienceContent[];
+	projectsIntro?: string;
 	projects: ProjectContent[];
 };

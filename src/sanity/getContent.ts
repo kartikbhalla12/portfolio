@@ -7,8 +7,10 @@ import {
 	headerQuery,
 	homeQuery,
 	projectsQuery,
+	projectsSectionQuery,
 	siteSettingsQuery,
 	skillsQuery,
+	skillsSectionQuery,
 } from './queries';
 import type {
 	ExperienceContent,
@@ -31,7 +33,8 @@ type SanityExperience = {
 	tasks?: { detail: string; url?: string }[];
 };
 
-const FALLBACK_RESUME_HREFS = new Set(['/resume', '/kartik-bhalla-resume.pdf']);
+const PUBLIC_RESUME_HREF = '/kartik-bhalla-resume.pdf';
+const RESUME_HREFS = new Set(['/resume', PUBLIC_RESUME_HREF]);
 
 type SanitySiteSettings = Omit<SiteSettings, 'socials' | 'navLinks' | 'resumeUrl'> & {
 	resume?: { asset?: { url?: string } };
@@ -58,12 +61,16 @@ const mapExperiences = (items: SanityExperience[]): ExperienceContent[] =>
 		tasks: item.tasks,
 	}));
 
-const resumeUrlFrom = (resume?: { asset?: { url?: string } }, fallback = '/kartik-bhalla-resume.pdf') =>
-	resume?.asset?.url || fallback;
+const resumeUrlFrom = (
+	resume?: { asset?: { url?: string } },
+	fallback = PUBLIC_RESUME_HREF,
+) => resume?.asset?.url || fallback;
 
-const withResumeHref = (navLinks: NavLink[], resumeUrl: string): NavLink[] =>
+const withResumeHref = (navLinks: NavLink[]): NavLink[] =>
 	navLinks.map((link) =>
-		FALLBACK_RESUME_HREFS.has(link.href) ? { ...link, href: resumeUrl } : link,
+		RESUME_HREFS.has(link.href) || link.title === 'Resume'
+			? { ...link, href: PUBLIC_RESUME_HREF }
+			: link,
 	);
 
 const mapProjects = (items: SanityProject[]): ProjectContent[] =>
@@ -87,7 +94,7 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 	if (!hasSanityConfig) {
 		return {
 			...fallback,
-			navLinks: withResumeHref(fallback.navLinks, fallback.resumeUrl),
+			navLinks: withResumeHref(fallback.navLinks),
 		};
 	}
 
@@ -110,7 +117,7 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 		if (!settings && !header && !footer) {
 			return {
 				...fallback,
-				navLinks: withResumeHref(fallback.navLinks, fallback.resumeUrl),
+				navLinks: withResumeHref(fallback.navLinks),
 			};
 		}
 
@@ -128,12 +135,12 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 				Array.isArray(footer?.socials) && footer.socials.length
 					? footer.socials
 					: fallback.socials,
-			navLinks: withResumeHref(navLinks, resumeUrl),
+			navLinks: withResumeHref(navLinks),
 		};
 	} catch {
 		return {
 			...fallback,
-			navLinks: withResumeHref(fallback.navLinks, fallback.resumeUrl),
+			navLinks: withResumeHref(fallback.navLinks),
 		};
 	}
 };
@@ -143,18 +150,29 @@ export const getPageContent = async (): Promise<PageContent> => {
 	if (!hasSanityConfig) return fallback;
 
 	try {
-		const [home, skills, experiences, projects] = await Promise.all([
-			sanityFetch<HomeContent | null>(homeQuery, ['sanity', 'home']),
-			sanityFetch<SkillContent[]>(skillsQuery, ['sanity', 'skills']),
-			sanityFetch<SanityExperience[]>(experiencesQuery, [
-				'sanity',
-				'experience',
-			]),
-			sanityFetch<SanityProject[]>(projectsQuery, ['sanity', 'projects']),
-		]);
+		const [home, skillsSection, skills, experiences, projectsSection, projects] =
+			await Promise.all([
+				sanityFetch<HomeContent | null>(homeQuery, ['sanity', 'home']),
+				sanityFetch<{ intro?: string } | null>(skillsSectionQuery, [
+					'sanity',
+					'skills',
+				]),
+				sanityFetch<SkillContent[]>(skillsQuery, ['sanity', 'skills']),
+				sanityFetch<SanityExperience[]>(experiencesQuery, [
+					'sanity',
+					'experience',
+				]),
+				sanityFetch<{ intro?: string } | null>(projectsSectionQuery, [
+					'sanity',
+					'projects',
+				]),
+				sanityFetch<SanityProject[]>(projectsQuery, ['sanity', 'projects']),
+			]);
 
 		return {
 			home: home || fallback.home,
+			skillsIntro: skillsSection?.intro || fallback.skillsIntro,
+			projectsIntro: projectsSection?.intro || fallback.projectsIntro,
 			skills: skills?.length
 				? skills.map((skill) => ({
 						...skill,
