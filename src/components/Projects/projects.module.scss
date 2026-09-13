@@ -299,13 +299,13 @@
 								}
 
 								&.mockupLight {
-									:global(.theme-dark) & {
+									:global(.theme-light) & {
 										opacity: 1;
 									}
 								}
 
 								&.mockupDark {
-									:global(.theme-light) & {
+									:global(.theme-dark) & {
 										opacity: 1;
 									}
 								}
@@ -368,13 +368,13 @@
 								transition: opacity 0.5s ease-in-out;
 
 								&.mockupLight {
-									:global(.theme-dark) & {
+									:global(.theme-light) & {
 										opacity: 1;
 									}
 								}
 
 								&.mockupDark {
-									:global(.theme-light) & {
+									:global(.theme-dark) & {
 										opacity: 1;
 									}
 								}

@@ -21,8 +21,6 @@ export const homeType = defineType({
 			options: { hotspot: true },
 		}),
 		defineField({ name: 'photoAlt', title: 'Photo alt', type: 'string' }),
-		defineField({ name: 'skillsIntro', title: 'Skills intro', type: 'text' }),
-		defineField({ name: 'projectsIntro', title: 'Projects intro', type: 'text' }),
 	],
 	preview: { select: { title: 'name', media: 'photo' } },
 });

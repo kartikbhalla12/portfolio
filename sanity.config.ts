@@ -33,9 +33,39 @@ export default defineConfig({
 						S.listItem()
 							.title('Home')
 							.child(S.document().schemaType('home').documentId('home')),
-						S.documentTypeListItem('skill').title('Skills'),
+						S.listItem()
+							.title('Skills')
+							.child(
+								S.list()
+									.title('Skills')
+									.items([
+										S.listItem()
+											.title('Intro')
+											.child(
+												S.document()
+													.schemaType('skillsSection')
+													.documentId('skillsSection'),
+											),
+										S.documentTypeListItem('skill').title('Skills'),
+									]),
+							),
 						S.documentTypeListItem('experience').title('Experience'),
-						S.documentTypeListItem('project').title('Projects'),
+						S.listItem()
+							.title('Projects')
+							.child(
+								S.list()
+									.title('Projects')
+									.items([
+										S.listItem()
+											.title('Intro')
+											.child(
+												S.document()
+													.schemaType('projectsSection')
+													.documentId('projectsSection'),
+											),
+										S.documentTypeListItem('project').title('Projects'),
+									]),
+							),
 					]),
 		}),
 		visionTool({ defaultApiVersion: apiVersion }),
@@ -47,9 +77,14 @@ export default defineConfig({
 		newDocumentOptions: (prev) =>
 			prev.filter(
 				(item) =>
-					!['siteSettings', 'header', 'footer', 'home'].includes(
-						item.templateId,
-					),
+					![
+						'siteSettings',
+						'header',
+						'footer',
+						'home',
+						'skillsSection',
+						'projectsSection',
+					].includes(item.templateId),
 			),
 	},
 });

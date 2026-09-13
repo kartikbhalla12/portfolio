@@ -106,7 +106,7 @@ const headerNavLinks = [
 	{ _key: 'blogs', href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
 	{
 		_key: 'resume',
-		href: '/resume',
+		href: '/kartik-bhalla-resume.pdf',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',
@@ -171,10 +171,13 @@ const home = {
 	ctaLabel: 'Explore more',
 	ctaHref: '#experience',
 	photoAlt: 'Kartik Bhalla - Frontend Software Engineer',
-	skillsIntro:
-		'I work with a modern frontend stack focused on performance, scalability, and clean architecture. My core expertise includes React, Next.js, and React Native, along with TypeScript and API integrations. These tools help me build reliable, maintainable, and user-centric applications.',
-	projectsIntro: 'All the images included with the projects can be scrolled through.',
 };
+
+const skillsIntro =
+	'I work with a modern frontend stack focused on performance, scalability, and clean architecture. My core expertise includes React, Next.js, and React Native, along with TypeScript and API integrations. These tools help me build reliable, maintainable, and user-centric applications.';
+
+const projectsIntro =
+	'All the images included with the projects can be scrolled through.';
 
 const skills = [
 	{ id: 'typescript', name: 'TypeScript', file: 'src/icons/tech/ts.svg', url: 'https://www.typescriptlang.org/' },
@@ -423,21 +426,31 @@ const withKeys = (items) =>
 const seed = async () => {
 	console.log(`Seeding Sanity project ${projectId} / ${dataset}`);
 
-	const [ogImage, photo, existingSettings, existingHome, existingHeader, existingFooter] =
-		await Promise.all([
-			uploadImage('public/kartik.png'),
-			uploadImage('public/kartik-2.webp'),
-			client.getDocument('siteSettings'),
-			client.getDocument('home'),
-			client.getDocument('header'),
-			client.getDocument('footer'),
-		]);
+	const [
+		ogImage,
+		photo,
+		existingSettings,
+		existingHome,
+		existingHeader,
+		existingFooter,
+		existingSkillsSection,
+		existingProjectsSection,
+	] = await Promise.all([
+		uploadImage('public/kartik.png'),
+		uploadImage('public/kartik-2.webp'),
+		client.getDocument('siteSettings'),
+		client.getDocument('home'),
+		client.getDocument('header'),
+		client.getDocument('footer'),
+		client.getDocument('skillsSection'),
+		client.getDocument('projectsSection'),
+	]);
 
 	const nextOgImage = ogImage || existingSettings?.ogImage;
 	const nextPhoto = photo || existingHome?.photo;
 	const nextResume =
 		existingSettings?.resume ||
-		(await uploadFile('public/kartik-bhalla-resume.pdf', 'application/pdf'));
+		(await uploadFile('src/data/kartik-bhalla-resume.pdf', 'application/pdf'));
 	const socials =
 		existingFooter?.socials?.length || existingSettings?.socials?.length
 			? existingFooter?.socials || existingSettings?.socials
@@ -472,7 +485,9 @@ const seed = async () => {
 		_id: 'header',
 		_type: 'header',
 		navLinks: existingNavLinks.map((link) =>
-			link.href === '/kartik-bhalla-resume.pdf' ? { ...link, href: '/resume' } : link,
+			link.href === '/resume' || link.title === 'Resume'
+				? { ...link, href: '/kartik-bhalla-resume.pdf' }
+				: link,
 		),
 	});
 	console.log('Wrote header');
@@ -493,6 +508,26 @@ const seed = async () => {
 		...(nextPhoto ? { photo: nextPhoto } : {}),
 	});
 	console.log('Wrote home');
+
+	await client.createOrReplace({
+		_id: 'skillsSection',
+		_type: 'skillsSection',
+		intro:
+			existingSkillsSection?.intro || existingHome?.skillsIntro || skillsIntro,
+	});
+	await client.createOrReplace({
+		_id: 'projectsSection',
+		_type: 'projectsSection',
+		intro:
+			existingProjectsSection?.intro ||
+			existingHome?.projectsIntro ||
+			projectsIntro,
+	});
+	console.log('Wrote skills and projects sections');
+
+	if (existingHome?.skillsIntro || existingHome?.projectsIntro) {
+		await client.patch('home').unset(['skillsIntro', 'projectsIntro']).commit();
+	}
 
 	for (const [index, skill] of skills.entries()) {
 		const icon = await uploadImage(skill.file);

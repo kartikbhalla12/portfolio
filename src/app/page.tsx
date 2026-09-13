@@ -20,11 +20,11 @@ export default async function HomePage() {
 		<SiteChrome>
 			<main id='main-content' tabIndex={-1}>
 				<Home content={content.home} />
-				<Skills skills={content.skills} intro={content.home.skillsIntro} />
+				<Skills skills={content.skills} intro={content.skillsIntro} />
 				<Experience experiences={content.experiences} />
 				<Projects
 					projects={content.projects}
-					intro={content.home.projectsIntro}
+					intro={content.projectsIntro}
 				/>
 			</main>
 		</SiteChrome>

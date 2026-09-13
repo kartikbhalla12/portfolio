@@ -41,10 +41,13 @@ export const fallbackHome: HomeContent = {
 	ctaLabel: 'Explore more',
 	ctaHref: '#experience',
 	photoAlt: 'Kartik Bhalla - Frontend Software Engineer',
-	skillsIntro:
-		'I work with a modern frontend stack focused on performance, scalability, and clean architecture. My core expertise includes React, Next.js, and React Native, along with TypeScript and API integrations. These tools help me build reliable, maintainable, and user-centric applications.',
-	projectsIntro: 'All the images included with the projects can be scrolled through.',
 };
+
+export const fallbackSkillsIntro =
+	'I work with a modern frontend stack focused on performance, scalability, and clean architecture. My core expertise includes React, Next.js, and React Native, along with TypeScript and API integrations. These tools help me build reliable, maintainable, and user-centric applications.';
+
+export const fallbackProjectsIntro =
+	'All the images included with the projects can be scrolled through.';
 
 const fallbackSkills = [
 	{ name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
@@ -70,6 +73,8 @@ const fallbackSkills = [
 
 export const getFallbackPageContent = (): PageContent => ({
 	home: fallbackHome,
+	skillsIntro: fallbackSkillsIntro,
+	projectsIntro: fallbackProjectsIntro,
 	skills: fallbackSkills.map((skill) => ({
 		_id: skill.name,
 		name: skill.name,
