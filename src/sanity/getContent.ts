@@ -1,6 +1,8 @@
+import { isSanityImage } from './CmsImage';
 import { sanityFetch } from './client';
 import { hasSanityConfig } from './env';
 import { getFallbackPageContent, getFallbackSiteSettings } from './fallback';
+import { urlFor } from './image';
 import {
 	experiencesQuery,
 	footerQuery,
@@ -189,5 +191,26 @@ export const getPageContent = async (): Promise<PageContent> => {
 		};
 	} catch {
 		return fallback;
+	}
+};
+
+export const PORTRAIT_PATH = '/kartik-bhalla.jpg';
+
+export const getHomePortraitUrl = async () => {
+	if (!hasSanityConfig) return null;
+
+	try {
+		const home = await sanityFetch<HomeContent | null>(homeQuery, [
+			'sanity',
+			'home',
+		]);
+
+		if (!home?.photo || !isSanityImage(home.photo) || !home.photo.asset) {
+			return null;
+		}
+
+		return urlFor(home.photo).width(1600).format('jpg').quality(85).url();
+	} catch {
+		return null;
 	}
 };

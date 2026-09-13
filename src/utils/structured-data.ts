@@ -1,19 +1,17 @@
 import type { SiteSettings } from "src/sanity/types";
-import { urlFor } from "src/sanity/image";
-import { isSanityImage } from "src/sanity/CmsImage";
 
 const SITE_URL = "https://www.kartikbhalla.dev";
 const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const PROFILE_ID = `${SITE_URL}/#profile`;
 
-const personImage = (settings: SiteSettings) => {
-  if (settings.ogImage && isSanityImage(settings.ogImage) && settings.ogImage.asset) {
-    return urlFor(settings.ogImage).width(1200).height(630).url();
-  }
-
-  return `${SITE_URL}/logo-light.svg`;
-};
+const personImage = (settings: SiteSettings, name: string) => ({
+  "@type": "ImageObject",
+  url: `${SITE_URL}/kartik-bhalla.jpg`,
+  contentUrl: `${SITE_URL}/kartik-bhalla.jpg`,
+  caption: name,
+  name: `${name}, ${settings.jobTitle}`,
+});
 
 const personName = (settings: SiteSettings) =>
   `${settings.firstName} ${settings.lastName}`.trim();
@@ -35,7 +33,7 @@ export const getPersonStructuredData = (settings: SiteSettings) => {
       Boolean,
     ),
     url: SITE_URL,
-    image: personImage(settings),
+    image: personImage(settings, name),
     email: settings.email,
     sameAs,
     jobTitle: settings.jobTitle,
