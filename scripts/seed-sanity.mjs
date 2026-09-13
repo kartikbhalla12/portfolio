@@ -84,10 +84,10 @@ const uploadFile = async (relativePath, contentType) => {
 const siteSettings = {
 	_id: 'siteSettings',
 	_type: 'siteSettings',
-	siteName: 'Kartik Bhalla Portfolio',
-	title: 'Kartik Bhalla - Frontend Software Engineer Portfolio',
+	siteName: 'Kartik Bhalla',
+	title: 'Kartik Bhalla | Frontend Software Engineer',
 	description:
-		'Frontend Software Engineer specializing in React.js, Next.js, React Native, and TypeScript. Software Engineer II at upGrad. Building performant, maintainable web and mobile applications.',
+		'Kartik Bhalla is a Frontend Software Engineer building web and mobile apps with React, Next.js, React Native, and TypeScript. Personal portfolio and resume.',
 	email: 'contact@kartikbhalla.dev',
 	firstName: 'Kartik',
 	lastName: 'Bhalla',

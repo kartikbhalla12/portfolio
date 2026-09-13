@@ -20,5 +20,6 @@ export const metadataFromSettings = (settings: SiteSettings): Metadata => {
 		title: settings.title,
 		description: settings.description,
 		image: ogImage,
+		siteName: settings.siteName,
 	});
 };

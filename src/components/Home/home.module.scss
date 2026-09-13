@@ -68,12 +68,15 @@
 			}
 
 			.information {
-				h1 {
+				.heading {
 					margin-bottom: 30px;
-					@extend %heading;
 
 					@include breakpoint(tablet-sm) {
 						margin-bottom: 0px;
+					}
+
+					h1 {
+						@extend %heading;
 					}
 
 					.greeting {
