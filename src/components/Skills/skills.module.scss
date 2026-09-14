@@ -96,17 +96,19 @@
 					transform: scale(1.2);
 				}
 
-				img {
+				.icon {
 					width: 50px;
-					max-height: 40px;
-					height: auto;
-					object-fit: contain;
+					height: 40px;
+					display: block;
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: contain;
 					transition: all 0.5s ease-in-out;
 					pointer-events: none;
 
 					@include breakpoint(laptop-sm) {
 						width: 40px;
-						max-height: 35px;
+						height: 35px;
 					}
 
 					@include breakpoint(tablet-lg) {
@@ -122,7 +124,7 @@
 					}
 				}
 
-				&.fill img {
+				&.fill .icon {
 					:global(.theme-dark) & {
 						filter: brightness(0) invert(1);
 					}
@@ -133,12 +135,12 @@
 				}
 
 				&.animate {
-					img {
+					.icon {
 						animation: animate-icon infinite 20s linear;
 					}
 
 					&:hover {
-						img {
+						.icon {
 							animation-play-state: paused;
 						}
 					}

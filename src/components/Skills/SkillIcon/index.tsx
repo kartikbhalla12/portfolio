@@ -21,7 +21,13 @@ const SkillIcon = ({ url, fillMode, animate, name, icon }: SkillComponentProps) 
         rel="noreferrer"
         aria-label={`Learn more about ${name} (opens in new tab)`}
       >
-        {src ? <img src={src} alt="" aria-hidden="true" /> : null}
+        {src ? (
+          <span
+            className={styles.icon}
+            aria-hidden="true"
+            style={{ backgroundImage: `url("${src}")` }}
+          />
+        ) : null}
       </Link>
       <span>{name}</span>
     </div>

@@ -1,7 +1,10 @@
 import { getDefaultThemeCookie } from "@utils/server/theme.server";
 
 import ceraPro from "@styles/fonts";
+import { rootMetadata } from "@constants/metadata";
 import "@styles/globals.scss";
+
+export const metadata = rootMetadata;
 
 export default async function RootLayout({
   children,
