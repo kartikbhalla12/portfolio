@@ -9,10 +9,10 @@ const defaultDescription =
 	'Kartik Bhalla is a Frontend Software Engineer building web and mobile apps with React, Next.js, React Native, and TypeScript. Personal portfolio and resume.';
 
 const defaultImage = {
-	url: 'https://www.kartikbhalla.dev/logo-light.svg',
-	width: 512,
-	height: 512,
-	alt: 'Kartik Bhalla - Frontend Software Engineer',
+	url: 'https://www.kartikbhalla.dev/kartik-bhalla-og.jpg',
+	width: 1200,
+	height: 1200,
+	alt: 'Kartik Bhalla',
 };
 
 export const siteMetadata = {
@@ -112,9 +112,14 @@ export const createMetadata = (options?: {
 			},
 		},
 		icons: {
-			icon: '/logo-light.svg',
-			shortcut: '/logo-light.svg',
-			apple: '/logo-light.svg',
+			icon: [
+				{ url: '/favicon.ico', sizes: '48x48' },
+				{ url: '/favicon-48.png', type: 'image/png', sizes: '48x48' },
+				{ url: '/favicon-96.png', type: 'image/png', sizes: '96x96' },
+				{ url: '/favicon-192.png', type: 'image/png', sizes: '192x192' },
+			],
+			apple: { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+			shortcut: '/favicon.ico',
 		},
 		alternates: {
 			canonical,

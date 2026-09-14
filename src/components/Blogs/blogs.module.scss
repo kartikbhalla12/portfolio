@@ -1,0 +1,88 @@
+@use '@styles/core' as *;
+
+.blogs {
+	padding: 8rem 0 6rem;
+	min-height: calc(100vh - 220px);
+	transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+
+	@include theme {
+		background-color: themedColor(secondaryBackground);
+	}
+
+	@include breakpoint(tablet-sm) {
+		padding: 6rem 0 2.5rem;
+	}
+
+	.container {
+		@extend %container;
+
+		h1 {
+			@extend %heading;
+			margin-bottom: 0.75rem;
+		}
+	}
+
+	.intro,
+	.fallback {
+		@extend %paragraph;
+		max-width: 42rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.fallback a {
+		@include theme {
+			color: themedColor(accent);
+		}
+	}
+
+	.list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		padding: 1.5rem 0;
+		border-top: 1px solid transparent;
+		transition: border-color 0.5s ease-in-out;
+
+		@include theme {
+			border-top-color: themedColor(navbarBoxShadow);
+		}
+	}
+
+	.date {
+		margin: 0 0 0.4rem;
+		font-size: size(s14);
+
+		@include theme {
+			color: themedColor(textMuted);
+		}
+	}
+
+	h2 {
+		@extend %title2;
+		margin: 0 0 0.5rem;
+		font-weight: weight(medium);
+
+		@include theme {
+			color: themedColor(heading);
+		}
+
+		a {
+			transition: color 0.5s ease-in-out;
+
+			&:hover {
+				@include theme {
+					color: themedColor(accent);
+				}
+			}
+		}
+	}
+
+	.excerpt {
+		@extend %paragraph;
+		margin: 0;
+		max-width: 46rem;
+	}
+}

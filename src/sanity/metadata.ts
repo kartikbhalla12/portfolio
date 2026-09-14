@@ -1,25 +1,24 @@
 import type { Metadata } from 'next';
 
-import { createMetadata } from '@constants/metadata';
-import { urlFor } from './image';
-import { isSanityImage } from './CmsImage';
+import { createMetadata, siteMetadata } from '@constants/metadata';
 import type { SiteSettings } from './types';
 
-export const metadataFromSettings = (settings: SiteSettings): Metadata => {
-	const ogImage =
-		settings.ogImage && isSanityImage(settings.ogImage) && settings.ogImage.asset
-			? {
-					url: urlFor(settings.ogImage).width(1200).height(630).url(),
-					width: 1200,
-					height: 630,
-					alt: `${settings.firstName} ${settings.lastName}`.trim() || settings.title,
-				}
-			: undefined;
+export const metadataFromSettings = (
+	settings: SiteSettings,
+	options?: { title?: string; description?: string; canonical?: string },
+): Metadata => {
+	const name = `${settings.firstName} ${settings.lastName}`.trim();
 
 	return createMetadata({
-		title: settings.title,
-		description: settings.description,
-		image: ogImage,
+		title: options?.title || settings.title,
+		description: options?.description || settings.description,
+		image: {
+			url: `${siteMetadata.baseUrl}/kartik-bhalla-og.jpg`,
+			width: 1200,
+			height: 1200,
+			alt: name || 'Kartik Bhalla',
+		},
+		canonical: options?.canonical || siteMetadata.baseUrl,
 		siteName: settings.siteName,
 	});
 };
