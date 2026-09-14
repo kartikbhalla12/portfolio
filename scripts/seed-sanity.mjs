@@ -98,15 +98,25 @@ const siteSettings = {
 	companyUrl: 'https://www.upgrad.com',
 };
 
+const inPageHrefs = {
+	'/skills': '/#skills',
+	'/experience': '/#experience',
+	'/projects': '/#projects',
+	'/resume': '/resume.pdf',
+	'/kartik-bhalla-resume.pdf': '/resume.pdf',
+};
+
+const toInPageHref = (href) => inPageHrefs[href] || href;
+
 const headerNavLinks = [
 	{ _key: 'home', href: '/', title: 'Home', id: 'home' },
 	{ _key: 'skills', href: '/#skills', title: 'Skills', id: 'skills' },
 	{ _key: 'experience', href: '/#experience', title: 'Experience', id: 'experience' },
 	{ _key: 'projects', href: '/#projects', title: 'Projects', id: 'projects' },
-	{ _key: 'blogs', href: 'https://devdispatch.kartikbhalla.dev', title: 'Blogs' },
+	{ _key: 'blogs', href: '/blogs', title: 'Blogs' },
 	{
 		_key: 'resume',
-		href: '/resume',
+		href: '/resume.pdf',
 		title: 'Resume',
 		rel: 'noreferrer',
 		target: '_blank',
@@ -484,11 +494,21 @@ const seed = async () => {
 	await client.createOrReplace({
 		_id: 'header',
 		_type: 'header',
-		navLinks: existingNavLinks.map((link) =>
-			link.href === '/kartik-bhalla-resume.pdf' || link.title === 'Resume'
-				? { ...link, href: '/resume' }
-				: link,
-		),
+		navLinks: existingNavLinks
+			.filter((link) => link.title !== 'Archive' && link.href !== '/archive')
+			.map((link) => {
+				const href = toInPageHref(link.href);
+				if (href === '/resume' || href === '/resume.pdf' || link.title === 'Resume') {
+					return { ...link, href: '/resume.pdf' };
+				}
+				if (
+					link.title === 'Blogs' ||
+					href.includes('devdispatch.kartikbhalla.dev')
+				) {
+					return { ...link, href: '/blogs', target: undefined, rel: undefined };
+				}
+				return { ...link, href };
+			}),
 	});
 	console.log('Wrote header');
 

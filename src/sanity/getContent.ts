@@ -35,8 +35,34 @@ type SanityExperience = {
 	tasks?: { detail: string; url?: string }[];
 };
 
-const PUBLIC_RESUME_HREF = '/resume';
-const RESUME_HREFS = new Set(['/resume', '/kartik-bhalla-resume.pdf']);
+const PUBLIC_RESUME_HREF = '/resume.pdf';
+const PUBLIC_BLOGS_HREF = '/blogs';
+const IN_PAGE_HREFS: Record<string, string> = {
+	'/skills': '/#skills',
+	'/experience': '/#experience',
+	'/projects': '/#projects',
+	'/resume': PUBLIC_RESUME_HREF,
+	'/kartik-bhalla-resume.pdf': PUBLIC_RESUME_HREF,
+	'https://devdispatch.kartikbhalla.dev': PUBLIC_BLOGS_HREF,
+	'https://devdispatch.kartikbhalla.dev/': PUBLIC_BLOGS_HREF,
+};
+
+const toInPageHref = (href?: string) =>
+	href ? IN_PAGE_HREFS[href] || href : href;
+
+const withInPageHrefs = (navLinks: NavLink[]): NavLink[] =>
+	navLinks
+		.filter((link) => link.title !== 'Archive' && link.href !== '/archive')
+		.map((link) => {
+			const href = toInPageHref(link.href) || link.href;
+			if (href === PUBLIC_RESUME_HREF || link.title === 'Resume') {
+				return { ...link, href: PUBLIC_RESUME_HREF };
+			}
+			if (link.title === 'Blogs') {
+				return { ...link, href: PUBLIC_BLOGS_HREF, target: undefined, rel: undefined };
+			}
+			return { ...link, href };
+		});
 
 type SanitySiteSettings = Omit<SiteSettings, 'socials' | 'navLinks' | 'resumeUrl'> & {
 	resume?: { asset?: { url?: string } };
@@ -68,13 +94,6 @@ const resumeUrlFrom = (
 	fallback = PUBLIC_RESUME_HREF,
 ) => resume?.asset?.url || fallback;
 
-const withResumeHref = (navLinks: NavLink[]): NavLink[] =>
-	navLinks.map((link) =>
-		RESUME_HREFS.has(link.href) || link.title === 'Resume'
-			? { ...link, href: PUBLIC_RESUME_HREF }
-			: link,
-	);
-
 const mapProjects = (items: SanityProject[]): ProjectContent[] =>
 	items.map((item) => ({
 		_id: item._id,
@@ -96,7 +115,7 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 	if (!hasSanityConfig) {
 		return {
 			...fallback,
-			navLinks: withResumeHref(fallback.navLinks),
+			navLinks: withInPageHrefs(fallback.navLinks),
 		};
 	}
 
@@ -119,7 +138,7 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 		if (!settings && !header && !footer) {
 			return {
 				...fallback,
-				navLinks: withResumeHref(fallback.navLinks),
+				navLinks: withInPageHrefs(fallback.navLinks),
 			};
 		}
 
@@ -137,12 +156,12 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
 				Array.isArray(footer?.socials) && footer.socials.length
 					? footer.socials
 					: fallback.socials,
-			navLinks: withResumeHref(navLinks),
+			navLinks: withInPageHrefs(navLinks),
 		};
 	} catch {
 		return {
 			...fallback,
-			navLinks: withResumeHref(fallback.navLinks),
+			navLinks: withInPageHrefs(fallback.navLinks),
 		};
 	}
 };
@@ -171,8 +190,13 @@ export const getPageContent = async (): Promise<PageContent> => {
 				sanityFetch<SanityProject[]>(projectsQuery, ['sanity', 'projects']),
 			]);
 
+		const nextHome = home || fallback.home;
+
 		return {
-			home: home || fallback.home,
+			home: {
+				...nextHome,
+				ctaHref: toInPageHref(nextHome.ctaHref) || nextHome.ctaHref,
+			},
 			skillsIntro: skillsSection?.intro || fallback.skillsIntro,
 			projectsIntro: projectsSection?.intro || fallback.projectsIntro,
 			skills: skills?.length
@@ -195,8 +219,9 @@ export const getPageContent = async (): Promise<PageContent> => {
 };
 
 export const PORTRAIT_PATH = '/kartik-bhalla.jpg';
+export const PORTRAIT_OG_PATH = '/kartik-bhalla-og.jpg';
 
-export const getHomePortraitUrl = async () => {
+export const getHomePortraitUrl = async (options?: { square?: boolean }) => {
 	if (!hasSanityConfig) return null;
 
 	try {
@@ -209,7 +234,10 @@ export const getHomePortraitUrl = async () => {
 			return null;
 		}
 
-		return urlFor(home.photo).width(1600).format('jpg').quality(85).url();
+		const image = urlFor(home.photo).format('jpg').quality(85);
+		return options?.square
+			? image.width(1200).height(1200).fit('crop').url()
+			: image.width(1600).url();
 	} catch {
 		return null;
 	}

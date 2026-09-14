@@ -29,6 +29,17 @@
 			}
 		}
 
+		.archiveLink {
+			display: inline-block;
+			margin-top: 2rem;
+			font-weight: weight(medium);
+			transition: color 0.5s ease-in-out;
+
+			@include theme {
+				color: themedColor(accent);
+			}
+		}
+
 		.projectsContainer {
 			display: flex;
 			margin-top: 3rem;

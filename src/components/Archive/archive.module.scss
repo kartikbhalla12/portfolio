@@ -1,0 +1,108 @@
+@use '@styles/core' as *;
+
+.archive {
+	padding: 8rem 0 6rem;
+	min-height: calc(100vh - 220px);
+	transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+
+	@include theme {
+		background-color: themedColor(secondaryBackground);
+	}
+
+	@include breakpoint(tablet-sm) {
+		padding: 6rem 0 2.5rem;
+	}
+
+	.container {
+		@extend %container;
+
+		h1 {
+			@extend %heading;
+			margin-bottom: 0.75rem;
+		}
+	}
+
+	.kicker {
+		margin: 0 0 1.5rem;
+		font-size: size(s14);
+
+		a {
+			transition: color 0.5s ease-in-out;
+
+			@include theme {
+				color: themedColor(accent);
+			}
+		}
+	}
+
+	.intro {
+		@extend %paragraph;
+		max-width: 42rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.tableWrap {
+		overflow-x: auto;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+	}
+
+	th {
+		padding: 0 1.5rem 0.75rem 0;
+		font-size: size(s14);
+		font-weight: weight(regular);
+		white-space: nowrap;
+
+		@include theme {
+			color: themedColor(textMuted);
+		}
+	}
+
+	td {
+		padding: 1.15rem 1.5rem 1.15rem 0;
+		vertical-align: top;
+		border-top: 1px solid transparent;
+		transition: border-color 0.5s ease-in-out, color 0.5s ease-in-out;
+
+		@include theme {
+			border-top-color: themedColor(navbarBoxShadow);
+		}
+	}
+
+	.name {
+		font-weight: weight(medium);
+		white-space: nowrap;
+
+		@include theme {
+			color: themedColor(heading);
+		}
+	}
+
+	.stack {
+		font-size: size(s14);
+		line-height: 1.5;
+
+		@include theme {
+			color: themedColor(textMuted);
+		}
+	}
+
+	.link a {
+		transition: color 0.5s ease-in-out;
+
+		@include theme {
+			color: themedColor(accent);
+		}
+	}
+
+	@include breakpoint(tablet-sm) {
+		th:nth-child(2),
+		td.stack {
+			display: none;
+		}
+	}
+}

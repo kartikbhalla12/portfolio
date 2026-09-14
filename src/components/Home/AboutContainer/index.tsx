@@ -3,6 +3,7 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import { AboutContainerProps } from "@components/Home/home.interface";
+import { isInPageHash, toHashHref } from "@utils/navHref";
 import styles from "@components/Home/home.module.scss";
 
 const AboutContainer: FC<AboutContainerProps> = ({
@@ -45,9 +46,15 @@ const AboutContainer: FC<AboutContainerProps> = ({
         </Link>
       </p>
 
-      <Link href={ctaHref} className={styles.ctaButton}>
-        {ctaLabel}
-      </Link>
+      {isInPageHash(ctaHref) ? (
+        <a href={toHashHref(ctaHref)} className={styles.ctaButton}>
+          {ctaLabel}
+        </a>
+      ) : (
+        <Link href={ctaHref} className={styles.ctaButton}>
+          {ctaLabel}
+        </Link>
+      )}
     </div>
   );
 };

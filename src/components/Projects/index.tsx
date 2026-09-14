@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import ProjectCard from "./ProjectCard";
 import styles from "./projects.module.scss";
 import type { ProjectContent } from "src/sanity/types";
@@ -25,6 +27,10 @@ const Projects = ({
             <ProjectCard key={project._id} project={project} index={index} />
           ))}
         </div>
+
+        <Link href="/archive" className={styles.archiveLink}>
+          View full project archive
+        </Link>
       </div>
     </div>
   );

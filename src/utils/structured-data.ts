@@ -33,7 +33,17 @@ export const getPersonStructuredData = (settings: SiteSettings) => {
       Boolean,
     ),
     url: SITE_URL,
-    image: personImage(settings, name),
+    image: [
+      personImage(settings, name),
+      {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/kartik-bhalla-og.jpg`,
+        contentUrl: `${SITE_URL}/kartik-bhalla-og.jpg`,
+        caption: name,
+        width: 1200,
+        height: 1200,
+      },
+    ],
     email: settings.email,
     sameAs,
     jobTitle: settings.jobTitle,
@@ -77,6 +87,23 @@ export const getWebsiteStructuredData = (settings: SiteSettings) => {
     inLanguage: "en",
     publisher: { "@id": PERSON_ID },
     author: { "@id": PERSON_ID },
+    hasPart: [
+      {
+        "@type": "WebPage",
+        name: "Archive",
+        url: `${SITE_URL}/archive`,
+      },
+      {
+        "@type": "WebPage",
+        name: "Blogs",
+        url: `${SITE_URL}/blogs`,
+      },
+      {
+        "@type": "WebPage",
+        name: "Resume",
+        url: `${SITE_URL}/resume.pdf`,
+      },
+    ],
   };
 };
 
