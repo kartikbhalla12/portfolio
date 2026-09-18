@@ -50,15 +50,6 @@ const Home = ({ content }: { content: HomeContent }) => {
               />
             )}
           </div>
-          <AboutContainer
-            className={styles.aboutMobile}
-            about={content.about}
-            companyName={content.companyName}
-            companyUrl={content.companyUrl}
-            email={content.email}
-            ctaLabel={content.ctaLabel}
-            ctaHref={content.ctaHref}
-          />
         </div>
       </div>
     </div>

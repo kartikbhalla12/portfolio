@@ -1,14 +1,26 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useEffect } from 'react';
 import BarLoader from 'react-spinners/BarLoader';
 import classNames from 'classnames';
 
-import { PreloaderProps } from './preloader.interface';
-
+import usePreloader from '@hooks/usePreloader';
 import Logo from '@icons/logo.svg';
-
 import styles from './preloader.module.scss';
 
-const Preloader: FC<PreloaderProps> = ({ isMobile, loading }) => {
+const Preloader: FC<{ isMobile: boolean }> = ({ isMobile }) => {
+	const { loading } = usePreloader();
+
+	useEffect(() => {
+		const root = document.documentElement;
+		root.classList.toggle('preloader-lock', loading);
+		root.classList.toggle('preloader-lock-mobile', loading && isMobile);
+
+		return () => {
+			root.classList.remove('preloader-lock', 'preloader-lock-mobile');
+		};
+	}, [isMobile, loading]);
+
 	return (
 		<div
 			className={classNames(styles.preloader, {

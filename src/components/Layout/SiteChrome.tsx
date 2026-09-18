@@ -1,4 +1,4 @@
-import LayoutClient from "@components/Layout";
+import Layout from "@components/Layout";
 import { getDefaultThemeCookie } from "@utils/server/theme.server";
 import { isMobile } from "@utils/server/isMobile.server";
 import { getSiteSettings } from "src/sanity/getContent";
@@ -38,9 +38,9 @@ const SiteChrome = async ({ children }: { children: React.ReactNode }) => {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <LayoutClient isMobile={mobile} theme={theme} settings={settings}>
+      <Layout isMobile={mobile} theme={theme} settings={settings}>
         {children}
-      </LayoutClient>
+      </Layout>
     </>
   );
 };

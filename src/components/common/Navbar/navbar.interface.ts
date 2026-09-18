@@ -1,7 +1,8 @@
-import { ThemeProps } from '@interfaces/theme';
+import { Theme } from '@interfaces/theme';
 import type { NavLink } from 'src/sanity/types';
 
-export interface NavbarProps extends ThemeProps {
+export interface NavbarProps {
 	isMobile: boolean;
 	navLinks: NavLink[];
+	theme: Theme;
 }

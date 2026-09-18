@@ -16,11 +16,15 @@ export const resolveImage = (image?: CmsImageSource) => {
 	}
 
 	if (isSanityImage(image) && image.asset) {
+		const originalWidth = image.asset.metadata?.dimensions?.width || 1400;
+		const originalHeight = image.asset.metadata?.dimensions?.height || 900;
+		const targetWidth = Math.min(800, originalWidth);
+		const scale = targetWidth / originalWidth;
+
 		return {
-			src: urlFor(image).width(1400).auto('format').url(),
-			width: image.asset.metadata?.dimensions?.width || 1400,
-			height: image.asset.metadata?.dimensions?.height || 900,
-			blurDataURL: image.asset.metadata?.lqip,
+			src: urlFor(image).width(targetWidth).auto('format').url(),
+			width: targetWidth,
+			height: Math.max(1, Math.round(originalHeight * scale)),
 		};
 	}
 
@@ -46,8 +50,7 @@ export const CmsImage = ({
 		<Image
 			src={resolved.src}
 			alt={alt}
-			placeholder={resolved.blurDataURL ? 'blur' : props.placeholder}
-			blurDataURL={resolved.blurDataURL}
+			placeholder={props.placeholder ?? 'empty'}
 			{...sizeProps}
 			{...props}
 		/>

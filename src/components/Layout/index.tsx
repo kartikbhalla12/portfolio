@@ -1,6 +1,3 @@
-'use client';
-
-import classNames from 'classnames';
 import Script from 'next/script';
 
 import Footer from '@components/common/Footer';
@@ -9,27 +6,23 @@ import CustomCursor from '@components/common/CustomCursor';
 import Preloader from '@components/common/Preloader';
 import SideElements from '@components/common/SideElements';
 import styles from '@components/Layout/layout.module.scss';
-import { LayoutClientProps } from '@components/Layout/layout.interface';
+import type { LayoutProps } from '@components/Layout/layout.interface';
 
-import useTheme from '@hooks/useTheme';
-import usePreloader from '@hooks/usePreloader';
+const GA_ID = 'G-YEL83ZW0WZ';
 
-const LayoutClient = ({ children, isMobile, theme: initialTheme, settings }: LayoutClientProps) => {
-	const { theme, setTheme } = useTheme(initialTheme);
-	const { loading } = usePreloader();
-
+const Layout = ({ children, isMobile, theme, settings }: LayoutProps) => {
 	return (
 		<>
 			<Script
 				strategy='afterInteractive'
-				src={`https://www.googletagmanager.com/gtag/js?id=G-YEL83ZW0WZ`}
+				src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
 			/>
 			<Script id='google-analytics-script' strategy='afterInteractive'>
 				{`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
-					gtag('config', 'G-YEL83ZW0WZ', {
+					gtag('config', '${GA_ID}', {
 						page_path: window.location.pathname,
 						cookie_flags: 'SameSite=None;Secure',
 						cookie_domain: '.kartikbhalla.dev',
@@ -37,19 +30,9 @@ const LayoutClient = ({ children, isMobile, theme: initialTheme, settings }: Lay
 				`}
 			</Script>
 
-			<Preloader isMobile={isMobile} loading={loading} />
-			<Navbar
-				isMobile={isMobile}
-				theme={theme}
-				onThemeChange={setTheme}
-				navLinks={settings.navLinks}
-			/>
-			<div
-				id='layout'
-				className={classNames(styles.layout, {
-					[styles.preloader]: loading,
-					[styles.mobile]: isMobile,
-				})}>
+			<Preloader isMobile={isMobile} />
+			<Navbar isMobile={isMobile} theme={theme} navLinks={settings.navLinks} />
+			<div id='layout' className={styles.layout}>
 				{children}
 				<SideElements settings={settings} />
 				<Footer settings={settings} />
@@ -59,5 +42,4 @@ const LayoutClient = ({ children, isMobile, theme: initialTheme, settings }: Lay
 	);
 };
 
-export default LayoutClient;
-
+export default Layout;
