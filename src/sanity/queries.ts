@@ -2,10 +2,8 @@ const imageProjection = `{
   asset->{
     _id,
     url,
-    metadata { lqip, dimensions }
-  },
-  crop,
-  hotspot
+    metadata { dimensions }
+  }
 }`;
 
 export const siteSettingsQuery = `*[_id == "siteSettings"][0]{
