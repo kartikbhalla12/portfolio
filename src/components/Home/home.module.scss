@@ -62,9 +62,30 @@
 			}
 
 			@include breakpoint(tablet-sm) {
-				column-gap: 0px;
-				flex-direction: column;
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					'heading'
+					'image'
+					'about';
+				column-gap: 0;
 				align-items: start;
+
+				.information {
+					display: contents;
+
+					.heading {
+						grid-area: heading;
+					}
+
+					.about {
+						grid-area: about;
+					}
+				}
+
+				.imageContainer {
+					grid-area: image;
+				}
 			}
 
 			.information {
@@ -91,12 +112,6 @@
 						@include breakpoint(tablet-sm) {
 							margin-top: 5px;
 						}
-					}
-				}
-
-				.about {
-					@include breakpoint(tablet-sm) {
-						display: none;
 					}
 				}
 			}
@@ -177,13 +192,6 @@
 				}
 			}
 
-			.aboutMobile {
-				display: none;
-
-				@include breakpoint(tablet-sm) {
-					display: block;
-				}
-			}
 		}
 	}
 }
