@@ -6,11 +6,6 @@ import Github from "@icons/tech/github.svg";
 import LinkIcon from "@icons/link.svg";
 import { CmsImage } from "src/sanity/CmsImage";
 
-import MobileMockupDarkImage from "@public/mockups/mobile/dark.png";
-import MobileMockupLightImage from "@public/mockups/mobile/light.png";
-import DesktopMockupDarkImage from "@public/mockups/desktop/dark.png";
-import DesktopMockupLightImage from "@public/mockups/desktop/light.png";
-
 import { ProjectCardProps } from "../projects.interface";
 import styles from "../projects.module.scss";
 
@@ -63,15 +58,23 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <div className={styles.desktopContainer}>
           <div className={styles.desktopMockupContainer}>
             <Image
-              src={DesktopMockupLightImage}
+              src="/mockups/desktop/light.png"
               className={styles.mockupLight}
-              alt=""
+              alt={`${project.name} desktop browser mockup, light theme`}
+              width={500}
+              height={27}
+              unoptimized
+              aria-hidden="true"
               draggable={false}
             />
             <Image
-              src={DesktopMockupDarkImage}
+              src="/mockups/desktop/dark.png"
               className={styles.mockupDark}
-              alt=""
+              alt={`${project.name} desktop browser mockup, dark theme`}
+              width={500}
+              height={27}
+              unoptimized
+              aria-hidden="true"
               draggable={false}
             />
           </div>
@@ -81,12 +84,8 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                 <CmsImage
                   image={project.images.desktop}
                   className={styles.desktopImage}
-                  alt={`${
-                    project.name
-                  } project desktop view - ${project.description.substring(
-                    0,
-                    100,
-                  )}`}
+                  alt={`${project.name} desktop screenshot`}
+                  sizes="(max-width: 1024px) 90vw, 500px"
                   draggable={false}
                 />
               )}
@@ -97,14 +96,23 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <div className={styles.mobileContainer}>
             <div className={styles.mobileMockupContainer}>
               <Image
-                src={MobileMockupLightImage}
+                src="/mockups/mobile/light.png"
                 className={styles.mockupLight}
-                alt=""
+                alt={`${project.name} mobile device mockup, light theme`}
+                width={125}
+                height={253}
+                unoptimized
+                aria-hidden="true"
+                draggable={false}
               />
               <Image
-                src={MobileMockupDarkImage}
+                src="/mockups/mobile/dark.png"
                 className={styles.mockupDark}
-                alt=""
+                alt={`${project.name} mobile device mockup, dark theme`}
+                width={125}
+                height={253}
+                unoptimized
+                aria-hidden="true"
                 draggable={false}
               />
             </div>
@@ -112,12 +120,8 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               <div className={styles.mobileImageInnerContainer}>
                 <CmsImage
                   image={project.images.mobile}
-                  alt={`${
-                    project.name
-                  } project mobile view - ${project.description.substring(
-                    0,
-                    100,
-                  )}`}
+                  alt={`${project.name} mobile screenshot`}
+                  sizes="125px"
                   draggable={false}
                 />
               </div>
