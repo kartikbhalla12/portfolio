@@ -13,6 +13,23 @@ html {
 		touch-action: none;
 	}
 
+	&.preloader-lock {
+		overflow: hidden;
+
+		body,
+		#layout {
+			overflow: hidden;
+			max-height: 100vh;
+		}
+	}
+
+	&.preloader-lock-mobile {
+		body,
+		#layout {
+			max-height: calc(100vh - 56px);
+		}
+	}
+
 	&,
 	body {
 		padding: 0;
