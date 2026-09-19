@@ -19,7 +19,8 @@ export const servePortrait = async (square = false) => {
 	return new NextResponse(upstream.body, {
 		headers: {
 			'Content-Type': 'image/jpeg',
-			'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+			'Cache-Control':
+				'public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=604800',
 		},
 	});
 };

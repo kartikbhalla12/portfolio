@@ -1,6 +1,3 @@
-import classNames from 'classnames';
-
-import { isMobile } from '@utils/server/isMobile.server';
 import { createMetadata } from '@constants/metadata';
 import SiteChrome from '@components/Layout/SiteChrome';
 
@@ -13,16 +10,11 @@ export const metadata = createMetadata({
 	noindex: true,
 });
 
-export default async function NotFound() {
-	const mobile = await isMobile();
-
+export default function NotFound() {
 	return (
 		<SiteChrome>
 			<main>
-				<div
-					className={classNames(styles.container, {
-						[styles.mobile]: mobile,
-					})}>
+				<div className={styles.container}>
 					<p>
 						<span>404</span> | This page could not be found
 					</p>
