@@ -8,19 +8,8 @@ import useTheme from '@hooks/useTheme';
 
 import { NavbarProps } from './navbar.interface';
 
-const Navbar: FC<NavbarProps> = ({ isMobile, theme: initialTheme, navLinks }) => {
-	const { theme, setTheme } = useTheme(initialTheme);
-
-	if (isMobile) {
-		return (
-			<MobileNavbar
-				isMobile
-				theme={theme}
-				onThemeChange={setTheme}
-				navLinks={navLinks}
-			/>
-		);
-	}
+const Navbar: FC<NavbarProps> = ({ navLinks }) => {
+	const { theme, setTheme } = useTheme();
 
 	return (
 		<>

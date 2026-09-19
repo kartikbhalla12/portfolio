@@ -73,7 +73,8 @@
 	}
 }
 
-:global(.theme-light) .themeSlider {
+:global(.theme-light) .themeSlider,
+:global([data-theme='light']) .themeSlider {
 	button {
 		.icon {
 			stroke: #424242;

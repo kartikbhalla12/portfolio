@@ -10,7 +10,7 @@ import type { LayoutProps } from '@components/Layout/layout.interface';
 
 const GA_ID = 'G-YEL83ZW0WZ';
 
-const Layout = ({ children, isMobile, theme, settings }: LayoutProps) => {
+const Layout = ({ children, settings }: LayoutProps) => {
 	return (
 		<>
 			<Script
@@ -30,14 +30,14 @@ const Layout = ({ children, isMobile, theme, settings }: LayoutProps) => {
 				`}
 			</Script>
 
-			<Preloader isMobile={isMobile} />
-			<Navbar isMobile={isMobile} theme={theme} navLinks={settings.navLinks} />
+			<Preloader />
+			<Navbar navLinks={settings.navLinks} />
 			<div id='layout' className={styles.layout}>
 				{children}
 				<SideElements settings={settings} />
 				<Footer settings={settings} />
 			</div>
-			{!isMobile && <CustomCursor />}
+			<CustomCursor />
 		</>
 	);
 };

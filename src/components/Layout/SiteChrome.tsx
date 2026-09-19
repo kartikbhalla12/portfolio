@@ -1,6 +1,4 @@
 import Layout from "@components/Layout";
-import { getDefaultThemeCookie } from "@utils/server/theme.server";
-import { isMobile } from "@utils/server/isMobile.server";
 import { getSiteSettings } from "src/sanity/getContent";
 import {
   getPersonStructuredData,
@@ -9,11 +7,7 @@ import {
 } from "@utils/structured-data";
 
 const SiteChrome = async ({ children }: { children: React.ReactNode }) => {
-  const [settings, theme, mobile] = await Promise.all([
-    getSiteSettings(),
-    getDefaultThemeCookie(),
-    isMobile(),
-  ]);
+  const settings = await getSiteSettings();
 
   return (
     <>
@@ -38,9 +32,7 @@ const SiteChrome = async ({ children }: { children: React.ReactNode }) => {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <Layout isMobile={mobile} theme={theme} settings={settings}>
-        {children}
-      </Layout>
+      <Layout settings={settings}>{children}</Layout>
     </>
   );
 };

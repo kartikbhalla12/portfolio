@@ -8,6 +8,7 @@ const nextConfig = {
 	serverExternalPackages: ['sanity', '@sanity/vision'],
 	images: {
 		formats: ['image/avif', 'image/webp'],
+		minimumCacheTTL: 2678400,
 		remotePatterns: [
 			{
 				protocol: 'https',
@@ -22,6 +23,20 @@ const nextConfig = {
 				as: '*.js',
 			},
 		},
+	},
+	async headers() {
+		const longCache = [
+			{
+				key: 'Cache-Control',
+				value: 'public, max-age=2592000, stale-while-revalidate=604800',
+			},
+		];
+
+		return [
+			{ source: '/manifest.webmanifest', headers: longCache },
+			{ source: '/kartik-bhalla.jpg', headers: longCache },
+			{ source: '/kartik-bhalla-og.jpg', headers: longCache },
+		];
 	},
 };
 

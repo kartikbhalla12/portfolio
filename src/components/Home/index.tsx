@@ -1,8 +1,5 @@
-import Image from "next/image";
-
 import AboutContainer from "@components/Home/AboutContainer";
 import { CmsImage } from "src/sanity/CmsImage";
-import { PORTRAIT_PATH } from "src/sanity/getContent";
 import type { HomeContent } from "src/sanity/types";
 import styles from "@components/Home/home.module.scss";
 
@@ -28,28 +25,21 @@ const Home = ({ content }: { content: HomeContent }) => {
               ctaHref={content.ctaHref}
             />
           </div>
-          <div className={styles.imageContainer}>
-            {content.photo ? (
-              <Image
-                src={PORTRAIT_PATH}
-                alt={content.photoAlt || "Kartik Bhalla"}
-                fill
-                unoptimized
-                sizes="(max-width: 768px) 210px, (max-width: 1024px) 225px, (max-width: 1280px) 263px, (max-width: 1366px) 300px, 338px"
-                priority
-                draggable={false}
-              />
-            ) : (
+          {content.photo && (
+            <div className={styles.imageContainer}>
               <CmsImage
                 image={content.photo}
                 fill
                 sizes="(max-width: 768px) 210px, (max-width: 1024px) 225px, (max-width: 1280px) 263px, (max-width: 1366px) 300px, 338px"
-                alt={content.photoAlt}
+                alt={content.photoAlt || "Kartik Bhalla"}
                 priority
+                loading="eager"
+                fetchPriority="high"
+                quality={75}
                 draggable={false}
               />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

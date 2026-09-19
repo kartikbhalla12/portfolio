@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 
 import { siteMetadata } from '@constants/metadata';
 
+export const revalidate = 86400;
+
 export default function manifest(): MetadataRoute.Manifest {
 	return {
 		name: siteMetadata.siteName,

@@ -9,9 +9,20 @@ html {
 	scrollbar-color: #465267 #0e121a;
 	transition: scrollbar-color 0.5s ease-in-out;
 
+	&:not(.theme-ready) {
+		transition: none;
+
+		body {
+			transition: none;
+		}
+	}
+
 	&.hideOverflow {
 		touch-action: none;
 	}
+
+	overflow-x: hidden;
+	overflow-y: auto;
 
 	&.preloader-lock {
 		overflow: hidden;
@@ -21,12 +32,12 @@ html {
 			overflow: hidden;
 			max-height: 100vh;
 		}
-	}
 
-	&.preloader-lock-mobile {
-		body,
-		#layout {
-			max-height: calc(100vh - 56px);
+		@media screen and (max-width: 750px) {
+			body,
+			#layout {
+				max-height: calc(100vh - 56px);
+			}
 		}
 	}
 
@@ -36,7 +47,6 @@ html {
 		margin: 0;
 		font-family: font(secondary);
 		scroll-behavior: smooth;
-		overflow-x: hidden;
 		cursor: none;
 
 		@include breakpoint(tablet-lg) {
@@ -45,6 +55,7 @@ html {
 	}
 
 	body {
+		overflow-x: hidden;
 		background: #0e121a;
 		transition: background 0.5s ease-in-out;
 
@@ -112,7 +123,8 @@ html {
 			-webkit-tap-highlight-color: transparent;
 		}
 	}
-	&.theme-light {
+	&.theme-light,
+	&[data-theme='light'] {
 		scrollbar-color: #414141 #fff;
 
 		body {

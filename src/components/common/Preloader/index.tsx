@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect } from 'react';
+import { FC, useLayoutEffect } from 'react';
 import BarLoader from 'react-spinners/BarLoader';
 import classNames from 'classnames';
 
@@ -8,24 +8,22 @@ import usePreloader from '@hooks/usePreloader';
 import Logo from '@icons/logo.svg';
 import styles from './preloader.module.scss';
 
-const Preloader: FC<{ isMobile: boolean }> = ({ isMobile }) => {
+const Preloader: FC = () => {
 	const { loading } = usePreloader();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const root = document.documentElement;
 		root.classList.toggle('preloader-lock', loading);
-		root.classList.toggle('preloader-lock-mobile', loading && isMobile);
 
 		return () => {
-			root.classList.remove('preloader-lock', 'preloader-lock-mobile');
+			root.classList.remove('preloader-lock');
 		};
-	}, [isMobile, loading]);
+	}, [loading]);
 
 	return (
 		<div
 			className={classNames(styles.preloader, {
 				[styles.visible]: loading,
-				[styles.mobile]: isMobile,
 			})}
 			role='status'
 			aria-live='polite'

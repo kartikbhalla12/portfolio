@@ -310,13 +310,15 @@
 								}
 
 								&.mockupLight {
-									:global(.theme-light) & {
+									:global(.theme-light) &,
+									:global([data-theme='light']) & {
 										opacity: 1;
 									}
 								}
 
 								&.mockupDark {
-									:global(.theme-dark) & {
+									:global(.theme-dark) &,
+									:global([data-theme='dark']) & {
 										opacity: 1;
 									}
 								}
@@ -379,13 +381,15 @@
 								transition: opacity 0.5s ease-in-out;
 
 								&.mockupLight {
-									:global(.theme-light) & {
+									:global(.theme-light) &,
+									:global([data-theme='light']) & {
 										opacity: 1;
 									}
 								}
 
 								&.mockupDark {
-									:global(.theme-dark) & {
+									:global(.theme-dark) &,
+									:global([data-theme='dark']) & {
 										opacity: 1;
 									}
 								}

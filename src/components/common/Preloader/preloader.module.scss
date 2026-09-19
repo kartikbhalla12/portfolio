@@ -3,7 +3,8 @@
 .preloader {
 	display: flex;
 	opacity: 0;
-	position: absolute;
+	position: fixed;
+	inset: 0;
 	height: 100vh;
 	width: 100%;
 	align-items: center;
@@ -15,6 +16,10 @@
 	transition: background-color 0.25s ease-in-out, opacity 0.25s ease-in-out,
 		z-index 0.25s ease-in-out;
 
+	@media screen and (max-width: 750px) {
+		height: calc(100vh - 56px);
+	}
+
 	&.visible {
 		opacity: 1;
 		z-index: zIndex(level7);
@@ -22,10 +27,6 @@
 		@include theme {
 			background-color: themedColor(background);
 		}
-	}
-
-	&.mobile {
-		height: calc(100vh - 56px);
 	}
 
 	.logoContainer {

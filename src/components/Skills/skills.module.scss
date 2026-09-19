@@ -125,11 +125,13 @@
 				}
 
 				&.fill .icon {
-					:global(.theme-dark) & {
+					:global(.theme-dark) &,
+					:global([data-theme='dark']) & {
 						filter: brightness(0) invert(1);
 					}
 
-					:global(.theme-light) & {
+					:global(.theme-light) &,
+					:global([data-theme='light']) & {
 						filter: brightness(0);
 					}
 				}

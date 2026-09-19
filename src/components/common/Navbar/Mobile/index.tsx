@@ -19,7 +19,6 @@ import Logo from "@icons/logo.svg";
 import styles from "./mobileNavbar.module.scss";
 
 const MobileNavbar: FC<MobileNavbarProps> = ({
-  isMobile = false,
   navLinks,
   ...rest
 }) => {
@@ -32,7 +31,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({
     onSwipedRight: () => setIsMenuOpen(false),
   });
   useBlur(isMenuOpen);
-  useHideOverflow(isMenuOpen, isMobile);
+  useHideOverflow(isMenuOpen);
 
   return (
     <div className={styles.container}>

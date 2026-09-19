@@ -53,6 +53,8 @@ export const CmsImage = ({
 			placeholder={props.placeholder ?? 'empty'}
 			{...sizeProps}
 			{...props}
+			loading={props.priority ? 'eager' : props.loading}
+			fetchPriority={props.priority ? 'high' : props.fetchPriority}
 		/>
 	);
 };

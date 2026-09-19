@@ -66,7 +66,8 @@ $theme-map: null !default;
 
 @mixin theme {
 	@each $theme, $map in $themes {
-		:global(.theme-#{$theme}) & {
+		:global(.theme-#{$theme}) &,
+		:global([data-theme='#{$theme}']) & {
 			$theme-map: () !global;
 			@each $key, $submap in $map {
 				$value: map.get(map.get($themes, $theme), '#{$key}');
