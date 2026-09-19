@@ -28,7 +28,7 @@ const Projects = ({
           ))}
         </div>
 
-        <Link href="/archive" className={styles.archiveLink}>
+        <Link href="/archive" prefetch={false} className={styles.archiveLink}>
           View full project archive
         </Link>
       </div>

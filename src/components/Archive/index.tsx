@@ -17,7 +17,9 @@ const Archive = ({ projects }: { projects: ProjectContent[] }) => {
 		<div className={styles.archive}>
 			<div className={styles.container}>
 				<p className={styles.kicker}>
-					<Link href="/#projects">← Featured work</Link>
+					<Link href="/#projects" prefetch={false}>
+						← Featured work
+					</Link>
 				</p>
 				<h1>All Projects</h1>
 				<p className={styles.intro}>

@@ -58,6 +58,7 @@ const DesktopNavbar: FC<ThemeProps & { navLinks: NavLink[] }> = ({
 						<Link
 							key={link.title}
 							href={href}
+							prefetch={false}
 							target={link.target}
 							rel={link.rel}
 							className={className}

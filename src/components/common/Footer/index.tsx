@@ -17,7 +17,7 @@ const Footer: FC<{ settings: SiteSettings }> = ({ settings }) => {
 
 	return (
 		<div className={styles.container}>
-			<Link href='/' aria-label='Go to homepage'>
+			<Link href='/' prefetch={false} aria-label='Go to homepage'>
 				<Logo alt='kb-logo' aria-hidden='true' className={styles.logo} />
 			</Link>
 			<div className={styles.socialContainer}>

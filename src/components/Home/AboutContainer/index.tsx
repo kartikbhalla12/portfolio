@@ -51,7 +51,7 @@ const AboutContainer: FC<AboutContainerProps> = ({
           {ctaLabel}
         </a>
       ) : (
-        <Link href={ctaHref} className={styles.ctaButton}>
+        <Link href={ctaHref} prefetch={false} className={styles.ctaButton}>
           {ctaLabel}
         </Link>
       )}
